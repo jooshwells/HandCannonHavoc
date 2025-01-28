@@ -25,5 +25,16 @@ public class PlayerController : MonoBehaviour
         {
             body.velocity = new Vector2(body.velocity.x, jump_speed / 2);
         }
+
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            body.velocity = new Vector2(-5, body.velocity.y);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            body.velocity = new Vector2(5, body.velocity.y);
+        }
+
     }
 }
