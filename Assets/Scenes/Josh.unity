@@ -295,6 +295,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b72709275a937b47b3cde971cd33637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallSlide: 0.955
+  jumpPower: 16
+  wallJumpPower: 22
   rb: {fileID: 178618184}
   groundCheck: {fileID: 792112168}
   wallCheck: {fileID: 1817286470}
