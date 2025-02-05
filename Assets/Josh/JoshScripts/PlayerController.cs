@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
                 wallJumped = true;
                 if(isFacingRight) 
                 { 
-                    rb.velocity = new Vector2(rb.velocity.x * wallJumpPower, jumpPower);
+                    rb.velocity = new Vector2(wallJumpPower, jumpPower);
                     Debug.Log("facing right");
                 } 
                 else
