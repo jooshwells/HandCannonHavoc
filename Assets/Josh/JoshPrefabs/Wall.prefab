@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7619934612043572435}
   - component: {fileID: 4858150209092801250}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: GroundTile (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9004285171400932153}
   - component: {fileID: 4302646757720439201}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: GroundTile (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 348680787126284654}
   - component: {fileID: 8565304118546842341}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: GroundTile (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6310759285488562204}
   - component: {fileID: 3997346724575295252}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2017061029700471870}
   - component: {fileID: 253993856398136129}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: GroundTile (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
