@@ -39,9 +39,9 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
 
-        if(Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0f)
+        if (!isWallJumping && Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0f)
         {
-            rb.velocity = new Vector2 (rb.velocity.x, rb.velocity.y * 0.5f);
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
         WallSlide();
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!isWallJumping)
+        if (!isWallJumping)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         }
@@ -63,12 +63,13 @@ public class PlayerController : MonoBehaviour
 
     private void Flip()
     {
+        // If moving left and facing right, or facing left and moving right
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            isFacingRight = !isFacingRight; // invert bool
+            Vector3 localScale = transform.localScale; // init local scale
+            localScale.x *= -1f; // flip sprite on x-axis
+            transform.localScale = localScale; // update local scale
         }
     }
 
@@ -87,6 +88,12 @@ public class PlayerController : MonoBehaviour
 
     private void WallJump()
     {
+        if (isWallJumping)
+        {
+            wallSliding = false;
+            return;
+        }
+
         if (wallSliding)
         {
             isWallJumping = false;
@@ -94,19 +101,21 @@ public class PlayerController : MonoBehaviour
             wallJumpingCounter = wallJumpingTime;
 
             CancelInvoke(nameof(StopWallJumping));
-        } 
+        }
         else
         {
             wallJumpingCounter -= Time.deltaTime;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && wallJumpingCounter > 0f) 
+        if (Input.GetKeyDown(KeyCode.Space) && wallJumpingCounter > 0f)
         {
             isWallJumping = true;
             rb.velocity = new Vector2(wallJumpingDir * wallJumpingPower.x, wallJumpingPower.y);
             wallJumpingCounter = 0f;
 
-            if(transform.localScale.x != wallJumpingDir)
+
+            // Flip sprite if needed
+            if (transform.localScale.x != wallJumpingDir)
             {
                 isFacingRight = !isFacingRight;
                 Vector3 localScale = transform.localScale;
@@ -114,7 +123,6 @@ public class PlayerController : MonoBehaviour
                 transform.localScale = localScale;
 
             }
-
             Invoke(nameof(StopWallJumping), wallJumpingDuration);
         }
     }
