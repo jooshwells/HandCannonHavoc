@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 199112291a51d954eb759d02930a892c
+guid: 3829e660abf79bc4eb72f4e9b87f99ec
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   previousAsepriteImporterSettings:
-    fileImportMode: 1
+    fileImportMode: 0
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
@@ -85,7 +85,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
-    fileImportMode: 1
+    fileImportMode: 0
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638743666425044463
+  platformSettingsDirtyTick: 638746428825569523
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,18 +122,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Block
+  - name: Basic Grapple Head
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5555556, y: -0.875}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 16
-      height: 16
-    spriteID: c2b39e4c681b8a749a4d7d7a622c3e82
+      width: 9
+      height: 8
+    spriteID: ca34d8ded9a67bf46a6cc959bb5da22b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,24 +142,44 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  spriteSheetImportData: []
+  spriteSheetImportData:
+  - name: Basic Grapple Head_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 9
+      height: 8
+    spriteID: 285e219625ec6184e8802280fd5e9458
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: -549105099
-    name: Block
+    guid: 1969632759
+    name: Basic Grapple Head
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Block
+    - name: Basic Grapple Head
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      spriteId: c2b39e4c681b8a749a4d7d7a622c3e82
+        x: 3
+        y: 7
+        width: 9
+        height: 8
+      spriteId: ca34d8ded9a67bf46a6cc959bb5da22b
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -215,4 +235,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 16, y: 16}
-  previousTextureSize: {x: 32, y: 32}
+  previousTextureSize: {x: 32, y: 16}
