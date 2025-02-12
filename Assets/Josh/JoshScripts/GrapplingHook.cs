@@ -8,9 +8,12 @@ public class GrapplingHook : MonoBehaviour
     private bool firing = false;
     private float angle;
     private const bool compTool = true;
+    [SerializeField] private GameObject player;
     [SerializeField] private LayerMask grappleLayer;
-    [SerializeField] private float grappleSpeed = 8f;
-    [SerializeField] GameObject player;
+    [SerializeField] private float grappleSpeed;
+    [SerializeField] private float springFrequency = 1.5f;
+    [SerializeField] private float springDampingRatio = 0.7f;
+    [SerializeField] private float minDistance = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -43,10 +46,17 @@ public class GrapplingHook : MonoBehaviour
         // Lctrl
         if(isActiveAndEnabled && Input.GetMouseButtonDown(0))
         {
-            Vector2 prevPos = transform.position;
             firing = true;
             //Debug.Log("firing");
             StartCoroutine(Fire());
+        }
+
+        if(player.GetComponent<SpringJoint2D>() != null && Input.GetKeyDown(KeyCode.Space))
+        {
+            Destroy(player.GetComponent<SpringJoint2D>());
+            Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+            
+            rb.velocity = new Vector2(rb.velocity.x, 16f);
         }
 
 
@@ -71,18 +81,48 @@ public class GrapplingHook : MonoBehaviour
 
     IEnumerator Fire()
     {
+        Vector2 direction = transform.up;
+
         while (!Physics2D.OverlapCircle(transform.position, 0.2f, grappleLayer))
         {
-            Vector2 direction = transform.up;
+
             transform.position += (Vector3)(direction * grappleSpeed * Time.deltaTime);
 
             yield return null; // Wait for the next frame
         }
 
-        SpringJoint2D spring = player.GetComponent<SpringJoint2D>();
-        spring.enabled = compTool;
-        spring.connectedAnchor = transform.position;
+        // Collided with grappleable
+        AttachSpringJoint();
 
+
+        firing = false;
+
+        
+    }
+
+    private void AttachSpringJoint()
+    {
+        Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
+
+        SpringJoint2D spring = player.AddComponent<SpringJoint2D>();
+        spring.connectedAnchor = transform.position;
+        spring.enableCollision = true;
+
+        spring.autoConfigureDistance = false;
+        float currentDistance = Vector2.Distance(player.transform.position, transform.position);
+        spring.distance = Mathf.Max(currentDistance, minDistance);
+
+        spring.frequency = springFrequency;
+        spring.dampingRatio = springDampingRatio;
+
+        //while (true)
+        //{
+        //    if (Input.GetMouseButtonUp(0))
+        //    {
+        //        Destroy(spring);
+        //        break;
+        //    }
+        //}
     }
 
 
