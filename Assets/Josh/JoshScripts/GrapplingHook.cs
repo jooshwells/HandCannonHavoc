@@ -14,39 +14,67 @@ public class GrapplingHook : MonoBehaviour
     [SerializeField] private float springFrequency = 1.5f;
     [SerializeField] private float springDampingRatio = 0.7f;
     [SerializeField] private float minDistance = 0.5f;
+    [SerializeField] private bool connectedToWall;
+    [SerializeField] private GameObject lc;
+
+    private Vector2 mousePos;
+    private Vector2 parentPos;
+    private Vector2 direction;
+    private Vector2 circlePosition;
+    private Vector2 dir;
+    
+
+    public bool getConnection()
+    {
+        return connectedToWall;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        parentTransform = transform.parent;
+        parentTransform = player.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        parentPos = parentTransform.position;
+        parentPos = new Vector2(parentPos.x, parentPos.y + 0.5f);
+
+        direction = mousePos - parentPos;
+        direction = direction.normalized;
+
+        circlePosition = parentPos + direction * 2;
+
         // Handle Positioning
         if (!firing)
         {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 parentPos = parentTransform.position;
-            parentPos = new Vector2(parentPos.x, parentPos.y + 0.5f);
-
-            Vector2 direction = mousePos - parentPos;
-            direction = direction.normalized;
-
-            Vector2 circlePosition = parentPos + direction * 2;
             transform.position = circlePosition;
 
             // Handle Rotations
-            Vector2 dir = circlePosition - parentPos;
+            dir = circlePosition - parentPos;
+            angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, 270f + angle);
+        } 
+        else
+        {
+            direction = (Vector2)transform.position - parentPos;
+            circlePosition = parentPos + direction * 2;
+
+            dir = circlePosition - parentPos;
             angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, 270f + angle);
         }
 
-        // Lctrl
-        if(isActiveAndEnabled && Input.GetMouseButtonDown(0))
+       
+
+        // Left Click
+        if (isActiveAndEnabled && Input.GetMouseButtonDown(0))
         {
             firing = true;
+            lc.SetActive(true);
+            
             //Debug.Log("firing");
             StartCoroutine(Fire());
         }
@@ -55,8 +83,10 @@ public class GrapplingHook : MonoBehaviour
         {
             Destroy(player.GetComponent<SpringJoint2D>());
             Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-            
             rb.velocity = new Vector2(rb.velocity.x, 16f);
+            connectedToWall = false;
+            lc.SetActive(false);
+            firing=false;
         }
 
 
@@ -91,18 +121,17 @@ public class GrapplingHook : MonoBehaviour
             yield return null; // Wait for the next frame
         }
 
+       
+
         // Collided with grappleable
         AttachSpringJoint();
-
-
-        firing = false;
-
         
     }
 
     private void AttachSpringJoint()
     {
         Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
+        connectedToWall = true;
 
         SpringJoint2D spring = player.AddComponent<SpringJoint2D>();
         spring.connectedAnchor = transform.position;
