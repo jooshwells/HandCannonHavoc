@@ -29,9 +29,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
 
+
     // Update is called once per frame
     void Update()
     {
+        
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
@@ -51,7 +53,71 @@ public class PlayerController : MonoBehaviour
         {
             Flip();
         }
+
+        //if (grapplingHook != null && grapplingHook.getConnection())
+        //{
+        //    ApplySwingingForces();
+        //}
+        //else
+        //{
+        //    rb.gravityScale = 4f; // Reset gravity when not swinging
+        //}
+
+        //// Handle releasing the grapple
+        //if (Input.GetKeyDown(KeyCode.Space) && grapplingHook.getConnection())
+        //{
+        //    ReleaseGrapple();
+        //}
     }
+
+    public bool getIsFacingRight()
+    {
+        return isFacingRight;
+    }
+
+    //private void ReleaseGrapple()
+    //{
+    //    if (GetComponent<SpringJoint2D>() != null)
+    //    {
+    //        Destroy(GetComponent<SpringJoint2D>());
+    //    }
+
+    //    // Project velocity in the direction the player was already moving
+    //    Vector2 forwardVelocity = rb.velocity.normalized * Mathf.Max(rb.velocity.magnitude, 10f);
+    //    rb.velocity = forwardVelocity;
+
+    //    rb.gravityScale = 4f; // Reset gravity to normal
+    //    grapplingHook.setConnection(false);
+    //}
+
+
+
+    //private void ApplySwingingForces()
+    //{
+    //    float input = Input.GetAxisRaw("Horizontal");
+    //    if (input == 0) return; // No input = No force applied
+
+    //    Vector2 grapplePoint = grapplingHook.transform.position;
+    //    Vector2 playerToGrapple = grapplePoint - (Vector2)transform.position;
+
+    //    // Calculate the tangent (perpendicular) direction to the rope
+    //    Vector2 swingDirection = Vector2.Perpendicular(playerToGrapple).normalized;
+
+    //    // Determine which perpendicular direction to use based on player input
+    //    swingDirection *= Mathf.Sign(input);
+
+    //    // Prevent pulling toward grapple point by ensuring only tangential force is applied
+    //    if (Vector2.Dot(rb.velocity, playerToGrapple.normalized) > -0.2f)
+    //    {
+    //        float swingForce = 10f; // Adjust for smooth swinging (lower value prevents erratic movement)
+    //        rb.AddForce(swingDirection * swingForce, ForceMode2D.Force);
+    //    }
+
+    //    rb.gravityScale = 1.5f; // Lower gravity during swinging for more natural arcs
+    //}
+
+
+
 
     private void FixedUpdate()
     {
