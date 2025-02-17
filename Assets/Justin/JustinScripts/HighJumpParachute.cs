@@ -4,19 +4,29 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+
+    private copyController player;
+
+    public float jumpScale = 2.0f;
+    private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GetComponent<copyController>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
-        // {
-        //     rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-        // }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (!(player.IsOnWall()))
+            {
+                rb.velocity = new Vector2(rb.velocity.x, player.jumpPower * jumpScale);
+            }
+        }
 
         // psuedocode for later
 
