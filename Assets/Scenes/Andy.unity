@@ -309,20 +309,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688852972}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0191285ffa2c28a44b31e3081096b343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 10
-  dashSpeed: 20
-  dashDuration: 0.2
-  dashCooldown: 0.5
   groundCheck: {fileID: 1705702599}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  dashSpeed: 20
+  dashDuration: 0.2
+  dashCooldown: 0.5
 --- !u!96 &688852979
 TrailRenderer:
   serializedVersion: 3
@@ -344,7 +344,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -365,7 +365,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 0.2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -375,7 +375,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.29299355
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -427,6 +427,37 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!50 &688852982 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2655839318313772263, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
+  m_PrefabInstance: {fileID: 785745487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &688852985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688852972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02e9b693f2a5c14a8cee5bf42771e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallSlide: 0.95
+  jumpPower: 16
+  rb: {fileID: 688852982}
+  groundCheck: {fileID: 1705702599}
+  wallCheck: {fileID: 993927292}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  dashSpeed: 20
+  dashDuration: 0.2
+  dashCooldown: 0.5
 --- !u!1001 &785745487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -487,6 +518,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2655839318313772263, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4abc31db5dd7c3d40831475b166cacde, type: 2}
     - target: {fileID: 4993001228397659496, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -513,6 +548,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 688852979}
+    - targetCorrespondingSourceObject: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 688852985}
   m_SourcePrefab: {fileID: 100100000, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
 --- !u!1 &960375147
 GameObject:
@@ -678,6 +716,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bdda0bfbf51c624fbdda7cfca664a3a, type: 3}
+--- !u!4 &993927292 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4909134232362456600, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
+  m_PrefabInstance: {fileID: 785745487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1144230354
 PrefabInstance:
   m_ObjectHideFlags: 0
