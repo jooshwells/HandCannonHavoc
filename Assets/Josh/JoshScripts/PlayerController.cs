@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float wallSlide = 0.95f;
 
     private float horizontal;
+    private float vertical;
     private float speed = 8f;
     public float jumpPower = 16f;
     private bool isFacingRight = true;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         
         horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
 
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
