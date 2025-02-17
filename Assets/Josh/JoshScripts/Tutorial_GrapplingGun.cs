@@ -103,41 +103,6 @@ public class Tutorial_GrapplingGun : MonoBehaviour
 
     void RotateGun(Vector3 lookPoint, bool allowRotationOverTime)
     {
-
-
-        //Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Vector2 parentPos = transform.parent.position;
-        //parentPos = new Vector2(parentPos.x, parentPos.y + 0.5f);
-
-        //Vector2 direction = mousePos - parentPos;
-        //direction = direction.normalized;
-
-        //Vector2 circlePosition = parentPos + direction * 2;
-        //// Handle Rotations
-        //Vector2 dir = circlePosition - parentPos;
-        //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        //if (grappleRope.enabled)
-        //{
-
-        //    // Handle Rotations
-        //    dir = circlePosition - parentPos;
-        //    angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        //    transform.rotation = Quaternion.Euler(0, 0, 270f + angle);
-        //} 
-        //else
-        //{
-        //    transform.position = circlePosition;
-
-        //    direction = (Vector2)transform.position - parentPos;
-        //    circlePosition = parentPos + direction * 2;
-
-        //    dir = circlePosition - parentPos;
-        //    angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        //    transform.rotation = Quaternion.Euler(0, 0, 270f + angle);
-        //}
-
-
         Vector3 distanceVector = lookPoint - gunPivot.position;
 
         float angle = Mathf.Atan2(distanceVector.y, distanceVector.x) * Mathf.Rad2Deg;

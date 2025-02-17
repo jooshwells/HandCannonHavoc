@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 708a0db49fb9d964d94f77e808bf31e5
+guid: 6e261416d48cf3d4aa91e13936406329
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   previousAsepriteImporterSettings:
-    fileImportMode: 0
+    fileImportMode: 1
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
@@ -85,7 +85,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
-    fileImportMode: 0
+    fileImportMode: 1
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638747969363568420
+  platformSettingsDirtyTick: 0
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,18 +122,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Cursor
+  - name: Frame_0
     originalName: 
-    pivot: {x: 0.6666667, y: -0.88888896}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
-      width: 9
-      height: 9
-    spriteID: 079ebe776d228fd44bf10ddbf9184cfa
+      y: 19
+      width: 15
+      height: 6
+    spriteID: 73d4cc6b82cf3d648b9939e9f7f1116b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,9 +141,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-  spriteSheetImportData:
-  - name: Cursor_0
+    uvTransform: {x: 4, y: 19}
+  - name: Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -152,9 +151,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 9
-      height: 9
-    spriteID: 5f426ef957c562040a7316f6debb9eb6
+      width: 15
+      height: 7
+    spriteID: a04548d5c4fef2d4e97af6f775da9df7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -162,24 +161,92 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
+    uvTransform: {x: 4, y: 4}
+  - name: Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 33
+      width: 15
+      height: 6
+    spriteID: 03d4f2afeb034d242a0e8e9bc3d1c389
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 33}
+  - name: Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 47
+      width: 15
+      height: 6
+    spriteID: 0f6a085ce4c7b904d8df85267bfb5bc0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 47}
+  spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1353463600
-    name: Cursor
+    guid: 427400533
+    name: CrocIdle
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Cursor
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 6
-        y: 8
-        width: 9
-        height: 9
-      spriteId: 079ebe776d228fd44bf10ddbf9184cfa
+        x: 1
+        y: 5
+        width: 15
+        height: 6
+      spriteId: 73d4cc6b82cf3d648b9939e9f7f1116b
+    - name: Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 5
+        width: 15
+        height: 7
+      spriteId: a04548d5c4fef2d4e97af6f775da9df7
+    - name: Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 5
+        width: 15
+        height: 6
+      spriteId: 03d4f2afeb034d242a0e8e9bc3d1c389
+    - name: Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 5
+        width: 15
+        height: 6
+      spriteId: 0f6a085ce4c7b904d8df85267bfb5bc0
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -195,44 +262,8 @@ ScriptedImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Windows Store Apps
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 24, y: 24}
-  previousTextureSize: {x: 32, y: 32}
+  canvasSize: {x: 16, y: 16}
+  previousTextureSize: {x: 32, y: 64}

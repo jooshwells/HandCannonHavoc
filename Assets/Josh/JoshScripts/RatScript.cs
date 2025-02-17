@@ -7,14 +7,20 @@ public class RatScript : MonoBehaviour
     private bool isFacingRight = true;
     private float horizontal;
 
+    [Header("Physics")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float enemSpeed;
+
+    [Header("Environment Checks")]
     [SerializeField] private Transform edge;
     [SerializeField] private LayerMask wall;
     [SerializeField] private LayerMask ground;
+
+    [Header("These Induce Response")]
     [SerializeField] private GameObject player;
     [SerializeField] private float detectRange;
 
+    [Header("Go boom")]
     [SerializeField] private GameObject bomb;
     private GameObject curbomb;
 
@@ -41,6 +47,8 @@ public class RatScript : MonoBehaviour
             {
                 bombActive = true;
                 curbomb = Instantiate(bomb, transform.Find("LaunchOrigin").position, transform.Find("LaunchOrigin").rotation);
+                curbomb.GetComponent<BombScript>().setDir(isFacingRight == true ? 1f : -1f);
+                curbomb.GetComponent<BombScript>().Launch();
             }
         }
 
@@ -56,11 +64,6 @@ public class RatScript : MonoBehaviour
             Flip();
         }
     }
-
-    //private void ThrowExplosive()
-    //{
-        
-    //}
 
     private void Flip()
     {
