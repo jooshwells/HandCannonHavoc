@@ -8,9 +8,6 @@ public class Dash : MonoBehaviour
     public float jumpForce = 10f;
 
     [Header("Dash")]
-    public float dashSpeed = 20f;
-    public float dashDuration = 0.2f;
-    public float dashCooldown = 0.5f;
 
     private Rigidbody2D rb;
     private TrailRenderer trail;
@@ -23,6 +20,9 @@ public class Dash : MonoBehaviour
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] public float dashSpeed = 20f;
+    [SerializeField] public float dashDuration = 0.2f;
+    [SerializeField] public float dashCooldown = 0.5f;
 
     void Start()
     {
@@ -34,20 +34,18 @@ public class Dash : MonoBehaviour
     void Update()
     {
         if (isDashing) return;
-        if (IsGrounded())
-            canDash = true; // Reset dash when grounded
         HandleMovement();
         HandleJump();
         HandleDash();
     }
 
-    private void FixedUpdate()
-    {
-        if (isDashing)
-        {
-            rb.velocity = dashDirection * dashSpeed;
-        }
-    }
+    // private void FixedUpdate()
+    // {
+    //     if (isDashing)
+    //     {
+    //         rb.velocity = dashDirection * dashSpeed;
+    //     }
+    // }
 
     void HandleMovement()
     {
@@ -65,9 +63,7 @@ public class Dash : MonoBehaviour
 
     void HandleDash()
     {
-        if (Time.time < dashCooldownTime || !canDash) return;
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && IsGrounded())
         {
             dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
@@ -90,15 +86,17 @@ public class Dash : MonoBehaviour
 
         trail.enabled = true; // Enable trail effect
 
+
         while (Time.time < dashTime)
         {
             rb.velocity = dashDirection.normalized * dashSpeed;
             yield return null;
         }
-
         rb.gravityScale = 4; // Restore gravity
         isDashing = false;
         trail.enabled = false; // Disable trail after dash
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
 
         
     }
@@ -108,3 +106,4 @@ public class Dash : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 }
+
