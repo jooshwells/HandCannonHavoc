@@ -17,9 +17,8 @@ public class NewBehaviourScript : MonoBehaviour
     //ability
     private bool highJumping = false;
     private bool parachuting = false;
+    private bool parachutingToggleable = false;
     private float cdHighJump = 0;
-
-    //function declarations
 
     // Start is called before the first frame update
     void Start()
@@ -36,39 +35,47 @@ public class NewBehaviourScript : MonoBehaviour
             cdHighJump--;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !onCooldown())
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !onCooldown() && !isParachuting())
         {
             if (!(player.IsOnWall())) // highjump
             {
                 rb.velocity = new Vector2(rb.velocity.x, player.jumpPower * jumpScale);
                 highJumping = true;
-                cdHighJump = 0; //cooldown tbd)
+                cdHighJump = 0; //cooldown tbd
             }
         }
 
         if (isHighJumping())
         {
-            rb.velocity = new Vector2((rb.velocity.x) / 4, rb.velocity.y); // jump almost straight up | need fix,
-            if (getFalling()) //activate parachute
+            rb.velocity = new Vector2((rb.velocity.x) / 4, rb.velocity.y); // jump almost straight up | need fix, or remove.
+            if (isFalling()) //activate parachute
             {
                 highJumping = false;
                 parachuting = true;
+                parachutingToggleable = true;
             }
-        }
+        } 
+
         if (isParachuting())
         {
             //rb.gravityScale = 0.5f;
-            rb.velocity = new Vector2(rb.velocity.x, -2f); // constant falling rather than gravity (which accelerates)
+            rb.velocity = new Vector2(rb.velocity.x, -1.5f); // constant falling rather than gravity (which accelerates)
         }
         else
         {
             rb.gravityScale = 4; //default
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && isParachutingToggleable())
+        {
+            parachuting = !parachuting;
+        }
+
         if (player.IsGrounded() || player.IsOnWall())
         {
             parachuting = false;
-
-        }
+            parachutingToggleable = false;
+}
     } 
 
 
@@ -105,7 +112,7 @@ public class NewBehaviourScript : MonoBehaviour
         return highJumping;
     }
 
-    public bool getFalling()
+    public bool isFalling()
     {
         return (rb.velocity.y < 0);
     }
@@ -113,6 +120,11 @@ public class NewBehaviourScript : MonoBehaviour
     public bool isParachuting()
     {
         return parachuting;
+    }
+
+    public bool isParachutingToggleable()
+    {
+        return parachutingToggleable;
     }
 
     public bool onCooldown()
