@@ -52,7 +52,10 @@ public class CrocScript : MonoBehaviour
 
         // Move it up a bit so its new collider won't clip into the ground
         transform.position = transform.position + new Vector3(0, 0.023f, 0);
-        
+        // Switch colliders
+        quadCollider.enabled = false;
+        standCollider.enabled = true;
+
         // Freeze position
         float g = rb.gravityScale;
         rb.gravityScale = 0;
@@ -64,9 +67,7 @@ public class CrocScript : MonoBehaviour
         // Change sprite
         gameObject.GetComponent<SpriteRenderer>().sprite = standingSprite;
 
-        // Switch colliders
-        quadCollider.enabled = false;
-        standCollider.enabled = true;
+        
     }
 
 }

@@ -29,11 +29,39 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private float invulnerabilityTime;
+
+    private bool isKnockedBack = false;
+    private float knockBackTimer = 0f;
+    private float invulTimer = 0f;
+
+
+    public void KnockBack(Vector2 force, float timer)
+    {
+        
+        rb.velocity = force;
+        isKnockedBack = true;
+        knockBackTimer = timer;
+        invulTimer = invulnerabilityTime;
+        
+    }
 
 
     // Update is called once per frame
     void Update()
     {
+
+        if(isKnockedBack)
+        {
+            knockBackTimer -= Time.deltaTime;
+
+            if(knockBackTimer <= 0f)
+            {
+                isKnockedBack = false;
+            }
+
+            return;
+        }
         
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
@@ -123,9 +151,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isWallJumping)
+        if (!isKnockedBack)
         {
-            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            if (!isWallJumping)
+            {
+                rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            }
         }
     }
 

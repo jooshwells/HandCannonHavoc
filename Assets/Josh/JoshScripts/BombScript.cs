@@ -46,6 +46,7 @@ public class BombScript : MonoBehaviour
             if (!isExploding)
             {
                 isExploding = true;
+                gameObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
                 gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
                 StartCoroutine(Explode());
@@ -56,12 +57,13 @@ public class BombScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Trigger triggering");
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Attempting to Add Force to " + rb.gameObject.ToString());
+            gameObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
             Vector2 dir = (transform.position - player.transform.position).normalized;
-
-            rb.AddForce(-dir * new Vector2(8, 8));
+            Debug.Log("Attempting to Force <" + (12*-dir.x) + "," + (16*-dir.y) + "> to " + rb.gameObject.ToString());
+            rb.gameObject.GetComponent<PlayerController>().KnockBack(new Vector2(12 * -dir.x, 16 * dir.y), 0.2f);
         }
     }
 
@@ -76,6 +78,8 @@ public class BombScript : MonoBehaviour
         
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.GetComponent<Rigidbody2D>().simulated = false;
+        
         
         yield return new WaitForSeconds(explosionDuration);
         Destroy(gameObject);
