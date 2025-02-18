@@ -316,7 +316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 86670007}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9357,7 +9357,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 296486001}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GunPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9392,7 +9392,7 @@ GameObject:
   - component: {fileID: 331011171}
   - component: {fileID: 331011170}
   - component: {fileID: 331011173}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GrapplingGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9866,7 +9866,7 @@ GameObject:
   - component: {fileID: 817242890}
   - component: {fileID: 817242892}
   - component: {fileID: 817242893}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10422,7 +10422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1502591800}
   - component: {fileID: 1502591801}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AbilityController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17099,6 +17099,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -17181,6 +17185,14 @@ PrefabInstance:
     - target: {fileID: 4993001228397659496, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_SortingLayerID
       value: -4673205
+      objectReference: {fileID: 0}
+    - target: {fileID: 6076534156337335408, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175613976240506538, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8962355268804355136, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_IsTrigger

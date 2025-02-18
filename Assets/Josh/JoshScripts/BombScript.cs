@@ -7,13 +7,17 @@ using UnityEngine.Experimental.AI;
 public class BombScript : MonoBehaviour
 {
     [SerializeField] private LayerMask ground;
+    
+    private GameObject player;
     private float dir;
     private bool isExploding = false;
     private GameObject instatiator;
+    private Rigidbody2D rb;
 
     void Awake()
     {
-        
+        player = GameObject.FindWithTag("Player");
+        rb = player.GetComponent<Rigidbody2D>();
     }
 
     public void setDir(float d) { dir = d; }
@@ -37,12 +41,6 @@ public class BombScript : MonoBehaviour
     {
         //Debug.Log("Collided with: " + collision.gameObject.tag);
 
-
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Health Update Event");
-        }
-
         if (!collision.gameObject.CompareTag(instatiator.tag)) 
         {
             if (!isExploding)
@@ -56,6 +54,17 @@ public class BombScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Attempting to Add Force to " + rb.gameObject.ToString());
+            Vector2 dir = (transform.position - player.transform.position).normalized;
+
+            rb.AddForce(-dir * new Vector2(8, 8));
+        }
+    }
+
     IEnumerator Explode()
     {
         Animator anim = gameObject.GetComponent<Animator>();
@@ -66,7 +75,7 @@ public class BombScript : MonoBehaviour
         float explosionDuration = anim.GetCurrentAnimatorStateInfo(0).length;
         
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-        //gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
         
         yield return new WaitForSeconds(explosionDuration);
         Destroy(gameObject);
