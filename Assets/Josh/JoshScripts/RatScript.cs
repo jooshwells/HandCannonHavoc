@@ -49,6 +49,7 @@ public class RatScript : MonoBehaviour
                 curbomb = Instantiate(bomb, transform.Find("LaunchOrigin").position, transform.Find("LaunchOrigin").rotation);
                 curbomb.GetComponent<BombScript>().setDir(isFacingRight == true ? 1f : -1f);
                 curbomb.GetComponent<BombScript>().Launch();
+                curbomb.GetComponent<BombScript>().DefineInstantiator(gameObject);
             }
         }
 

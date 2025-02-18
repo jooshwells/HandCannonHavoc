@@ -19,6 +19,9 @@ public class CrocScript : MonoBehaviour
     [SerializeField] private BoxCollider2D quadCollider;
     [SerializeField] private BoxCollider2D standCollider;
 
+    private Rigidbody2D rb;
+    private bool standing = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,22 +31,35 @@ public class CrocScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector2.Distance(transform.position, player.position) < 3f)
+        if(!standing && Vector2.Distance(transform.position, player.position) < 3f)
         {
+          
+            standing = true;
             StartCoroutine(Stand());
+            
         }
     }
 
     IEnumerator Stand()
     {
+        rb = gameObject.GetComponent<Rigidbody2D>();
+
         anim.SetBool("isStanding", true);
         anim.Play("Stand");
 
         // Wait until the animation has actually started before checking its length
         yield return new WaitForEndOfFrame();
 
+        // Move it up a bit so its new collider won't clip into the ground
+        transform.position = transform.position + new Vector3(0, 0.023f, 0);
+        
+        // Freeze position
+        float g = rb.gravityScale;
+        rb.gravityScale = 0;
+
         // Wait until the animation is finished
         yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
+        rb.gravityScale = g; // Reset gravity
 
         // Change sprite
         gameObject.GetComponent<SpriteRenderer>().sprite = standingSprite;
