@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CrocScript : MonoBehaviour
@@ -19,8 +20,10 @@ public class CrocScript : MonoBehaviour
     [SerializeField] private BoxCollider2D quadCollider;
     [SerializeField] private BoxCollider2D standCollider;
 
-    [Header("Attack CD")]
+    [Header("Attack Params")]
     [SerializeField] private float attackCooldown;
+    [SerializeField] private float detectDist;
+
 
     [Header("AttackTypes")]
     //[SerializeField] private GameObject fireball;
@@ -28,6 +31,8 @@ public class CrocScript : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool standing = false;
+    private bool animFinished = false;
+    private bool attacking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -38,17 +43,33 @@ public class CrocScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!standing && Vector2.Distance(transform.position, player.position) < 3f)
+        float dist = Vector2.Distance(player.position + new Vector3(0, 0.5f, 0), transform.position);
+
+        Vector2 distanceVector = (player.position + new Vector3(0, 0.5f, 0)) - transform.position;
+        //Debug.Log(distanceVector.x + " " + distanceVector.y);
+
+        if ((distanceVector.x < 0f && transform.localScale.x > 0f) ||
+            (distanceVector.x > 0f && transform.localScale.x < 0f))
         {
-          
-            standing = true;
-            StartCoroutine(Stand());
+            Vector3 loc = transform.localScale;
+            loc.x *= -1;
+            transform.localScale = loc;
         }
 
-        if(standing)
+
+
+        if (!standing && dist <= detectDist)
         {
-            if(Vector2.Distance(player.position, transform.position) <= 6f)
+          
+            StartCoroutine(Stand());
+            standing = true;
+        }
+
+        if (!attacking && animFinished && standing)
+        {
+            if(dist <= detectDist)
             {
+                attacking = true;
                 StartCoroutine(Attack());
             }
         }
@@ -56,8 +77,10 @@ public class CrocScript : MonoBehaviour
 
     IEnumerator Attack()
     {
-        Instantiate(bird, transform.Find("LaunchOrigin").position, transform.Find("LaunchOrigin").rotation);
+        GameObject curBird = Instantiate(bird, transform.Find("LaunchOrigin").position, transform.Find("LaunchOrigin").rotation);
+        curBird.GetComponent<BirdScript>().SetInstantiator(gameObject);
         yield return new WaitForSeconds(attackCooldown);
+        attacking = false;
     }
 
     IEnumerator Stand()
@@ -83,7 +106,7 @@ public class CrocScript : MonoBehaviour
         // Wait until the animation is finished
         yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
         rb.gravityScale = g; // Reset gravity
-
+        animFinished = true;
         // Change sprite
         gameObject.GetComponent<SpriteRenderer>().sprite = standingSprite;
 
