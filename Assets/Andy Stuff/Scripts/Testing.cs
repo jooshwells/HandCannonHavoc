@@ -72,7 +72,10 @@ public class Testing : MonoBehaviour
         {
             Flip();
         }
-         void HandleDash()
+
+    }
+
+    void HandleDash()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
@@ -87,7 +90,6 @@ public class Testing : MonoBehaviour
             StartCoroutine(startDash());
         }
     }
-
     IEnumerator startDash()
     {
         isDashing = true;
@@ -184,6 +186,10 @@ public class Testing : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(isDashing)
+        {
+            return;
+        }
         if (!isWallJumping)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
