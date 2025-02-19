@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 68aa72ad92f4b104d9a634d7b81ed608
+guid: ed0591c7abed6c94bbc0e8ce274553ec
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638755818350847528
+  platformSettingsDirtyTick: 638755818193827808
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: GrappleableTile
+  - name: PipeTile
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -133,7 +133,7 @@ ScriptedImporter:
       y: 4
       width: 8
       height: 8
-    spriteID: 9dee8aecf801a7146b545d3a01f07c2d
+    spriteID: db0f408052e09444890924f61f75d9ad
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,13 +145,13 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 502665939
-    name: GrappleableTile
+    guid: -828762666
+    name: PipeTile
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: GrappleableTile
+    - name: PipeTile
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -159,7 +159,7 @@ ScriptedImporter:
         y: 0
         width: 8
         height: 8
-      spriteId: 9dee8aecf801a7146b545d3a01f07c2d
+      spriteId: db0f408052e09444890924f61f75d9ad
     linkedCells: []
     parentIndex: -1
   platformSettings:
