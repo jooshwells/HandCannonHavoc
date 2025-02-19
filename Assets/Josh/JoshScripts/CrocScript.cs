@@ -19,6 +19,13 @@ public class CrocScript : MonoBehaviour
     [SerializeField] private BoxCollider2D quadCollider;
     [SerializeField] private BoxCollider2D standCollider;
 
+    [Header("Attack CD")]
+    [SerializeField] private float attackCooldown;
+
+    [Header("AttackTypes")]
+    //[SerializeField] private GameObject fireball;
+    [SerializeField] private GameObject bird;
+
     private Rigidbody2D rb;
     private bool standing = false;
 
@@ -36,8 +43,21 @@ public class CrocScript : MonoBehaviour
           
             standing = true;
             StartCoroutine(Stand());
-            
         }
+
+        if(standing)
+        {
+            if(Vector2.Distance(player.position, transform.position) <= 6f)
+            {
+                StartCoroutine(Attack());
+            }
+        }
+    }
+
+    IEnumerator Attack()
+    {
+        Instantiate(bird, transform.Find("LaunchOrigin").position, transform.Find("LaunchOrigin").rotation);
+        yield return new WaitForSeconds(attackCooldown);
     }
 
     IEnumerator Stand()

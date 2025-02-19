@@ -10134,11 +10134,12 @@ Transform:
   m_GameObject: {fileID: 868629835}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.64, y: -2.87, z: -0.045925}
+  m_LocalPosition: {x: 23.64, y: -2.51, z: -0.045925}
   m_LocalScale: {x: 9.885804, y: 9.885804, z: 1.2357255}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 967812396}
+  - {fileID: 1550449960}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &868629837
@@ -10182,7 +10183,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1874768460577522752, guid: 266c7f645f5fffc4bb167a9de1326f5f, type: 3}
+  m_Sprite: {fileID: 3979172855965400536, guid: 266c7f645f5fffc4bb167a9de1326f5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10277,7 +10278,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.15, y: 0.09}
+    oldSize: {x: 0.12, y: 0.15}
     newSize: {x: 0.15, y: 0.06}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -10304,6 +10305,9 @@ MonoBehaviour:
   standingSprite: {fileID: 3979172855965400536, guid: 266c7f645f5fffc4bb167a9de1326f5f, type: 3}
   quadCollider: {fileID: 868629840}
   standCollider: {fileID: 967812397}
+  attackCooldown: 2
+  fireball: {fileID: 0}
+  bird: {fileID: 6246290675522674149, guid: bda963bab0a1de84b9a9c833b53c54df, type: 3}
 --- !u!1 &967812395
 GameObject:
   m_ObjectHideFlags: 0
@@ -10458,6 +10462,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grapplingHook: 1
   grapple: {fileID: 296486000}
+--- !u!1 &1550449959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1550449960}
+  m_Layer: 0
+  m_Name: LaunchOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1550449960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550449959}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.071, y: -0.001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 868629836}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1722254607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9210164984876172140, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
