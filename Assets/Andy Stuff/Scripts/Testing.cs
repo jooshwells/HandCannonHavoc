@@ -133,7 +133,7 @@ public class Testing : MonoBehaviour
         //{
         //    ReleaseGrapple();
         //}
-    }
+    
 
     public bool getIsFacingRight()
     {
