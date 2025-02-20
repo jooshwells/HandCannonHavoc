@@ -29,11 +29,39 @@ public class copyController : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private float invulnerabilityTime;
+
+    private bool isKnockedBack = false;
+    private float knockBackTimer = 0f;
+    private float invulTimer = 0f;
+
+
+    public void KnockBack(Vector2 force, float timer)
+    {
+
+        rb.velocity = force;
+        isKnockedBack = true;
+        knockBackTimer = timer;
+        invulTimer = invulnerabilityTime;
+
+    }
 
 
     // Update is called once per frame
     void Update()
     {
+
+        if (isKnockedBack)
+        {
+            knockBackTimer -= Time.deltaTime;
+
+            if (knockBackTimer <= 0f)
+            {
+                isKnockedBack = false;
+            }
+
+            return;
+        }
 
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
@@ -55,17 +83,80 @@ public class copyController : MonoBehaviour
         {
             Flip();
         }
+
+        //if (grapplingHook != null && grapplingHook.getConnection())
+        //{
+        //    ApplySwingingForces();
+        //}
+        //else
+        //{
+        //    rb.gravityScale = 4f; // Reset gravity when not swinging
+        //}
+
+        //// Handle releasing the grapple
+        //if (Input.GetKeyDown(KeyCode.Space) && grapplingHook.getConnection())
+        //{
+        //    ReleaseGrapple();
+        //}
     }
 
     public bool getIsFacingRight()
     {
         return isFacingRight;
     }
+
+    //private void ReleaseGrapple()
+    //{
+    //    if (GetComponent<SpringJoint2D>() != null)
+    //    {
+    //        Destroy(GetComponent<SpringJoint2D>());
+    //    }
+
+    //    // Project velocity in the direction the player was already moving
+    //    Vector2 forwardVelocity = rb.velocity.normalized * Mathf.Max(rb.velocity.magnitude, 10f);
+    //    rb.velocity = forwardVelocity;
+
+    //    rb.gravityScale = 4f; // Reset gravity to normal
+    //    grapplingHook.setConnection(false);
+    //}
+
+
+
+    //private void ApplySwingingForces()
+    //{
+    //    float input = Input.GetAxisRaw("Horizontal");
+    //    if (input == 0) return; // No input = No force applied
+
+    //    Vector2 grapplePoint = grapplingHook.transform.position;
+    //    Vector2 playerToGrapple = grapplePoint - (Vector2)transform.position;
+
+    //    // Calculate the tangent (perpendicular) direction to the rope
+    //    Vector2 swingDirection = Vector2.Perpendicular(playerToGrapple).normalized;
+
+    //    // Determine which perpendicular direction to use based on player input
+    //    swingDirection *= Mathf.Sign(input);
+
+    //    // Prevent pulling toward grapple point by ensuring only tangential force is applied
+    //    if (Vector2.Dot(rb.velocity, playerToGrapple.normalized) > -0.2f)
+    //    {
+    //        float swingForce = 10f; // Adjust for smooth swinging (lower value prevents erratic movement)
+    //        rb.AddForce(swingDirection * swingForce, ForceMode2D.Force);
+    //    }
+
+    //    rb.gravityScale = 1.5f; // Lower gravity during swinging for more natural arcs
+    //}
+
+
+
+
     private void FixedUpdate()
     {
-        if (!isWallJumping)
+        if (!isKnockedBack)
         {
-            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            if (!isWallJumping)
+            {
+                rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            }
         }
     }
 
@@ -135,7 +226,7 @@ public class copyController : MonoBehaviour
         }
     }
 
-    private void StopWallJumping()
+    public void StopWallJumping()
     {
         isWallJumping = false;
     }
