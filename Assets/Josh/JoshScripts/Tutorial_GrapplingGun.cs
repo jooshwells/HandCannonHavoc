@@ -58,6 +58,11 @@ public class Tutorial_GrapplingGun : MonoBehaviour
 
     }
 
+    public void SetCam(Camera c)
+    {
+        m_camera = c;
+    }
+
     private void Update()
     {
         
