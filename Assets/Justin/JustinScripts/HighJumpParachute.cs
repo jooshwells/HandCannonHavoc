@@ -47,7 +47,7 @@ public class HighJumpParachute : MonoBehaviour
             cdHighJump--;
         }
 
-        
+        //smooth open
         if (spriteOpening && spriteFrame < 14*10 +1)
         {
             render.sprite = frames[spriteFrame/10];
