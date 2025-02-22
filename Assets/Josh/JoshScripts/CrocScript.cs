@@ -78,7 +78,7 @@ public class CrocScript : MonoBehaviour
     IEnumerator Attack()
     {
         GameObject curBird = Instantiate(bird, transform.Find("LaunchOrigin").position, transform.Find("LaunchOrigin").rotation);
-        curBird.GetComponent<BirdScript>().SetInstantiator(gameObject);
+        curBird.GetComponent<ProjectileScript>().SetInstantiator(gameObject);
         yield return new WaitForSeconds(attackCooldown);
         attacking = false;
     }

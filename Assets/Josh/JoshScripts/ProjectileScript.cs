@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdScript : MonoBehaviour
+public class ProjectileScript : MonoBehaviour
 {
     [Header("AttackParams")]
     [SerializeField] private float xSpeed;
@@ -44,7 +44,7 @@ public class BirdScript : MonoBehaviour
         
         
 
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         Vector2 dir = dist.normalized;
         rb.velocity = dir * new Vector2 (xSpeed, ySpeed);
     }
