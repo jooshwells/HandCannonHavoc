@@ -18,7 +18,8 @@ public class ProjectileScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameObject.GetComponent<AudioSource>().Play();
+
     }
 
     public void SetInstantiator(GameObject inst)
@@ -41,7 +42,6 @@ public class ProjectileScript : MonoBehaviour
             locScale.y *= -1;
             transform.localScale = locScale;
         } 
-        
         
 
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);

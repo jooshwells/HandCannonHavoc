@@ -3,9 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Sound Effects")]
+    [SerializeField] AudioClip jump;
+
+
     public float wallSlide = 0.95f;
 
     private float horizontal;
@@ -68,6 +73,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
+            gameObject.GetComponent<AudioSource>().clip = jump;
+            gameObject.GetComponent<AudioSource>().Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
 

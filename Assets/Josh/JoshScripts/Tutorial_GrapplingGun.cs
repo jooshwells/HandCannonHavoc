@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Tutorial_GrapplingGun : MonoBehaviour
 {
+    [Header("SoundEffects")]
+    [SerializeField] private AudioClip fire;
+
     [Header("Scripts Ref:")]
     public Tutorial_GrapplingRope grappleRope;
 
@@ -134,6 +137,8 @@ public class Tutorial_GrapplingGun : MonoBehaviour
             {
                 if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistnace || !hasMaxDistance)
                 {
+                    gameObject.GetComponent<AudioSource>().clip = fire;
+                    gameObject.GetComponent<AudioSource>().Play();
                     grapplePoint = _hit.point;
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
                     grappleRope.enabled = true;
