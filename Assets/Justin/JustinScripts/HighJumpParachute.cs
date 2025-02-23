@@ -29,6 +29,7 @@ public class HighJumpParachute : MonoBehaviour
     public GameObject spr;
     public SpriteRenderer render;
     public Sprite[] frames;
+    public Sprite[] frames2;
 
     // Start is called before the first frame update
     void Start()
@@ -48,15 +49,23 @@ public class HighJumpParachute : MonoBehaviour
         }
 
         //smooth open
+        /*
         if (spriteOpening && spriteFrame < 14*10 +1)
         {
             render.sprite = frames[spriteFrame/10];
             spriteFrame++;
         }
+        */
+
+        if (spriteOpening && spriteFrame < 7 * 10 + 1)
+        {
+            render.sprite = frames2[spriteFrame / 10];
+            spriteFrame++;
+        }
 
         if (spriteClosing && spriteFrame > 0)
         {
-            render.sprite = frames[spriteFrame/10];
+            render.sprite = frames2[spriteFrame/10];
             spriteFrame--;
         }
 
