@@ -57,15 +57,15 @@ public class HighJumpParachute : MonoBehaviour
         }
         */
 
-        if (spriteOpening && spriteFrame < 7 * 10 + 1)
+        if (spriteOpening && spriteFrame < 7 * 15 + 1)
         {
-            render.sprite = frames2[spriteFrame / 10];
+            render.sprite = frames2[spriteFrame / 15];
             spriteFrame++;
         }
 
         if (spriteClosing && spriteFrame > 0)
         {
-            render.sprite = frames2[spriteFrame/10];
+            render.sprite = frames2[spriteFrame/15];
             spriteFrame--;
         }
 
