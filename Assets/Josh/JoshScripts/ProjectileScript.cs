@@ -58,6 +58,8 @@ public class ProjectileScript : MonoBehaviour
             /*
              * Play Exploding Bird Animation Through Coroutine
             */
+            
+
             Vector2 dist = transform.position - (target.transform.position + new Vector3(0, 1f, 0));
             Vector2 dir = dist.normalized;
 

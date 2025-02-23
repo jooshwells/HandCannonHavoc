@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Sound Effects")]
     [SerializeField] AudioClip jump;
+    [SerializeField] AudioClip ouch;
 
 
     public float wallSlide = 0.95f;
@@ -43,7 +44,8 @@ public class PlayerController : MonoBehaviour
 
     public void KnockBack(Vector2 force, float timer)
     {
-        
+        gameObject.GetComponent<AudioSource>().clip = ouch;
+        gameObject.GetComponent<AudioSource>().Play();
         rb.velocity = force;
         isKnockedBack = true;
         knockBackTimer = timer;
