@@ -33,8 +33,8 @@ public class ChestScript : MonoBehaviour
         Animator anim = gameObject.GetComponent<Animator>();
         anim.Play("Open");
         yield return new WaitForEndOfFrame();
-        //Instantiate(contents, transform);
-        //yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.8f);
+        Instantiate(contents, transform);
         asrc.Play();
 
         // Spawn that grappling hook
