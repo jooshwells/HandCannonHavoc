@@ -460,9 +460,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSprite: {fileID: 1731664732}
+  gunPos: {fileID: 135744862}
   bulletSpeed: 35
   bulletDuration: 0.75
-  gunPos: {fileID: 135744862}
+  fireRate: 0.35
+  magSize: 10
+  reloadSpeed: 2
 --- !u!1001 &785745487
 PrefabInstance:
   m_ObjectHideFlags: 0
