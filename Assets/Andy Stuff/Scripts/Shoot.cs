@@ -8,6 +8,8 @@ public class Shoot : MonoBehaviour
 
 
     [SerializeField] GameObject bulletSprite;
+    [SerializeField] GameObject reloadSprite;
+
     [SerializeField] Transform gunPos;
     [SerializeField] float bulletSpeed = 10f;
     [SerializeField] float bulletDuration = 1f;
@@ -25,6 +27,8 @@ public class Shoot : MonoBehaviour
     void Start()
     {
         currentAmmo = magSize;
+        reloadSprite.SetActive(false);
+
     }
     // Update is called once per frame
     void Update()
@@ -33,7 +37,7 @@ public class Shoot : MonoBehaviour
 
         if(currentAmmo <=0 || (Input.GetKeyDown(KeyCode.R) && currentAmmo < magSize))
         {
-            //StartCoroutine(Reload());
+            StartCoroutine(Reload());
             return;
         }
         if (Input.GetMouseButton(0) && Time.time >= nextBullet) // left click
@@ -44,6 +48,10 @@ public class Shoot : MonoBehaviour
     }
     void shoot()
     {
+        if(currentAmmo <=0) return;
+        currentAmmo--;
+
+
         GameObject bullet = Instantiate(bulletSprite, gunPos.position, gunPos.rotation);
         SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
         if (bulletRenderer != null)
@@ -83,8 +91,15 @@ public class Shoot : MonoBehaviour
        
     }
 
-    void Reload()
+    IEnumerator Reload()
     {
+        isReloading = true;
+        reloadSprite.SetActive(true);
 
+        yield return new WaitForSeconds(reloadSpeed);
+
+        currentAmmo = magSize;
+        isReloading = false;
+        reloadSprite.SetActive(false);
     }
 }
