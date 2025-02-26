@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class NPC_Script : MonoBehaviour
+public class npcScript : MonoBehaviour
 {
     private ProjectileScript projectile;
 
@@ -16,7 +16,7 @@ public class NPC_Script : MonoBehaviour
     [SerializeField] private GameObject weapon;
 
     private float dist;
-    private bool attacking;
+    public bool attacking;
 
     // Start is called before the first frame update
     void Start()
@@ -52,5 +52,10 @@ public class NPC_Script : MonoBehaviour
     private void stopAttacking()
     {
         weapon.SetActive(false);
+    }
+
+    public bool isAttacking()
+    {
+        return attacking;
     }
 }
