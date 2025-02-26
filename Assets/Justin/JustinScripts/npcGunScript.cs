@@ -11,14 +11,13 @@ public class npcGunScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Shoot", 0f, fireRate);
+        //InvokeRepeating("Shoot", 0f, fireRate);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        Instantiate(projectile, gun.position, gun.rotation);
+        //Instantiate(projectile, gun.position, gun.rotation);
 
     }
 }
