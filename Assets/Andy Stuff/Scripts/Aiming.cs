@@ -19,7 +19,7 @@ public class Aiming : MonoBehaviour
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector2 playerPos = player.position;
+        Vector2 playerPos = player.position+ new Vector3(0,0.5f,0);
         Vector2 direction = (mousePos - playerPos).normalized;
 
         // set gun a fixed radius away

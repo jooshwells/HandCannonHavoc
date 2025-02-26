@@ -23453,6 +23453,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1407820910}
     - target: {fileID: 4850454417379625236, guid: 83491224762f03e46b1e1bce85a5693e, type: 3}
+      propertyPath: reloadSprite
+      value: 
+      objectReference: {fileID: 3722350549218009861, guid: 8d8fca5c8e7cef74798b20e373ad45f4, type: 3}
+    - target: {fileID: 4850454417379625236, guid: 83491224762f03e46b1e1bce85a5693e, type: 3}
       propertyPath: bulletDuration
       value: 1
       objectReference: {fileID: 0}
