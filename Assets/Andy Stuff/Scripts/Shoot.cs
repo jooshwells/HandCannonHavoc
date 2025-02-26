@@ -14,6 +14,8 @@ public class Shoot : MonoBehaviour
     [SerializeField] float bulletSpeed = 10f;
     [SerializeField] float bulletDuration = 1f;
     [SerializeField] float fireRate = .5f;
+    [SerializeField] float attackDamage = 5f;
+
     private float nextBullet = 0f;
 
     [SerializeField] int magSize = 10;
@@ -30,6 +32,7 @@ public class Shoot : MonoBehaviour
         reloadSprite.SetActive(false);
 
     }
+    
     // Update is called once per frame
     void Update()
     {
@@ -58,6 +61,9 @@ public class Shoot : MonoBehaviour
         {
         bulletRenderer.enabled = true; // Make the bullet visible
         }
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+        bulletScript.SetInstantiator(gameObject);
+
 
         Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - gunPos.position).normalized;
 
