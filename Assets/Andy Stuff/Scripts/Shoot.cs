@@ -8,22 +8,50 @@ public class Shoot : MonoBehaviour
 
 
     [SerializeField] GameObject bulletSprite;
-    [SerializeField] float bulletSpeed = 10f;
-    [SerializeField] float bulletDuration = 1f;
+    [SerializeField] GameObject reloadSprite;
 
     [SerializeField] Transform gunPos;
-    // Start is called before the first frame update
+    [SerializeField] float bulletSpeed = 10f;
+    [SerializeField] float bulletDuration = 1f;
+    [SerializeField] float fireRate = .5f;
+    private float nextBullet = 0f;
 
+    [SerializeField] int magSize = 10;
+    [SerializeField] float reloadSpeed = 2f;
+    private int currentAmmo;
+    private bool isReloading = false;
+
+
+  
+    // Start is called before the first frame update
+    void Start()
+    {
+        currentAmmo = magSize;
+        reloadSprite.SetActive(false);
+
+    }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // left click
+        if(isReloading) return;
+
+        if(currentAmmo <=0 || (Input.GetKeyDown(KeyCode.R) && currentAmmo < magSize))
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+        if (Input.GetMouseButton(0) && Time.time >= nextBullet) // left click
         {
             shoot();
+            nextBullet = Time.time +fireRate;
         }
     }
     void shoot()
     {
+        if(currentAmmo <=0) return;
+        currentAmmo--;
+
+
         GameObject bullet = Instantiate(bulletSprite, gunPos.position, gunPos.rotation);
         SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
         if (bulletRenderer != null)
@@ -61,5 +89,17 @@ public class Shoot : MonoBehaviour
             bullet.transform.localScale = new Vector3(cur.x, -1*cur.y, cur.z);
         }
        
+    }
+
+    IEnumerator Reload()
+    {
+        isReloading = true;
+        reloadSprite.SetActive(true);
+
+        yield return new WaitForSeconds(reloadSpeed);
+
+        currentAmmo = magSize;
+        isReloading = false;
+        reloadSprite.SetActive(false);
     }
 }

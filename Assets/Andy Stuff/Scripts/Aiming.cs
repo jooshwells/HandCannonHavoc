@@ -39,19 +39,9 @@ public class Aiming : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
         vertFlip(mousePos, playerPos);
     }
-
     }
-
     void vertFlip(Vector2 mousePos, Vector2 playerPos)
     {
-    //     if (mousePos.x < playerPos.x)
-    // {
-    //     transform.localScale = new Vector3(1, -1, 1); // Flip vertically
-    // }
-    // else
-    // {
-    //     transform.localScale = new Vector3(1, 1, 1); // Normal scale
-    // }
     if (mousePos.x < playerPos.x)
     {
         transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), -1*Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z)); // Flip vertically
