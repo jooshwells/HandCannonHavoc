@@ -108,4 +108,19 @@ public class Shoot : MonoBehaviour
         isReloading = false;
         reloadSprite.SetActive(false);
     }
+    
+    // Health Update Logic //
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if(collision.CompareTag("Enemy") || collision.CompareTag("Player"))
+        {
+            // Grab Health Script off of child component of whatever got hit
+            // Call its update health method and pass in whatever damage is attached to the bullet being used.
+                // Maybe have some other script that just keeps a hash map running so we can store our damage vals (Mapping String bulletName -> Integer damage)?
+            
+            // collision.gameObject.GetComponentInChildren<HealthScript>().UpdateHealth(damage);
+        }
+    }
+
 }
