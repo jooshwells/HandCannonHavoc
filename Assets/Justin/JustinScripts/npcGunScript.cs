@@ -4,20 +4,50 @@ using UnityEngine;
 
 public class npcGunScript : MonoBehaviour
 {
-    [SerializeField] private GameObject projectile;
+    public npcScript npc;
+
+    //[SerializeField] private GameObject projectile;
     [SerializeField] private Transform gun;
-    public float fireRate = 1f; // Fire every 0.5 seconds
+
+    [SerializeField] private Transform player;
+    [SerializeField] GameObject bulletSprite;
+    [SerializeField] Transform gunPos;
+    [SerializeField] float bulletSpeed = 10f;
+    [SerializeField] float bulletDuration = 1f;
+    [SerializeField] float fireRate = 1f;
+
+    private float nextBullet = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        //InvokeRepeating("Shoot", 0f, fireRate);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Instantiate(projectile, gun.position, gun.rotation);
+        if (npc.isAttacking() && Time.time >= nextBullet)
+        {
+            fireGun();
+            nextBullet = Time.time + fireRate;
+        }
+    }
+    private void fireGun()
+    {
+        GameObject bullet = Instantiate(bulletSprite, gunPos.position, gunPos.rotation);
+        SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
+        if (bulletRenderer != null)
+        {
+            bulletRenderer.enabled = true; // Make the bullet visible
+        }
 
+        Vector2 direction = (player.position - gun.position);
+
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+        rb.velocity = direction * bulletSpeed;
+        //flip(direction, bulletRenderer);
+        Destroy(bullet, bulletDuration);
     }
 }

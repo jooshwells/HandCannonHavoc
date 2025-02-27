@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour
+public class copyShoot : MonoBehaviour
 {
 
 
@@ -14,8 +14,6 @@ public class Shoot : MonoBehaviour
     [SerializeField] float bulletSpeed = 10f;
     [SerializeField] float bulletDuration = 1f;
     [SerializeField] float fireRate = .5f;
-    [SerializeField] float attackDamage = 5f;
-
     private float nextBullet = 0f;
 
     [SerializeField] int magSize = 10;
@@ -24,7 +22,7 @@ public class Shoot : MonoBehaviour
     private bool isReloading = false;
 
 
-  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +30,12 @@ public class Shoot : MonoBehaviour
         reloadSprite.SetActive(false);
 
     }
-    
     // Update is called once per frame
     void Update()
     {
-        if(isReloading) return;
+        if (isReloading) return;
 
-        if(currentAmmo <=0 || (Input.GetKeyDown(KeyCode.R) && currentAmmo < magSize))
+        if (currentAmmo <= 0 || (Input.GetKeyDown(KeyCode.R) && currentAmmo < magSize))
         {
             StartCoroutine(Reload());
             return;
@@ -46,24 +43,21 @@ public class Shoot : MonoBehaviour
         if (Input.GetMouseButton(0) && Time.time >= nextBullet) // left click
         {
             shoot();
-            nextBullet = Time.time +fireRate;
+            nextBullet = Time.time + fireRate;
         }
     }
     void shoot()
     {
-        if(currentAmmo <=0) return;
+        if (currentAmmo <= 0) return;
         currentAmmo--;
 
 
-        GameObject bullet = Instantiate(bulletSprite, gunPos.position, gunPos.rotation);
+        GameObject bullet = Instantiate(bulletSprite, gunPos.position + new Vector3(1.5f, -0.5f, 0), gunPos.rotation);
         SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
         if (bulletRenderer != null)
         {
-        bulletRenderer.enabled = true; // Make the bullet visible
+            bulletRenderer.enabled = true; // Make the bullet visible
         }
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        bulletScript.SetInstantiator(gameObject);
-
 
         Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - gunPos.position).normalized;
 
@@ -73,28 +67,28 @@ public class Shoot : MonoBehaviour
         flip(direction, bulletRenderer);
         Destroy(bullet, bulletDuration);
     }
-    
+
     void flip(Vector2 dir, SpriteRenderer bullet)
     {
         Vector3 cur = bullet.transform.localScale;
 
-        if(dir.x > 0 && gunPos.localScale.y >0)
+        if (dir.x > 0 && gunPos.localScale.y > 0)
         {
             bullet.transform.localScale = new Vector3(cur.x, cur.y, cur.z);
         }
-        if(dir.x<0 && gunPos.localScale.y >0) 
+        if (dir.x < 0 && gunPos.localScale.y > 0)
         {
-            bullet.transform.localScale = new Vector3(-1*cur.x, cur.y, cur.z);
+            bullet.transform.localScale = new Vector3(-1 * cur.x, cur.y, cur.z);
         }
-        if(dir.x > 0 && gunPos.localScale.y <0)
+        if (dir.x > 0 && gunPos.localScale.y < 0)
         {
-            bullet.transform.localScale = new Vector3(-1*cur.x,-1* cur.y, cur.z);
+            bullet.transform.localScale = new Vector3(-1 * cur.x, -1 * cur.y, cur.z);
         }
-        if(dir.x < 0 && gunPos.localScale.y <0)
+        if (dir.x < 0 && gunPos.localScale.y < 0)
         {
-            bullet.transform.localScale = new Vector3(cur.x, -1*cur.y, cur.z);
+            bullet.transform.localScale = new Vector3(cur.x, -1 * cur.y, cur.z);
         }
-       
+
     }
 
     IEnumerator Reload()
@@ -108,7 +102,4 @@ public class Shoot : MonoBehaviour
         isReloading = false;
         reloadSprite.SetActive(false);
     }
-    
- 
-
 }
