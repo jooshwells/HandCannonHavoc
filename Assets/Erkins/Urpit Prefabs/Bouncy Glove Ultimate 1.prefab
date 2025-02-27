@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1603625585347664692}
   m_Layer: 0
   m_Name: Bouncy Glove Ultimate 1
-  m_TagString: Untagged
+  m_TagString: Glove Bounce Pad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330b2de81d10d43d5808c43bbf67f053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bouncy: 20
+  bouncy: 40
 --- !u!114 &1603625585347664692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,4 +208,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330b2de81d10d43d5808c43bbf67f053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bouncy: 20
+  bouncy: 40
