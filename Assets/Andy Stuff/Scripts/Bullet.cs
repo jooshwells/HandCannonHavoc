@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private GameObject instantiator;
+    private float attackDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,10 @@ public class Bullet : MonoBehaviour
     public void SetInstantiator(GameObject inst)
     {
         instantiator = inst;
+    }
+    public void SetAttackDamage(float damage)
+    {
+        attackDamage = damage;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -39,11 +44,11 @@ public class Bullet : MonoBehaviour
 
             if(par != null)
             {
-                par.GetComponentInChildren<HealthScript>().UpdateHealth(20f); // if we have a parent, check its children for a script to update the health
+                par.GetComponentInChildren<HealthScript>().UpdateHealth(attackDamage); // if we have a parent, check its children for a script to update the health
             } 
             else
             {
-                collision.gameObject.GetComponentInChildren<HealthScript>().UpdateHealth(3f); // else just check the collision objects children for the script
+                collision.gameObject.GetComponentInChildren<HealthScript>().UpdateHealth(attackDamage); // else just check the collision objects children for the script
             }
 
             Destroy(gameObject); // destroy the bullet

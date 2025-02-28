@@ -2103,6 +2103,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon
       objectReference: {fileID: 0}
+    - target: {fileID: 3791482196224297386, guid: b0c51db97b2b0324596d23a9566deac7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167672299062154124, guid: b0c51db97b2b0324596d23a9566deac7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.122957
+      objectReference: {fileID: 0}
     - target: {fileID: 9167672299062154124, guid: b0c51db97b2b0324596d23a9566deac7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.064

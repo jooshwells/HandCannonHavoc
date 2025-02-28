@@ -63,6 +63,7 @@ public class Shoot : MonoBehaviour
         }
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.SetInstantiator(gameObject);
+        bulletScript.SetAttackDamage(attackDamage);
 
 
         Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - gunPos.position).normalized;
@@ -74,6 +75,7 @@ public class Shoot : MonoBehaviour
         Destroy(bullet, bulletDuration);
     }
     
+    // spagetthi code for handling weird sprite flipping
     void flip(Vector2 dir, SpriteRenderer bullet)
     {
         Vector3 cur = bullet.transform.localScale;
@@ -108,7 +110,5 @@ public class Shoot : MonoBehaviour
         isReloading = false;
         reloadSprite.SetActive(false);
     }
-    
- 
 
 }
