@@ -41,6 +41,13 @@ public class PlayerController : MonoBehaviour
     private float knockBackTimer = 0f;
     private float invulTimer = 0f;
 
+    private bool grappling = false;
+
+    public void SetGrapple(bool newG)
+    {
+        if (newG == false) Jump();
+        grappling = newG;
+    }
 
     public void KnockBack(Vector2 force, float timer)
     {
@@ -49,15 +56,13 @@ public class PlayerController : MonoBehaviour
         rb.velocity = force;
         isKnockedBack = true;
         knockBackTimer = timer;
-        invulTimer = invulnerabilityTime;
-        
+        invulTimer = invulnerabilityTime; 
     }
 
 
     // Update is called once per frame
     void Update()
     {
-
         if(isKnockedBack)
         {
             knockBackTimer -= Time.deltaTime;
@@ -69,15 +74,16 @@ public class PlayerController : MonoBehaviour
 
             return;
         }
-        
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (!grappling)
         {
-            gameObject.GetComponent<AudioSource>().clip = jump;
-            gameObject.GetComponent<AudioSource>().Play();
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && (IsGrounded() || grappling))
+        {
+            Jump();
         }
 
         if (!isWallJumping && Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0f)
@@ -155,12 +161,17 @@ public class PlayerController : MonoBehaviour
     //    rb.gravityScale = 1.5f; // Lower gravity during swinging for more natural arcs
     //}
 
-
+    private void Jump()
+    {
+        gameObject.GetComponent<AudioSource>().clip = jump;
+        gameObject.GetComponent<AudioSource>().Play();
+        rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+    }
 
 
     private void FixedUpdate()
     {
-        if (!isKnockedBack)
+        if (!isKnockedBack && !grappling)
         {
             if (!isWallJumping)
             {
