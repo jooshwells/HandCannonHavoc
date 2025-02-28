@@ -6,7 +6,7 @@ public class PlayerAbilities2 : MonoBehaviour
     public GameObject deflatedGlovePrefab; // The "bullet" version of the glove
     public GameObject finalGlovePrefab;     // The "finished" bounce pad
     [SerializeField] private float launchForce = 20f;
-
+    [SerializeField] private Transform handTransform; // Assign in the Unity Inspector
     private GameObject crosshairsInstance;
     private bool crosshairActive = false;
     private GameObject currentGlove; // Track the active glove so only one exists
@@ -66,7 +66,7 @@ public class PlayerAbilities2 : MonoBehaviour
         Vector2 targetPosition = crosshairsInstance.transform.position;
 
         // Instantiate the deflated glove at player's position, using its preset rotation
-        currentGlove = Instantiate(deflatedGlovePrefab, transform.position, deflatedGlovePrefab.transform.rotation);
+        currentGlove = Instantiate(deflatedGlovePrefab, handTransform.position, deflatedGlovePrefab.transform.rotation);
 
         // Set the glove's velocity
         Rigidbody2D rb = currentGlove.GetComponent<Rigidbody2D>();
