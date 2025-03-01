@@ -10,7 +10,8 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 public class HighJumpParachute : MonoBehaviour
 {
 
-    private copyController player;
+    private PlayerController player;
+    private genCooldown cooldown;
 
     //motion
     public float jumpScale = 2.0f;
@@ -31,15 +32,17 @@ public class HighJumpParachute : MonoBehaviour
     public Sprite[] frames;
     public Sprite[] frames2;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<copyController>();
+        cooldown = GetComponent<genCooldown>();
+        cooldown.setCooldown(10f);
+        player = GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
         spr.SetActive(false);
 
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -76,16 +79,22 @@ public class HighJumpParachute : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !onCooldown() && !isParachuting())
-        {
-            if (!(player.IsOnWall())) // highjump
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !onCooldown() && !isParachuting()) {
+            if (cooldown.isActive())
             {
-                rb.velocity = new Vector2(rb.velocity.x, player.jumpPower * jumpScale);
-                highJumping = true;
-                cdHighJump = 0; //cooldown tbd
+                // message player "ability on cooldown" or something
+            }
+            else
+            {
+                if (!(player.IsOnWall())) // highjump
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, player.jumpPower * jumpScale);
+                    cooldown.enable();
+                    highJumping = true;
+                    cdHighJump = 0; //cooldown tbd
+                }
             }
         }
-
         if (isHighJumping())
         {
             rb.velocity = new Vector2((rb.velocity.x) / 4, rb.velocity.y); // jump almost straight up | need fix, or remove.
@@ -120,7 +129,7 @@ public class HighJumpParachute : MonoBehaviour
             }
         }
 
-        if (player.IsGrounded() || player.IsOnWall())
+        if (player.IsGrounded() || player.IsOnWall()) 
         {
             parachuting = false;
             parachutingToggleable = false;

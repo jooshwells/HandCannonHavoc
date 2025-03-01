@@ -203,12 +203,12 @@ public class PlayerController : MonoBehaviour
         isWallJumping = false;
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
-    private bool IsOnWall()
+    public bool IsOnWall()
     {
         return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
     }
