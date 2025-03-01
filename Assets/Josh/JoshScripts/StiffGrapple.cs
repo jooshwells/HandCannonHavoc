@@ -47,7 +47,7 @@ public class StiffGrapple : MonoBehaviour
                 GetComponent<AimingCopy>().Freeze();
 
                 grappling = true;
-                GetComponentInParent<PlayerController>().SetGrapple(true);
+                GetComponentInParent<PlayerControllerMk2>().SetGrapple(true);
             }
         }
 
@@ -69,7 +69,7 @@ public class StiffGrapple : MonoBehaviour
             grappling = false;
             GetComponent<AimingCopy>().UnFreeze();
             GetComponentInParent<SwingyScript>().enabled = false;
-            GetComponentInParent<PlayerController>().SetGrapple(false);
+            GetComponentInParent<PlayerControllerMk2>().SetGrapple(false);
 
         }
     }     
