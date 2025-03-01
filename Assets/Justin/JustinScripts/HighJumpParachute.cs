@@ -10,7 +10,8 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 public class HighJumpParachute : MonoBehaviour
 {
 
-    private PlayerController player;
+    //private PlayerController player;
+    private copyController player;
     private genCooldown cooldown;
 
     //motion
@@ -38,7 +39,8 @@ public class HighJumpParachute : MonoBehaviour
     {
         cooldown = GetComponent<genCooldown>();
         cooldown.setCooldown(10f);
-        player = GetComponent<PlayerController>();
+        //player = GetComponent<PlayerController>();
+        player = GetComponent<copyController>();
         rb = GetComponent<Rigidbody2D>();
         spr.SetActive(false);
 
