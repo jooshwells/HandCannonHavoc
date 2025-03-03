@@ -52,7 +52,7 @@ public class copyShoot : MonoBehaviour
         currentAmmo--;
 
 
-        GameObject bullet = Instantiate(bulletSprite, gunPos.position + new Vector3(1.5f, -0.5f, 0), gunPos.rotation);
+        GameObject bullet = Instantiate(bulletSprite, gunPos.position, gunPos.rotation);
         SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
         if (bulletRenderer != null)
         {

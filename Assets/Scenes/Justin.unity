@@ -1657,6 +1657,90 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8646130116613108402, guid: 5bdda0bfbf51c624fbdda7cfca664a3a, type: 3}
   m_PrefabInstance: {fileID: 958670351}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &998358447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 998358448}
+  - component: {fileID: 998358449}
+  m_Layer: 0
+  m_Name: Jumpboost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &998358448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998358447}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.066, y: -8.334, z: 0}
+  m_LocalScale: {x: 8.8, y: 8.8, z: 0.7653696}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &998358449
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998358447}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: a8f1684da2cf4de41a2b3d18eb0322ab, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.06, y: 0.08}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1001 &1036297962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2122,8 +2206,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpScale: 2
   spriteFrame: 0
-  spr: {fileID: 1165291529}
+  spriteFrameBoost: 0
+  sprParachute: {fileID: 1165291529}
+  sprBoost: {fileID: 998358447}
   render: {fileID: 1165291530}
+  render2: {fileID: 998358449}
   frames:
   - {fileID: 1026866355395090186, guid: d663a48baaff76e49bc56c131557918a, type: 3}
   - {fileID: -262129702870797764, guid: d663a48baaff76e49bc56c131557918a, type: 3}
@@ -2149,6 +2236,19 @@ MonoBehaviour:
   - {fileID: 8816027066761383397, guid: d663a48baaff76e49bc56c131557918a, type: 3}
   - {fileID: 1239270134369113177, guid: d663a48baaff76e49bc56c131557918a, type: 3}
   - {fileID: -1848349459338223440, guid: d663a48baaff76e49bc56c131557918a, type: 3}
+  framesBoost: []
+  frames2Boost:
+  - {fileID: -3789022912866304797, guid: 64c3791125e53204c82bdaff0add4e60, type: 3}
+  - {fileID: -7132322257520561532, guid: 64c3791125e53204c82bdaff0add4e60, type: 3}
+  - {fileID: -7622653102911617730, guid: 64c3791125e53204c82bdaff0add4e60, type: 3}
+  - {fileID: 5151000792701964453, guid: 64c3791125e53204c82bdaff0add4e60, type: 3}
+  - {fileID: -6062590828748555854, guid: 64c3791125e53204c82bdaff0add4e60, type: 3}
+  - {fileID: -3659943438729721798, guid: 64c3791125e53204c82bdaff0add4e60, type: 3}
+  - {fileID: 8803703028183679148, guid: 64c3791125e53204c82bdaff0add4e60, type: 3}
+  - {fileID: 710965127729688739, guid: 64c3791125e53204c82bdaff0add4e60, type: 3}
+  - {fileID: -3773027576621599964, guid: 64c3791125e53204c82bdaff0add4e60, type: 3}
+  - {fileID: -3986943902324497237, guid: 64c3791125e53204c82bdaff0add4e60, type: 3}
+  - {fileID: 1246623850436110322, guid: 64c3791125e53204c82bdaff0add4e60, type: 3}
 --- !u!114 &1370648552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3215,3 +3315,4 @@ SceneRoots:
   - {fileID: 950287862}
   - {fileID: 1621397279}
   - {fileID: 670760021}
+  - {fileID: 998358448}
