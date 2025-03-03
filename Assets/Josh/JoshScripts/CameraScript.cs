@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private Transform player; // Reference to the player's transform
     [SerializeField] private float smoothSpeed = 5f; // How smoothly the camera follows the player
     [SerializeField] private Vector3 offset = new Vector3(0, 4, -10); // Offset from the player
+    private Transform player;
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     private void LateUpdate()
     {
         if (player != null)

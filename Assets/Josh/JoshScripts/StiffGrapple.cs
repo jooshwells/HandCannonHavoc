@@ -12,12 +12,13 @@ public class StiffGrapple : MonoBehaviour
     private DistanceJoint2D dj;
     private bool grappling = false;
 
+    private RaycastHit2D[] hits;
     private RaycastHit2D hit;
 
     // Start is called before the first frame update
     void Start()
     {
-        grappleLayer = LayerMask.GetMask("Ground");
+        grappleLayer = LayerMask.GetMask("Grapple");
         lr = GetComponent<LineRenderer>();
         dj = GetComponentInParent<DistanceJoint2D>();
         lr.positionCount = 2;
@@ -31,23 +32,29 @@ public class StiffGrapple : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            hit = Physics2D.Raycast(transform.position, direction, maxDist, grappleLayer);
-            if (hit.collider != null)
+            hits = Physics2D.RaycastAll(transform.position, direction, maxDist, ~0); // ~0 indicates all possible layers are targeted
+            //Debug.DrawRay(transform.position, direction * maxDist, Color.red, 2f);
+
+            if(hits.Length != 0)
             {
-                //Debug.DrawRay(transform.position, direction * maxDist, Color.red, 2f);
-                
-                Debug.Log("Collided at " + hit.point);
-                
-                lr.SetPosition(0, transform.position);
-                lr.SetPosition(1, hit.point);
-                lr.enabled = true;
+                hit = hits[0];
 
-                dj.enabled = true;
-                dj.connectedAnchor = hit.point;
-                GetComponent<AimingCopy>().Freeze();
+                if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Grapple"))
+                {
 
-                grappling = true;
-                GetComponentInParent<PlayerControllerMk2>().SetGrapple(true);
+                    Debug.Log("Collided at " + hit.point);
+
+                    lr.SetPosition(0, transform.position);
+                    lr.SetPosition(1, hit.point);
+                    lr.enabled = true;
+
+                    dj.enabled = true;
+                    dj.connectedAnchor = hit.point;
+                    GetComponent<AimingCopy>().Freeze();
+
+                    grappling = true;
+                    GetComponentInParent<PlayerControllerMk2>().SetGrapple(true);
+                }
             }
         }
 
