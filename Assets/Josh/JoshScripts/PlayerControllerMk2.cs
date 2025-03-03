@@ -216,11 +216,11 @@ public class PlayerControllerMk2 : MonoBehaviour
         }
 
         // If not grappling, get directional input
-        if (!grappling)
-        {
-            horizontal = Input.GetAxisRaw("Horizontal");
-            vertical = Input.GetAxisRaw("Vertical");
-        }
+        
+        
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+        
 
         // If pressing space and on the ground or on a grappling hook, jump.
         if (Input.GetKeyDown(KeyCode.Space) && (IsGrounded() || grappling))
@@ -247,7 +247,7 @@ public class PlayerControllerMk2 : MonoBehaviour
     private void FixedUpdate()
     {
         // Only allow movement when not knocked back or grappling
-        if(!isKnockedBack && !grappling && !justGrappled)
+        if(!isKnockedBack && !grappling && !justGrappled && !isWallJumping)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         } else if (IsGrounded())
