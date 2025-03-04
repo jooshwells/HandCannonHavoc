@@ -42,7 +42,7 @@ public class StiffGrapple : MonoBehaviour
                 if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Grapple"))
                 {
 
-                    Debug.Log("Collided at " + hit.point);
+                    //Debug.Log("Collided at " + hit.point);
 
                     lr.SetPosition(0, transform.position);
                     lr.SetPosition(1, hit.point);
