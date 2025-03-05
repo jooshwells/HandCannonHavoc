@@ -382,7 +382,7 @@ MonoBehaviour:
   crosshairsPrefab: {fileID: 225887183460404163, guid: 1675ab2da349446049c5faa248d374f8, type: 3}
   deflatedGlovePrefab: {fileID: 6035449236888728855, guid: a3430f18640394bd6bceeb7b349eed0b, type: 3}
   finalGlovePrefab: {fileID: 542883993168589787, guid: 8b7c7c0aad04049ad89e292b479e4d2c, type: 3}
-  launchForce: 5.5
+  launchForce: 20
   handTransform: {fileID: 1293884749}
 --- !u!1001 &1004078325
 PrefabInstance:
