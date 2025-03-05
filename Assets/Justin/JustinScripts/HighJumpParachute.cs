@@ -25,13 +25,21 @@ public class HighJumpParachute : MonoBehaviour
     private float cdHighJump = 0;
 
     public int spriteFrame = 0;
-    private bool spriteOpening = false;
-    private bool spriteClosing = false;
+    public int spriteFrameBoost = 0;
+    private bool spriteOpeningParachute = false;
+    private bool spriteClosingParachute = false;
+    private bool spriteOpeningBoost = false;
+    private bool spriteClosingBoost = false;
 
-    public GameObject spr;
+    public GameObject sprParachute;
+    public GameObject sprBoost;
     public SpriteRenderer render;
+    public SpriteRenderer render2;
+
     public Sprite[] frames;
     public Sprite[] frames2;
+    public Sprite[] framesBoost;
+    public Sprite[] frames2Boost;
 
 
     // Start is called before the first frame update
@@ -42,7 +50,8 @@ public class HighJumpParachute : MonoBehaviour
         //player = GetComponent<PlayerController>();
         player = GetComponent<copyController>();
         rb = GetComponent<Rigidbody2D>();
-        spr.SetActive(false);
+        sprParachute.SetActive(false);
+        sprBoost.SetActive(false);
 
     }
     // Update is called once per frame
@@ -62,23 +71,46 @@ public class HighJumpParachute : MonoBehaviour
         }
         */
 
-        if (spriteOpening && spriteFrame < 7 * 15 + 1)
+        if (spriteOpeningParachute && spriteFrame < 7 * 15 + 1)
         {
             render.sprite = frames2[spriteFrame / 15];
             spriteFrame++;
         }
 
-        if (spriteClosing && spriteFrame > 0)
+        if (spriteClosingParachute && spriteFrame > 0)
         {
             render.sprite = frames2[spriteFrame/15];
             spriteFrame--;
         }
 
-        if(spriteClosing && spriteFrame == 0)
+        if(spriteClosingParachute && spriteFrame == 0)
         {
-            spriteClosing = false;
-            spr.SetActive(false);
+            spriteClosingParachute = false;
+            sprParachute.SetActive(false);
         }
+
+
+
+
+        if (spriteOpeningBoost && spriteFrameBoost < 11 * 100 + 1)
+        {
+            render2.sprite = frames2Boost[spriteFrameBoost / 100];
+            spriteFrameBoost++;
+        }
+
+        if (spriteClosingBoost && spriteFrameBoost > 0)
+        {
+            render2.sprite = frames2Boost[spriteFrameBoost / 100];
+            spriteFrameBoost--;
+        }
+
+        if (spriteClosingBoost && spriteFrameBoost == 0)
+        {
+            spriteClosingBoost = false;
+            sprBoost.SetActive(false);
+        }
+
+
 
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && !onCooldown() && !isParachuting()) {
@@ -90,6 +122,7 @@ public class HighJumpParachute : MonoBehaviour
             {
                 if (!(player.IsOnWall())) // highjump
                 {
+                    openSpriteBoost();
                     rb.velocity = new Vector2(rb.velocity.x, player.jumpPower * jumpScale);
                     cooldown.enable();
                     highJumping = true;
@@ -110,7 +143,7 @@ public class HighJumpParachute : MonoBehaviour
 
         if (isParachuting())
         {
-            openSprite();
+            openSpriteParachute();
 
             //rb.gravityScale = 0.5f;
             rb.velocity = new Vector2(rb.velocity.x, -1.5f); // constant falling rather than gravity (which accelerates)
@@ -123,11 +156,11 @@ public class HighJumpParachute : MonoBehaviour
 
             if (parachuting)
             {
-                openSprite();
+                openSpriteParachute();
             }
             else
             {
-                closeSprite();
+                closeSpriteParachute();
             }
         }
 
@@ -135,7 +168,7 @@ public class HighJumpParachute : MonoBehaviour
         {
             parachuting = false;
             parachutingToggleable = false;
-            closeSprite();
+            closeSpriteParachute();
         }
     }
 
@@ -169,17 +202,29 @@ public class HighJumpParachute : MonoBehaviour
         return cdHighJump;
     }
 
-    public void openSprite()
+    public void openSpriteParachute()
     {
-        spr.SetActive(true);
-        spriteOpening = true;
-        spriteClosing = false;
+        sprParachute.SetActive(true);
+        spriteOpeningParachute = true;
+        spriteClosingParachute = false;
     }
 
-    public void closeSprite()
+    public void closeSpriteParachute()
     {
-        spriteOpening = false;
-        spriteClosing = true;
+        spriteOpeningParachute = false;
+        spriteClosingParachute = true;
     }
 
+    public void openSpriteBoost()
+    {
+        sprBoost.SetActive(true);
+        spriteOpeningBoost = true;
+        spriteClosingBoost = false;
+    }
+
+    public void closeSpriteBoost()
+    {
+        spriteOpeningBoost = false;
+        spriteClosingBoost = true;
+    }
 }

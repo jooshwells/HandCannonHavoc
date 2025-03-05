@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -57,7 +58,18 @@ public class PlayerControllerMk2 : MonoBehaviour
     // Grappling Hook values
     private bool grappling = false;
     private bool justGrappled = false;
-    
+
+    // Dash Stuff
+    private TrailRenderer trail;
+    private bool canDash = true;
+    private bool isDashing;
+    private Vector2 dashDirection;
+    private float dashTime;
+    private float dashCooldownTime;
+    [SerializeField] public float dashSpeed = 20f;
+    [SerializeField] public float dashDuration = 0.2f;
+    [SerializeField] public float dashCooldown = 0.5f;
+
     // Returns if the player is grounded
     public bool IsGrounded()
     {
@@ -186,11 +198,55 @@ public class PlayerControllerMk2 : MonoBehaviour
         grappling = newG;
     }
 
+    void HandleDash()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && canDash)
+        {
+            dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+            if (dashDirection == Vector2.zero)
+            {
+                //dashDirection = Vector2.right * transform.localScale.x; // Default forward dash
+                dashDirection = new Vector2(transform.localScale.x, 0f);
+            }
+
+            StartCoroutine(StartDash());
+        }
+    }
+
+    IEnumerator StartDash()
+    {
+        isDashing = true;
+        canDash = false;
+        dashTime = Time.time + dashDuration;
+        dashCooldownTime = Time.time + dashCooldown;
+        rb.gravityScale = 0; // Disable gravity for the dash
+
+        trail.enabled = true; // Enable trail effect
+
+
+        while (Time.time < dashTime)
+        {
+            rb.velocity = dashDirection.normalized * dashSpeed;
+            yield return null;
+        }
+        rb.gravityScale = 4; // Restore gravity
+        isDashing = false;
+        trail.enabled = false; // Disable trail after dash
+        yield return new WaitForSeconds(dashCooldown);
+        while (!IsGrounded())
+        {
+            yield return null;
+        }
+        canDash = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         // Initialize components
         rb = GetComponent<Rigidbody2D>();
+        trail = GetComponent<TrailRenderer>();
         wallCheck = transform.Find("WallCheck");
         groundCheck = transform.Find("GroundCheck");
         groundLayer = LayerMask.GetMask("Ground");
@@ -237,6 +293,7 @@ public class PlayerControllerMk2 : MonoBehaviour
 
         WallSlide();
         WallJump();
+        HandleDash();
 
         if (!isWallJumping)
         {
