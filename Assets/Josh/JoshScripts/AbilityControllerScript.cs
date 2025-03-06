@@ -31,6 +31,8 @@ public class AbilityControllerScript : MonoBehaviour
         grapple = parent.transform.Find("AltGrapple").gameObject;
         highJumpParachute = parent.transform.Find("HighJumpPara").gameObject;
         bouncePad = parent.transform.Find("BouncePad").gameObject;
+
+        TurnEverythingOffBut(0);
     }
 
     // Update is called once per frame
@@ -75,6 +77,12 @@ public class AbilityControllerScript : MonoBehaviour
     {
         switch (except)
         {
+            case 0:
+                dash.SetDashOn(false);
+                grapple.SetActive(false);
+                highJumpParachute.SetActive(false);
+                bouncePad.SetActive(false);
+                break;
             case 1:
                 Debug.Log("Dash On");
                 grapple.SetActive(false);
