@@ -39,50 +39,52 @@ public class GloveController : MonoBehaviour
             Debug.LogError("SetTarget received a NULL finalGlovePrefab!");
         }
     }
-
-void OnCollisionEnter2D(Collision2D collision)
-{
-    // Ensure the glove only triggers the transformation logic after landing on the tilemap
-    if (!hasLanded && collision.collider.GetComponent<TilemapCollider2D>() != null)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Glove has landed on tilemap!");
+        int groundLayer = LayerMask.NameToLayer("Ground");
+        int wallLayer = LayerMask.NameToLayer("Wall");
 
-        // Prevent triggering more than once by marking as landed
-        hasLanded = true;
-
-        // Adjust the glove's position on landing (align with the tilemap)
-        if (col != null)
+        // Check if the collision is with the tilemap AND if it's on the correct layer
+        if (!hasLanded && collision.gameObject.layer == groundLayer || collision.gameObject.layer == wallLayer)
         {
-            transform.position = new Vector2(transform.position.x, collision.contacts[0].point.y);
-            Debug.Log($"Glove position adjusted to: {transform.position}");
-        }
+            Debug.Log($"Glove has landed on: {collision.gameObject.name} (Layer: {LayerMask.LayerToName(collision.gameObject.layer)})");
 
-        // Make the glove stop moving and stick to the tilemap
-        if (rb != null)
-        {
-            rb.velocity = Vector2.zero; // Stop the glove from moving
-            rb.bodyType = RigidbodyType2D.Static; // Make it static so it sticks to the tilemap
-            Debug.Log("Glove is now stuck to the tilemap.");
-        }
+            // Prevent multiple triggers
+            hasLanded = true;
 
-        // Start the transformation only once, after landing on the tilemap
-        if (!transformationStarted)
-        {
-            transformationStarted = true;
-            if (animator != null)
+            // Adjust glove position (snap to surface)
+            if (col != null)
             {
-                Debug.Log("Playing inflation animation");
-                animator.SetTrigger("Inflation");
+                transform.position = new Vector2(transform.position.x, collision.contacts[0].point.y);
+                Debug.Log($"Glove position adjusted to: {transform.position}");
+            }
 
+            // Stop movement and freeze physics
+            if (rb != null)
+            {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
+                rb.bodyType = RigidbodyType2D.Static;
+                Debug.Log("Glove is now stuck to the surface.");
+            }
+
+            // Start transformation animation
+            if (!transformationStarted)
+            {
+                transformationStarted = true;
+                if (animator != null)
+                {
+                    Debug.Log("Playing inflation animation");
+                    animator.SetTrigger("Inflation");
+                }
             }
         }
+        else
+        {
+            Debug.LogWarning($"OnCollisionEnter2D ignored. Collision with {collision.gameObject.name} (Layer: {LayerMask.LayerToName(collision.gameObject.layer)})");
+        }
     }
-    else
-    {
-        // Prevent re-triggering transformation if it's already landed
-        Debug.LogWarning("OnCollisionEnter2D triggered after landing — ignoring.");
-    }
-}
+
     public void OnInflationAnimationComplete()
     {
         Debug.Log("Inflation animation completed! Calling SpawnFinalGlove...");
