@@ -30,7 +30,7 @@ public class StiffGrapple : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePos - (Vector2)transform.position).normalized;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             hits = Physics2D.RaycastAll(transform.position, direction, maxDist, ~0); // ~0 indicates all possible layers are targeted
             //Debug.DrawRay(transform.position, direction * maxDist, Color.red, 2f);
