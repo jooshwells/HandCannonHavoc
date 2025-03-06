@@ -69,6 +69,16 @@ public class PlayerControllerMk2 : MonoBehaviour
     [SerializeField] public float dashSpeed = 20f;
     [SerializeField] public float dashDuration = 0.2f;
     [SerializeField] public float dashCooldown = 0.5f;
+    private bool dashOn = false; // Made by Josh - Used with Ability Controller
+
+    public void SetDashOn(bool d)
+    {
+        dashOn = d;
+    }
+    public float GetJumpPower()
+    {
+        return jumpPower;
+    }
 
     // Returns if the player is grounded
     public bool IsGrounded()
@@ -200,7 +210,7 @@ public class PlayerControllerMk2 : MonoBehaviour
 
     void HandleDash()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && canDash)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
@@ -293,7 +303,7 @@ public class PlayerControllerMk2 : MonoBehaviour
 
         WallSlide();
         WallJump();
-        HandleDash();
+        if(dashOn) HandleDash();
 
         if (!isWallJumping)
         {
