@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Tilemaps;
 
 public class GloveController : MonoBehaviour
 {
@@ -11,17 +12,19 @@ public class GloveController : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D col;
     private static GameObject currentFinalGlove;
+    private Vector2 startPosition;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
+        startPosition = transform.position;
 
         if (rb != null)
         {
             rb.isKinematic = false;
-            rb.simulated = true; // Ensures new gloves can move freely
+            rb.simulated = true;
         }
     }
 
@@ -37,52 +40,52 @@ public class GloveController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+void OnCollisionEnter2D(Collision2D collision)
+{
+    // Ensure the glove only triggers the transformation logic after landing on the tilemap
+    if (!hasLanded && collision.collider.GetComponent<TilemapCollider2D>() != null)
     {
-        Debug.Log($"Glove collided with {collision.gameObject.name}");
+        Debug.Log("Glove has landed on tilemap!");
 
-        if (!hasLanded)
+        // Prevent triggering more than once by marking as landed
+        hasLanded = true;
+
+        // Adjust the glove's position on landing (align with the tilemap)
+        if (col != null)
         {
-            Debug.Log("Glove has landed!");
-            hasLanded = true;
-
-            if (col != null)
-            {
-                transform.position = new Vector2(transform.position.x, collision.contacts[0].point.y);
-                Debug.Log($"Glove position adjusted to: {transform.position}");
-            }
-
-            if (!transformationStarted)
-            {
-                transformationStarted = true;
-                if (animator != null)
-                {
-                    Debug.Log("Playing inflation animation");
-                    animator.SetTrigger("Inflation");
-                }
-                else
-                {
-                    Debug.LogWarning("No animator found, spawning final glove immediately.");
-                    StartCoroutine(DelayedSpawn());
-                }
-            }
+            transform.position = new Vector2(transform.position.x, collision.contacts[0].point.y);
+            Debug.Log($"Glove position adjusted to: {transform.position}");
         }
-        else
+
+        // Make the glove stop moving and stick to the tilemap
+        if (rb != null)
         {
-            Debug.LogWarning("OnCollisionEnter2D triggered again after landing—ignoring.");
+            rb.velocity = Vector2.zero; // Stop the glove from moving
+            rb.bodyType = RigidbodyType2D.Static; // Make it static so it sticks to the tilemap
+            Debug.Log("Glove is now stuck to the tilemap.");
+        }
+
+        // Start the transformation only once, after landing on the tilemap
+        if (!transformationStarted)
+        {
+            transformationStarted = true;
+            if (animator != null)
+            {
+                Debug.Log("Playing inflation animation");
+                animator.SetTrigger("Inflation");
+
+            }
         }
     }
-
-    // Called at the end of the "Inflation" animation
+    else
+    {
+        // Prevent re-triggering transformation if it's already landed
+        Debug.LogWarning("OnCollisionEnter2D triggered after landing — ignoring.");
+    }
+}
     public void OnInflationAnimationComplete()
     {
         Debug.Log("Inflation animation completed! Calling SpawnFinalGlove...");
-        StartCoroutine(DelayedSpawn());
-    }
-
-    IEnumerator DelayedSpawn()
-    {
-        yield return new WaitForSeconds(0.1f); // Small delay for smoother transition
         SpawnFinalGlove();
     }
 
@@ -90,21 +93,19 @@ public class GloveController : MonoBehaviour
     {
         Debug.Log("Attempting to spawn final glove...");
 
-        // Destroy the existing final glove if it already exists
+        // Destroy old final glove if it exists before spawning the new one
         if (currentFinalGlove != null)
         {
             Debug.Log("Destroying old final glove before spawning a new one.");
             Destroy(currentFinalGlove);
-            currentFinalGlove = null; // Clear reference
+            currentFinalGlove = null;
         }
 
+        // Spawn the final glove prefab at a slightly adjusted position
         if (finalGlovePrefab != null)
         {
             Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + 0.3f);
-            
-            // Spawn the new glove and assign it to the static reference
             currentFinalGlove = Instantiate(finalGlovePrefab, spawnPosition, Quaternion.Euler(0, 0, 270));
-            
             Debug.Log("New final glove spawned.");
         }
         else
@@ -112,25 +113,7 @@ public class GloveController : MonoBehaviour
             Debug.LogError("finalGlovePrefab is NULL! Assign it in SetTarget.");
         }
 
-        Destroy(gameObject); // Remove the deflated glove
-    }
-
-    IEnumerator FadeAndDestroy()
-    {
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        Collider2D collider = GetComponent<Collider2D>();
-
-        if (collider != null)
-        {
-            collider.enabled = false; // Prevent further collisions
-        }
-
-        for (float t = 1f; t > 0; t -= Time.deltaTime * 3)
-        {
-            sr.color = new Color(1, 1, 1, t);
-            yield return null;
-        }
-
+        // Destroy the glove object after spawning the final glove
         Destroy(gameObject);
     }
 }
