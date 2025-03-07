@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AbilityControllerScript : MonoBehaviour
 {
+    // UI Stuff
+    [SerializeField] private GameObject abilityIndicator1;
+    [SerializeField] private GameObject abilityIndicator2;
+    [SerializeField] private GameObject abilityIndicator3;
+    [SerializeField] private GameObject abilityIndicator4;
+
     // Is the ability available?
     [SerializeField] private int grapplingHookAvail = 1;
     [SerializeField] private int dashAvail = 1;
@@ -45,6 +52,7 @@ public class AbilityControllerScript : MonoBehaviour
 
             // Dash Active
             dash.SetDashOn(true);
+            abilityIndicator1.SetActive(true);
         } 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -53,6 +61,7 @@ public class AbilityControllerScript : MonoBehaviour
 
             // Grapple Active
             grapple.SetActive(true);
+            abilityIndicator2.SetActive(true);
         } 
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -61,6 +70,7 @@ public class AbilityControllerScript : MonoBehaviour
 
             // High Jump Active
             highJumpParachute.SetActive(true);
+            abilityIndicator3.SetActive(true);
         } 
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
@@ -69,6 +79,7 @@ public class AbilityControllerScript : MonoBehaviour
 
             // Bounce Pad Active
             bouncePad.SetActive(true);
+            abilityIndicator4.SetActive(true);
         }
 
     }
@@ -79,33 +90,69 @@ public class AbilityControllerScript : MonoBehaviour
         {
             case 0:
                 dash.SetDashOn(false);
+                abilityIndicator1.SetActive(false);
+
                 grapple.SetActive(false);
+                abilityIndicator2.SetActive(false);
+
                 highJumpParachute.SetActive(false);
+                abilityIndicator3.SetActive(false);
+
                 bouncePad.SetActive(false);
+                abilityIndicator4.SetActive(false);
+
                 break;
             case 1:
                 Debug.Log("Dash On");
+
                 grapple.SetActive(false);
+                abilityIndicator2.SetActive(false);
+
                 highJumpParachute.SetActive(false);
+                abilityIndicator3.SetActive(false);
+
                 bouncePad.SetActive(false);
+                abilityIndicator4.SetActive(false);
+
                 break;
             case 2:
                 Debug.Log("Grapple On");
+
                 dash.SetDashOn(false);
+                abilityIndicator1.SetActive(false);
+
                 highJumpParachute.SetActive(false);
+                abilityIndicator3.SetActive(false);
+
                 bouncePad.SetActive(false);
+                abilityIndicator4.SetActive(false);
+
                 break;
             case 3:
                 Debug.Log("High Jump On");
+
                 grapple.SetActive(false);
+                abilityIndicator2.SetActive(false);
+
                 dash.SetDashOn(false);
+                abilityIndicator1.SetActive(false);
+
                 bouncePad.SetActive(false);
+                abilityIndicator4.SetActive(false);
+
                 break;
             case 4:
                 Debug.Log("Bounce Pad On");
+
                 dash.SetDashOn(false);
+                abilityIndicator1.SetActive(false);
+
                 highJumpParachute.SetActive(false);
+                abilityIndicator3.SetActive(false);
+
                 grapple.SetActive(false);
+                abilityIndicator2.SetActive(false);
+
                 break;
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class StiffGrapple : MonoBehaviour
 {
     private int grappleLayer; 
-    [SerializeField] private float maxDist = 10f;
+    [SerializeField] private float maxDist = 100f;
 
     private LineRenderer lr;
     private DistanceJoint2D dj;

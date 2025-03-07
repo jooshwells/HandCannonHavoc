@@ -200,10 +200,15 @@ public class PlayerControllerMk2 : MonoBehaviour
 
     public void SetGrapple(bool newG)
     {
-        if (newG == false)
+        if (!newG) // When detaching from the grapple
         {
-            Jump();
             justGrappled = true;
+
+            // Only apply a slight boost if player isn't already moving upwards
+            if (rb.velocity.y < 0)
+            {
+                rb.velocity += Vector2.up * 5f; // Tweak this boost value if needed
+            }
         }
         grappling = newG;
     }
@@ -249,6 +254,25 @@ public class PlayerControllerMk2 : MonoBehaviour
             yield return null;
         }
         canDash = true;
+    }
+
+    private void ApplyMovement()
+    {
+        float targetSpeed = horizontal * speed;
+        float speedDifference = targetSpeed - rb.velocity.x;
+
+        // Choose acceleration/deceleration depending on input and current state
+        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? accel : decel;
+        if (!IsGrounded()) accelRate *= 0.5f;
+
+        // If changing direction, increase acceleration for snappier turns
+        if (Mathf.Sign(horizontal) != Mathf.Sign(rb.velocity.x) && horizontal != 0)
+        {
+            accelRate *= 2f; // Increase acceleration when reversing direction
+        }
+        // Apply acceleration smoothly
+        float movement = Mathf.Sign(speedDifference) * Mathf.Min(Mathf.Abs(speedDifference), accelRate * Time.fixedDeltaTime);
+        rb.velocity = new Vector2(rb.velocity.x + movement, rb.velocity.y);
     }
 
     // Start is called before the first frame update
@@ -313,11 +337,13 @@ public class PlayerControllerMk2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Only allow movement when not knocked back or grappling
-        if(!isKnockedBack && !grappling && !justGrappled && !isWallJumping)
+        if (!isKnockedBack && !grappling && (!justGrappled || rb.velocity.y <= 0))
         {
-            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-        } else if (IsGrounded())
+            ApplyMovement();
+        }
+
+        // Instead of waiting for IsGrounded(), reset `justGrappled` once falling again
+        if (justGrappled && rb.velocity.y <= 0)
         {
             justGrappled = false;
         }
