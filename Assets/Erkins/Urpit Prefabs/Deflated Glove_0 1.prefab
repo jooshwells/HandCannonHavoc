@@ -101,7 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finalGlovePrefab: {fileID: 542883993168589787, guid: 8b7c7c0aad04049ad89e292b479e4d2c, type: 3}
-  minDistance: 0.12
 --- !u!95 &4137569193473760446
 Animator:
   serializedVersion: 5
@@ -183,7 +182,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

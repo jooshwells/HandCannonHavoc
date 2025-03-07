@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Tilemaps;
-
+using System;
 public class GloveController : MonoBehaviour
 {
     private Vector2 targetPosition;
@@ -30,6 +30,7 @@ public class GloveController : MonoBehaviour
 
     public void SetTarget(Vector2 target, GameObject finalGlove)
     {
+        Debug.Log(Environment.StackTrace);
         Debug.Log($"SetTarget called with position: {target}, assigning final glove prefab: {finalGlove?.name}");
         targetPosition = target;
         finalGlovePrefab = finalGlove;
@@ -41,6 +42,7 @@ public class GloveController : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Collision Detected");
         int groundLayer = LayerMask.NameToLayer("Ground");
         int wallLayer = LayerMask.NameToLayer("Wall");
 
@@ -75,7 +77,8 @@ public class GloveController : MonoBehaviour
                 if (animator != null)
                 {
                     Debug.Log("Playing inflation animation");
-                    animator.SetTrigger("Inflation");
+                    //animator.SetTrigger("Inflation");
+                    SpawnFinalGlove();
                 }
             }
         }
@@ -87,6 +90,9 @@ public class GloveController : MonoBehaviour
 
     public void OnInflationAnimationComplete()
     {
+        //StackTraceLogType stackTrace = new StackTraceLogType();
+        Debug.Log(Environment.StackTrace);
+
         Debug.Log("Inflation animation completed! Calling SpawnFinalGlove...");
         SpawnFinalGlove();
     }
