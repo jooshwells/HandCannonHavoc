@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7315944338089033245}
   - component: {fileID: -7305338362981299622}
   - component: {fileID: 5911940891946403976}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: duck bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

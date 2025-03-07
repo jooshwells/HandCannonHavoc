@@ -71,18 +71,19 @@ public class Aiming : MonoBehaviour
         transform.position = gunPosition;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-    // ensure gun faces correct direction and sprite is flipped correctly
-    if (player.localScale.x < 0)
-    {
-        transform.rotation = Quaternion.Euler(0f, 0f, angle + 180f);
-        vertFlip(mousePos,angle);
+        // ensure gun faces correct direction and sprite is flipped correctly
+        if (player.localScale.x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, angle + 180f);
+            vertFlip(mousePos,angle);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            vertFlip(mousePos,angle);
+        }
     }
-    else
-    {
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
-        vertFlip(mousePos,angle);
-    }
-    }
+
     void vertFlip(Vector2 mousePos, float angle)
     {
         if(player.localScale.x > 0)
@@ -107,8 +108,7 @@ public class Aiming : MonoBehaviour
             {
                 transform.localScale = new Vector3(-1*Mathf.Abs(transform.localScale.x), -1*Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z)); // Flip vertically
             }
-        }
-            
+        }     
     }
 }
 
