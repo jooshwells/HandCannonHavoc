@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour
+public class Shotgun : MonoBehaviour
 {
-
 
     [SerializeField] GameObject bulletSprite;
     [SerializeField] GameObject reloadSprite;
@@ -15,6 +14,9 @@ public class Shoot : MonoBehaviour
     [SerializeField] float bulletDuration = 1f;
     [SerializeField] float fireRate = .5f;
     [SerializeField] float attackDamage = 5f;
+    [SerializeField] int pellets = 5;
+    [SerializeField] float spreadAngle = 30f;
+
 
     private float nextBullet = 0f;
 
@@ -50,21 +52,27 @@ public class Shoot : MonoBehaviour
         }
     }
     void shoot()
+{
+    if (currentAmmo <= 0) return;
+    currentAmmo--;
+
+    // Calculate angle step between each pellet
+    float angleStep = spreadAngle / (pellets - 1);
+    float startAngle = -spreadAngle / 2; 
+
+    for (int i = 0; i < pellets; i++)
     {
-        if(currentAmmo <=0) return;
-        currentAmmo--;
-
-
         GameObject bullet = Instantiate(bulletSprite, gunPos.position, gunPos.rotation);
         SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
+
         if (bulletRenderer != null)
         {
-        bulletRenderer.enabled = true; // Make the bullet visible
+            bulletRenderer.enabled = true;
         }
+
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.SetInstantiator(gameObject);
         bulletScript.SetAttackDamage(attackDamage);
-
 
         Vector2 direction = (gunPos.right).normalized;
 
@@ -73,13 +81,18 @@ public class Shoot : MonoBehaviour
         {
             direction = -(gunPos.right).normalized;
         }
+        float angleOffset = startAngle + (i * angleStep);
+        Vector2 spreadDirection = Quaternion.Euler(0, 0, angleOffset) * direction;
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.velocity = spreadDirection * bulletSpeed;
 
-        rb.velocity = direction * bulletSpeed;
-        flip(direction, bulletRenderer);
-        Destroy(bullet, bulletDuration);
+        // Adjust sprite flipping
+        flip(spreadDirection, bulletRenderer);
+
+        //Destroy(bullet, bulletDuration);
     }
+}
     
     // spagetthi code for handling weird sprite flipping
     void flip(Vector2 dir, SpriteRenderer bullet)
