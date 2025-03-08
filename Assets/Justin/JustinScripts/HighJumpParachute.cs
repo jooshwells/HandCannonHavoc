@@ -46,7 +46,7 @@ public class HighJumpParachute : MonoBehaviour
     void Start()
     {
         cooldown = GetComponent<genCooldown>();
-        cooldown.setCooldown(1f); //CHANGE COOLDOWN
+        cooldown.setCooldown(3f);
         //player = GetComponent<PlayerController>();
         player = GetComponent<copyController>();
         rb = GetComponent<Rigidbody2D>();

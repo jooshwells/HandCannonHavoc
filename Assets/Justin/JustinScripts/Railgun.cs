@@ -11,18 +11,18 @@ public class Railgun : customShoot
 
     private void Awake()
     {
-        bulletSpeed = 10000f;
+        bulletSpeed = 500f;
         //bulletDuration default
-        fireRate = 0.5f;
+        fireRate = 1f;
         //attackDamage = 30f;
-        magSize = 50;
+        magSize = 4;
         reloadSpeed = 4f;
     }
     
     protected override bool shootingInput() //shoot based on holding rather than press
     {
         genHoldButton hold = gameObject.GetComponent<genHoldButton>();
-        hold.setHoldNeeded(0.5f); //2 seconds to hold to fire
+        hold.setHoldNeeded(1f); // # seconds to hold to fire
         hold.isHolding(Input.GetMouseButton(0) && Time.time >= nextBullet); // left click
         return hold.chargeExecute();
     }
