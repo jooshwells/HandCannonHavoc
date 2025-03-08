@@ -46,7 +46,7 @@ public class HighJumpParachute : MonoBehaviour
     void Start()
     {
         cooldown = GetComponent<genCooldown>();
-        cooldown.setCooldown(10f);
+        cooldown.setCooldown(1f); //CHANGE COOLDOWN
         //player = GetComponent<PlayerController>();
         player = GetComponent<copyController>();
         rb = GetComponent<Rigidbody2D>();
@@ -92,15 +92,19 @@ public class HighJumpParachute : MonoBehaviour
 
 
 
-        if (spriteOpeningBoost && spriteFrameBoost < 11 * 100 + 1)
+        if (spriteOpeningBoost && spriteFrameBoost < 7 * 20 + 1)
         {
-            render2.sprite = frames2Boost[spriteFrameBoost / 100];
+            render2.sprite = frames2Boost[spriteFrameBoost / 20];
             spriteFrameBoost++;
+        }
+        else
+        {
+            closeSpriteBoost();
         }
 
         if (spriteClosingBoost && spriteFrameBoost > 0)
         {
-            render2.sprite = frames2Boost[spriteFrameBoost / 100];
+            render2.sprite = frames2Boost[spriteFrameBoost / 20];
             spriteFrameBoost--;
         }
 
@@ -122,7 +126,8 @@ public class HighJumpParachute : MonoBehaviour
             {
                 if (!(player.IsOnWall())) // highjump
                 {
-                    openSpriteBoost();
+                    if(!parachutingToggleable)
+                        openSpriteBoost();
                     rb.velocity = new Vector2(rb.velocity.x, player.jumpPower * jumpScale);
                     cooldown.enable();
                     highJumping = true;
@@ -217,6 +222,7 @@ public class HighJumpParachute : MonoBehaviour
 
     public void openSpriteBoost()
     {
+        sprBoost.transform.position = player.transform.position;
         sprBoost.SetActive(true);
         spriteOpeningBoost = true;
         spriteClosingBoost = false;
@@ -226,5 +232,6 @@ public class HighJumpParachute : MonoBehaviour
     {
         spriteOpeningBoost = false;
         spriteClosingBoost = true;
+        sprBoost.SetActive(false);
     }
 }

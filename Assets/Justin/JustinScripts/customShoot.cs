@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class copyShoot : MonoBehaviour
+public class customShoot : MonoBehaviour
 {
 
 
@@ -14,10 +14,11 @@ public class copyShoot : MonoBehaviour
     [SerializeField] protected float bulletSpeed = 10f;
     [SerializeField] protected float bulletDuration = 1f;
     [SerializeField] protected float fireRate = .5f;
-    private float nextBullet = 0f;
-
     [SerializeField] protected int magSize = 10;
     [SerializeField] protected float reloadSpeed = 2f;
+
+    protected float nextBullet = 0f;
+
     private int currentAmmo;
     private bool isReloading = false;
 
@@ -40,12 +41,18 @@ public class copyShoot : MonoBehaviour
             StartCoroutine(Reload());
             return;
         }
-        if (Input.GetMouseButton(0) && Time.time >= nextBullet) // left click
+
+        if (shootingInput())
         {
             shoot();
             nextBullet = Time.time + fireRate;
         }
     }
+    protected virtual bool shootingInput()
+    {
+        return (Input.GetMouseButton(0) && Time.time >= nextBullet); // left click
+    }
+
     void shoot()
     {
         if (currentAmmo <= 0) return;
