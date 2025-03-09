@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bouncability : MonoBehaviour
 {
-    [SerializeField] private float bouncy = 20f;
+    [SerializeField] private float bouncy = 25f;
 
     void OnCollisionEnter2D(Collision2D collision) 
     {

@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAbilities2Copy : MonoBehaviour
@@ -11,6 +14,9 @@ public class PlayerAbilities2Copy : MonoBehaviour
     private bool crosshairActive = false;
     private GameObject currentGlove; // Track the active glove so only one exists
 
+    private bool keyPressed = false;
+    private List<GameObject> gloves = new List<GameObject>();
+
     void Update()
     {
         //// Toggle crosshairs on/off with E
@@ -18,12 +24,20 @@ public class PlayerAbilities2Copy : MonoBehaviour
         //{
         //    ToggleCrosshair();
         //}
-
+        if (!keyPressed && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            gameObject.GetComponent<AimingCopy>().enabled = true;
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            keyPressed = true;
+        }
         
         // Launch glove on left click
-        if (Input.GetMouseButtonDown(0))
+        if (keyPressed && Input.GetKeyUp(KeyCode.LeftShift))
         {
             LaunchGlove();
+            gameObject.GetComponent<AimingCopy>().enabled = false;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            keyPressed =false;
         }
         
     }
@@ -54,17 +68,19 @@ public class PlayerAbilities2Copy : MonoBehaviour
     void LaunchGlove()
     {
         // Ensure only one glove is active
-        if (currentGlove != null)
-        {
-            Destroy(currentGlove);
-        }
+        //if (gloves.Count > 3)
+        //{
+        //    Debug.Log("gloves.Count = " + gloves.Count);    
+        //    Destroy(gloves.First());
+        //    gloves.RemoveAt(0);
+        //}
 
         //if (crosshairsInstance == null) return;
         Vector2 targetPosition = transform.parent.position;
 
         // Instantiate the deflated glove at player's position, using its preset rotation
         currentGlove = Instantiate(deflatedGlovePrefab, transform.position, deflatedGlovePrefab.transform.rotation);
-
+        gloves.Add(currentGlove);
         // Set the glove's velocity
         Rigidbody2D rb = currentGlove.GetComponent<Rigidbody2D>();
         if (rb != null)

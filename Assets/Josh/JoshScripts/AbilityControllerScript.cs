@@ -44,49 +44,65 @@ public class AbilityControllerScript : MonoBehaviour
         TurnEverythingOffBut(0);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void DashOn()
     {
-        if (!abilityLock)
+        // Turn Everything But Dash Off
+        TurnEverythingOffBut(1);
+
+        // Dash Active
+        dash.SetDashOn(true);
+        abilityIndicator1.SetActive(true);
+    }
+
+    private void GrappleOn()
+    {
+        // Turn Everything But Grapple Off
+        TurnEverythingOffBut(2);
+
+        // Grapple Active
+        grapple.SetActive(true);
+        abilityIndicator2.SetActive(true);
+    }
+
+    private void HighJumpParaOn()
+    {
+        // Turn Everything But High Jump Off
+        TurnEverythingOffBut(3);
+
+        // High Jump Active
+        highJumpParachute.SetActive(true);
+        abilityIndicator3.SetActive(true);
+    }
+
+    private void BouncePadOn()
+    {
+        // Turn Everything But Bounce Pad Off
+        TurnEverythingOffBut(4);
+
+        // Bounce Pad Active
+        bouncePad.SetActive(true);
+        abilityIndicator4.SetActive(true);
+    }
+
+        // Update is called once per frame
+    void Update()
+    {  
+        if (Input.GetKeyDown(KeyCode.Alpha1) && dashAvail==1)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                // Turn Everything But Dash Off
-                TurnEverythingOffBut(1);
-
-                // Dash Active
-                dash.SetDashOn(true);
-                abilityIndicator1.SetActive(true);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                // Turn Everything But Grapple Off
-                TurnEverythingOffBut(2);
-
-                // Grapple Active
-                grapple.SetActive(true);
-                abilityIndicator2.SetActive(true);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                // Turn Everything But High Jump Off
-                TurnEverythingOffBut(3);
-
-                // High Jump Active
-                highJumpParachute.SetActive(true);
-                abilityIndicator3.SetActive(true);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                // Turn Everything But Bounce Pad Off
-                TurnEverythingOffBut(4);
-
-                // Bounce Pad Active
-                bouncePad.SetActive(true);
-                abilityIndicator4.SetActive(true);
-            }
+            DashOn();
         }
-
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && grapplingHookAvail==1)
+        {
+            GrappleOn();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && highJumpParaAvail==1)
+        {
+            HighJumpParaOn();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4) && bouncePadAvail==1)
+        {
+            BouncePadOn();
+        }
     }
 
     public void TurnEverythingOffBut(int except)
@@ -97,6 +113,7 @@ public class AbilityControllerScript : MonoBehaviour
                 dash.SetDashOn(false);
                 abilityIndicator1.SetActive(false);
 
+                //grapple.GetComponent<StiffGrapple>().Reset();
                 grapple.SetActive(false);
                 abilityIndicator2.SetActive(false);
 
@@ -170,8 +187,52 @@ public class AbilityControllerScript : MonoBehaviour
         }
     }
 
-    public void LockAbilties(bool b)
+    public void LockAllBut(int keep)
     {
-        abilityLock = b;
+        Debug.Log("Locking");
+        abilityLock = !abilityLock;
+        switch (keep)
+        {
+            case 0:
+                dashAvail = 1;
+                grapplingHookAvail = 1;
+                highJumpParaAvail = 1;
+                bouncePadAvail = 1;
+                break;
+            case 1:
+                grapplingHookAvail = 0;
+                highJumpParaAvail = 0;
+                bouncePadAvail = 0;
+
+                DashOn();
+
+                break;
+            case 2:
+                dashAvail = 0;
+                highJumpParaAvail = 0;
+                bouncePadAvail = 0;
+
+                GrappleOn();
+
+                break;
+            case 3:
+                dashAvail = 0;
+                grapplingHookAvail = 0;
+                bouncePadAvail = 0;
+
+                HighJumpParaOn();
+
+                break;
+            case 4:
+                dashAvail = 0;
+                grapplingHookAvail = 0;
+                bouncePadAvail = 0;
+
+                BouncePadOn();
+
+                break;
+        }
     }
+
+    public bool IsLocked() => abilityLock;
 }

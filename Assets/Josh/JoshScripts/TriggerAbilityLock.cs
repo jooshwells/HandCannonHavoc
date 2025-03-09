@@ -5,10 +5,20 @@ using UnityEngine;
 public class TriggerAbilityLock : MonoBehaviour
 {
     private GameObject player;
+    private AbilityControllerScript ac;
+    [SerializeField] private enum Selection
+    {
+        Dash = 1,
+        Grapple = 2,
+        HighJump_Para = 3,
+        Bounce_Pad = 4
+    }
+    [SerializeField] private Selection selection;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player Variant");
+        ac = player.GetComponentInChildren<AbilityControllerScript>();
     }
 
     // Update is called once per frame
@@ -21,7 +31,16 @@ public class TriggerAbilityLock : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            player.GetComponentInChildren<AbilityControllerScript>().TurnEverythingOffBut(4);
+            Debug.Log("Selection was " + (int)selection);
+            ac.TurnEverythingOffBut((int)selection);
+            if (!ac.IsLocked())
+            {
+                ac.LockAllBut((int)selection);
+            } else
+            {
+                ac.LockAllBut(0);
+            }
+
         }
     }
 }

@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Tilemaps;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 public class GloveController : MonoBehaviour
 {
     private Vector2 targetPosition;
@@ -14,6 +16,7 @@ public class GloveController : MonoBehaviour
     private static GameObject currentFinalGlove;
     private Vector2 startPosition;
 
+    private static List<GameObject> gloves = new List<GameObject>();
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -100,13 +103,15 @@ public class GloveController : MonoBehaviour
     void SpawnFinalGlove()
     {
         Debug.Log("Attempting to spawn final glove...");
-
         // Destroy old final glove if it exists before spawning the new one
-        if (currentFinalGlove != null)
+        if (gloves.Count >= 3)
         {
-            Debug.Log("Destroying old final glove before spawning a new one.");
-            Destroy(currentFinalGlove);
-            currentFinalGlove = null;
+            if (gloves[0] != null)
+            {
+                Debug.Log("Destroying old final glove before spawning a new one: " + gloves[0].name);
+                Destroy(gloves[0]);  // Destroy the GameObject
+            }
+            gloves.RemoveAt(0); // Remove reference from the list
         }
 
         // Spawn the final glove prefab at a slightly adjusted position
@@ -114,6 +119,7 @@ public class GloveController : MonoBehaviour
         {
             Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + 0.3f);
             currentFinalGlove = Instantiate(finalGlovePrefab, spawnPosition, Quaternion.Euler(0, 0, 270));
+            gloves.Add(currentFinalGlove);
             Debug.Log("New final glove spawned.");
         }
         else
