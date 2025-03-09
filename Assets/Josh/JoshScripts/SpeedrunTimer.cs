@@ -4,6 +4,7 @@ using TMPro;
 public class SpeedrunTimer : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI bestTime;
     private float elapsedTime;
     private bool isRunning = false;
 
@@ -15,7 +16,12 @@ public class SpeedrunTimer : MonoBehaviour
     void Start()
     {
         ResetTimer();
-        //StartTimer();
+
+        float best = PlayerPrefs.GetFloat("BestTime", 0f); // Load best time
+        if (best > 0)
+        {
+            UpdateBestTimerDisplay(best); // Pass best time instead of elapsedTime
+        }
     }
 
     void Update()
@@ -27,12 +33,25 @@ public class SpeedrunTimer : MonoBehaviour
         }
     }
 
-    void UpdateTimerDisplay()
+    public float GetTime()
+    {
+        return elapsedTime;
+    }
+
+    public void UpdateTimerDisplay()
     {
         int minutes = Mathf.FloorToInt(elapsedTime / 60);
         int seconds = Mathf.FloorToInt(elapsedTime % 60);
         int milliseconds = Mathf.FloorToInt((elapsedTime * 100) % 100);
         timerText.text = $"{minutes:00}:{seconds:00}.{milliseconds:00}";
+    }
+
+    public void UpdateBestTimerDisplay(float elTime)
+    {
+        int minutes = Mathf.FloorToInt(elTime / 60);
+        int seconds = Mathf.FloorToInt(elTime % 60);
+        int milliseconds = Mathf.FloorToInt((elTime * 100) % 100);
+        bestTime.text = $"{minutes:00}:{seconds:00}.{milliseconds:00}";
     }
 
     public void StartTimer() => isRunning = true;

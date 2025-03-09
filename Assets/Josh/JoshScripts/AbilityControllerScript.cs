@@ -30,6 +30,8 @@ public class AbilityControllerScript : MonoBehaviour
     private bool dashOn = false;
 
     private bool abilityLock = false;
+    private bool first = false;
+    private int lastAbil = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -113,7 +115,6 @@ public class AbilityControllerScript : MonoBehaviour
                 dash.SetDashOn(false);
                 abilityIndicator1.SetActive(false);
 
-                //grapple.GetComponent<StiffGrapple>().Reset();
                 grapple.SetActive(false);
                 abilityIndicator2.SetActive(false);
 
@@ -124,8 +125,12 @@ public class AbilityControllerScript : MonoBehaviour
                 abilityIndicator4.SetActive(false);
 
                 break;
-            case 1:
-                Debug.Log("Dash On");
+            case 1: // dash
+                //Debug.Log("LastAbil = " + lastAbil);
+                if (lastAbil == 0) lastAbil = 1;
+                if (!first) first = true;
+
+                if (lastAbil == 2) grapple.GetComponent<StiffGrapple>().Reset();
 
                 grapple.SetActive(false);
                 abilityIndicator2.SetActive(false);
@@ -135,10 +140,25 @@ public class AbilityControllerScript : MonoBehaviour
 
                 bouncePad.SetActive(false);
                 abilityIndicator4.SetActive(false);
+                lastAbil = 1;
 
                 break;
-            case 2:
-                Debug.Log("Grapple On");
+            case 2: // grapple
+                //Debug.Log("LastAbil = " + lastAbil);
+                if (lastAbil == 0) lastAbil = 2;
+
+                //if (first)
+                //{
+                //    Debug.Log("trying reset");
+                //    grapple.GetComponent<StiffGrapple>().Reset();
+                //    //first = true;
+                //} else
+                //{
+                //    first = true;
+                //    grapple.GetComponent<StiffGrapple>().Reset();
+
+                //}
+                //grapple.GetComponent<AimingCopy>().Freeze();
 
                 dash.SetDashOn(false);
                 abilityIndicator1.SetActive(false);
@@ -148,10 +168,17 @@ public class AbilityControllerScript : MonoBehaviour
 
                 bouncePad.SetActive(false);
                 abilityIndicator4.SetActive(false);
+                lastAbil = 2;
+
 
                 break;
-            case 3:
-                Debug.Log("High Jump On");
+            case 3: // high jump
+                //Debug.Log("LastAbil = " + lastAbil);
+                if (lastAbil == 0) lastAbil = 3;
+                if (!first) first = true;
+
+                if (lastAbil == 2) grapple.GetComponent<StiffGrapple>().Reset();
+
 
                 grapple.SetActive(false);
                 abilityIndicator2.SetActive(false);
@@ -161,10 +188,15 @@ public class AbilityControllerScript : MonoBehaviour
 
                 bouncePad.SetActive(false);
                 abilityIndicator4.SetActive(false);
-
+                lastAbil = 3;
                 break;
-            case 4:
-                Debug.Log("Bounce Pad On");
+            case 4: // bounce pad
+                //Debug.Log("LastAbil = " + lastAbil);
+                if (lastAbil == 0) lastAbil = 4;
+                if (!first) first = true;
+
+                if(lastAbil == 2)grapple.GetComponent<StiffGrapple>().Reset();
+
 
                 dash.SetDashOn(false);
                 abilityIndicator1.SetActive(false);
@@ -174,7 +206,7 @@ public class AbilityControllerScript : MonoBehaviour
 
                 grapple.SetActive(false);
                 abilityIndicator2.SetActive(false);
-
+                lastAbil = 4;
                 break;
         }
     }
@@ -189,7 +221,7 @@ public class AbilityControllerScript : MonoBehaviour
 
     public void LockAllBut(int keep)
     {
-        Debug.Log("Locking");
+        //Debug.Log("Locking");
         abilityLock = !abilityLock;
         switch (keep)
         {
@@ -226,7 +258,7 @@ public class AbilityControllerScript : MonoBehaviour
             case 4:
                 dashAvail = 0;
                 grapplingHookAvail = 0;
-                bouncePadAvail = 0;
+                highJumpParaAvail = 0;
 
                 BouncePadOn();
 

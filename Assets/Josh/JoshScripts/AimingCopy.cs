@@ -14,7 +14,7 @@ public class AimingCopy : MonoBehaviour
     {
         frozen = true;
     }
-
+    public bool IsFrozen() => frozen;
     public void UnFreeze()
     {
         frozen = !frozen;

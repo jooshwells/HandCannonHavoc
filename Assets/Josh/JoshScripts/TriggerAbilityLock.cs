@@ -8,6 +8,7 @@ public class TriggerAbilityLock : MonoBehaviour
     private AbilityControllerScript ac;
     [SerializeField] private enum Selection
     {
+        None = 0,
         Dash = 1,
         Grapple = 2,
         HighJump_Para = 3,
@@ -31,7 +32,7 @@ public class TriggerAbilityLock : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            Debug.Log("Selection was " + (int)selection);
+            //Debug.Log("Selection was " + (int)selection);
             ac.TurnEverythingOffBut((int)selection);
             if (!ac.IsLocked())
             {
