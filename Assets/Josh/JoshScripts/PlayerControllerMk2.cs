@@ -29,8 +29,8 @@ public class PlayerControllerMk2 : MonoBehaviour
     [SerializeField] private float jumpPower = 16f;
     [SerializeField] private float speed = 8f;
     [SerializeField] private float wallSlidingSpeed = 2f;
-    [SerializeField] private float accel = 0.01f;
-    [SerializeField] private float decel = 4f;
+    [SerializeField] private float accel = 32.5f;
+    [SerializeField] private float decel = 25f;
     
     // Wall Stuff
     private bool wallSliding = false;

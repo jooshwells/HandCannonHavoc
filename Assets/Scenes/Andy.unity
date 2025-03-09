@@ -588,7 +588,7 @@ MonoBehaviour:
   jumpPower: 16
   speed: 8
   wallSlidingSpeed: 2
-  accel: 32.5
+  accel: 20
   decel: 4
   invulnerabilityTime: 0
   jump: {fileID: 8300000, guid: 34cab872b8998b348ad4421a27bdfd85, type: 3}
