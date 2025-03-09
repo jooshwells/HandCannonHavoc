@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7305338362981299622}
   - component: {fileID: 5911940891946403976}
   m_Layer: 11
-  m_Name: duck bullet
+  m_Name: shotgun pellet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a27f777879b49fd4ca8e138244ca7303, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 061c9524ef4207248bb14ad75a48950f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -146,9 +146,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0022756457, y: 0}
-  m_Size: {x: 0.2445513, y: 0.2445513}
-  m_Direction: 1
+  m_Offset: {x: -0.0045514107, y: -0.0042984486}
+  m_Size: {x: 0.14391804, y: 0.14846945}
+  m_Direction: 0
 --- !u!114 &5911940891946403976
 MonoBehaviour:
   m_ObjectHideFlags: 0

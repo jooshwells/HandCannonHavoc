@@ -11,6 +11,8 @@ public class Shoot : MonoBehaviour
     [SerializeField] GameObject reloadSprite;
 
     [SerializeField] Transform gunPos;
+    [SerializeField] Transform gunBarrel;
+
     [SerializeField] float bulletSpeed = 10f;
     [SerializeField] float bulletDuration = 1f;
     [SerializeField] float fireRate = .5f;
@@ -54,14 +56,12 @@ public class Shoot : MonoBehaviour
         if(currentAmmo <=0) return;
         currentAmmo--;
 
-        Transform barrel = gunPos.GetChild(0);
-        Vector3 barrelPosition = barrel.position;
 
-        GameObject bullet = Instantiate(bulletSprite, barrel.position, gunPos.rotation);    
+        GameObject bullet = Instantiate(bulletSprite, gunBarrel.position, gunPos.rotation);    
         SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
         if (bulletRenderer != null)
         {
-        bulletRenderer.enabled = true; // Make the bullet visible
+            bulletRenderer.enabled = true; // Make the bullet visible
         }
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.SetInstantiator(gameObject);

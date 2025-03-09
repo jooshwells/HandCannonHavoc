@@ -9,6 +9,8 @@ public class Shotgun : MonoBehaviour
     [SerializeField] GameObject reloadSprite;
 
     [SerializeField] Transform gunPos;
+    [SerializeField] Transform gunBarrel;
+
     [SerializeField] float bulletSpeed = 10f;
     [SerializeField] float bulletDuration = 1f;
     [SerializeField] float fireRate = .5f;
@@ -58,41 +60,83 @@ public class Shotgun : MonoBehaviour
             nextBullet = Time.time +fireRate;
         }
     }
+    // void shoot()
+    // {
+    //     if(currentAmmo <=0) return;
+    //     currentAmmo--;
+
+    //     Transform barrel = gunPos.GetChild(0);
+    //     Vector3 barrelPosition = barrel.position;
+
+    //     GameObject bullet = Instantiate(bulletSprite, barrel.position, gunPos.rotation);
+    //     SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
+    //     if (bulletRenderer != null)
+    //     {
+    //     bulletRenderer.enabled = true; // Make the bullet visible
+    //     }
+    //     Bullet bulletScript = bullet.GetComponent<Bullet>();
+    //     bulletScript.SetInstantiator(gameObject);
+    //     bulletScript.SetAttackDamage(attackDamage);
+
+
+    //     Vector2 direction = (gunPos.right).normalized;
+
+    //     // deal with gun firing inwards
+    //     if(gunPos.localScale.x <0) 
+    //     {
+    //         direction = -(gunPos.right).normalized;
+    //     }
+
+    //     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+    //     rb.velocity = direction * bulletSpeed;
+    //     flip(direction, bulletRenderer);
+    //     Destroy(bullet, bulletDuration);
+    //     Recoil(direction);
+
+    // }
     void shoot()
+{
+    if(currentAmmo <= 0) return;
+    currentAmmo--;
+
+
+    // loop to shoot pellets
+    for (int i = 0; i < pellets; i++)
     {
-        if(currentAmmo <=0) return;
-        currentAmmo--;
+        // spread calculations
+        float spreadStep = spreadAngle / pellets; // even spread
+        float spread = spreadStep * (i - (pellets - 1) / 2f); // offset by index of i
+        Vector2 direction = (gunPos.right).normalized;
 
-        Transform barrel = gunPos.GetChild(0);
-        Vector3 barrelPosition = barrel.position;
+        // hanlde firing inwards issues
+        if(gunPos.localScale.x < 0)
+        {
+            direction = -(gunPos.right).normalized;
+        }
 
-        GameObject bullet = Instantiate(bulletSprite, barrel.position, gunPos.rotation);
+        // apply spread
+        direction = Quaternion.Euler(0, 0, spread) * direction;
+
+        // instantiate bullet 
+        GameObject bullet = Instantiate(bulletSprite, gunBarrel.position, gunPos.rotation);
         SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
         if (bulletRenderer != null)
         {
-        bulletRenderer.enabled = true; // Make the bullet visible
+            bulletRenderer.enabled = true; 
         }
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.SetInstantiator(gameObject);
         bulletScript.SetAttackDamage(attackDamage);
 
-
-        Vector2 direction = (gunPos.right).normalized;
-
-        // deal with gun firing inwards
-        if(gunPos.localScale.x <0) 
-        {
-            direction = -(gunPos.right).normalized;
-        }
-
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-
         rb.velocity = direction * bulletSpeed;
         flip(direction, bulletRenderer);
         Destroy(bullet, bulletDuration);
-        Recoil(direction);
-
+        
+        if(i==0) Recoil(direction); // apply recoil only once
     }
+}
     
     // spagetthi code for handling weird sprite flipping
     void flip(Vector2 dir, SpriteRenderer bullet)

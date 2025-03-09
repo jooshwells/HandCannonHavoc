@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bounce : MonoBehaviour
 {
     private GameObject instantiator;
     private float attackDamage;
     private int ricochetCount = 2;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -55,10 +56,37 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject); // destroy the bullet
         }
 
-        else if (!(collision.CompareTag(instantiator.tag))) {
+        else if (!(collision.CompareTag(instantiator.tag))) 
+        {
             {
-                Destroy(gameObject);
+                if (ricochetCount > 0)
+            {
+                Ricochet(collision); 
             }
+            else
+            {
+                Destroy(gameObject); 
+            }
+            }  
         }
+    }
+    // private void Ricochet(Collider2D collision)
+    // {
+    //     // Reflect the velocity based on the collision normal (surface hit)
+    //     //Vector2 reflection = Vector2.Reflect(rb.velocity, collision.contacts[0].normal);
+    //    // rb.velocity = reflection.normalized * rb.velocity.magnitude; // Maintain the bullet's speed but change direction
+
+    //     ricochetCount--;
+    // }
+    private void Ricochet(Collider2D collision)
+    {
+        // Calculate the surface normal by using the direction from the bullet to the collider
+        Vector2 normal = (collision.transform.position - transform.position).normalized;
+
+        // Reflect the velocity based on the normal of the collision surface
+        Vector2 reflection = Vector2.Reflect(rb.velocity, normal);
+        rb.velocity = reflection.normalized * rb.velocity.magnitude; // Reflect the velocity while maintaining speed
+
+        ricochetCount--; // Decrease the ricochet count
     }
 }

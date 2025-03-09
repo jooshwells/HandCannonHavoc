@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 7315944338089033245}
   - component: {fileID: -7305338362981299622}
   - component: {fileID: 5911940891946403976}
+  - component: {fileID: 5129905823418056280}
   m_Layer: 11
-  m_Name: duck bullet
+  m_Name: bounce duck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a27f777879b49fd4ca8e138244ca7303, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.042452812, b: 0.068950795, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -156,8 +157,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433166739629266115}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0215956757957e64589ce8fde688fd92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5129905823418056280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433166739629266115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c95e1e0e829764d882fa70bf9563f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
