@@ -7,10 +7,15 @@ public class SpeedrunTimer : MonoBehaviour
     private float elapsedTime;
     private bool isRunning = false;
 
+    public bool IsRunning()
+    {
+        return isRunning;
+    }
+
     void Start()
     {
         ResetTimer();
-        StartTimer();
+        //StartTimer();
     }
 
     void Update()
