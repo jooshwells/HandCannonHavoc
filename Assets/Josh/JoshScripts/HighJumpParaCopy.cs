@@ -127,7 +127,7 @@ public class HighJumpParaCopy : MonoBehaviour
         }
         if (isHighJumping())
         {
-            rb.velocity = new Vector2((rb.velocity.x) / 4, rb.velocity.y); // jump almost straight up | need fix, or remove.
+            //rb.velocity = new Vector2((rb.velocity.x) / 4, rb.velocity.y); // jump almost straight up | need fix, or remove.
             if (isFalling()) //activate parachute
             {
                 highJumping = false;

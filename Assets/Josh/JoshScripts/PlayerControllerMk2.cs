@@ -342,7 +342,7 @@ public class PlayerControllerMk2 : MonoBehaviour
             ApplyMovement();
         }
 
-        // Instead of waiting for IsGrounded(), reset `justGrappled` once falling again
+        
         if (justGrappled && rb.velocity.y <= 0)
         {
             justGrappled = false;
