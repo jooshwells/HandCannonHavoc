@@ -54,8 +54,10 @@ public class Shoot : MonoBehaviour
         if(currentAmmo <=0) return;
         currentAmmo--;
 
+        Transform barrel = gunPos.GetChild(0);
+        Vector3 barrelPosition = barrel.position;
 
-        GameObject bullet = Instantiate(bulletSprite, gunPos.position, gunPos.rotation);
+        GameObject bullet = Instantiate(bulletSprite, barrel.position, gunPos.rotation);    
         SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
         if (bulletRenderer != null)
         {

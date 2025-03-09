@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Shotgun : MonoBehaviour
 {
-
-
     [SerializeField] GameObject bulletSprite;
     [SerializeField] GameObject reloadSprite;
 
@@ -65,8 +63,10 @@ public class Shotgun : MonoBehaviour
         if(currentAmmo <=0) return;
         currentAmmo--;
 
+        Transform barrel = gunPos.GetChild(0);
+        Vector3 barrelPosition = barrel.position;
 
-        GameObject bullet = Instantiate(bulletSprite, gunPos.position, gunPos.rotation);
+        GameObject bullet = Instantiate(bulletSprite, barrel.position, gunPos.rotation);
         SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
         if (bulletRenderer != null)
         {
@@ -131,8 +131,10 @@ public class Shotgun : MonoBehaviour
     }
     void Recoil(Vector2 shotDirection)
     {
-        Debug.Log("Applying recoil.");
-        playerRb.AddForce(-shotDirection * recoil, ForceMode2D.Impulse);
+        float horizontalRecoil = -shotDirection.x * recoil *.6f;
+        float verticalRecoil = -shotDirection.y * recoil;
+
+        playerRb.AddForce(new Vector2(horizontalRecoil,verticalRecoil), ForceMode2D.Impulse);
     
     }
 }
