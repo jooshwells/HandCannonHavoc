@@ -24,9 +24,17 @@ public class FlagScript : MonoBehaviour
             if (!tc.IsRunning())
             {
                 tc.StartTimer();
-            } else
+            }
+            else
             {
                 tc.StopTimer();
+                float currentBestTime = PlayerPrefs.GetFloat("BestTime", float.MaxValue); // Use float.MaxValue to ensure first run works
+                if (tc.GetTime() < currentBestTime)
+                {
+                    PlayerPrefs.SetFloat("BestTime", tc.GetTime());
+                    PlayerPrefs.Save(); // Ensure it gets stored permanently
+                    GameObject.Find("TimerController").GetComponent<SpeedrunTimer>().UpdateBestTimerDisplay(PlayerPrefs.GetFloat("BestTime", 0f));
+                }
             }
         }
     }

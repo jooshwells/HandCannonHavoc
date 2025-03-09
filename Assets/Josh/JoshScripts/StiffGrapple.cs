@@ -83,11 +83,14 @@ public class StiffGrapple : MonoBehaviour
 
     public void Reset()
     {
-        Debug.Log("trying to reset");
-        gameObject.GetComponent<LineRenderer>().enabled = false;
-        transform.parent.GetComponent<DistanceJoint2D>().enabled = false;
-        grappling = false;
-        transform.parent.GetComponent<PlayerControllerMk2>().SetGrapple(false);
+        //Debug.Log("trying to reset");
+        GetComponent<LineRenderer>().enabled = false;
+        transform.parent.gameObject.GetComponent<DistanceJoint2D>().enabled = false;
+        if(GetComponent<AimingCopy>().IsFrozen()) GetComponent<AimingCopy>().UnFreeze();
+        if(grappling == true) grappling = false;
+        GetComponentInParent<SwingyScript>().enabled = false;
+
+        transform.parent.GetComponent<PlayerControllerMk2>().AbilControlResetGrapple();
     }
 
 }

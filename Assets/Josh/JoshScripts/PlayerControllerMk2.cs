@@ -198,6 +198,12 @@ public class PlayerControllerMk2 : MonoBehaviour
         }
     }
 
+    public void AbilControlResetGrapple()
+    {
+        justGrappled = false;
+        grappling = false;
+    }
+
     public void SetGrapple(bool newG)
     {
         if (!newG) // When detaching from the grapple
