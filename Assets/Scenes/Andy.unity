@@ -396,7 +396,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688852972}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688852972}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56ba1eb73365a3f47ad067ba70e94efe, type: 3}
   m_Name: 
@@ -572,7 +572,7 @@ MonoBehaviour:
   reloadSpeed: 2
   pellets: 5
   spreadAngle: 30
-  recoil: 50
+  recoil: 15
 --- !u!114 &688853005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,7 +588,7 @@ MonoBehaviour:
   jumpPower: 16
   speed: 8
   wallSlidingSpeed: 2
-  accel: 0.01
+  accel: 32.5
   decel: 4
   invulnerabilityTime: 0
   jump: {fileID: 8300000, guid: 34cab872b8998b348ad4421a27bdfd85, type: 3}
@@ -608,8 +608,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0
+  m_Pitch: -2.75
   Loop: 0
   Mute: 0
   Spatialize: 0
