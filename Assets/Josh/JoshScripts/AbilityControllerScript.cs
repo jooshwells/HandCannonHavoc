@@ -29,6 +29,8 @@ public class AbilityControllerScript : MonoBehaviour
     private bool bouncePadOn = false;
     private bool dashOn = false;
 
+    private bool abilityLock = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,46 +47,49 @@ public class AbilityControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (!abilityLock)
         {
-            // Turn Everything But Dash Off
-            TurnEverythingOffBut(1);
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                // Turn Everything But Dash Off
+                TurnEverythingOffBut(1);
 
-            // Dash Active
-            dash.SetDashOn(true);
-            abilityIndicator1.SetActive(true);
-        } 
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            // Turn Everything But Grapple Off
-            TurnEverythingOffBut(2);
+                // Dash Active
+                dash.SetDashOn(true);
+                abilityIndicator1.SetActive(true);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                // Turn Everything But Grapple Off
+                TurnEverythingOffBut(2);
 
-            // Grapple Active
-            grapple.SetActive(true);
-            abilityIndicator2.SetActive(true);
-        } 
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            // Turn Everything But High Jump Off
-            TurnEverythingOffBut(3);
+                // Grapple Active
+                grapple.SetActive(true);
+                abilityIndicator2.SetActive(true);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                // Turn Everything But High Jump Off
+                TurnEverythingOffBut(3);
 
-            // High Jump Active
-            highJumpParachute.SetActive(true);
-            abilityIndicator3.SetActive(true);
-        } 
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            // Turn Everything But Bounce Pad Off
-            TurnEverythingOffBut(4);
+                // High Jump Active
+                highJumpParachute.SetActive(true);
+                abilityIndicator3.SetActive(true);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                // Turn Everything But Bounce Pad Off
+                TurnEverythingOffBut(4);
 
-            // Bounce Pad Active
-            bouncePad.SetActive(true);
-            abilityIndicator4.SetActive(true);
+                // Bounce Pad Active
+                bouncePad.SetActive(true);
+                abilityIndicator4.SetActive(true);
+            }
         }
 
     }
 
-    private void TurnEverythingOffBut(int except)
+    public void TurnEverythingOffBut(int except)
     {
         switch (except)
         {
@@ -163,5 +168,10 @@ public class AbilityControllerScript : MonoBehaviour
         {
             grapplingHookAvail = 1;
         }
+    }
+
+    public void LockAbilties(bool b)
+    {
+        abilityLock = b;
     }
 }
