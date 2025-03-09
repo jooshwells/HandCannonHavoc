@@ -36,10 +36,9 @@ public class HighJumpParaCopy : MonoBehaviour
     [SerializeField] private SpriteRenderer render;
     [SerializeField] private SpriteRenderer render2;
 
-    [SerializeField] private Sprite[] frames;
-    [SerializeField] private Sprite[] frames2;
-    [SerializeField] private Sprite[] framesBoost;
-    [SerializeField] private Sprite[] frames2Boost;
+    //public Sprite[] frames;
+    public Sprite[] framesParachute;
+    public Sprite[] framesBoost;
 
 
     // Start is called before the first frame update
@@ -63,23 +62,23 @@ public class HighJumpParaCopy : MonoBehaviour
         }
 
         //smooth open
-        
-        //if (spriteOpeningParachute && spriteFrame < 14*10 +1)
-        //{
-        //    render.sprite = frames[spriteFrame/10];
-        //    spriteFrame++;
-        //}
-        
+        /*
+        if (spriteOpening && spriteFrame < 14*10 +1)
+        {
+            render.sprite = frames[spriteFrame/10];
+            spriteFrame++;
+        }
+        */
 
         if (spriteOpeningParachute && spriteFrame < 7 * 15 + 1)
         {
-            render.sprite = frames2[spriteFrame / 15];
+            render.sprite = framesParachute[spriteFrame / 15];
             spriteFrame++;
         }
 
         if (spriteClosingParachute && spriteFrame > 0)
         {
-            render.sprite = frames2[spriteFrame / 15];
+            render.sprite = framesParachute[spriteFrame / 15];
             spriteFrame--;
         }
 
@@ -89,17 +88,23 @@ public class HighJumpParaCopy : MonoBehaviour
             sprParachute.SetActive(false);
         }
 
-        if (spriteOpeningBoost && spriteFrameBoost < 11 * 100 + 1)
+
+
+        if (spriteOpeningBoost && spriteFrameBoost < 6 * 20 + 1)
         {
-            render2.sprite = frames2Boost[spriteFrameBoost / 100];
+            render2.sprite = framesBoost[spriteFrameBoost / 20];
             spriteFrameBoost++;
         }
+        else
+        {
+            closeSpriteBoost();
+        }
 
-        //if (spriteClosingBoost && spriteFrameBoost > 0)
-        //{
-        //    render2.sprite = frames2Boost[spriteFrameBoost / 100];
-        //    spriteFrameBoost--;
-        //}
+        if (spriteClosingBoost && spriteFrameBoost > 0)
+        {
+            render2.sprite = framesBoost[spriteFrameBoost / 20];
+            spriteFrameBoost--;
+        }
 
         if (spriteClosingBoost && spriteFrameBoost == 0)
         {
@@ -117,6 +122,8 @@ public class HighJumpParaCopy : MonoBehaviour
             {
                 if (!(player.IsOnWall())) // highjump
                 {
+                    if (!parachutingToggleable)
+                        openSpriteBoost();
                     //openSpriteBoost();
                     rb.velocity = new Vector2(rb.velocity.x, player.GetJumpPower() * jumpScale);
                     cooldown.enable();
@@ -213,6 +220,7 @@ public class HighJumpParaCopy : MonoBehaviour
 
     public void openSpriteBoost()
     {
+        sprBoost.transform.position = player.transform.position;
         sprBoost.SetActive(true);
         spriteOpeningBoost = true;
         spriteClosingBoost = false;
@@ -222,5 +230,6 @@ public class HighJumpParaCopy : MonoBehaviour
     {
         spriteOpeningBoost = false;
         spriteClosingBoost = true;
+        sprBoost.SetActive(false);
     }
 }

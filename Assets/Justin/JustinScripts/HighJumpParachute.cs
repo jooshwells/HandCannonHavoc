@@ -36,17 +36,15 @@ public class HighJumpParachute : MonoBehaviour
     public SpriteRenderer render;
     public SpriteRenderer render2;
 
-    public Sprite[] frames;
-    public Sprite[] frames2;
+  //public Sprite[] frames;
+    public Sprite[] framesParachute;
     public Sprite[] framesBoost;
-    public Sprite[] frames2Boost;
-
 
     // Start is called before the first frame update
     void Start()
     {
         cooldown = GetComponent<genCooldown>();
-        cooldown.setCooldown(3f);
+        cooldown.setCooldown(2f);
         //player = GetComponent<PlayerController>();
         player = GetComponent<copyController>();
         rb = GetComponent<Rigidbody2D>();
@@ -73,13 +71,13 @@ public class HighJumpParachute : MonoBehaviour
 
         if (spriteOpeningParachute && spriteFrame < 7 * 15 + 1)
         {
-            render.sprite = frames2[spriteFrame / 15];
+            render.sprite = framesParachute[spriteFrame / 15];
             spriteFrame++;
         }
 
         if (spriteClosingParachute && spriteFrame > 0)
         {
-            render.sprite = frames2[spriteFrame/15];
+            render.sprite = framesParachute[spriteFrame/15];
             spriteFrame--;
         }
 
@@ -91,10 +89,9 @@ public class HighJumpParachute : MonoBehaviour
 
 
 
-
-        if (spriteOpeningBoost && spriteFrameBoost < 7 * 20 + 1)
+        if (spriteOpeningBoost && spriteFrameBoost < 6 * 20 + 1)
         {
-            render2.sprite = frames2Boost[spriteFrameBoost / 20];
+            render2.sprite = framesBoost[spriteFrameBoost / 20];
             spriteFrameBoost++;
         }
         else
@@ -104,7 +101,7 @@ public class HighJumpParachute : MonoBehaviour
 
         if (spriteClosingBoost && spriteFrameBoost > 0)
         {
-            render2.sprite = frames2Boost[spriteFrameBoost / 20];
+            render2.sprite = framesBoost[spriteFrameBoost / 20];
             spriteFrameBoost--;
         }
 
@@ -114,10 +111,8 @@ public class HighJumpParachute : MonoBehaviour
             sprBoost.SetActive(false);
         }
 
-
-
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !onCooldown() && !isParachuting()) {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !onCooldown() && !isParachuting()) 
+        {
             if (cooldown.isActive())
             {
                 // message player "ability on cooldown" or something
