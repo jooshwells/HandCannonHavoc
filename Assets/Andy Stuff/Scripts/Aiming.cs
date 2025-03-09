@@ -102,13 +102,13 @@ public class Aiming : MonoBehaviour
             //transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z));
             if(angle<-90 && angle>-180 || angle<180 && angle >90)
             {
-                transform.localScale = new Vector3(-1*Mathf.Abs(transform.localScale.x), Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z)); // Normal scale
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z)); // Normal scale
             }
             else
             {
-                transform.localScale = new Vector3(-1*Mathf.Abs(transform.localScale.x), -1*Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z)); // Flip vertically
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), -1*Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z)); // Flip vertically
             }
-        }     
+        }
     }
 }
 

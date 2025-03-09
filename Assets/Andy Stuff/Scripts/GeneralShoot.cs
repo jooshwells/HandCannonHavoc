@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Shotgun : MonoBehaviour
+public class GeneralShoot : MonoBehaviour 
 {
+
     private Transform player;
     [SerializeField] GameObject bulletSprite;
+
     [SerializeField] Transform gunPos;
     [SerializeField] Transform gunBarrel;
 
@@ -19,16 +21,8 @@ public class Shotgun : MonoBehaviour
 
     [SerializeField] int magSize = 10;
     [SerializeField] float reloadSpeed = 2f;
-    [SerializeField] int pellets = 5;
-    [SerializeField] float spreadAngle = 30;
-    [SerializeField] float recoil = 5f;
-
-
-
     private int currentAmmo;
     private bool isReloading = false;
-    private Rigidbody2D playerRb;
-
 
 
   
@@ -36,10 +30,8 @@ public class Shotgun : MonoBehaviour
     void Start()
     {
         currentAmmo = magSize;
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Bullets"), LayerMask.NameToLayer("Bullets")); // prevent bullet collision
         player =transform.parent.parent;
-        playerRb = transform.parent.parent.GetComponent<Rigidbody2D>();  //used for recoil
-
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Bullets"), LayerMask.NameToLayer("Bullets")); // prevent bullet collision
     }
     
     // Update is called once per frame
@@ -58,49 +50,37 @@ public class Shotgun : MonoBehaviour
             nextBullet = Time.time +fireRate;
         }
     }
-
     void shoot()
-{
-    if(currentAmmo <= 0) return;
-    currentAmmo--;
-
-
-    // loop to shoot pellets
-    for (int i = 0; i < pellets; i++)
     {
-        // spread calculations
-        float spreadStep = spreadAngle / pellets; // even spread
-        float spread = spreadStep * (i - (pellets - 1) / 2f); // offset by index of i
-        Vector2 direction = (gunPos.right).normalized;
+        if(currentAmmo <=0) return;
+        currentAmmo--;
 
-        // hanlde firing inwards issues
-        if(player.transform.localScale.x <0)
-        {
-            direction = -(gunPos.right).normalized;
-        }
 
-        // apply spread
-        direction = Quaternion.Euler(0, 0, spread) * direction;
-
-        // instantiate bullet 
-        GameObject bullet = Instantiate(bulletSprite, gunBarrel.position, gunPos.rotation);
+        GameObject bullet = Instantiate(bulletSprite, gunBarrel.position, gunPos.rotation);    
         SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
         if (bulletRenderer != null)
         {
-            bulletRenderer.enabled = true; 
+            bulletRenderer.enabled = true; // Make the bullet visible
         }
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.SetInstantiator(gameObject);
         bulletScript.SetAttackDamage(attackDamage);
 
+
+        Vector2 direction = (gunPos.right).normalized;
+
+        // deal with gun firing inwards
+        if(player.transform.localScale.x <0) 
+        {
+            direction = -(gunPos.right).normalized;
+        }
+
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
         rb.velocity = direction * bulletSpeed;
         flip(direction, bulletRenderer);
         Destroy(bullet, bulletDuration);
-        
-        if(i==0) Recoil(direction); // apply recoil only once
     }
-}
     
     // spagetthi code for handling weird sprite flipping
     void flip(Vector2 dir, SpriteRenderer bullet)
@@ -129,18 +109,12 @@ public class Shotgun : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
+    
 
         yield return new WaitForSeconds(reloadSpeed);
 
         currentAmmo = magSize;
         isReloading = false;
     }
-    void Recoil(Vector2 shotDirection)
-    {
-        float horizontalRecoil = -shotDirection.x * recoil *.6f;
-        float verticalRecoil = -shotDirection.y * recoil;
 
-        playerRb.AddForce(new Vector2(horizontalRecoil,verticalRecoil), ForceMode2D.Impulse);
-    
-    }
 }

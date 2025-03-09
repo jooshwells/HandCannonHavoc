@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour
+public class Pistol : MonoBehaviour 
 {
 
-
+    private Transform player;
     [SerializeField] GameObject bulletSprite;
-    [SerializeField] GameObject reloadSprite;
 
     [SerializeField] Transform gunPos;
     [SerializeField] Transform gunBarrel;
@@ -31,7 +30,7 @@ public class Shoot : MonoBehaviour
     void Start()
     {
         currentAmmo = magSize;
-        reloadSprite.SetActive(false);
+        player =transform.parent.parent;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Bullets"), LayerMask.NameToLayer("Bullets")); // prevent bullet collision
     }
     
@@ -71,7 +70,7 @@ public class Shoot : MonoBehaviour
         Vector2 direction = (gunPos.right).normalized;
 
         // deal with gun firing inwards
-        if(gunPos.localScale.x <0) 
+        if(player.transform.localScale.x <0) 
         {
             direction = -(gunPos.right).normalized;
         }
@@ -110,13 +109,12 @@ public class Shoot : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
-        reloadSprite.SetActive(true);
+    
 
         yield return new WaitForSeconds(reloadSpeed);
 
         currentAmmo = magSize;
         isReloading = false;
-        reloadSprite.SetActive(false);
     }
 
 }
