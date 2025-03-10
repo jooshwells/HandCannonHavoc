@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &85393587
 Transform:
   m_ObjectHideFlags: 0
@@ -167,6 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56362f44338304e4391282cfa98256d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  readyTime: 0
+  duration: 0
+  startTime: 0
+  timeRange: 0
+  progress: 0
   bar: {fileID: 1871356082}
 --- !u!114 &85393589
 MonoBehaviour:
@@ -119125,7 +119130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1871356081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -119135,14 +119140,14 @@ RectTransform:
   m_GameObject: {fileID: 1871356080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 50, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 668135052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -531.34, y: -257.28}
+  m_AnchoredPosition: {x: -464, y: -217}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1871356082
@@ -119182,7 +119187,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871356080}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!1 &1949592248
 GameObject:
   m_ObjectHideFlags: 0
