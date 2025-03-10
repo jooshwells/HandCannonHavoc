@@ -70,15 +70,15 @@ public class HighJumpParaCopy : MonoBehaviour
         }
         */
 
-        if (spriteOpeningParachute && spriteFrame < 7 * 15 + 1)
+        if (spriteOpeningParachute && spriteFrame < 7 * 10 + 1)
         {
-            render.sprite = framesParachute[spriteFrame / 15];
+            render.sprite = framesParachute[spriteFrame / 10];
             spriteFrame++;
         }
 
         if (spriteClosingParachute && spriteFrame > 0)
         {
-            render.sprite = framesParachute[spriteFrame / 15];
+            render.sprite = framesParachute[spriteFrame / 10];
             spriteFrame--;
         }
 
@@ -90,9 +90,9 @@ public class HighJumpParaCopy : MonoBehaviour
 
 
 
-        if (spriteOpeningBoost && spriteFrameBoost < 6 * 20 + 1)
+        if (spriteOpeningBoost && spriteFrameBoost < 6 * 10 + 1)
         {
-            render2.sprite = framesBoost[spriteFrameBoost / 20];
+            render2.sprite = framesBoost[spriteFrameBoost / 10];
             spriteFrameBoost++;
         }
         else
@@ -102,7 +102,7 @@ public class HighJumpParaCopy : MonoBehaviour
 
         if (spriteClosingBoost && spriteFrameBoost > 0)
         {
-            render2.sprite = framesBoost[spriteFrameBoost / 20];
+            render2.sprite = framesBoost[spriteFrameBoost / 10];
             spriteFrameBoost--;
         }
 
