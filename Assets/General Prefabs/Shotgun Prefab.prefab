@@ -116,15 +116,15 @@ MonoBehaviour:
   bulletSprite: {fileID: 1433166739629266115, guid: 6d2e0a387d5068745b987fefa3d212f2, type: 3}
   gunPos: {fileID: 7519097373871899368}
   gunBarrel: {fileID: 5594822481759691375}
-  bulletSpeed: 10
-  bulletDuration: 1
-  fireRate: 0.5
+  bulletSpeed: 15
+  bulletDuration: 10
+  fireRate: 1
   attackDamage: 5
-  magSize: 10
-  reloadSpeed: 2
+  magSize: 5
+  reloadSpeed: 2.5
   pellets: 5
   spreadAngle: 30
-  recoil: 10
+  recoil: 12
 --- !u!1 &8478071375080086138
 GameObject:
   m_ObjectHideFlags: 0
