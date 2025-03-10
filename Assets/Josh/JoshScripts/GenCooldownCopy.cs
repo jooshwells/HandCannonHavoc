@@ -5,8 +5,13 @@ using UnityEngine.UI;
 
 public class GenCooldownCopy : MonoBehaviour
 {
-    private float readyTime;
-    private float duration;
+    public float readyTime;
+    public float duration;
+
+    public float startTime;
+    public float timeRange;
+    public float progress;
+    [SerializeField] public Image bar;
 
     void Start()
     {
@@ -15,7 +20,19 @@ public class GenCooldownCopy : MonoBehaviour
 
     void Update()
     {
-
+        //cooldown bar ~ visual only
+        if (isActive())
+        {
+            bar.gameObject.SetActive(true);
+            timeRange = readyTime - startTime;
+            progress = 1 - ((Time.time - startTime) / timeRange);
+            bar.fillAmount = progress;
+        }
+        else
+        {
+            progress = 0;
+            bar.gameObject.SetActive(false);
+        }
     }
 
     public void setCooldown(float cooldown)
@@ -24,6 +41,7 @@ public class GenCooldownCopy : MonoBehaviour
     }
     public void enable()
     {
+        startTime = Time.time;
         readyTime = Time.time + duration;
     }
 

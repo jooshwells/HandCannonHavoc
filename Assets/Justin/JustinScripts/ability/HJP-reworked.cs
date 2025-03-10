@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
-public class HighJumpParaCopy : MonoBehaviour
+public class HighJumpParachuteRework : MonoBehaviour
 {
 
     //private PlayerController player;
@@ -54,13 +54,13 @@ public class HighJumpParaCopy : MonoBehaviour
         rb = transform.parent.gameObject.GetComponent<Rigidbody2D>();
         sprParachute.SetActive(false);
         sprBoost.SetActive(false);
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (cdHighJump > 0) 
+        if (cdHighJump > 0)
         {
             cdHighJump--;
         }
@@ -197,7 +197,7 @@ public class HighJumpParaCopy : MonoBehaviour
             }
         }
     }
-    private void OnEnable(){}
+    private void OnEnable() { }
 
     //for onDisable to work, HJP must be disabled by default
     private void OnDisable()

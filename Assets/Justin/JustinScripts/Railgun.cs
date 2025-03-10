@@ -18,7 +18,13 @@ public class Railgun : customShoot
         magSize = 4;
         reloadSpeed = 4f;
     }
-    
+
+    protected override void shoot()
+    {
+        base.shoot();
+
+    }
+
     protected override bool shootingInput() //shoot based on holding rather than press
     {
         genHoldButton hold = gameObject.GetComponent<genHoldButton>();
