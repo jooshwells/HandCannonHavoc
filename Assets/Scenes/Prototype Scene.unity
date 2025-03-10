@@ -1161,6 +1161,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 407436143}
+    - target: {fileID: 7080602155854562465, guid: ce331cb8fa9a1e846beee3352c8762cc, type: 3}
+      propertyPath: gunDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1400,6 +1404,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 407436143}
+    - target: {fileID: 2671859100916044603, guid: e43c8066a18e77444a5e923c89331d0d, type: 3}
+      propertyPath: gunDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7519097373871899368, guid: e43c8066a18e77444a5e923c89331d0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.306
