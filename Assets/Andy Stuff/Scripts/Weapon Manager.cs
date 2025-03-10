@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class WeaponSwitcher : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> weaponList;  // List to hold weapons (pistol, shotgun, etc.)
-    private int curIdx = 0;  // Index to track the current active weapon
+    [SerializeField] private List<GameObject> weaponList;  
+    private int curIdx = 0;  // tracks current weapon in list
     private int idx = 0; // increments index, use mod weaponList.Count
 
     private void Start()
     {
-        // Initialize by setting the first weapon as active
+        // activate first weapon
         UpdateWeaponVisibility();
     }
 
     void Update()
     {
-        // Switch weapons with Q key
+        // cycle weapons with q
         if (Input.GetKeyDown(KeyCode.Q))
         {
             idx++;
@@ -27,26 +27,26 @@ public class WeaponSwitcher : MonoBehaviour
 
     void SwitchWeapon()
     {
-        // Disable current weapon's components
+        // disable current weapon
         DeactivateWeapon(curIdx);
 
-        // Update the index and ensure it's within bounds
+        // keep idx in bounds
         curIdx = idx % weaponList.Count;
 
-        // Activate the new weapon's components
+        // activate next weapon
         UpdateWeaponVisibility();
     }
 
     void DeactivateWeapon(int index)
     {
-        // Get the weapon object at the specified index and disable all necessary components
+        // get weapon in list and disable it
         GameObject weapon = weaponList[index];
         weapon.SetActive(false);
     }
 
     void UpdateWeaponVisibility()
     {
-        // Activate the current weapon's components
+        // active weapon from list
         GameObject weapon = weaponList[curIdx];
         weapon.SetActive(true);
     }

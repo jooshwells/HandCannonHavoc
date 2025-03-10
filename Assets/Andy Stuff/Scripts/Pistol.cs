@@ -33,7 +33,14 @@ public class Pistol : MonoBehaviour
         player =transform.parent.parent;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Bullets"), LayerMask.NameToLayer("Bullets")); // prevent bullet collision
     }
-    
+
+    // reset ammo when swapping between guns
+    void OnEnable()
+    {
+        currentAmmo = magSize;
+        isReloading = false;
+    }
+
     // Update is called once per frame
     void Update()
     {

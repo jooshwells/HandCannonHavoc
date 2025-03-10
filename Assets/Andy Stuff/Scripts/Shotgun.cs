@@ -41,6 +41,12 @@ public class Shotgun : MonoBehaviour
         playerRb = transform.parent.parent.GetComponent<Rigidbody2D>();  //used for recoil
 
     }
+    // reset ammo when swapping between guns
+    void OnEnable()
+    {
+        currentAmmo = magSize;
+        isReloading = false;
+    }
     
     // Update is called once per frame
     void Update()
