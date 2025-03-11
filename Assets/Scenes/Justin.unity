@@ -545,8 +545,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSprite: {fileID: 2293041522477430325, guid: d6047409f07084f4293dd97b0b00992f, type: 3}
-  reloadSprite: {fileID: 0}
   gunPos: {fileID: 187264792}
+  gunBarrel: {fileID: 0}
   bulletSpeed: 10
   bulletDuration: 1
   fireRate: 0.5
@@ -1311,6 +1311,9 @@ PrefabInstance:
       addedObject: {fileID: 1175803810}
     - targetCorrespondingSourceObject: {fileID: 320585765290674272, guid: 78a307766b3e3554fb80ceca6e643d20, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1175803812}
+    - targetCorrespondingSourceObject: {fileID: 320585765290674272, guid: 78a307766b3e3554fb80ceca6e643d20, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1175803808}
     - targetCorrespondingSourceObject: {fileID: 320585765290674272, guid: 78a307766b3e3554fb80ceca6e643d20, type: 3}
       insertIndex: -1
@@ -1690,6 +1693,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1370648551}
+    - targetCorrespondingSourceObject: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1370648569}
     - targetCorrespondingSourceObject: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1370648552}
@@ -2358,7 +2364,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175803800}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ac4ceabe99891542ba80d8fd12c63a0, type: 3}
   m_Name: 
@@ -2396,6 +2402,42 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   invulnerabilityTime: 0
+--- !u!114 &1175803812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175803800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed5abfe5038ebb42958b72ffab0950d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpScale: 2
+  spriteFrame: 0
+  spriteFrameBoost: 0
+  sprParachute: {fileID: 1165291529}
+  sprBoost: {fileID: 809677709}
+  render: {fileID: 0}
+  render2: {fileID: 0}
+  framesParachute:
+  - {fileID: 1026866355395090186, guid: d663a48baaff76e49bc56c131557918a, type: 3}
+  - {fileID: 5274626779991503869, guid: d663a48baaff76e49bc56c131557918a, type: 3}
+  - {fileID: -3658423468816417700, guid: d663a48baaff76e49bc56c131557918a, type: 3}
+  - {fileID: -3465759404337602550, guid: d663a48baaff76e49bc56c131557918a, type: 3}
+  - {fileID: -5905891112108111490, guid: d663a48baaff76e49bc56c131557918a, type: 3}
+  - {fileID: 2595263013271501113, guid: d663a48baaff76e49bc56c131557918a, type: 3}
+  - {fileID: 1898730323871617928, guid: d663a48baaff76e49bc56c131557918a, type: 3}
+  - {fileID: -1848349459338223440, guid: d663a48baaff76e49bc56c131557918a, type: 3}
+  framesBoost:
+  - {fileID: 1803729242208496483, guid: 415697d38aa49fd41ad5d616ea1c357d, type: 3}
+  - {fileID: 5441984348241439092, guid: 415697d38aa49fd41ad5d616ea1c357d, type: 3}
+  - {fileID: 7482236090829114882, guid: 415697d38aa49fd41ad5d616ea1c357d, type: 3}
+  - {fileID: 8730544502265938405, guid: 415697d38aa49fd41ad5d616ea1c357d, type: 3}
+  - {fileID: 4888932118209040322, guid: 415697d38aa49fd41ad5d616ea1c357d, type: 3}
+  - {fileID: 108557173844799294, guid: 415697d38aa49fd41ad5d616ea1c357d, type: 3}
+  - {fileID: 5389925717731585503, guid: 415697d38aa49fd41ad5d616ea1c357d, type: 3}
 --- !u!1 &1179492706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2797,7 +2839,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370648538}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ac4ceabe99891542ba80d8fd12c63a0, type: 3}
   m_Name: 
@@ -2824,8 +2866,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSprite: {fileID: 2293041522477430325, guid: d6047409f07084f4293dd97b0b00992f, type: 3}
-  reloadSprite: {fileID: 0}
   gunPos: {fileID: 1622705632}
+  gunBarrel: {fileID: 0}
   bulletSpeed: 10
   bulletDuration: 1
   fireRate: 0.5
@@ -2893,6 +2935,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   invulnerabilityTime: 1.5
+--- !u!114 &1370648569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370648538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed5abfe5038ebb42958b72ffab0950d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpScale: 2
+  spriteFrame: 0
+  spriteFrameBoost: 0
+  sprParachute: {fileID: 1165291529}
+  sprBoost: {fileID: 0}
+  render: {fileID: 0}
+  render2: {fileID: 0}
+  framesParachute: []
+  framesBoost: []
 --- !u!4 &1373435507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8646130116613108402, guid: 5bdda0bfbf51c624fbdda7cfca664a3a, type: 3}
@@ -3877,7 +3940,7 @@ SceneRoots:
   - {fileID: 950287862}
   - {fileID: 1621397279}
   - {fileID: 670760021}
-  - {fileID: 515189944}
   - {fileID: 809677711}
+  - {fileID: 515189944}
   - {fileID: 264325941}
   - {fileID: 1179492708}

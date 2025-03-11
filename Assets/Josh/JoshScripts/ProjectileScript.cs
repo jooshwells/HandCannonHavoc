@@ -29,7 +29,7 @@ public class ProjectileScript : MonoBehaviour
 
     private void Awake()
     {
-        target = GameObject.Find("Player");
+        target = GameObject.Find("Player Variant");
         rb = GetComponent<Rigidbody2D>();
 
         Transform targetPos = target.transform;

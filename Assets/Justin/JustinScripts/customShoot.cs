@@ -53,7 +53,7 @@ public class customShoot : MonoBehaviour
         return (Input.GetMouseButton(0) && Time.time >= nextBullet); // left click
     }
 
-    void shoot()
+    protected virtual void shoot()
     {
         if (currentAmmo <= 0) return;
         currentAmmo--;

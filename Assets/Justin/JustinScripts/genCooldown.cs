@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,10 @@ public class genCooldown : MonoBehaviour
     private float readyTime;
     private float duration;
 
+    private float startTime;
+    public float timeRange;
+    public float progress;
+    [SerializeField] public Image bar;
     void Start()
     {
 
@@ -15,7 +20,18 @@ public class genCooldown : MonoBehaviour
 
     void Update()
     {
-
+        //cooldown bar ~ visual only
+        if (isActive())
+        {
+            bar.gameObject.SetActive(true);
+            timeRange = readyTime - startTime;
+            progress = 1 - ((Time.time - startTime) / timeRange);
+            bar.fillAmount = progress;
+        }
+        else
+        {
+            bar.gameObject.SetActive(false);
+        }
     }
 
     public void setCooldown(float cooldown)
@@ -24,6 +40,7 @@ public class genCooldown : MonoBehaviour
     }
     public void enable()
     {
+        startTime = Time.time;
         readyTime = Time.time + duration;
     }
 
