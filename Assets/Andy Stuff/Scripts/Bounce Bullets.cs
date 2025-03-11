@@ -70,14 +70,14 @@ public class Bounce : MonoBehaviour
             }  
         }
     }
-    // private void Ricochet(Collider2D collision)
-    // {
-    //     // Reflect the velocity based on the collision normal (surface hit)
-    //     //Vector2 reflection = Vector2.Reflect(rb.velocity, collision.contacts[0].normal);
-    //    // rb.velocity = reflection.normalized * rb.velocity.magnitude; // Maintain the bullet's speed but change direction
+    //private void Ricochet(Collider2D collision)
+    //{
+    //    // Reflect the velocity based on the collision normal (surface hit)
+    //    Vector2 reflection = Vector2.Reflect(rb.velocity, collision.contacts[0].normal);
+    //    rb.velocity = reflection.normalized * rb.velocity.magnitude; // Maintain the bullet's speed but change direction
 
-    //     ricochetCount--;
-    // }
+    //    ricochetCount--;
+    //}
     private void Ricochet(Collider2D collision)
     {
         // Calculate the surface normal by using the direction from the bullet to the collider
