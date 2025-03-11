@@ -56,12 +56,12 @@ public class BombScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger triggering");
+        //Debug.Log("Trigger triggering");
         if (collision.gameObject.CompareTag("Player"))
         {
             gameObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
             Vector2 dir = (transform.position - player.transform.position).normalized;
-            Debug.Log("Attempting to Force <" + (12*-dir.x) + "," + (16*-dir.y) + "> to " + rb.gameObject.ToString());
+            //Debug.Log("Attempting to Force <" + (12*-dir.x) + "," + (16*-dir.y) + "> to " + rb.gameObject.ToString());
             rb.gameObject.GetComponent<PlayerController>().KnockBack(new Vector2(12 * -dir.x, 16 * dir.y), 0.2f);
         }
     }
@@ -78,9 +78,9 @@ public class BombScript : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.GetComponent<Rigidbody2D>().simulated = false;
-        
-        
+
         yield return new WaitForSeconds(explosionDuration);
+        GetComponent<AudioSource>().Play();
         Destroy(gameObject);
         isExploding=false;
     }
