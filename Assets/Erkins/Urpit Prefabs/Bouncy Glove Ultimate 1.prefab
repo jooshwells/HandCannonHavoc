@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2916861692913189156}
   - component: {fileID: 7626031992797639544}
   - component: {fileID: 1603625585347664692}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bouncy Glove Ultimate 1
   m_TagString: Glove Bounce Pad
   m_Icon: {fileID: 0}

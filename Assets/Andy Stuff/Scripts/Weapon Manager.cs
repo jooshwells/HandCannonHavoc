@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class WeaponSwitcher : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> weaponList;  
+    [SerializeField] private List<GameObject> weaponList;
+    [Header("Game Object with Indicators as Children")]
+    [SerializeField] private GameObject weaponIndicatorList;
     private int curIdx = 0;  // tracks current weapon in list
     private int idx = 0; // increments index, use mod weaponList.Count
 
@@ -19,9 +21,21 @@ public class WeaponSwitcher : MonoBehaviour
         // cycle weapons with q
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            idx++;
+            if (idx - 1 >= 0)
+            {
+                idx--;
+            } else
+            {
+                idx = weaponList.Count - 1;
+            }
             SwitchWeapon();
             
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            idx++;
+            SwitchWeapon();
         }
     }
 
@@ -41,13 +55,18 @@ public class WeaponSwitcher : MonoBehaviour
     {
         // get weapon in list and disable it
         GameObject weapon = weaponList[index];
+        GameObject weaponInd = weaponIndicatorList.transform.GetChild(curIdx).gameObject;
         weapon.SetActive(false);
+        weaponInd.SetActive(false);
+
     }
 
     void UpdateWeaponVisibility()
     {
         // active weapon from list
         GameObject weapon = weaponList[curIdx];
+        GameObject weaponInd = weaponIndicatorList.transform.GetChild(curIdx).gameObject;
+        weaponInd.SetActive(true);
         weapon.SetActive(true);
     }
 }

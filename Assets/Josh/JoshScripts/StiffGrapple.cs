@@ -13,6 +13,7 @@ public class StiffGrapple : MonoBehaviour
     private bool grappling = false;
 
     private RaycastHit2D[] hits;
+    private RaycastHit2D grappleHit;
     private RaycastHit2D hit;
 
     // Start is called before the first frame update
@@ -41,11 +42,11 @@ public class StiffGrapple : MonoBehaviour
 
                 if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Grapple"))
                 {
-
+                    grappleHit = hit;
                     //Debug.Log("Collided at " + hit.point);
 
                     lr.SetPosition(0, transform.position);
-                    lr.SetPosition(1, hit.point);
+                    lr.SetPosition(1, grappleHit.point);
                     lr.enabled = true;
 
                     dj.enabled = true;
@@ -56,12 +57,13 @@ public class StiffGrapple : MonoBehaviour
                     GetComponentInParent<PlayerControllerMk2>().SetGrapple(true);
                 }
             }
+            
         }
 
         if (grappling)
         {
             lr.SetPosition(0, transform.position);
-            lr.SetPosition(1, hit.point);
+            lr.SetPosition(1, grappleHit.point);
 
             GetComponentInParent<SwingyScript>().enabled = true;
 
@@ -69,7 +71,7 @@ public class StiffGrapple : MonoBehaviour
 
         }
 
-        if(grappling && Input.GetKeyDown(KeyCode.Space))
+        if (grappling && Input.GetKeyDown(KeyCode.Space))
         {
             lr.enabled = false;
             dj.enabled = false;
