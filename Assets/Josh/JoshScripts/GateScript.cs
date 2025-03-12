@@ -7,6 +7,7 @@ public class GateScript : MonoBehaviour
     [SerializeField] private GameObject finishGate;
     [SerializeField] private GameObject startGate;
     [SerializeField] private GameObject stopGate;
+    [SerializeField] private FlagScript fs;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,9 +26,11 @@ public class GateScript : MonoBehaviour
             if (!stopGate.activeSelf)
             {
                 stopGate.SetActive(true);
+                fs.SetPassedGate(true);
             } else if (stopGate.activeSelf && gameObject.name.Equals("FinishGate"))
             {
                 stopGate.SetActive(false);
+                fs.SetPassedGate(false);
             }
         }
     }

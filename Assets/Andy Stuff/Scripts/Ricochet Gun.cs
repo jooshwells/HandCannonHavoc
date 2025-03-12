@@ -84,6 +84,7 @@ public class RicochetGun : MonoBehaviour
         }
 
         Rigidbody2D rb = bounce.GetComponent<Rigidbody2D>();
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 
         rb.velocity = direction * bulletSpeed;
         flip(direction, bulletRenderer);

@@ -118,9 +118,9 @@ MonoBehaviour:
   gunBarrel: {fileID: 3859132167119296623}
   bulletSpeed: 10
   bulletDuration: 10
-  fireRate: 0.5
+  fireRate: 0.08
   attackDamage: 5
-  magSize: 10
+  magSize: 50
   reloadSpeed: 2
 --- !u!1 &4345020268487985188
 GameObject:

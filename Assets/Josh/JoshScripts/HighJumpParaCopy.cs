@@ -202,9 +202,9 @@ public class HighJumpParaCopy : MonoBehaviour
     //for onDisable to work, HJP must be disabled by default
     private void OnDisable()
     {
-        cooldown.bar.gameObject.SetActive(false);
-        sprParachute.SetActive(false);
-        sprBoost.SetActive(false);
+        if(cooldown.bar.gameObject!=null)cooldown.bar.gameObject.SetActive(false);
+        if(sprParachute!=null)sprParachute.SetActive(false);
+        if(sprBoost!=null)sprBoost.SetActive(false);
     }
 
     //getter functions
