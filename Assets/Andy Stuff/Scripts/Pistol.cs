@@ -83,6 +83,8 @@ public class Pistol : MonoBehaviour
         }
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+
 
         rb.velocity = direction * bulletSpeed;
         flip(direction, bulletRenderer);

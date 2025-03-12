@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Shotgun : MonoBehaviour
+public class ThumbsUpWeapon : MonoBehaviour
 {
+
     private Transform player;
-    [SerializeField] GameObject bulletSprite;
+    private GameObject bulletSprite;
+    [SerializeField] GameObject spriteList;
+
     [SerializeField] Transform gunPos;
     [SerializeField] Transform gunBarrel;
 
@@ -19,41 +22,32 @@ public class Shotgun : MonoBehaviour
 
     [SerializeField] int magSize = 10;
     [SerializeField] float reloadSpeed = 2f;
-    [SerializeField] int pellets = 5;
-    [SerializeField] float spreadAngle = 30;
-    [SerializeField] float recoil = 5f;
-
-
-
     private int currentAmmo;
     private bool isReloading = false;
-    private Rigidbody2D playerRb;
 
 
 
-  
     // Start is called before the first frame update
     void Start()
     {
         currentAmmo = magSize;
+        player = transform.parent.parent;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Bullets"), LayerMask.NameToLayer("Bullets")); // prevent bullet collision
-        player =transform.parent.parent;
-        playerRb = transform.parent.parent.GetComponent<Rigidbody2D>();  //used for recoil
-
     }
+
     // reset ammo when swapping between guns
     void OnEnable()
     {
         currentAmmo = magSize;
         isReloading = false;
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        if(isReloading) return;
+        if (isReloading) return;
 
-        if(currentAmmo <=0 || (Input.GetKeyDown(KeyCode.R) && currentAmmo < magSize))
+        if (currentAmmo <= 0 || (Input.GetKeyDown(KeyCode.R) && currentAmmo < magSize))
         {
             StartCoroutine(Reload());
             return;
@@ -61,43 +55,35 @@ public class Shotgun : MonoBehaviour
         if (Input.GetMouseButton(0) && Time.time >= nextBullet) // left click
         {
             shoot();
-            nextBullet = Time.time +fireRate;
+            nextBullet = Time.time + fireRate;
         }
     }
-
     void shoot()
-{
-    if(currentAmmo <= 0) return;
-    currentAmmo--;
-
-
-    // loop to shoot pellets
-    for (int i = 0; i < pellets; i++)
     {
-        // spread calculations
-        float spreadStep = spreadAngle / pellets; // even spread
-        float spread = spreadStep * (i - (pellets - 1) / 2f); // offset by index of i
-        Vector2 direction = (gunPos.right).normalized;
+        if (currentAmmo <= 0) return;
+        currentAmmo--;
+        int randomIndex = Random.Range(0, spriteList.transform.childCount);
+        bulletSprite = spriteList.transform.GetChild(randomIndex).gameObject;
 
-        // hanlde firing inwards issues
-        if(player.transform.localScale.x <0)
-        {
-            direction = -(gunPos.right).normalized;
-        }
-
-        // apply spread
-        direction = Quaternion.Euler(0, 0, spread) * direction;
-
-        // instantiate bullet 
         GameObject bullet = Instantiate(bulletSprite, gunBarrel.position, gunPos.rotation);
         SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
         if (bulletRenderer != null)
         {
-            bulletRenderer.enabled = true; 
+            bulletRenderer.enabled = true; // Make the bullet visible
+            
         }
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.SetInstantiator(gameObject);
         bulletScript.SetAttackDamage(attackDamage);
+
+
+        Vector2 direction = (gunPos.right).normalized;
+
+        // deal with gun firing inwards
+        if (player.transform.localScale.x < 0)
+        {
+            direction = -(gunPos.right).normalized;
+        }
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
@@ -105,50 +91,41 @@ public class Shotgun : MonoBehaviour
         rb.velocity = direction * bulletSpeed;
         flip(direction, bulletRenderer);
         Destroy(bullet, bulletDuration);
-        
-        if(i==0) Recoil(direction); // apply recoil only once
     }
-}
-    
+
     // spagetthi code for handling weird sprite flipping
     void flip(Vector2 dir, SpriteRenderer bullet)
     {
         Vector3 cur = bullet.transform.localScale;
 
-        if(dir.x > 0 && gunPos.localScale.y >0)
+        if (dir.x > 0 && gunPos.localScale.y > 0)
         {
             bullet.transform.localScale = new Vector3(cur.x, cur.y, cur.z);
         }
-        if(dir.x<0 && gunPos.localScale.y >0) 
+        if (dir.x < 0 && gunPos.localScale.y > 0)
         {
-            bullet.transform.localScale = new Vector3(-1*cur.x, cur.y, cur.z);
+            bullet.transform.localScale = new Vector3(-1 * cur.x, cur.y, cur.z);
         }
-        if(dir.x > 0 && gunPos.localScale.y <0)
+        if (dir.x > 0 && gunPos.localScale.y < 0)
         {
-            bullet.transform.localScale = new Vector3(-1*cur.x,-1* cur.y, cur.z);
+            bullet.transform.localScale = new Vector3(-1 * cur.x, -1 * cur.y, cur.z);
         }
-        if(dir.x < 0 && gunPos.localScale.y <0)
+        if (dir.x < 0 && gunPos.localScale.y < 0)
         {
-            bullet.transform.localScale = new Vector3(cur.x, -1*cur.y, cur.z);
+            bullet.transform.localScale = new Vector3(cur.x, -1 * cur.y, cur.z);
         }
-       
+
     }
 
     IEnumerator Reload()
     {
         isReloading = true;
 
+
         yield return new WaitForSeconds(reloadSpeed);
 
         currentAmmo = magSize;
         isReloading = false;
     }
-    void Recoil(Vector2 shotDirection)
-    {
-        float horizontalRecoil = -shotDirection.x * recoil *.6f;
-        float verticalRecoil = -shotDirection.y * recoil;
 
-        playerRb.AddForce(new Vector2(horizontalRecoil,verticalRecoil), ForceMode2D.Impulse);
-    
-    }
 }
