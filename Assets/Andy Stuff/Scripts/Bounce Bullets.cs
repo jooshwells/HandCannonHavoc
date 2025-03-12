@@ -2,32 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bounce : MonoBehaviour
+public class BounceBullet : MonoBehaviour
 {
     private GameObject instantiator;
     private float attackDamage;
-    private int ricochetCount = 2;
-    private Rigidbody2D rb;
+    [SerializeField] int ricochetCount = 2;
+    private Rigidbody2D rb; 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>(); 
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Update() { }
+
     public void SetInstantiator(GameObject inst)
     {
         instantiator = inst;
     }
+
     public void SetAttackDamage(float damage)
     {
         attackDamage = damage;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Health Update Event for Enemies
@@ -36,57 +36,68 @@ public class Bounce : MonoBehaviour
             GameObject par = null;
 
             // Basically this is checking whether the object we are colliding with has a parent
-                // I (Josh) have some enemies with child object colliders, so essentially just make sure
-                // your HealthSystem is only one object down in the hierarchy and this should work fiiine.
-                    // (Check my Crocogator prefab for how I did it)
+            // I (Josh) have some enemies with child object colliders, so essentially just make sure
+            // your HealthSystem is only one object down in the hierarchy and this should work fiiine.
+            // (Check my Crocogator prefab for how I did it)
             if (collision.gameObject.transform.parent != null)
             {
-                par = ((collision.gameObject).transform.parent).gameObject; // this gets the parent using transform
+                par = ((collision.gameObject).transform.parent).gameObject; // This gets the parent using transform
             }
 
             if(par != null)
             {
-                par.GetComponentInChildren<HealthScript>().UpdateHealth(attackDamage); // if we have a parent, check its children for a script to update the health
+                par.GetComponentInChildren<HealthScript>().UpdateHealth(attackDamage); // If we have a parent, check its children for a script to update the health
             } 
             else
             {
-                collision.gameObject.GetComponentInChildren<HealthScript>().UpdateHealth(attackDamage); // else just check the collision objects children for the script
+                collision.gameObject.GetComponentInChildren<HealthScript>().UpdateHealth(attackDamage); // Else just check the collision object's children for the script
             }
 
-            Destroy(gameObject); // destroy the bullet
+            Destroy(gameObject); // Destroy the bullet after hitting the enemy
         }
-
-        else if (!(collision.CompareTag(instantiator.tag))) 
+        else if (!(collision.CompareTag(instantiator.tag)))
         {
+            if (ricochetCount > 0)
             {
-                if (ricochetCount > 0)
+                // Weird raycast calculation, (don't ask me I have no idea)
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, rb.velocity.normalized, 1f);
+
+                if (hit.collider != null)
             {
-                Ricochet(collision); 
+                
+            Vector2 collisionNormal = hit.normal;
+
+            // give the bounce a small variation in angle
+            float angleVariation = Random.Range(-15f, 15f);
+
+            // bounce bullet with angle variation
+            Vector2 reflectedVelocity = Vector2.Reflect(rb.velocity, collisionNormal);
+
+            // adjust velocity using bounce 
+            reflectedVelocity = RotateVector(reflectedVelocity, angleVariation);
+            rb.velocity = reflectedVelocity;
+
+            ricochetCount--; 
+        }
             }
             else
             {
-                Destroy(gameObject); 
+                // no more bounce
+                Destroy(gameObject);
             }
-            }  
         }
     }
-    //private void Ricochet(Collider2D collision)
-    //{
-    //    // Reflect the velocity based on the collision normal (surface hit)
-    //    Vector2 reflection = Vector2.Reflect(rb.velocity, collision.contacts[0].normal);
-    //    rb.velocity = reflection.normalized * rb.velocity.magnitude; // Maintain the bullet's speed but change direction
-
-    //    ricochetCount--;
-    //}
-    private void Ricochet(Collider2D collision)
+    
+    // helps with random bounce angle
+    private Vector2 RotateVector(Vector2 vector, float angle)
     {
-        // Calculate the surface normal by using the direction from the bullet to the collider
-        Vector2 normal = (collision.transform.position - transform.position).normalized;
+        float radians = angle * Mathf.Deg2Rad;  // Convert angle to radians
+        float cos = Mathf.Cos(radians);
+        float sin = Mathf.Sin(radians);
 
-        // Reflect the velocity based on the normal of the collision surface
-        Vector2 reflection = Vector2.Reflect(rb.velocity, normal);
-        rb.velocity = reflection.normalized * rb.velocity.magnitude; // Reflect the velocity while maintaining speed
-
-        ricochetCount--; // Decrease the ricochet count
+        float newX = cos * vector.x - sin * vector.y;
+        float newY = sin * vector.x + cos * vector.y;
+        return new Vector2(newX, newY);
     }
+
 }
