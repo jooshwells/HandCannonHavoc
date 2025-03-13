@@ -26,11 +26,11 @@ public class GateScript : MonoBehaviour
             if (!stopGate.activeSelf)
             {
                 stopGate.SetActive(true);
-                fs.SetPassedGate(true);
+                fs.SetPassedGate(false);
             } else if (stopGate.activeSelf && gameObject.name.Equals("FinishGate"))
             {
                 stopGate.SetActive(false);
-                fs.SetPassedGate(false);
+                fs.SetPassedGate(true);
             }
         }
     }

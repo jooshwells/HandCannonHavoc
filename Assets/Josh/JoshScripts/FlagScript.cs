@@ -12,7 +12,10 @@ public class FlagScript : MonoBehaviour
         tc = GameObject.Find("TimerController").GetComponent<SpeedrunTimer>();
     }
 
-    public void SetPassedGate(bool p) => passedGate = p;
+    public void SetPassedGate(bool p)
+    {
+        passedGate = p;
+    }
 
     // Update is called once per frame
     void Update()
@@ -26,6 +29,7 @@ public class FlagScript : MonoBehaviour
         {
             if (!tc.IsRunning())
             {
+                tc.ResetTimer();
                 tc.StartTimer();
             }
             else

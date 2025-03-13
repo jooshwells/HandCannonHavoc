@@ -925,7 +925,7 @@ MonoBehaviour:
   finishGate: {fileID: 221736585}
   startGate: {fileID: 102884744}
   stopGate: {fileID: 1553394820}
-  fs: {fileID: 0}
+  fs: {fileID: 394346121}
 --- !u!1 &243200568
 GameObject:
   m_ObjectHideFlags: 0
