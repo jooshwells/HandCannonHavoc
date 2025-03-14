@@ -6,7 +6,6 @@ public class Bullet : MonoBehaviour
 {
     private GameObject instantiator;
     private float attackDamage;
-    private int ricochetCount = 2;
 
     // Start is called before the first frame update
     void Start()

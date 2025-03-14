@@ -6,7 +6,6 @@ public class BombArrow : MonoBehaviour
 {
     private GameObject instantiator;
     private float attackDamage;
-    private int ricochetCount = 2;
     private bool isExploding = false;
 
     // Start is called before the first frame update

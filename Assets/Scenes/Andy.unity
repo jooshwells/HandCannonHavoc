@@ -668,6 +668,7 @@ MonoBehaviour:
   - {fileID: 5111294367734864450}
   - {fileID: 2545836319989245847}
   - {fileID: 834278663}
+  weaponIndicatorList: {fileID: 0}
 --- !u!1 &773356584
 GameObject:
   m_ObjectHideFlags: 0
