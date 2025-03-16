@@ -17,6 +17,8 @@ public class PlayerHitEffect : MonoBehaviour
         defaultMaterial = spriteRenderer.material; // Store the original material
     }
 
+    public bool GetFlashing() => isFlashing;
+
     public void TakeDamage()
     {
         if (!isFlashing) // Only start the effect if it's not already running

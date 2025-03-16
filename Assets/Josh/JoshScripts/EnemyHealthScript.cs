@@ -24,6 +24,18 @@ public class EnemyHealthScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (health <= 0f)
+        {
+            StartCoroutine(DyingAnimation());
+        }
+    }
+
+    IEnumerator DyingAnimation()
+    {
+        Animator animator = GetComponent<Animator>();
+        animator.Play("Die State");
+        yield return new WaitForEndOfFrame();
+        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
+        Destroy(gameObject);
     }
 }

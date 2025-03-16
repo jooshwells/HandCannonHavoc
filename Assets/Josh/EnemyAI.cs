@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        InvokeRepeating("UpdatePath", 0f, .1f);
         
     }
     void UpdatePath()
@@ -79,6 +79,14 @@ public class EnemyAI : MonoBehaviour
         else if (force.x <= -0.01f)
         {
             enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerHealthScript>().Hit(25);
         }
     }
 }

@@ -44,6 +44,9 @@ GameObject:
   - component: {fileID: 2546250013102658700}
   - component: {fileID: 5144461574612847097}
   - component: {fileID: 4102987352890895332}
+  - component: {fileID: 7595488491564812350}
+  - component: {fileID: 3703607484032804154}
+  - component: {fileID: 5658357878383570881}
   m_Layer: 0
   m_Name: Wheels
   m_TagString: Enemy
@@ -216,6 +219,56 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.13228782}
   m_EdgeRadius: 0
+--- !u!114 &7595488491564812350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4372201223485126973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e089f3b85f04da4dbe0c5cbfe12dc11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3703607484032804154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4372201223485126973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59672f7037f685f4aa4b1ce2590a1ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 2612924089018576697}
+  whiteFlashMaterial: {fileID: -876546973899608171, guid: db3ab640c644aaf4584f2c2648c1b49c, type: 3}
+  flashDuration: 0.1
+  invincibilityDuration: 0
+  blinkInterval: 0
+--- !u!95 &5658357878383570881
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4372201223485126973}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92344de331f6f604aabc54ad4e7faa13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5535261939595099882
 GameObject:
   m_ObjectHideFlags: 0

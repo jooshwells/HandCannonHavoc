@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 7762329863874158673}
   - component: {fileID: 8703497949319889310}
   - component: {fileID: 3871618660710538470}
+  - component: {fileID: 900124569014866453}
+  - component: {fileID: 6270534150839512360}
   m_Layer: 0
   m_Name: Crocogator
   m_TagString: Enemy
@@ -236,6 +238,35 @@ MonoBehaviour:
   attackCooldown: 2
   detectDist: 6
   bird: {fileID: 6246290675522674149, guid: bda963bab0a1de84b9a9c833b53c54df, type: 3}
+--- !u!114 &900124569014866453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5147831355030691735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e089f3b85f04da4dbe0c5cbfe12dc11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6270534150839512360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5147831355030691735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59672f7037f685f4aa4b1ce2590a1ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 9073657475944593195}
+  whiteFlashMaterial: {fileID: -876546973899608171, guid: db3ab640c644aaf4584f2c2648c1b49c, type: 3}
+  flashDuration: 0.1
+  invincibilityDuration: 0
+  blinkInterval: 0
 --- !u!1 &8169361153179687019
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,6 +28,9 @@ public class PlayerHealthScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(hp <= 0f)
+        {
+            GameObject.Find("Death Manager").GetComponent<DeathScreenManager>().OnDeath();
+        }
     }
 }

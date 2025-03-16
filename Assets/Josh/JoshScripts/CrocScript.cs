@@ -43,9 +43,9 @@ public class CrocScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dist = Vector2.Distance(player.position + new Vector3(0, 0.5f, 0), transform.position);
+        float dist = Vector2.Distance(player.position + new Vector3(0, 0.1f, 0), transform.position);
 
-        Vector2 distanceVector = (player.position + new Vector3(0, 0.5f, 0)) - transform.position;
+        Vector2 distanceVector = (player.position + new Vector3(0, 0.1f, 0)) - transform.position;
         //Debug.Log(distanceVector.x + " " + distanceVector.y);
 
         if ((distanceVector.x < 0f && transform.localScale.x > 0f) ||
