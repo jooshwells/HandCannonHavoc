@@ -62,7 +62,7 @@ public class BombScript : MonoBehaviour
             gameObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
             Vector2 dir = (transform.position - player.transform.position).normalized;
             //Debug.Log("Attempting to Force <" + (12*-dir.x) + "," + (16*-dir.y) + "> to " + rb.gameObject.ToString());
-            rb.gameObject.GetComponent<PlayerController>().KnockBack(new Vector2(12 * -dir.x, 16 * dir.y), 0.2f);
+            rb.gameObject.GetComponent<PlayerControllerMk2>().KnockBack(new Vector2(12 * -dir.x, 16 * dir.y), 0.2f, 15);
         }
     }
 

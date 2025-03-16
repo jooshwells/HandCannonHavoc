@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7dfa0cbf387624840b7c258b0f1e2588
+guid: 01dedf314a225e4438c5215809c110c2
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -122,18 +122,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: health bar gameboy
+  - name: HealthFill
     originalName: 
-    pivot: {x: 0.5104167, y: -0.5641026}
+    pivot: {x: 0.5, y: -3.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 96
-      height: 39
-    spriteID: 306401bfff84e2444baa104d22939d5e
+      width: 54
+      height: 8
+    spriteID: 6707c3d0049a60140888419c959f64c5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,21 +145,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1947353429
-    name: health bar gameboy
+    guid: 1366228343
+    name: HealthFill
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: health bar gameboy
+    - name: HealthFill
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 15
-        y: 22
-        width: 96
-        height: 39
-      spriteId: 306401bfff84e2444baa104d22939d5e
+        x: 5
+        y: 28
+        width: 54
+        height: 8
+      spriteId: 6707c3d0049a60140888419c959f64c5
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -178,5 +178,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 128, y: 64}
-  previousTextureSize: {x: 128, y: 64}
+  canvasSize: {x: 64, y: 64}
+  previousTextureSize: {x: 64, y: 16}

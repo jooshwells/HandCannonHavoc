@@ -92,8 +92,10 @@ public class PlayerControllerMk2 : MonoBehaviour
         return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
     }
 
-    public void KnockBack(Vector2 force, float timer)
+    public void KnockBack(Vector2 force, float timer, int damage)
     {
+        GetComponent<PlayerHealthScript>().Hit(damage);
+
         // Play getting hit sound
         gameObject.GetComponent<AudioSource>().clip = ouch;
         gameObject.GetComponent<AudioSource>().Play();
