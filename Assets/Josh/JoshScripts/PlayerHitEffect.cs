@@ -4,15 +4,16 @@ using UnityEngine;
 public class PlayerHitEffect : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
+    public Material whiteFlashMaterial; // Assign a white material in the inspector
     public float flashDuration = 0.1f;
     public float invincibilityDuration = 1.5f;
     public float blinkInterval = 0.1f;
 
-    private Color originalColor;
+    private Material defaultMaterial;
 
     private void Start()
     {
-        
+        defaultMaterial = spriteRenderer.material; // Store the original material
     }
 
     public void TakeDamage()
@@ -22,6 +23,11 @@ public class PlayerHitEffect : MonoBehaviour
 
     private IEnumerator FlashAndBlink()
     {
+        // Flash white using a material change
+        spriteRenderer.material = whiteFlashMaterial;
+        yield return new WaitForSeconds(flashDuration);
+        spriteRenderer.material = defaultMaterial;
+
         // Blinking effect
         float elapsed = 0f;
         while (elapsed < invincibilityDuration)
