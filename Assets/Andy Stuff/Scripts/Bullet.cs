@@ -44,11 +44,11 @@ public class Bullet : MonoBehaviour
 
             if(par != null)
             {
-                par.GetComponentInChildren<HealthScript>().UpdateHealth(attackDamage); // if we have a parent, check its children for a script to update the health
+                par.GetComponentInChildren<EnemyHealthScript>().UpdateHealth(attackDamage); // if we have a parent, check its children for a script to update the health
             } 
             else
             {
-                collision.gameObject.GetComponentInChildren<HealthScript>().UpdateHealth(attackDamage); // else just check the collision objects children for the script
+                collision.gameObject.GetComponentInChildren<EnemyHealthScript>().UpdateHealth(attackDamage); // else just check the collision objects children for the script
             }
 
             Destroy(gameObject); // destroy the bullet

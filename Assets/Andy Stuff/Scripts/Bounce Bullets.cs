@@ -46,11 +46,11 @@ public class BounceBullet : MonoBehaviour
 
             if(par != null)
             {
-                par.GetComponentInChildren<HealthScript>().UpdateHealth(attackDamage); // If we have a parent, check its children for a script to update the health
+                par.GetComponentInChildren<EnemyHealthScript>().UpdateHealth(attackDamage); // If we have a parent, check its children for a script to update the health
             } 
             else
             {
-                collision.gameObject.GetComponentInChildren<HealthScript>().UpdateHealth(attackDamage); // Else just check the collision object's children for the script
+                collision.gameObject.GetComponentInChildren<EnemyHealthScript>().UpdateHealth(attackDamage); // Else just check the collision object's children for the script
             }
 
             Destroy(gameObject); // Destroy the bullet after hitting the enemy

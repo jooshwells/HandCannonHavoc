@@ -10,6 +10,7 @@ public class PlayerHitEffect : MonoBehaviour
     public float blinkInterval = 0.1f;
 
     private Material defaultMaterial;
+    private bool isFlashing = false; // Prevents restarting the flash effect
 
     private void Start()
     {
@@ -18,11 +19,16 @@ public class PlayerHitEffect : MonoBehaviour
 
     public void TakeDamage()
     {
-        StartCoroutine(FlashAndBlink());
+        if (!isFlashing) // Only start the effect if it's not already running
+        {
+            StartCoroutine(FlashAndBlink());
+        }
     }
 
     private IEnumerator FlashAndBlink()
     {
+        isFlashing = true; // Set flag to prevent restarting effect
+
         // Flash white using a material change
         spriteRenderer.material = whiteFlashMaterial;
         yield return new WaitForSeconds(flashDuration);
@@ -39,5 +45,6 @@ public class PlayerHitEffect : MonoBehaviour
 
         // Ensure sprite is visible after blinking
         spriteRenderer.enabled = true;
+        isFlashing = false; // Reset flag when effect is done
     }
 }

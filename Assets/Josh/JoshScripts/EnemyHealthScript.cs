@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthScript : MonoBehaviour
+public class EnemyHealthScript : MonoBehaviour
 {
     // health value, initialized to 100
     private float health = 100f;
@@ -11,6 +11,7 @@ public class HealthScript : MonoBehaviour
     {
         // just in case someone passes in a negative value for damage
         Debug.Log("Attempting to do " + damage + " damage to " + gameObject.name);
+        GetComponent<PlayerHitEffect>().TakeDamage();
         health -= damage > 0 ? damage : 0;
     }
     
@@ -23,10 +24,6 @@ public class HealthScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0f)
-        {
-            Debug.Log(((transform.parent).gameObject).tag + " has died.");
-            health = 100f;
-        }
+        
     }
 }
