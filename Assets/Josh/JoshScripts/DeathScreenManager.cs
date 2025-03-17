@@ -28,7 +28,8 @@ public class DeathScreenManager : MonoBehaviour
 
     public void Respawn()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
