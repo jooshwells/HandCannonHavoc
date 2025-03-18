@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BounceBullet : MonoBehaviour
 {
@@ -55,30 +57,30 @@ public class BounceBullet : MonoBehaviour
 
             Destroy(gameObject); // Destroy the bullet after hitting the enemy
         }
+
         else if (!(collision.CompareTag(instantiator.tag)))
         {
             if (ricochetCount > 0)
             {
-                // Weird raycast calculation, (don't ask me I have no idea)
+                // Calculate raycast hit
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, rb.velocity.normalized, 1f);
 
                 if (hit.collider != null)
-            {
-                
-            Vector2 collisionNormal = hit.normal;
+                {
+                    Vector2 closestPoint = collision.ClosestPoint(transform.position);  // get hit location on collider
+                    Vector2 normal = (transform.position - (Vector3)closestPoint).normalized;   // get normal angle for boucning
 
-            // give the bounce a small variation in angle
-            float angleVariation = Random.Range(-15f, 15f);
+                    Vector2 oldVelocity = rb.velocity; // used for flipping sprite
+                    Vector2 newVelocity = Vector2.Reflect(rb.velocity, normal);     // reflect velocity
+                    Debug.Log($"Velocity before ricochet: {oldVelocity}");
+                    rb.velocity = newVelocity;
+                    Debug.Log($"Velocity after ricochet: {newVelocity}");
+                    
 
-            // bounce bullet with angle variation
-            Vector2 reflectedVelocity = Vector2.Reflect(rb.velocity, collisionNormal);
 
-            // adjust velocity using bounce 
-            reflectedVelocity = RotateVector(reflectedVelocity, angleVariation);
-            rb.velocity = reflectedVelocity;
-
-            ricochetCount--; 
-        }
+                    UpdateSprite(newVelocity, oldVelocity);
+                    ricochetCount--;
+                }
             }
             else
             {
@@ -88,16 +90,26 @@ public class BounceBullet : MonoBehaviour
         }
     }
     
-    // helps with random bounce angle
-    private Vector2 RotateVector(Vector2 vector, float angle)
+    private void UpdateSprite(Vector2 newVelocity, Vector2 oldVelocity)
     {
-        float radians = angle * Mathf.Deg2Rad;  // Convert angle to radians
-        float cos = Mathf.Cos(radians);
-        float sin = Mathf.Sin(radians);
+        Vector3 newScale = transform.localScale;
+        // Flip horizontally when bouncing left/right
+        if (Mathf.Sign(newVelocity.x) != Mathf.Sign(oldVelocity.x))        {
+            newScale.x *= -1;
+        }
 
-        float newX = cos * vector.x - sin * vector.y;
-        float newY = sin * vector.x + cos * vector.y;
-        return new Vector2(newX, newY);
+        // // Flip vertically when bouncing up/down
+        // if ((velocity.y > 0 && newScale.y < 0) || (velocity.y < 0 && newScale.y > 0))
+        // {
+        //     newScale.y *= -1;
+        // }
+        // if (velocity.sqrMagnitude > 0) // Avoid rotation when velocity is zero
+        // {
+        //     float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg; // Calculate the angle
+        //     transform.rotation = Quaternion.Euler(0f, 0f, angle); // Apply the rotation
+        // }
+
+        transform.localScale = newScale;
     }
 
 }
