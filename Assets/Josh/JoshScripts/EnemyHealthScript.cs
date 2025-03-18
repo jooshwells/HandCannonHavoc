@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealthScript : MonoBehaviour
 {
     // health value, initialized to 100
-    private float health = 100f;
+    [SerializeField] private float health = 100f;
 
     public void UpdateHealth(float damage)
     {
@@ -33,6 +33,10 @@ public class EnemyHealthScript : MonoBehaviour
     IEnumerator DyingAnimation()
     {
         Animator animator = GetComponent<Animator>();
+        if(animator == null) animator = GetComponentInChildren<Animator>();
+
+        GetComponent<Rigidbody2D>().simulated = false;
+
         animator.Play("Die State");
         yield return new WaitForEndOfFrame();
         yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);

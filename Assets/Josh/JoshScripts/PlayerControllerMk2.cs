@@ -18,6 +18,7 @@ public class PlayerControllerMk2 : MonoBehaviour
     // LayerMasks for Ground and Wall
     private LayerMask wallLayer;
     private LayerMask groundLayer;
+    private LayerMask dmgLayer;
 
     // Input directions
     private float horizontal;
@@ -83,7 +84,7 @@ public class PlayerControllerMk2 : MonoBehaviour
     // Returns if the player is grounded
     public bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(groundCheck.position, 0.2f, dmgLayer);
     }
 
     // Returns if the player is on a wall
@@ -295,6 +296,7 @@ public class PlayerControllerMk2 : MonoBehaviour
         groundCheck = transform.Find("GroundCheck");
         groundLayer = LayerMask.GetMask("Ground");
         wallLayer = LayerMask.GetMask("Wall");
+        dmgLayer = LayerMask.GetMask("Damage");
     }
 
     // Update is called once per frame
