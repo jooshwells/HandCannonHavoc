@@ -48,7 +48,7 @@ public class HighJumpParaCopy : MonoBehaviour
     void Start()
     {
         cooldown = GetComponent<GenCooldownCopy>();
-        cooldown.setCooldown(3f); //SET COOLDOWN HERE
+        cooldown.setCooldown(2f); //SET COOLDOWN HERE
         //player = GetComponent<PlayerController>();
         player = transform.parent.gameObject.GetComponent<PlayerControllerMk2>();
         rb = transform.parent.gameObject.GetComponent<Rigidbody2D>();
@@ -125,7 +125,7 @@ public class HighJumpParaCopy : MonoBehaviour
                         openSpriteBoost();
                     //openSpriteBoost();
                     rb.velocity = new Vector2(rb.velocity.x, player.GetJumpPower() * jumpScale);
-                    //cooldown.enable();
+                    cooldown.enable(); //cooldown when player jumps
                     highJumped = true;
                     cdHighJump = 0; //cooldown tbd
                 }
@@ -193,7 +193,7 @@ public class HighJumpParaCopy : MonoBehaviour
             if (fromHighJumped())
             {
                 highJumped = false;
-                cooldown.enable();
+                //cooldown.enable(); //cooldown when player lands
             }
         }
     }

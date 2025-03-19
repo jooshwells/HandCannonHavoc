@@ -69,8 +69,11 @@ public class Railgun2 : MonoBehaviour
 
     [SerializeField] int magSize = 10;
     [SerializeField] float reloadSpeed = 2f;
+    [SerializeField] float recoil = 5f;
+
     private int currentAmmo;
     private bool isReloading = false;
+    private Rigidbody2D playerRb;
 
     //RAILGUN COMPONENTS
     genHoldButton hold;
@@ -86,6 +89,7 @@ public class Railgun2 : MonoBehaviour
         currentAmmo = magSize;
         player = transform.parent.parent;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Bullets"), LayerMask.NameToLayer("Bullets")); // prevent bullet collision
+        playerRb = transform.parent.parent.GetComponent<Rigidbody2D>();  //used for recoil
     }
 
     // reset ammo when swapping between guns
@@ -132,6 +136,14 @@ public class Railgun2 : MonoBehaviour
         if (currentAmmo <= 0) return;
         currentAmmo--;
 
+        Vector2 direction = (gunPos.right).normalized;
+
+        // hanlde firing inwards issues
+        if (player.transform.localScale.x < 0)
+        {
+            direction = -(gunPos.right).normalized;
+        }
+
 
         GameObject bullet = Instantiate(bulletSprite, gunBarrel.position, gunPos.rotation);
         SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
@@ -144,13 +156,7 @@ public class Railgun2 : MonoBehaviour
         bulletScript.SetAttackDamage(attackDamage);
 
 
-        Vector2 direction = (gunPos.right).normalized;
-
-        // deal with gun firing inwards
-        if (player.transform.localScale.x < 0)
-        {
-            direction = -(gunPos.right).normalized;
-        }
+        //Vector2 direction = (gunPos.right).normalized;
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
@@ -159,6 +165,9 @@ public class Railgun2 : MonoBehaviour
         rb.velocity = direction * bulletSpeed;
         flip(direction, bulletRenderer);
         Destroy(bullet, bulletDuration);
+
+        Recoil(direction); // apply recoil only once
+
     }
 
     // spagetthi code for handling weird sprite flipping
@@ -194,6 +203,16 @@ public class Railgun2 : MonoBehaviour
 
         currentAmmo = magSize;
         isReloading = false;
+    }
+
+
+    void Recoil(Vector2 shotDirection)
+    {
+        float horizontalRecoil = -shotDirection.x * recoil * .6f;
+        float verticalRecoil = -shotDirection.y * recoil;
+
+        playerRb.AddForce(new Vector2(horizontalRecoil, verticalRecoil), ForceMode2D.Impulse);
+
     }
 
 }
