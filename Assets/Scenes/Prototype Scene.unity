@@ -455,7 +455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       propertyPath: m_TagString
@@ -126990,11 +126990,11 @@ PrefabInstance:
       objectReference: {fileID: 435230932}
     - target: {fileID: 1902559226405861917, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.02
+      value: 44.28
       objectReference: {fileID: 0}
     - target: {fileID: 1902559226405861917, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.36
+      value: 53.95
       objectReference: {fileID: 0}
     - target: {fileID: 1902559226405861917, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -127144,8 +127144,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3663592173847258892, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 273.2265
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663592173847258892, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 39.7058
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663592173847258892, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -782.72034
+      value: -785.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663592173847258892, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 452.7139
       objectReference: {fileID: 0}
     - target: {fileID: 4415301177027559910, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
