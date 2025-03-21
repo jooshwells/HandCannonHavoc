@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 242268374565163531}
   - component: {fileID: 1784850400091894206}
   - component: {fileID: -1924825340853307417}
+  - component: {fileID: -5173599275868002772}
   m_Layer: 0
   m_Name: PlasmaBullet
   m_TagString: Untagged
@@ -112,3 +113,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5173599275868002772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293041522477430325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0215956757957e64589ce8fde688fd92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

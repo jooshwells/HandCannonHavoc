@@ -54,14 +54,14 @@ using UnityEngine;
 public class Railgun2 : MonoBehaviour
 {
 
-    private Transform player;
+    [SerializeField] Transform player;
     [SerializeField] GameObject bulletSprite;
 
     [SerializeField] Transform gunPos;
     [SerializeField] Transform gunBarrel;
 
     [SerializeField] float bulletSpeed = 10f; //
-    [SerializeField] float bulletDuration = 1f;
+    [SerializeField] float bulletDuration = 10f;
     [SerializeField] float fireRate = 1f;
     [SerializeField] float attackDamage = 30f; //
 
@@ -87,9 +87,9 @@ public class Railgun2 : MonoBehaviour
         hold = gameObject.GetComponent<genHoldButton>();
 
         currentAmmo = magSize;
-        player = transform.parent.parent;
+        //player = transform.parent.parent;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Bullets"), LayerMask.NameToLayer("Bullets")); // prevent bullet collision
-        playerRb = transform.parent.parent.GetComponent<Rigidbody2D>();  //used for recoil
+        playerRb = player.GetComponent<Rigidbody2D>();  //used for recoil
     }
 
     // reset ammo when swapping between guns
@@ -120,6 +120,9 @@ public class Railgun2 : MonoBehaviour
             frame_index = 0;
         else
             frame_index = (int)((hold.progress * 7) + 1);
+
+        if (frame_index >= 8) 
+            frame_index = 8;
 
         render.sprite = frames[frame_index];
     }

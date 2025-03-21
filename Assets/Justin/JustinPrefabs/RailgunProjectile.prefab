@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -2626634942504760900}
   - component: {fileID: 3925802749953639836}
   - component: {fileID: 35878979421435344}
+  - component: {fileID: -7053942535559896678}
   m_Layer: 11
   m_Name: RailgunProjectile
   m_TagString: Untagged
@@ -49,7 +50,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -217,3 +218,15 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &-7053942535559896678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082316114626783745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0215956757957e64589ce8fde688fd92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
