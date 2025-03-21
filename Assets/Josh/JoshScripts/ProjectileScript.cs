@@ -18,7 +18,7 @@ public class ProjectileScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<AudioSource>().Play();
+        //gameObject.GetComponent<AudioSource>().Play();
 
     }
 
@@ -29,13 +29,13 @@ public class ProjectileScript : MonoBehaviour
 
     private void Awake()
     {
-        target = GameObject.Find("Player Variant");
+        target = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
 
         Transform targetPos = target.transform;
         Vector2 dist = (targetPos.position + new Vector3(0, 0.1f, 0)) - transform.position;
         float angle = Mathf.Atan2(dist.y, dist.x) * Mathf.Rad2Deg;
-        Debug.Log("Angle = " + (angle+360f));
+        //Debug.Log("Angle = " + (angle+360f));
         if(angle+ (angle < 0f ? 360 : 0) >= 90 && angle+ (angle < 0f ? 360 : 0) <= 270)
         {
             Vector3 locScale = transform.localScale;

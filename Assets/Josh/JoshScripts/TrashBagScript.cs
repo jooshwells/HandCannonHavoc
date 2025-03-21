@@ -23,6 +23,11 @@ public class TrashBagScript : MonoBehaviour
 
     [SerializeField] private float extraHeight = 3f;
 
+    [SerializeField] private GameObject goopAttack;
+
+    private bool attacking;
+    [SerializeField] private float attackCooldown = 0.75f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +40,15 @@ public class TrashBagScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool isEnemyAboveAndInXRange = (rb.position.y >= target.position.y + 4.5f) &&
+                               (Mathf.Abs(rb.position.x - target.position.x) <= 0.5f);
+
+        if (!attacking && isEnemyAboveAndInXRange)
+        {
+            attacking = true;
+            StartCoroutine(Attack());
+        }
+
         // If Player is within target distance
         if(!started && Vector2.Distance(target.position, gameObject.transform.position) <= wakeUpDist)
         {
@@ -81,6 +95,13 @@ public class TrashBagScript : MonoBehaviour
         }
     }
 
+    IEnumerator Attack()
+    {
+        GameObject curSlimeBall = Instantiate(goopAttack, transform.Find("LaunchOrigin").position, transform.Find("LaunchOrigin").rotation);
+        curSlimeBall.GetComponent<ProjectileScript>().SetInstantiator(gameObject);
+        yield return new WaitForSeconds(attackCooldown);
+        attacking = false;
+    }
     IEnumerator WakeUp()
     {
         anim.SetBool("WakeUp", true);
