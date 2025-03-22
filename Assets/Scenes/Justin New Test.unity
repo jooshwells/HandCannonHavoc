@@ -2160,6 +2160,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -7133139996986549781, guid: 8726ac710f1225449a2aa86b9940f483, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4abc31db5dd7c3d40831475b166cacde, type: 2}
+    - target: {fileID: -7133139996986549781, guid: 8726ac710f1225449a2aa86b9940f483, type: 3}
       propertyPath: m_GravityScale
       value: 1
       objectReference: {fileID: 0}
@@ -2297,19 +2301,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8812817125956712002, guid: 8726ac710f1225449a2aa86b9940f483, type: 3}
       propertyPath: m_Size.x
-      value: 0.32
+      value: 0.22061408
       objectReference: {fileID: 0}
     - target: {fileID: 8812817125956712002, guid: 8726ac710f1225449a2aa86b9940f483, type: 3}
       propertyPath: m_Size.y
       value: 0.49
       objectReference: {fileID: 0}
     - target: {fileID: 8812817125956712002, guid: 8726ac710f1225449a2aa86b9940f483, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4abc31db5dd7c3d40831475b166cacde, type: 2}
+    - target: {fileID: 8812817125956712002, guid: 8726ac710f1225449a2aa86b9940f483, type: 3}
       propertyPath: m_Offset.x
-      value: -0.030802593
+      value: 0.018890385
       objectReference: {fileID: 0}
     - target: {fileID: 8812817125956712002, guid: 8726ac710f1225449a2aa86b9940f483, type: 3}
       propertyPath: m_Offset.y
-      value: -0.014015965
+      value: -0.014015973
       objectReference: {fileID: 0}
     - target: {fileID: 8812817125956712002, guid: 8726ac710f1225449a2aa86b9940f483, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -2323,7 +2331,8 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.32
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3843599172888188369, guid: 8726ac710f1225449a2aa86b9940f483, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5557734478397787103, guid: 8726ac710f1225449a2aa86b9940f483, type: 3}
@@ -2359,7 +2368,7 @@ Transform:
   m_GameObject: {fileID: 1323186901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1645, y: -0.0099, z: 0}
+  m_LocalPosition: {x: -0.19083, y: -0.02847, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2390,7 +2399,7 @@ Transform:
   m_GameObject: {fileID: 1366909609}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0652, y: -0.0297, z: 0}
+  m_LocalPosition: {x: -0.0896, y: -0.0481, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
