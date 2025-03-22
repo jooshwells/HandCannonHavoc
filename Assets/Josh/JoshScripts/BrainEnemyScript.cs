@@ -54,6 +54,8 @@ public class BrainEnemyScript : MonoBehaviour
             startedFiring = true;
             InvokeRepeating("FireBrains", 0f, fireRate);
         }
+
+        if(awareOfPlayer) FaceTarget();
     }
 
     void FireBrains()
@@ -70,4 +72,18 @@ public class BrainEnemyScript : MonoBehaviour
         Instantiate(brain, fireLoc.position, fireLoc.rotation);
         isFiring = false;
     }
+
+    void FaceTarget()
+    {
+        if (target == null) return;
+
+        Vector3 scale = transform.localScale;
+        if ((target.position.x > transform.position.x && scale.x > 0) ||
+            (target.position.x < transform.position.x && scale.x < 0))
+        {
+            scale.x *= -1; // Flip horizontally
+            transform.localScale = scale;
+        }
+    }
+
 }

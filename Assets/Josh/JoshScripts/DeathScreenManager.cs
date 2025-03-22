@@ -28,6 +28,8 @@ public class DeathScreenManager : MonoBehaviour
 
     public void Respawn()
     {
+        Debug.Log("Trying to run");
+
         Time.timeScale = 1f;
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

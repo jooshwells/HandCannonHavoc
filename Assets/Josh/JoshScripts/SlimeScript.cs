@@ -6,7 +6,7 @@ using Pathfinding;
 public class SlimeScript : MonoBehaviour
 {
 
-    public Transform target;
+    private Transform target;
 
     public float speed = 200f;
     public float nextWaypointDistance = 3f;

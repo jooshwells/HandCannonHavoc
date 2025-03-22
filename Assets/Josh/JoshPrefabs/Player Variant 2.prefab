@@ -714,6 +714,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ricochet Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 9107633049805865057, guid: 2473011b6057a0e4dbb2569d2389ec0d, type: 3}
+      propertyPath: fireRate
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 9167672299062154124, guid: 2473011b6057a0e4dbb2569d2389ec0d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -938,11 +942,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.067
+      value: -6.33
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2837
+      value: 35.9
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1095,6 +1099,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7150935151787577722}
+    - targetCorrespondingSourceObject: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6346773823422318923}
+    - targetCorrespondingSourceObject: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2019516470593148813}
   m_SourcePrefab: {fileID: 100100000, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
 --- !u!4 &1902559226405861917 stripped
 Transform:
@@ -1348,6 +1358,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e0e8d464a94d444b3e4967b3b8ba5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6346773823422318923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4597567887615554847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf9f9722e9a89a468b0535f89c13e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  invincibilityTime: 1.5
+--- !u!114 &2019516470593148813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4597567887615554847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59672f7037f685f4aa4b1ce2590a1ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 9148377120414152727}
+  whiteFlashMaterial: {fileID: -876546973899608171, guid: 4eaf81949bfeaef4bbfd64f9ca05a954, type: 3}
+  flashDuration: 0.1
+  invincibilityDuration: 1.5
+  blinkInterval: 0.15
+--- !u!212 &9148377120414152727 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4993001228397659496, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
+  m_PrefabInstance: {fileID: 4305200092360736127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4448894954878361101
 PrefabInstance:
   m_ObjectHideFlags: 0

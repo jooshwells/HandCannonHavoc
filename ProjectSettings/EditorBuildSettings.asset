@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/HH - Main Menu.unity
     guid: b89828b202ec14ed9a00aef67fae07d7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Prototype Scene.unity
     guid: a1cdae7a1bf17b4419e8f20c781e0cf4
+  - enabled: 1
+    path: Assets/Scenes/JoshLevel1.unity
+    guid: 5148d1fbe4161504386349c76ca22e4f
   m_configObjects: {}
