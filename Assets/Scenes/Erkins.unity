@@ -384,6 +384,37 @@ MonoBehaviour:
   finalGlovePrefab: {fileID: 542883993168589787, guid: 8b7c7c0aad04049ad89e292b479e4d2c, type: 3}
   launchForce: 20
   handTransform: {fileID: 1293884749}
+--- !u!1 &827807646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4551517443741448345, guid: 37256adcdb694487db063091f3f5950d, type: 3}
+  m_PrefabInstance: {fileID: 5827443781554024048}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &827807647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827807646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93164750da7244a8dbae9c5fc2c66c25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 381212285}
+  gunDistance: 1
+--- !u!114 &827807650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827807646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a1db0c466fa47dba74c0e0f181786b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1004078325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2236,6 +2267,69 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1001 &5827443781554024048
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3363066924186262919, guid: 37256adcdb694487db063091f3f5950d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363066924186262919, guid: 37256adcdb694487db063091f3f5950d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363066924186262919, guid: 37256adcdb694487db063091f3f5950d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363066924186262919, guid: 37256adcdb694487db063091f3f5950d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363066924186262919, guid: 37256adcdb694487db063091f3f5950d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363066924186262919, guid: 37256adcdb694487db063091f3f5950d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363066924186262919, guid: 37256adcdb694487db063091f3f5950d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363066924186262919, guid: 37256adcdb694487db063091f3f5950d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363066924186262919, guid: 37256adcdb694487db063091f3f5950d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363066924186262919, guid: 37256adcdb694487db063091f3f5950d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551517443741448345, guid: 37256adcdb694487db063091f3f5950d, type: 3}
+      propertyPath: m_Name
+      value: Bullet Gun Prefab
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4551517443741448345, guid: 37256adcdb694487db063091f3f5950d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 827807647}
+    - targetCorrespondingSourceObject: {fileID: 4551517443741448345, guid: 37256adcdb694487db063091f3f5950d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 827807650}
+  m_SourcePrefab: {fileID: 100100000, guid: 37256adcdb694487db063091f3f5950d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2243,3 +2337,4 @@ SceneRoots:
   - {fileID: 1412141240}
   - {fileID: 1004078325}
   - {fileID: 1171635732}
+  - {fileID: 5827443781554024048}
