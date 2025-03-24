@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f88781291546f43aba49ff88f0cedfe4
+guid: 1209c79d19fdc4d9b8180d10b13bc75b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -134,70 +134,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Bullet Gun - Shooting Animation_0
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 84
-        width: 38
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c602d005f2dad4cd48759741bd687a73
-      internalID: -534444340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bullet Gun - Shooting Animation_1
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 84
-        width: 43
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6debcadcadbac4f5db69961e790e8a75
-      internalID: -203855134
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bullet Gun - Shooting Animation_2
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 20
-        width: 48
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 167b25b89da7a451f813139bb40b3527
-      internalID: 1259541604
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -208,10 +145,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Bullet Gun - Shooting Animation_0: -534444340
-      Bullet Gun - Shooting Animation_1: -203855134
-      Bullet Gun - Shooting Animation_2: 1259541604
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

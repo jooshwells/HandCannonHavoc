@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f88781291546f43aba49ff88f0cedfe4
+guid: f19762e19974f49189327e9410fa5cd2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,53 +136,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bullet Gun - Shooting Animation_0
+      name: Bullet Gun - Shooting Deactivation_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 84
-        width: 38
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c602d005f2dad4cd48759741bd687a73
-      internalID: -534444340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bullet Gun - Shooting Animation_1
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 84
-        width: 43
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6debcadcadbac4f5db69961e790e8a75
-      internalID: -203855134
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bullet Gun - Shooting Animation_2
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 20
+        x: 13
+        y: 85
         width: 48
         height: 22
       alignment: 0
@@ -192,8 +150,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 167b25b89da7a451f813139bb40b3527
-      internalID: 1259541604
+      spriteID: 60497a020a6444a7ab51b29028a1f8f3
+      internalID: -200490690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet Gun - Shooting Deactivation_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 85
+        width: 43
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de67e2b94ca3f488cb9a0c4654c77395
+      internalID: 2079810836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet Gun - Shooting Deactivation_2
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 21
+        width: 38
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b917c70cb1914b5abc1fc3e308c7bb3
+      internalID: 1167202292
       vertices: []
       indices: 
       edges: []
@@ -209,9 +209,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bullet Gun - Shooting Animation_0: -534444340
-      Bullet Gun - Shooting Animation_1: -203855134
-      Bullet Gun - Shooting Animation_2: 1259541604
+      Bullet Gun - Shooting Deactivation_0: -200490690
+      Bullet Gun - Shooting Deactivation_1: 2079810836
+      Bullet Gun - Shooting Deactivation_2: 1167202292
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
