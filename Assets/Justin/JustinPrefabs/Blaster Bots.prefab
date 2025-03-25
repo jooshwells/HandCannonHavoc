@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8200635030455990038}
   - component: {fileID: 3038500127021274964}
   m_Layer: 0
-  m_Name: Flying Enemy Sprite
+  m_Name: Blaster Bots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

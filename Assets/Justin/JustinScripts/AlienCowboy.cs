@@ -8,6 +8,8 @@ using static UnityEngine.GraphicsBuffer;
 public class AlienCowboy : MonoBehaviour
 {
     // object and numerical fields
+    public float defaultScale;
+
     private ProjectileScript projectile;
 
     [SerializeField] private Transform player;
@@ -36,6 +38,9 @@ public class AlienCowboy : MonoBehaviour
 
     // attacking
     [SerializeField] float FireRate = 1f;
+    [SerializeField] float bulletSpeed = 1f;
+    [SerializeField] float bulletDuration = 1f;
+
     private float lastShotTime;
     private float lastShotFrameTime = float.PositiveInfinity;
 
@@ -44,9 +49,6 @@ public class AlienCowboy : MonoBehaviour
     [SerializeField] GameObject bulletSprite;
     [SerializeField] Transform gunPos1;
     [SerializeField] Transform gunPos2;
-    [SerializeField] float bulletSpeed = 1f;
-    [SerializeField] float bulletDuration = 1f;
-
 
 
     // Start is called before the first frame update
@@ -109,6 +111,16 @@ public class AlienCowboy : MonoBehaviour
             {
                 Idle();
             }
+        }
+
+        if (transform.position.x - player.position.x < 0)
+        {
+            //flip
+            transform.localScale = new Vector3(-defaultScale, defaultScale, 0);
+        }
+        else
+        {
+            transform.localScale = new Vector3(defaultScale, defaultScale, 0);
         }
     }
 
