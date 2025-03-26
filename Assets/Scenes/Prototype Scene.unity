@@ -1244,7 +1244,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 0
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -122014,13 +122014,17 @@ PrefabInstance:
       propertyPath: smoothSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1814997646270697699, guid: 87895a828fa416543934bd9c3a1c6dd1, type: 3}
+      propertyPath: followThreshold
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2583290798930927025, guid: 87895a828fa416543934bd9c3a1c6dd1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -57.3
       objectReference: {fileID: 0}
     - target: {fileID: 2583290798930927025, guid: 87895a828fa416543934bd9c3a1c6dd1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 10.9
       objectReference: {fileID: 0}
     - target: {fileID: 2583290798930927025, guid: 87895a828fa416543934bd9c3a1c6dd1, type: 3}
       propertyPath: m_LocalPosition.z
