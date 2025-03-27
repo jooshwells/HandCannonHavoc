@@ -6,6 +6,7 @@ public class FlagScript : MonoBehaviour
 {
     private SpeedrunTimer tc;
     private bool passedGate = false;
+    [SerializeField] private GameObject gateToUnlock;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,21 +32,26 @@ public class FlagScript : MonoBehaviour
             {
                 tc.ResetTimer();
                 tc.StartTimer();
-            }
-            else
-            {
-                if (passedGate)
+
+                if(gateToUnlock != null)
                 {
-                    tc.StopTimer();
-                    //float currentBestTime = PlayerPrefs.GetFloat("BestTime", float.MaxValue); // Use float.MaxValue to ensure first run works
-                    //if (tc.GetTime() < currentBestTime)
-                    //{
-                    //    PlayerPrefs.SetFloat("BestTime", tc.GetTime());
-                    //    PlayerPrefs.Save(); // Ensure it gets stored permanently
-                    //    GameObject.Find("TimerController").GetComponent<SpeedrunTimer>().UpdateBestTimerDisplay(PlayerPrefs.GetFloat("BestTime", 0f));
-                    //}
+                    gateToUnlock.SetActive(false);
                 }
             }
+            //else
+            //{
+            //    if (passedGate)
+            //    {
+            //        tc.StopTimer();
+            //        //float currentBestTime = PlayerPrefs.GetFloat("BestTime", float.MaxValue); // Use float.MaxValue to ensure first run works
+            //        //if (tc.GetTime() < currentBestTime)
+            //        //{
+            //        //    PlayerPrefs.SetFloat("BestTime", tc.GetTime());
+            //        //    PlayerPrefs.Save(); // Ensure it gets stored permanently
+            //        //    GameObject.Find("TimerController").GetComponent<SpeedrunTimer>().UpdateBestTimerDisplay(PlayerPrefs.GetFloat("BestTime", 0f));
+            //        //}
+            //    }
+            //}
         }
     }
 }

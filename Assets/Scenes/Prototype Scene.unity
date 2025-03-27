@@ -121193,6 +121193,25 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &1902184256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4373517027622858352, guid: 87895a828fa416543934bd9c3a1c6dd1, type: 3}
+  m_PrefabInstance: {fileID: 6646671044535142262}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1902184262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902184256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72fa5d7f63fe303409da0987158bdfa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothSpeed: 5
+  offset: {x: 0, y: 4, z: -10}
 --- !u!1 &1949592248 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2647945800094875762, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
@@ -122007,6 +122026,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1814997646270697699, guid: 87895a828fa416543934bd9c3a1c6dd1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814997646270697699, guid: 87895a828fa416543934bd9c3a1c6dd1, type: 3}
       propertyPath: shiftSpeed
       value: 10
       objectReference: {fileID: 0}
@@ -122065,7 +122088,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4373517027622858352, guid: 87895a828fa416543934bd9c3a1c6dd1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1902184262}
   m_SourcePrefab: {fileID: 100100000, guid: 87895a828fa416543934bd9c3a1c6dd1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

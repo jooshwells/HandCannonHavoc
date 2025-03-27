@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Grapple
   - Glove Bounce Pad
+  - Background
   layers:
   - Default
   - TransparentFX
