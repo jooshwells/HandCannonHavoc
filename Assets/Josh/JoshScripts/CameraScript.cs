@@ -28,9 +28,10 @@ public class CameraScript : MonoBehaviour
 
     private float left, right;
     private bool boundsSet;
+    private bool isMoving = false;
     private void LateUpdate()
     {
-        if (player.position.x <= right && player.position.x >= left) return;
+        if (isMoving || player.position.x <= right && player.position.x >= left) return;
 
         if (!boundsSet && playerRb.velocity.magnitude <= 0.1f)
         {
@@ -41,7 +42,7 @@ public class CameraScript : MonoBehaviour
             //right = transform.position.x + 4;
 
             StartCoroutine(MoveToTarget(player.position + offset));
-            boundsSet = true;
+            //boundsSet = true;
         }
 
         if (player.position.x > right)
@@ -72,28 +73,39 @@ public class CameraScript : MonoBehaviour
             Vector3 desiredPosition = player.position + new Vector3(-directionOffset, offset.y, offset.z);
             targetPosition = Vector3.Lerp(targetPosition, desiredPosition, smoothSpeed * Time.deltaTime);
             transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
-        }
-        else // locked
-        {
+        } else
+        { 
             Debug.Log("Centered logic executing");
-
-            //Vector3 desiredPosition = player.position + new Vector3(0, offset.y, offset.z);
-            //targetPosition = Vector3.Lerp(targetPosition, desiredPosition, smoothSpeed * Time.deltaTime);
-            transform.position = Vector3.Lerp(transform.position, player.position+offset, smoothSpeed * Time.deltaTime);
+            targetPosition = player.position + offset; // Reset to player position
+            transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
+            
         }
+        //else // locked
+        //{
+        //    Debug.Log("Centered logic executing");
+
+        //    //Vector3 desiredPosition = player.position + new Vector3(0, offset.y, offset.z);
+        //    //targetPosition = Vector3.Lerp(targetPosition, desiredPosition, smoothSpeed * Time.deltaTime);
+        //    transform.position = Vector3.Lerp(transform.position, player.position+offset, smoothSpeed * Time.deltaTime);
+        //}
     }
 
     private IEnumerator MoveToTarget(Vector3 target)
     {
-        while (Vector3.Distance(transform.position, target) > stopThreshold)
+        isMoving = true;
+        
+        while (Vector3.Distance(transform.position, target) > 0.05f)
         {
             transform.position = Vector3.Lerp(transform.position, target, smoothSpeed * Time.deltaTime);
-            yield return null;
+            yield return null; // Wait for the next frame
         }
 
         // Update bounds only after reaching the target
+
         left = transform.position.x - 4;
         right = transform.position.x + 4;
+        boundsSet = true;
+        isMoving = false;
     }
 
     private void OnDrawGizmos()
