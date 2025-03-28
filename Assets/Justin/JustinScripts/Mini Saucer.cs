@@ -1,15 +1,17 @@
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class MiniSaucer : MonoBehaviour
 {
+    public SpriteRenderer spriterender;
 
     [SerializeField] private float wakeUpDist = 5f;
     private Transform target;
-    private Animator anim;
+    //private Animator anim;
     private Rigidbody2D rb;
 
     Path path;
@@ -20,20 +22,21 @@ public class MiniSaucer : MonoBehaviour
 
     [SerializeField] private Transform enemyGFX;
     [SerializeField] private float nextWaypointDistance = 3f;
-    [SerializeField] private float speed = 200f;
+    [SerializeField] private float speed = 400f;
 
     [SerializeField] private float extraHeight = 3f;
 
     [SerializeField] private GameObject goopAttack;
 
-    private bool attacking;
-    [SerializeField] private float attackCooldown = 0.75f;
+    private bool attacking = false;
+    [SerializeField] private float attackCooldown = 2f;
 
     // Start is called before the first frame update
     void Start()
     {
+        spriterender = GetComponent<SpriteRenderer>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        anim = GetComponentInChildren<Animator>();
+        //anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
     }
@@ -44,10 +47,19 @@ public class MiniSaucer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!attacking)
+        {
+            Idle();
+        }
 
-        bool isEnemyAboveAndInXRange = (rb.position.y >= target.position.y + 4.5f) &&
-                               (Mathf.Abs(rb.position.x - target.position.x) <= X_Dist_Needed) &&
-                               (Mathf.Abs(rb.position.x - target.position.x) >= X_Dist_KeptAway);
+        bool isEnemyAboveAndInXRange = (rb.position.y >= target.position.y + 3f) &&
+                                       (Mathf.Abs(rb.position.x - target.position.x) <= X_Dist_Needed); //&&
+                               //(Mathf.Abs(rb.position.x - target.position.x) >= X_Dist_KeptAway);
+
+        if(rb.position.y <= target.position.y + 3.5f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 1f);
+        }
 
         if (!attacking && isEnemyAboveAndInXRange)
         {
@@ -61,6 +73,8 @@ public class MiniSaucer : MonoBehaviour
             StartCoroutine(WakeUp());
             started = true;
         }
+
+        transform.localScale = new Vector3(5.8908f, 5.8908f);
     }
 
     void FixedUpdate()
@@ -103,15 +117,23 @@ public class MiniSaucer : MonoBehaviour
 
     IEnumerator Attack()
     {
-        GameObject curSlimeBall = Instantiate(goopAttack, transform.Find("LaunchOrigin").position, transform.Find("LaunchOrigin").rotation);
-        curSlimeBall.GetComponent<ProjectileScript>().SetInstantiator(gameObject);
+        GameObject curSlimeBall1 = Instantiate(goopAttack, transform.Find("LaunchOrigin").position, transform.Find("LaunchOrigin").rotation);
+        curSlimeBall1.GetComponent<ProjectileScript>().SetInstantiator(gameObject);
+
+        GameObject curSlimeBall2 = Instantiate(goopAttack, transform.Find("LaunchOrigin2").position, transform.Find("LaunchOrigin2").rotation);
+        curSlimeBall2.GetComponent<ProjectileScript>().SetInstantiator(gameObject);
+
+        GameObject curSlimeBall3 = Instantiate(goopAttack, transform.Find("LaunchOrigin3").position, transform.Find("LaunchOrigin3").rotation);
+        curSlimeBall3.GetComponent<ProjectileScript>().SetInstantiator(gameObject);
+
         yield return new WaitForSeconds(attackCooldown);
         attacking = false;
     }
     IEnumerator WakeUp()
     {
-        anim.SetBool("WakeUp", true);
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        //anim.SetBool("WakeUp", true);
+        //yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(0);
         RunPathing();
     }
 
@@ -134,6 +156,45 @@ public class MiniSaucer : MonoBehaviour
             path = p;
             currentWaypoint = 0;
             //extraHeight += 0.5f;
+        }
+    }
+
+    float lastTime_FlashingLights = 0;
+    public Sprite[] flashingSprites;
+    int flashingSpritesIndex = 0;
+    void FlashingLights()
+    {
+        if (Time.time > lastTime_FlashingLights)
+        {
+            spriterender.sprite = flashingSprites[flashingSpritesIndex];
+            flashingSpritesIndex = (flashingSpritesIndex + 1) % 3;
+            lastTime_FlashingLights = Time.time + 0.15f;
+        }
+    }
+
+    float lastTime_Idle = 0;
+    float lastTime_Up = 0;
+    float lastTime_Down = 0;
+    bool up = true;
+    void Idle()
+    {
+        FlashingLights();
+
+        if (up && Time.time > lastTime_Up)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 0.1f);
+            lastTime_Up = Time.time + 0.1f;
+        }
+        if (!up && Time.time > lastTime_Down)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - 0.1f);
+            lastTime_Down = Time.time + 0.1f;
+        }
+
+        if (Time.time > lastTime_Idle)
+        {
+            lastTime_Idle = Time.time + 1f;
+            up = !up;
         }
     }
 }
