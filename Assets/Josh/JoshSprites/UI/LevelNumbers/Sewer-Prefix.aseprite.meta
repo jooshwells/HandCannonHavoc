@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e7b95e657173ba640bb2005608f31306
+guid: e3ea85bf2b5d75c4f9263e524687cc5d
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 0
+    spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
     spritePixelsToUnits: 100
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638787847308058673
+  platformSettingsDirtyTick: 0
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,18 +122,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: TestBackground3
+  - name: Sewer-Prefix
     originalName: 
-    pivot: {x: 0.5, y: -0.8381963}
+    pivot: {x: 0.45999998, y: -0.14}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 640
-      height: 377
-    spriteID: 38ce8e788226da94087e0e890dca2ae7
+      width: 50
+      height: 50
+    spriteID: f47500a44b5e17a44978db9ed155b056
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,21 +145,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1349011047
-    name: TestBackground3
+    guid: 62191267
+    name: Sewer-Prefix
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: TestBackground3
+    - name: Sewer-Prefix
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 192
-        y: 316
-        width: 640
-        height: 377
-      spriteId: 38ce8e788226da94087e0e890dca2ae7
+        x: 9
+        y: 7
+        width: 50
+        height: 50
+      spriteId: f47500a44b5e17a44978db9ed155b056
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -175,44 +175,8 @@ ScriptedImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Windows Store Apps
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 1024, y: 1024}
-  previousTextureSize: {x: 1024, y: 512}
+  canvasSize: {x: 64, y: 64}
+  previousTextureSize: {x: 64, y: 64}

@@ -7,7 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 public class RatBallScript : MonoBehaviour
 {
 
-    public Transform target;
+    private Transform target;
 
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
@@ -20,6 +20,8 @@ public class RatBallScript : MonoBehaviour
 
     Seeker seeker;
     Rigidbody2D rb;
+
+    private bool started = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,10 +36,12 @@ public class RatBallScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
     }
 
     void UpdatePath()
     {
+        
         if (seeker.IsDone())
             seeker.StartPath(rb.position, target.position, OnPathComplete);
     }

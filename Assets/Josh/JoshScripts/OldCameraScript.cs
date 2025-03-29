@@ -12,7 +12,7 @@ public class OldCameraScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        background = GameObject.FindGameObjectWithTag("Background").transform;
+        //background = GameObject.FindGameObjectWithTag("Background").transform;
     }
 
     private void LateUpdate()
@@ -23,7 +23,7 @@ public class OldCameraScript : MonoBehaviour
             Vector3 targetPosition = player.position + offset;
 
             transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
-            background.position = Vector3.Lerp(background.position, (targetPosition-offset) + new Vector3(0,-3,0), smoothSpeed/2 * Time.deltaTime);
+            //background.position = Vector3.Lerp(background.position, (targetPosition-offset) + new Vector3(0,-3,0), smoothSpeed/2 * Time.deltaTime);
         }
     }
 
