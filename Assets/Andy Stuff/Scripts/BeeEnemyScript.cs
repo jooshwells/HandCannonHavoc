@@ -17,9 +17,8 @@ public class BeeEnemyScript : MonoBehaviour
     [SerializeField] private Transform enemyGFX;
     [SerializeField] private float nextWaypointDistance = 3f;
     [SerializeField] private float speed = 200f;
-    [SerializeField] private float retreatSpeed = 250f; // Speed when retreating
 
-    [SerializeField] private GameObject stingerPrefab;
+    [SerializeField] private GameObject stingAttack;
     [SerializeField] private float attackCooldown = 2f;
     private bool attacking;
 
@@ -91,14 +90,20 @@ public class BeeEnemyScript : MonoBehaviour
     void RetreatFromPlayer()
     {
         Vector2 retreatDirection = (rb.position - (Vector2)target.position).normalized;
-        Vector2 retreatForce = retreatDirection * retreatSpeed * Time.deltaTime;
-        rb.AddForce(retreatForce);
+        Vector2 retreatTarget = rb.position + retreatDirection * 5f; // 5f can be adjusted for retreat distance
+
+        // Start path to retreat target
+        if (seeker.IsDone())
+        {
+            seeker.StartPath(rb.position, retreatTarget, OnPathComplete);
+        }
     }
 
     IEnumerator Attack()
     {
         attacking = true;
-        Instantiate(stingerPrefab, transform.position, Quaternion.identity);
+        GameObject stinger = Instantiate(stingAttack, transform.Find("LaunchOrigin").position, transform.Find("LaunchOrigin").rotation);
+        stinger.GetComponent<ProjectileScript>().SetInstantiator(gameObject); // placeholder using trash fireball
         yield return new WaitForSeconds(attackCooldown);
         attacking = false;
     }

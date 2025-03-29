@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4838024762660151403}
   - component: {fileID: 7101599140363866815}
   m_Layer: 0
-  m_Name: TrashBagGFX
+  m_Name: BeeGFX
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,7 +105,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4574412849651349057, guid: a63f9c2972ee58540b620328dc526592, type: 3}
+  m_Sprite: {fileID: 1969193003, guid: d5d3d26fb814dfc449c06333af598d1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,7 +124,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5545703177869141128}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ba8f4aa7cab0f6141b941fa236ed3b9b, type: 2}
   m_CullingMode: 0
@@ -152,8 +152,9 @@ GameObject:
   - component: {fileID: 2040921777202976443}
   - component: {fileID: 625640861147364269}
   - component: {fileID: 8038025952362361408}
+  - component: {fileID: 5283689667299734862}
   m_Layer: 0
-  m_Name: TrashBagEnemy
+  m_Name: BeeTest
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,7 +170,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -18.93, y: 34.65, z: 1.912926}
-  m_LocalScale: {x: 5.8908, y: 5.8908, z: 5.8908}
+  m_LocalScale: {x: 10, y: 10, z: 5.8908}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7156284912036854510}
@@ -246,7 +247,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5584855256085252831}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0945e12eec1d7ab488bd4219a8054af3, type: 3}
   m_Name: 
@@ -297,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e089f3b85f04da4dbe0c5cbfe12dc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 100
 --- !u!114 &8038025952362361408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,3 +316,22 @@ MonoBehaviour:
   flashDuration: 0.1
   invincibilityDuration: 0
   blinkInterval: 0
+--- !u!114 &5283689667299734862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584855256085252831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3bda88eaa863d43ae2fb3be0d8166a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 10
+  retreatRange: 1
+  enemyGFX: {fileID: 7156284912036854510}
+  nextWaypointDistance: 3
+  speed: 200
+  stingAttack: {fileID: 6435814615393798483, guid: 88457ba0399ac9a41af720a68a6d0133, type: 3}
+  attackCooldown: 2
