@@ -1,0 +1,122 @@
+using Pathfinding;
+using System.Collections;
+using UnityEngine;
+
+public class BeeEnemyScript : MonoBehaviour
+{
+    [SerializeField] private float attackRange = 5f; // Distance to start attacking
+    [SerializeField] private float retreatRange = 2f; // Distance to retreat
+    private Transform target;
+    private Rigidbody2D rb;
+
+    Path path;
+    Seeker seeker;
+    int currentWaypoint = 0;
+    bool reachedEndOfPath = false;
+
+    [SerializeField] private Transform enemyGFX;
+    [SerializeField] private float nextWaypointDistance = 3f;
+    [SerializeField] private float speed = 200f;
+    [SerializeField] private float retreatSpeed = 250f; // Speed when retreating
+
+    [SerializeField] private GameObject stingerPrefab;
+    [SerializeField] private float attackCooldown = 2f;
+    private bool attacking;
+
+    void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
+        seeker = GetComponent<Seeker>();
+        InvokeRepeating("UpdatePath", 0f, 0.5f);
+    }
+
+    void Update()
+    {
+        float distanceToPlayer = Vector2.Distance(target.position, transform.position);
+
+        // Attack if within attack range
+        if (!attacking && distanceToPlayer <= attackRange)
+        {
+            StartCoroutine(Attack());
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (path == null)
+            return;
+
+        float distanceToPlayer = Vector2.Distance(target.position, rb.position);
+
+        // Retreat if the player is too close
+        if (distanceToPlayer <= retreatRange)
+        {
+            RetreatFromPlayer();
+        }
+        else
+        {
+            MoveAlongPath();
+        }
+    }
+
+    void MoveAlongPath()
+    {
+        if (currentWaypoint >= path.vectorPath.Count)
+        {
+            reachedEndOfPath = true;
+            return;
+        }
+        else
+        {
+            reachedEndOfPath = false;
+        }
+
+        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        Vector2 force = direction * speed * Time.deltaTime;
+        rb.AddForce(force);
+
+        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+
+        if (distance < nextWaypointDistance)
+            currentWaypoint++;
+
+        // Flip sprite direction
+        if (rb.velocity.x >= 0.01f)
+            enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
+        else if (rb.velocity.x <= -0.01f)
+            enemyGFX.localScale = new Vector3(1f, 1f, 1f);
+    }
+
+    void RetreatFromPlayer()
+    {
+        Vector2 retreatDirection = (rb.position - (Vector2)target.position).normalized;
+        Vector2 retreatForce = retreatDirection * retreatSpeed * Time.deltaTime;
+        rb.AddForce(retreatForce);
+    }
+
+    IEnumerator Attack()
+    {
+        attacking = true;
+        Instantiate(stingerPrefab, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(attackCooldown);
+        attacking = false;
+    }
+
+    void UpdatePath()
+    {
+        if (Vector2.Distance(rb.position, target.position) >= 30f) return;
+
+        if (seeker.IsDone())
+            seeker.StartPath(rb.position, target.position, OnPathComplete);
+    }
+
+    void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            path = p;
+            currentWaypoint = 0;
+        }
+    }
+}
