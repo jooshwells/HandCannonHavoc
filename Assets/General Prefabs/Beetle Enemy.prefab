@@ -140,11 +140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.013687
+      value: 41.55
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5982294
+      value: 5.47
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -198,9 +198,6 @@ PrefabInstance:
       addedObject: {fileID: 5410893283533682581}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4176072846716008520}
-    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2961627936774829187}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       insertIndex: -1
@@ -208,9 +205,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       insertIndex: -1
       addedObject: {fileID: -8616647903052227597}
-    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -6915724570880340601}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1300326217154925431}
@@ -310,21 +304,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &4176072846716008520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6109487845665035585}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 779ac98ff896f954c9ab75bc0c6882eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 400.8
-  nextWaypointDistance: 1.73
-  enemyGFX: {fileID: 4751888111442848506}
 --- !u!114 &2961627936774829187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,33 +346,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4558fe2ed7f74194397a4d06f3249469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 400
+  speed: 350
   nextWaypointDistance: 3
   enemyGFX: {fileID: 4751888111442848506}
-  explosionRadius: 5
-  explosionDamage: 100
+  explosionRadius: 2
+  explosionDamage: 50
+  speedMultiplier: 2.5
   bombPrefab: {fileID: 6651871802710987433, guid: a975477dc67126a44b5af5efa6aec11a, type: 3}
---- !u!95 &-6915724570880340601
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6109487845665035585}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0280e21d8712e4f4fb89ec3149ef7e4d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &1300326217154925431
 AudioSource:
   m_ObjectHideFlags: 0
@@ -405,7 +364,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8cccdabab469f464aa8b2b270b04f065, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
