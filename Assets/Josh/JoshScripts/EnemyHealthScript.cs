@@ -5,29 +5,38 @@ using UnityEngine;
 public class EnemyHealthScript : MonoBehaviour
 {
     // health value, initialized to 100
-    [SerializeField] private float health = 100f;
+    [SerializeField] private float maxHP = 100f;
+    private float currentHP;
 
     public void UpdateHealth(float damage)
     {
         // just in case someone passes in a negative value for damage
         Debug.Log("Attempting to do " + damage + " damage to " + gameObject.name);
         GetComponent<PlayerHitEffect>().TakeDamage();
-        health -= damage > 0 ? damage : 0;
+        currentHP -= damage > 0 ? damage : 0;
     }
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentHP = maxHP;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0f)
+        if (currentHP <= 0f)
         {
             StartCoroutine(DyingAnimation());
         }
+    }
+    public float GetMaxHP() 
+    {
+        return maxHP;
+    }
+    public float GetCurrentHP() 
+    {
+        return currentHP;
     }
 
     IEnumerator DyingAnimation()

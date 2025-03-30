@@ -72,9 +72,7 @@ public class BounceBullet : MonoBehaviour
 
                     Vector2 oldVelocity = rb.velocity; // used for flipping sprite
                     Vector2 newVelocity = Vector2.Reflect(rb.velocity, normal);     // reflect velocity
-                    Debug.Log($"Velocity before ricochet: {oldVelocity}");
                     rb.velocity = newVelocity;
-                    Debug.Log($"Velocity after ricochet: {newVelocity}");
                     
 
 
