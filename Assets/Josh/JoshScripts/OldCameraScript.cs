@@ -11,6 +11,7 @@ public class OldCameraScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         if(GameObject.FindGameObjectWithTag("Player") != null)
             player = GameObject.FindGameObjectWithTag("Player").transform;
         //background = GameObject.FindGameObjectWithTag("Background").transform;

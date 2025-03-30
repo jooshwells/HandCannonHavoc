@@ -19,6 +19,10 @@ public class IntroController : MonoBehaviour
     {
         
     }
+    public void SetLevelStarted(bool newStatus)
+    {
+        levelStarted = newStatus;
+    }
 
     // Update is called once per frame
     void Update()

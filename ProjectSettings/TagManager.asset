@@ -11,6 +11,17 @@ TagManager:
   - Background
   - LevelLabel
   - BeeHive
+  - IntroController
+  - LevelStartPlayerHolder
+  - RegularHUD
+  - LevelIntroHUD
+  - BestTimes
+  - EndTimeText
+  - ActiveTimeText
+  - TotalEnemies
+  - EnemiesKilled
+  - RankingCard
+  - LevelEndHUD
   layers:
   - Default
   - TransparentFX

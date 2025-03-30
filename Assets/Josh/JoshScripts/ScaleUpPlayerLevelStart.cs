@@ -27,7 +27,7 @@ public class ScaleUpPlayerLevelStart : MonoBehaviour
         {
             if (transform.localScale.x <= 1)
             {
-                transform.localScale = Vector3.MoveTowards(transform.localScale, new Vector3(1, 1, 1), 1.25f * Time.deltaTime);
+                transform.localScale = Vector3.MoveTowards(transform.localScale, new Vector3(Mathf.Sign(transform.localScale.x)*1, 1, 1), 1.25f * Time.deltaTime);
             }
             else
             {
@@ -39,7 +39,7 @@ public class ScaleUpPlayerLevelStart : MonoBehaviour
         {
             if (transform.localScale.x > 0.1f)
             {
-                transform.localScale = Vector3.MoveTowards(transform.localScale, new Vector3(0.1f, 0.1f, 1), 1.25f * Time.deltaTime);
+                transform.localScale = Vector3.MoveTowards(transform.localScale, new Vector3(Mathf.Sign(transform.localScale.x) * 0.1f, 0.1f, 1), 1.25f * Time.deltaTime);
             }
             else
             {
