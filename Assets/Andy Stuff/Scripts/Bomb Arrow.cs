@@ -36,7 +36,6 @@ public class BombArrow : MonoBehaviour
             if (!isExploding)
             {
                 isExploding = true;
-                //work on knockback later
                 // gameObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
                 // gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 // gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;

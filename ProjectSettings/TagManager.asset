@@ -10,6 +10,7 @@ TagManager:
   - Glove Bounce Pad
   - Background
   - LevelLabel
+  - BeeHive
   layers:
   - Default
   - TransparentFX

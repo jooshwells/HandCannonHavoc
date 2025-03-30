@@ -91,5 +91,6 @@ public class SlimeScript : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerHealthScript>().Hit(25);
         }
+        
     }
 }
