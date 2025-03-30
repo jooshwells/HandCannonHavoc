@@ -11,7 +11,8 @@ public class OldCameraScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        if(GameObject.FindGameObjectWithTag("Player") != null)
+            player = GameObject.FindGameObjectWithTag("Player").transform;
         //background = GameObject.FindGameObjectWithTag("Background").transform;
     }
 
@@ -24,6 +25,10 @@ public class OldCameraScript : MonoBehaviour
 
             transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
             //background.position = Vector3.Lerp(background.position, (targetPosition-offset) + new Vector3(0,-3,0), smoothSpeed/2 * Time.deltaTime);
+        } else
+        {
+            if (GameObject.FindGameObjectWithTag("Player") != null)
+                player = GameObject.FindGameObjectWithTag("Player").transform;
         }
     }
 

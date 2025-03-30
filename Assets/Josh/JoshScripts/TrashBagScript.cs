@@ -31,7 +31,8 @@ public class TrashBagScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        if(GameObject.FindGameObjectWithTag("Player")!=null)
+            target = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
@@ -40,6 +41,17 @@ public class TrashBagScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(target == null)
+        {
+            if (GameObject.FindGameObjectWithTag("Player") != null)
+                target = GameObject.FindGameObjectWithTag("Player").transform;
+
+            if(target == null)
+            {
+                return;
+            }
+        }
+
         bool isEnemyAboveAndInXRange = (rb.position.y >= target.position.y + 4.5f) &&
                                (Mathf.Abs(rb.position.x - target.position.x) <= 0.5f);
 

@@ -26,7 +26,8 @@ public class RatBallScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        if(GameObject.FindGameObjectWithTag("Player")!= null)
+            target = GameObject.FindGameObjectWithTag("Player").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("UpdatePath", 0f, .1f);
@@ -36,12 +37,16 @@ public class RatBallScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (target == null)
+        {
+            if (GameObject.FindGameObjectWithTag("Player") != null)
+                target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
     }
 
     void UpdatePath()
     {
-        
+        if (target == null) return;
         if (seeker.IsDone())
             seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
