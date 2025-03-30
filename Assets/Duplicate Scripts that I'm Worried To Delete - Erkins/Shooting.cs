@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float timeAlive;
     [SerializeField] public Transform muzzlePoint; // Assign in Inspector
+    [SerializeField] private float attackDamage = 5f; // Set the damage for each shot
 
     void Update()
     {
@@ -35,6 +36,13 @@ public class Shooting : MonoBehaviour
 
             // Apply the calculated direction to the bullet's velocity
             gunBullet.velocity = direction * bulletSpeed;
+        }
+
+        // Now set the damage for the bullet
+        Bullet bulletScript = gunInstance.GetComponent<Bullet>();
+        if (bulletScript != null)
+        {
+            bulletScript.SetAttackDamage(attackDamage); // Set the damage for this bullet
         }
 
         Destroy(gunInstance, timeAlive);
