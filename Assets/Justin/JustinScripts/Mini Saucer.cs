@@ -28,7 +28,8 @@ public class MiniSaucer : MonoBehaviour
 
     [SerializeField] private GameObject goopAttack;
 
-    private bool attacking = false;
+    public bool attacking = false;
+    public bool shooting = false;
     [SerializeField] private float attackCooldown = 2f;
 
     // Start is called before the first frame update
@@ -47,6 +48,11 @@ public class MiniSaucer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!shooting)
+        {
+            FlashingLights();
+        }
+
         if (!attacking)
         {
             Idle();
@@ -65,6 +71,11 @@ public class MiniSaucer : MonoBehaviour
         {
             attacking = true;
             StartCoroutine(Attack());
+        }
+
+        if (!isEnemyAboveAndInXRange)
+        {
+            attacking = false;
         }
 
         // If Player is within target distance
@@ -118,13 +129,16 @@ public class MiniSaucer : MonoBehaviour
     IEnumerator Attack()
     {
         GameObject curSlimeBall1 = Instantiate(goopAttack, transform.Find("LaunchOrigin").position, transform.Find("LaunchOrigin").rotation);
-        curSlimeBall1.GetComponent<ProjectileScript>().SetInstantiator(gameObject);
+        curSlimeBall1.GetComponent<ProjectileScript_Straight>().SetInstantiator(gameObject);
+        curSlimeBall1.GetComponent<ProjectileScript_Straight>().manualAngle = 90f;
 
         GameObject curSlimeBall2 = Instantiate(goopAttack, transform.Find("LaunchOrigin2").position, transform.Find("LaunchOrigin2").rotation);
-        curSlimeBall2.GetComponent<ProjectileScript>().SetInstantiator(gameObject);
+        curSlimeBall2.GetComponent<ProjectileScript_Straight>().SetInstantiator(gameObject);
+        curSlimeBall1.GetComponent<ProjectileScript_Straight>().manualAngle = 180f;
 
         GameObject curSlimeBall3 = Instantiate(goopAttack, transform.Find("LaunchOrigin3").position, transform.Find("LaunchOrigin3").rotation);
-        curSlimeBall3.GetComponent<ProjectileScript>().SetInstantiator(gameObject);
+        curSlimeBall3.GetComponent<ProjectileScript_Straight>().SetInstantiator(gameObject);
+        curSlimeBall1.GetComponent<ProjectileScript_Straight>().manualAngle = 0f;
 
         yield return new WaitForSeconds(attackCooldown);
         attacking = false;
@@ -178,8 +192,6 @@ public class MiniSaucer : MonoBehaviour
     bool up = true;
     void Idle()
     {
-        FlashingLights();
-
         if (up && Time.time > lastTime_Up)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 0.1f);

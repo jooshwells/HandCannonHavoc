@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638782036535298511
+  platformSettingsDirtyTick: 638788970957408509
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -305,7 +305,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: CowboyAlien_1
     originalName: 
-    pivot: {x: 0.41367427, y: 0.5188627}
+    pivot: {x: 0.41098318, y: 0.54353017}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
