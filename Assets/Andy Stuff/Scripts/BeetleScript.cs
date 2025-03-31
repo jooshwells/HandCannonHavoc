@@ -32,7 +32,8 @@ public class BeetleScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+       if(GameObject.FindGameObjectWithTag("Player")!=null)
+            target = GameObject.FindGameObjectWithTag("Player").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         healthScript = GetComponent<EnemyHealthScript>();
@@ -41,9 +42,10 @@ public class BeetleScript : MonoBehaviour
 
     void UpdatePath()
     {
+        if(target == null) return;
         if (Vector2.Distance(rb.position, target.position) >= 30f) return;
 
-        if (seeker.IsDone())
+        if (seeker.IsDone()) 
             seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
 
@@ -58,6 +60,16 @@ public class BeetleScript : MonoBehaviour
 
     void Update()
     {
+        if(target == null)
+        {
+            if (GameObject.FindGameObjectWithTag("Player") != null)
+                target = GameObject.FindGameObjectWithTag("Player").transform;
+
+            if(target == null)
+            {
+                return;
+            }
+        }
         if(healthScript.GetCurrentHP() <= 0 && !isExploding)
         {
             if(isCharging)
