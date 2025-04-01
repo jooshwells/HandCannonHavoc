@@ -22,6 +22,10 @@ public class BeeEnemyScript : MonoBehaviour
     [SerializeField] private float nextWaypointDistance = 3f;
     [SerializeField] private float speed = 200f;
     [SerializeField] private float attackRange = 11f;
+    [SerializeField] private float aggroRange = 11f;
+
+
+    [SerializeField] private float hiveHoverRange = 3f;
 
 
     [SerializeField] private float extraHeight = 3f;
@@ -29,6 +33,7 @@ public class BeeEnemyScript : MonoBehaviour
     [SerializeField] private GameObject Sting ;
 
     private bool attacking;
+    private int stingerAmmo = 3;
     [SerializeField] private float attackCooldown = 0.75f;
 
     // Start is called before the first frame update
@@ -37,10 +42,11 @@ public class BeeEnemyScript : MonoBehaviour
         if(GameObject.FindGameObjectWithTag("Player")!=null)
         target = GameObject.FindGameObjectWithTag("Player").transform;    
         hive = GameObject.FindGameObjectWithTag("BeeHive").transform;    
-
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
+        stingerAmmo = 3;
+
         RunPathing(); // Start pathing immediately
     }
 
@@ -60,12 +66,17 @@ public class BeeEnemyScript : MonoBehaviour
         // calculate distance from player
         float distanceToPlayer = Vector2.Distance(rb.position, target.position);
 
-        // check if player is in range to attack
-        if (!attacking && distanceToPlayer <= attackRange)
+        // check if player is in range to attack and has stinger to shoot
+        if (!attacking && distanceToPlayer <= attackRange && stingerAmmo>0)
         {
-            attacking = true;
             StartCoroutine(Attack());
         }
+        // reload stinger if bee is close to hive
+        if(Vector2.Distance(rb.position, hive.position)<hiveHoverRange)
+        {
+            stingerAmmo=3; // reload stingers
+        }
+
     }
 
     void FixedUpdate()
@@ -109,6 +120,8 @@ public class BeeEnemyScript : MonoBehaviour
 
     IEnumerator Attack()
     {
+        attacking = true;
+        stingerAmmo-=1; //use 1 ammo
         GameObject stingAttack = Instantiate(Sting, transform.Find("LaunchOrigin").position, transform.Find("LaunchOrigin").rotation);
         stingAttack.GetComponent<ProjectileScript>().SetInstantiator(gameObject);
         yield return new WaitForSeconds(attackCooldown);
@@ -123,18 +136,34 @@ public class BeeEnemyScript : MonoBehaviour
     void UpdatePath()
     {   
         if(target==null) return;
-        //if (Vector2.Distance(rb.position, (Vector2)target.position + new Vector2(0, extraHeight)) >= 30f) return;
 
-        if (Vector2.Distance(rb.position, (Vector2)target.position + new Vector2(0, extraHeight)) <= 5f)
+        float playerDist = Vector2.Distance(rb.position, (Vector2)target.position + new Vector2(0, extraHeight));
+        float hiveDist = Vector2.Distance(rb.position, (Vector2)hive.position);
+        
+        // no stinger, return to hive to "relaod"
+        if (stingerAmmo==0)
+        {
+            if (seeker.IsDone())
+                seeker.StartPath(rb.position, (Vector2)hive.position, OnPathComplete);
+            return;
+        }
+
+        if (playerDist <= aggroRange)
         {
             if (seeker.IsDone())
                 seeker.StartPath(rb.position, (Vector2)target.position + new Vector2(0, extraHeight), OnPathComplete);
         }
-        else if(Vector2.Distance(rb.position, (Vector2)target.position + new Vector2(0, extraHeight)) >= 5f)
+
+        else if (hiveDist > 2f)
         {
             if (seeker.IsDone())
                 seeker.StartPath(rb.position, (Vector2)hive.position, OnPathComplete);
         }
+        else if(hiveDist < 2f)
+        {
+            rb.velocity =Vector2.zero;
+        }
+
     }
 
     void OnPathComplete(Path p)
@@ -144,5 +173,14 @@ public class BeeEnemyScript : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
+    }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red; 
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, hiveHoverRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, aggroRange);
     }
 }

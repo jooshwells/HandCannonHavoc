@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3581283139716193775}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.098, z: 0}
+  m_LocalPosition: {x: 0.013, y: -0.055, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 5545703177869141128}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.014, y: -0.012, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -146,15 +146,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4575735690667922391}
-  - component: {fileID: 5382731066371755865}
   - component: {fileID: 8145704549554562812}
-  - component: {fileID: 1833856667296155676}
   - component: {fileID: 2040921777202976443}
   - component: {fileID: 625640861147364269}
   - component: {fileID: 8038025952362361408}
   - component: {fileID: 5283689667299734862}
+  - component: {fileID: 9055648746094976363}
   m_Layer: 0
-  m_Name: BeeTest
+  m_Name: Bee Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,41 +176,6 @@ Transform:
   - {fileID: 862356158847369712}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5382731066371755865
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5584855256085252831}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0006302462, y: -0.037783932}
-  serializedVersion: 2
-  m_Radius: 0.0693257
 --- !u!114 &8145704549554562812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,25 +204,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &1833856667296155676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5584855256085252831}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0945e12eec1d7ab488bd4219a8054af3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wakeUpDist: 5
-  enemyGFX: {fileID: 7156284912036854510}
-  nextWaypointDistance: 3
-  speed: 600
-  extraHeight: 6
-  goopAttack: {fileID: 6435814615393798483, guid: 88457ba0399ac9a41af720a68a6d0133, type: 3}
-  attackCooldown: 1.75
 --- !u!50 &2040921777202976443
 Rigidbody2D:
   serializedVersion: 4
@@ -298,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e089f3b85f04da4dbe0c5cbfe12dc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  maxHP: 100
 --- !u!114 &8038025952362361408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +277,44 @@ MonoBehaviour:
   enemyGFX: {fileID: 7156284912036854510}
   nextWaypointDistance: 3
   speed: 400
-  attackRange: 11
+  attackRange: 10
+  aggroRange: 20
+  hiveHoverRange: 2.5
   extraHeight: 3
   Sting: {fileID: 6435814615393798483, guid: 88457ba0399ac9a41af720a68a6d0133, type: 3}
-  attackCooldown: 10
+  attackCooldown: 1
+--- !u!70 &9055648746094976363
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584855256085252831}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.012263156, y: -0.01204938}
+  m_Size: {x: 0.17239602, y: 0.104141116}
+  m_Direction: 1

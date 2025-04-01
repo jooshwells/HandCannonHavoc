@@ -4545,6 +4545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beetle Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6109487845665035585, guid: a6185338aa3773a4fa9df14ec38cd0fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6423461674185522468, guid: a6185338aa3773a4fa9df14ec38cd0fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 41.55
@@ -4598,13 +4602,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 862356158847369712, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.013
+      objectReference: {fileID: 0}
+    - target: {fileID: 862356158847369712, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.055
+      objectReference: {fileID: 0}
     - target: {fileID: 4575735690667922391, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.08
+      value: 45.89
       objectReference: {fileID: 0}
     - target: {fileID: 4575735690667922391, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.85
+      value: 12.75
       objectReference: {fileID: 0}
     - target: {fileID: 4575735690667922391, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4638,25 +4650,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5283689667299734862, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: speed
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 5283689667299734862, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: attackRange
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5283689667299734862, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: attackCooldown
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5584855256085252831, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
       propertyPath: m_Name
       value: BeeTest
-      objectReference: {fileID: 0}
-    - target: {fileID: 5584855256085252831, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4734,67 +4730,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaf2cff80d3a5384da60f97ea6b5c119, type: 3}
---- !u!1001 &1050196828
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4575735690667922391, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 19.37173
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575735690667922391, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 13.6790285
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575735690667922391, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.912926
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575735690667922391, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575735690667922391, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575735690667922391, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575735690667922391, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575735690667922391, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575735690667922391, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4575735690667922391, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5584855256085252831, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: m_Name
-      value: BeeTest (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5584855256085252831, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
 --- !u!1 &1253520413 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4373517027622858352, guid: 87895a828fa416543934bd9c3a1c6dd1, type: 3}
@@ -8321,11 +8256,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2583290798930927025, guid: 87895a828fa416543934bd9c3a1c6dd1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.27
+      value: 27.12
       objectReference: {fileID: 0}
     - target: {fileID: 2583290798930927025, guid: 87895a828fa416543934bd9c3a1c6dd1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 9.29
       objectReference: {fileID: 0}
     - target: {fileID: 2583290798930927025, guid: 87895a828fa416543934bd9c3a1c6dd1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8595,21 +8530,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1924777489834803383, guid: 6532c8b59f28fbf4daeefad26a9d6abf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924777489834803383, guid: 6532c8b59f28fbf4daeefad26a9d6abf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.106
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091877564687848849, guid: 6532c8b59f28fbf4daeefad26a9d6abf, type: 3}
+      propertyPath: totalBees
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6714758904400822621, guid: 6532c8b59f28fbf4daeefad26a9d6abf, type: 3}
       propertyPath: m_Name
       value: BeeHive
       objectReference: {fileID: 0}
     - target: {fileID: 6714758904400822621, guid: 6532c8b59f28fbf4daeefad26a9d6abf, type: 3}
-      propertyPath: m_TagString
-      value: BeeHive
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7466954411290828492, guid: 6532c8b59f28fbf4daeefad26a9d6abf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.17
+      value: 33.97
       objectReference: {fileID: 0}
     - target: {fileID: 7466954411290828492, guid: 6532c8b59f28fbf4daeefad26a9d6abf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.92
+      value: 8.24
       objectReference: {fileID: 0}
     - target: {fileID: 7466954411290828492, guid: 6532c8b59f28fbf4daeefad26a9d6abf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8663,5 +8610,4 @@ SceneRoots:
   - {fileID: 1435058766}
   - {fileID: 679334892}
   - {fileID: 1613976675609210244}
-  - {fileID: 1050196828}
   - {fileID: 661169267}
