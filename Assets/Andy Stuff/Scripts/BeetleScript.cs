@@ -29,9 +29,16 @@ public class BeetleScript : MonoBehaviour
 
     public GameObject bombPrefab; // Reference to the bomb prefab
 
+    // For Animations
+    //private bool isWalking = false;
+    private bool isAngry = false;
+    private bool transitionFinished = false;
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
+        anim = transform.GetComponentInChildren<Animator>();
        if(GameObject.FindGameObjectWithTag("Player")!=null)
             target = GameObject.FindGameObjectWithTag("Player").transform;
         seeker = GetComponent<Seeker>();
@@ -60,6 +67,12 @@ public class BeetleScript : MonoBehaviour
 
     void Update()
     {
+        if (transitionFinished) Debug.Log("Yup");
+        //if(rb.velocity.magnitude <= 0.1f && isWalking == true)
+        //{
+        //    isWalking = false;
+        //} else if ()
+
         if(target == null)
         {
             if (GameObject.FindGameObjectWithTag("Player") != null)
@@ -104,7 +117,7 @@ public class BeetleScript : MonoBehaviour
         {
             TriggerBombCharge();
         }
-
+        if(isAngry && !transitionFinished) return;
         // Position of current waypoint minus our current position
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
@@ -133,11 +146,22 @@ public class BeetleScript : MonoBehaviour
     {
         if (!isCharging)
         {
-            enemyGFX.GetComponent<SpriteRenderer>().color = Color.red; // Change color to red to signify charging
+            //enemyGFX.GetComponent<SpriteRenderer>().color = Color.red; // Change color to red to signify charging
+            anim.SetBool("Angry", true);
+            StartCoroutine(WaitForAnimationToFinish());
+            isAngry = true;
             speed *= speedMultiplier;
             isCharging = true;
-            
         }
+    }
+
+    IEnumerator WaitForAnimationToFinish()
+    {
+        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+
+        // Wait while the animation is still playing
+        yield return new WaitForSeconds(stateInfo.length);
+        transitionFinished = true;
     }
 
     // spawn invisble bomb to show explosion
