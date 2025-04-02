@@ -110634,6 +110634,14 @@ PrefabInstance:
       propertyPath: weaponIndicatorList
       value: 
       objectReference: {fileID: 580845198}
+    - target: {fileID: 1655871582403259352, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: 8300000, guid: 57a772ea393494279b3aa49a37671c34, type: 3}
+    - target: {fileID: 1655871582403259352, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: ouch
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a02b3d57a9ec4aa8882c4ba37a6a9c8, type: 3}
     - target: {fileID: 1902559226405861917, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.73

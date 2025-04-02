@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -11,11 +12,18 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         // Find the background music GameObject using the "Audio" tag
-        GameObject bgMusicObject = GameObject.FindGameObjectWithTag("Audio");
+        GameObject bgMusicObject = GameObject.FindGameObjectWithTag("BackgroundMusic");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (bgMusicObject != null)
         {
             musicSource = bgMusicObject.GetComponent<AudioSource>();
+        }
+
+        if (player != null)
+        {
+            AudioSource[] playerSFX = player.GetComponents<AudioSource>();
+            SFXSources = SFXSources.Concat(playerSFX).Distinct().ToArray(); // Merge both arrays
         }
 
         // Load saved volume settings
