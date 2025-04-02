@@ -22,6 +22,7 @@ TagManager:
   - EnemiesKilled
   - RankingCard
   - LevelEndHUD
+  - NewWeapon
   layers:
   - Default
   - TransparentFX

@@ -9,11 +9,38 @@ public class WeaponSwitcher : MonoBehaviour
     [SerializeField] private GameObject weaponIndicatorList;
     private int curIdx = 0;  // tracks current weapon in list
     private int idx = 0; // increments index, use mod weaponList.Count
+    private int weaponsAvailable;
+    private int totalWeaponsAvailable = 5;
+    private bool firstWeaponDisplayed = false;
+
+    public void UnlockWeapon()
+    {
+        if(PlayerPrefs.GetInt("WeaponsUnlocked", 0) < totalWeaponsAvailable)
+        {
+            weaponsAvailable += 1;
+            PlayerPrefs.SetInt("WeaponsUnlocked", weaponsAvailable);
+        } else
+        {
+            return;
+        }
+        
+        if(weaponsAvailable >= 1 && !firstWeaponDisplayed)
+        {
+            UpdateWeaponVisibility();
+            firstWeaponDisplayed = true;
+        }
+    }
 
     private void Start()
     {
-        // activate first weapon
-        UpdateWeaponVisibility();
+        // activate first weapon if unlocked
+        weaponsAvailable = PlayerPrefs.GetInt("WeaponsUnlocked", 0);
+
+        if (weaponsAvailable >= 1 && !firstWeaponDisplayed)
+        {
+            UpdateWeaponVisibility();
+            firstWeaponDisplayed = true;
+        }
     }
 
     void Update()
@@ -41,11 +68,13 @@ public class WeaponSwitcher : MonoBehaviour
 
     void SwitchWeapon()
     {
+        if (weaponsAvailable == 0) return;
+
         // disable current weapon
         DeactivateWeapon(curIdx);
 
         // keep idx in bounds
-        curIdx = idx % weaponList.Count;
+        curIdx = idx % weaponsAvailable;
 
         // activate next weapon
         UpdateWeaponVisibility();

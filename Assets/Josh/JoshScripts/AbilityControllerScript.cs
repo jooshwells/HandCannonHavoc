@@ -33,6 +33,7 @@ public class AbilityControllerScript : MonoBehaviour
     private bool first = false;
     private int lastAbil = 0;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,7 +87,7 @@ public class AbilityControllerScript : MonoBehaviour
         abilityIndicator4.SetActive(true);
     }
 
-        // Update is called once per frame
+    // Update is called once per frame
     void Update()
     {  
         if (Input.GetKeyDown(KeyCode.Alpha1) && dashAvail==1)
@@ -217,6 +218,11 @@ public class AbilityControllerScript : MonoBehaviour
         {
             grapplingHookAvail = 1;
         }
+        if(tag.Equals("NewWeapon"))
+        {
+            transform.parent.GetComponent<WeaponSwitcher>().UnlockWeapon();
+        }
+
     }
 
     public void LockAllBut(int keep)

@@ -15,6 +15,7 @@ public class EndFlagScript : MonoBehaviour
     [SerializeField] private int minEnemiesKilledForSRank;
 
     [SerializeField] private GameObject levelEndHUD;
+    [SerializeField] private GameObject highScoreIndicator;
 
     private enum ZoneNo
     {
@@ -39,6 +40,7 @@ public class EndFlagScript : MonoBehaviour
     [SerializeField] private LevelNo level;
     private int numEnemiesStart = 0;
     private int numEnemiesEnd = 0;
+    private bool newHighScore = false;
 
     private BestTimeController bt;
 
@@ -64,7 +66,6 @@ public class EndFlagScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        bool newHighScore = false;
         if (collision.CompareTag("Player"))
         {
             tc.StopTimer();
@@ -89,13 +90,12 @@ public class EndFlagScript : MonoBehaviour
             Debug.Log("EnemPerc = " + enemPerc);
             Debug.Log("timePerc = " + timePerc);
 
-            char rank;
             Animator rankingAnim = GameObject.FindGameObjectWithTag("RankingCard").GetComponent<Animator>();
             StartCoroutine(WaitToAddSuspense(enemiesDefeated, enemPerc, timePerc, rankingAnim));
             
 
             // trigger level end ui => pass in newHighScore, enemies defeated, time, and rating achieved
-
+            
         }
     }
 
@@ -126,6 +126,11 @@ public class EndFlagScript : MonoBehaviour
         {
             //D
             rankingAnim.SetBool("D", true);
+        }
+
+        if (newHighScore)
+        {
+            highScoreIndicator.SetActive(true);
         }
     }
 }

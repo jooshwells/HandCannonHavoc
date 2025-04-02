@@ -12,14 +12,26 @@ public class ChestScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         asrc = gameObject.GetComponent<AudioSource>();
     }
-
+    private Transform p;
     // Update is called once per frame
     void Update()
     {
-        Transform p = player.transform;
+        if (player != null)
+        {
+            p = player.transform;
+        } else
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null) {
+                return;
+            } else
+            {
+                p = player.transform;
+            }
+        }
         if(!opened && Vector2.Distance(transform.position, p.position) < 2f)
         {
             opened = true;

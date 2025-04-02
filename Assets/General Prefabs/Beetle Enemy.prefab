@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8712172244934216611}
   m_Layer: 0
   m_Name: BeetleGFX
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5438984601534080510, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
-  m_Color: {r: 0.7924528, g: 0.65163445, b: 0.42239228, a: 1}
+  m_Sprite: {fileID: 7983808750252569576, guid: 7ebb5bc3c6812ea4590659251a8256a3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 2745159102955194820}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a24bb355b2fb9b4ea869dc9ef436375, type: 2}
+  m_Controller: {fileID: 9100000, guid: fc2598026d9bd7d4e9ecef3e036de9b9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -140,11 +140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 41.55
+      value: -10.76
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.47
+      value: -2.6109576
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       propertyPath: m_LocalPosition.z

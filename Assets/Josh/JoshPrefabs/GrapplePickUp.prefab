@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4206832943830683284}
   m_Layer: 0
   m_Name: GrapplePickUp
-  m_TagString: Grapple
+  m_TagString: NewWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
