@@ -23,6 +23,7 @@ TagManager:
   - RankingCard
   - LevelEndHUD
   - NewWeapon
+  - BackgroundMusic
   layers:
   - Default
   - TransparentFX
