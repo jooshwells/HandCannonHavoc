@@ -5,6 +5,7 @@ using Pathfinding;
 using System.Net;
 using System;
 using UnityEngine.Rendering;
+using UnityEditor.Experimental.GraphView;
 
 public class BruteAlien: MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class BruteAlien: MonoBehaviour
     //
 
     public Transform target;
+    public Rigidbody2D targetRb;
 
     public float speed = 200f;
     public float maxVelocity = 8f;
@@ -53,7 +55,7 @@ public class BruteAlien: MonoBehaviour
     {
         if (!attacking)
         {
-            if (inRange()) //start attacking
+            if (inRange(attackingRange/1.5f)) //start attacking
             {
                 i = 0;
                 timeFrame = Time.time + 0.25f;
@@ -74,7 +76,7 @@ public class BruteAlien: MonoBehaviour
         }
         if(attacking)
         {
-            if (!inRange()) //stop attacking
+            if (!inRange(attackingRange)) //stop attacking
             {
                 i = 0;
                 attacking = false;
@@ -109,20 +111,29 @@ public class BruteAlien: MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {
+    {/*
+        if (playerLeft() && rb.velocity.x > 0.1f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x - 0.5f, rb.velocity.y);
+        }
+        if (!playerLeft() && rb.velocity.x < 0.1f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x + 0.5f, rb.velocity.y);
+        }
+     */
 
-        if (!inRange())
+        if (!attacking)
         {           
-            if (rb.velocity.x > 0.2f)
+            if (rb.velocity.x > 0.1f)
             {
                 rb.velocity = new Vector2(rb.velocity.x - 0.5f, rb.velocity.y);
             }
-            if (rb.velocity.x < -0.2f)
+            if (rb.velocity.x < -0.1f)
             {
                 rb.velocity = new Vector2(rb.velocity.x + 0.5f, rb.velocity.y);
 
             }
-            if(-0.2 <= rb.velocity.x && rb.velocity.x <= 0.2)
+            if(-0.1 <= rb.velocity.x && rb.velocity.x <= 0.1)
             {
                 rb.velocity = new Vector2(0f, rb.velocity.y);
             }
@@ -145,11 +156,24 @@ public class BruteAlien: MonoBehaviour
             reachedEndOfPath = false;
         }
         // position of current waypoint minus our current position
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        if(rb.velocity.x < maxVelocity)
+        //Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        float direction;
+        if (playerLeft()) // player to the left
         {
+            direction = 0.2f;
+        }
+        else { //player to the right
+            direction = -0.2f;
+        }
+
+        if(Mathf.Abs(rb.velocity.x) < maxVelocity)
+        {
+            /*
             Vector2 force = direction * speed * Time.deltaTime;
             rb.AddForce(force*2);
+            */
+
+            rb.velocity = new Vector2(rb.velocity.x + direction, rb.velocity.y);
         }
 
 
@@ -172,19 +196,31 @@ public class BruteAlien: MonoBehaviour
         }
     }
 
-    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerHealthScript>().Hit(25);
+
+            //
+            float knockback = 1f;
+
+            if (!playerLeft())
+            {
+                knockback = -1f;
+            }
+
+            targetRb.AddForce(new Vector2(knockback, knockback), ForceMode2D.Impulse);
         }
-
     }
-    */
 
-    bool inRange()
+    bool inRange(float range)
     {
-        return (Vector2.Distance(rb.position, target.position) < attackingRange); //start attacking
+        return (Vector2.Distance(rb.position, target.position) < range); //start attacking
+    }
+
+    bool playerLeft()
+    {
+        return (targetRb.position.x - rb.position.x > 0);
     }
 }

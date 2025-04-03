@@ -54,8 +54,9 @@ public class BruteAlienSwingRange : MonoBehaviour
                     knockback = -(Mathf.Abs(knockback));
                 }
 
-                //playerRb.velocity = new Vector2(knockback, Mathf.Abs(knockback));
                 playerRb.AddForce(new Vector2(knockback, knockback), ForceMode2D.Impulse);
+
+                //playerRb.velocity = new Vector2(knockback, Mathf.Abs(knockback));
             }
         }
     }
