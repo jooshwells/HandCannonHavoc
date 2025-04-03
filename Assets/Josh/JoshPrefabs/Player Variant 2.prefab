@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2550327913711394041}
   - component: {fileID: 7189320296651059636}
   - component: {fileID: 2137773983462428996}
+  - component: {fileID: 2061940493151975342}
   m_Layer: 8
   m_Name: AltGrapple
   m_TagString: Untagged
@@ -57,7 +58,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119956138427426092}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -136,7 +137,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5d49e75dad24cf64b878808594a1451c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -162,7 +163,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.2
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -211,7 +212,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
@@ -233,6 +234,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1902559226405861917}
   gunDistance: 2
+--- !u!114 &2061940493151975342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119956138427426092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76c9a66a2f7b5b45900f1c81d2e0338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4690174037379708968
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,6 +692,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7625350895915129025, guid: e43c8066a18e77444a5e923c89331d0d, type: 3}
+      propertyPath: m_TagString
+      value: NewWeapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -713,6 +730,10 @@ PrefabInstance:
     - target: {fileID: 2545836321118307748, guid: 2473011b6057a0e4dbb2569d2389ec0d, type: 3}
       propertyPath: m_Name
       value: Ricochet Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545836321118307748, guid: 2473011b6057a0e4dbb2569d2389ec0d, type: 3}
+      propertyPath: m_TagString
+      value: NewWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 9107633049805865057, guid: 2473011b6057a0e4dbb2569d2389ec0d, type: 3}
       propertyPath: fireRate
@@ -800,6 +821,10 @@ PrefabInstance:
     - target: {fileID: 2257339340750361440, guid: 6b511bfe88c24964ebb5af9970be3616, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257339340750361440, guid: 6b511bfe88c24964ebb5af9970be3616, type: 3}
+      propertyPath: m_TagString
+      value: NewWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 7924224177957083819, guid: 6b511bfe88c24964ebb5af9970be3616, type: 3}
       propertyPath: player
@@ -889,8 +914,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 222581254494780329, guid: 1065904b768a99046b90182c518b6cd0, type: 3}
     - target: {fileID: 244498564429244037, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
+      propertyPath: dashAvail
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 244498564429244037, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: grapplingHook
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 244498564429244037, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
+      propertyPath: bouncePadAvail
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 244498564429244037, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
+      propertyPath: highJumpParaAvail
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_Name
@@ -902,7 +939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_TagString
@@ -942,11 +979,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.33
+      value: 11.8
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.9
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1406,6 +1443,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThumbUp
       objectReference: {fileID: 0}
+    - target: {fileID: 3251874103838048603, guid: 6c64820c5aebb6d47a5076698645c790, type: 3}
+      propertyPath: m_TagString
+      value: NewWeapon
+      objectReference: {fileID: 0}
     - target: {fileID: 4512227747669183691, guid: 6c64820c5aebb6d47a5076698645c790, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1496,6 +1537,10 @@ PrefabInstance:
     - target: {fileID: 2634875861274176012, guid: ce331cb8fa9a1e846beee3352c8762cc, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634875861274176012, guid: ce331cb8fa9a1e846beee3352c8762cc, type: 3}
+      propertyPath: m_TagString
+      value: NewWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 3854636411710632243, guid: ce331cb8fa9a1e846beee3352c8762cc, type: 3}
       propertyPath: m_LocalScale.x

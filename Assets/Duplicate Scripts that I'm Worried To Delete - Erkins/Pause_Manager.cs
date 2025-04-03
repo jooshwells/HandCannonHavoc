@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    public GameObject player;
     public GameObject pauseMenuUI;
     public GameObject optionsMenuUI;
     public GameObject confirmExitUI; // Reference to the confirmation panel
@@ -22,6 +23,7 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
+        player.SetActive(false);
         pauseMenuUI.SetActive(true);
         optionsMenuUI.SetActive(false);
         confirmExitUI.SetActive(false); // Hide confirm exit when pausing
@@ -31,6 +33,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        player.SetActive(true);
         pauseMenuUI.SetActive(false);
         optionsMenuUI.SetActive(false);
         confirmExitUI.SetActive(false);

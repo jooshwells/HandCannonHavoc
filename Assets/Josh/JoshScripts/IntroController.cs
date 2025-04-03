@@ -14,10 +14,12 @@ public class IntroController : MonoBehaviour
     private bool startLevel = false; // flag for whether or not to start up the level
     private bool levelStarted = false; // bad naming, but this indicates if the level has already started to prevent the code block in update from rerunning
 
+    [SerializeField] private GameObject loadingScreen;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        loadingScreen.SetActive(false);
     }
     public void SetLevelStarted(bool newStatus)
     {

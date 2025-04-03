@@ -5,7 +5,7 @@ using UnityEngine;
 public class BombArrow : MonoBehaviour
 {
     private GameObject instantiator;
-    private float attackDamage;
+    private float attackDamage = 15f;
     private bool isExploding = false;
 
     // Start is called before the first frame update
@@ -69,32 +69,23 @@ public class BombArrow : MonoBehaviour
                 StartCoroutine(Explode());
 
             }
-            if (collision.gameObject.transform.parent != null)
-            {
-                par = ((collision.gameObject).transform.parent).gameObject; // this gets the parent using transform
-            }
+            collision.gameObject.GetComponent<EnemyHealthScript>().UpdateHealth(attackDamage);
+            //if (collision.gameObject.transform.parent != null)
+            //{
+            //    par = ((collision.gameObject).transform.parent).gameObject; // this gets the parent using transform
+            //}
 
-            if(par != null)
-            {
-                par.GetComponentInChildren<EnemyHealthScript>().UpdateHealth(attackDamage); // if we have a parent, check its children for a script to update the health
-            } 
-            else
-            {
-                collision.gameObject.GetComponentInChildren<EnemyHealthScript>().UpdateHealth(attackDamage); // else just check the collision objects children for the script
-            }
-            Destroy(gameObject); // destroy the bullet
+            //if(par != null)
+            //{
+            //    par.GetComponentInChildren<EnemyHealthScript>().UpdateHealth(attackDamage); // if we have a parent, check its children for a script to update the health
+            //} 
+            //else
+            //{
+            //    collision.gameObject.GetComponentInChildren<EnemyHealthScript>().UpdateHealth(attackDamage); // else just check the collision objects children for the script
+            //}
+            StartCoroutine(Explode());
         }
-        else if (!(collision.CompareTag(instantiator.tag))) {
-            {
-                if (!isExploding)
-                {
-                isExploding = true;
-                StartCoroutine(Explode());
-
-                }
-                Destroy(gameObject);
-            }
-        }
+        
     }
 
     IEnumerator Explode()

@@ -45,8 +45,13 @@ public class StiffGrapple : MonoBehaviour
                     grappleHit = hit;
                     //Debug.Log("Collided at " + hit.point);
 
-                    lr.SetPosition(0, transform.position);
+                    lr.SetPosition(0, transform.parent.position);
                     lr.SetPosition(1, grappleHit.point);
+                    
+                    Texture texture = lr.material.mainTexture;
+                    float textureWidth = texture.width; // Get the texture width in pixels
+                    lr.material.mainTextureScale = new Vector2(Vector2.Distance(grappleHit.point, transform.parent.position) / 2f, 1);
+                    
                     lr.enabled = true;
 
                     dj.enabled = true;
@@ -62,7 +67,11 @@ public class StiffGrapple : MonoBehaviour
 
         if (grappling)
         {
-            lr.SetPosition(0, transform.position);
+            Texture texture = lr.material.mainTexture;
+            float textureWidth = texture.width; // Get the texture width in pixels
+            lr.material.mainTextureScale = new Vector2(Vector2.Distance(grappleHit.point, transform.parent.position) / 2f, 1);
+
+            lr.SetPosition(0, transform.parent.position);
             lr.SetPosition(1, grappleHit.point);
 
             GetComponentInParent<SwingyScript>().enabled = true;
