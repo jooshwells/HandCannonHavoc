@@ -2,13 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using System.Net;
+using System;
+using UnityEngine.Rendering;
 
 public class BruteAlien: MonoBehaviour
 {
+    //
+    SpriteRenderer sprite;
+    public Sprite[] idleFrames;
+    public Sprite[] movingFrames;
+    float timeFrame = 0f;
+    [NonSerialized] public int i = 0;
 
-    private Transform target;
+    [NonSerialized] public bool facingRight = false;
+
+    [NonSerialized] public bool attacking = false;
+    public float attackingRange;
+
+    //
+
+    public Transform target;
 
     public float speed = 200f;
+    public float maxVelocity = 8f;
     public float nextWaypointDistance = 3f;
 
     public Transform enemyGFX;
@@ -23,15 +40,59 @@ public class BruteAlien: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         target = GameObject.FindGameObjectWithTag("Player").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        rb.freezeRotation = true;
         InvokeRepeating("UpdatePath", 0f, .1f);
 
+        sprite = GetComponent<SpriteRenderer>();
     }
+    private void Update()
+    {
+        if (!attacking)
+        {
+            if (inRange()) //start attacking
+            {
+                i = 0;
+                timeFrame = Time.time + 0.25f;
+                sprite.sprite = movingFrames[i];
+                attacking = true;
+            }
+            else //idle animation
+            {
+                attacking = false;
+                if (Time.time > timeFrame)
+                {
+                    i++;
+                    i = i % 2;
+                    timeFrame = Time.time + 0.5f;
+                }
+                sprite.sprite = idleFrames[i];
+            }
+        }
+        if(attacking)
+        {
+            if (!inRange()) //stop attacking
+            {
+                i = 0;
+                attacking = false;
+            }
+
+            if (Time.time > timeFrame) //attacking animation
+            {
+                i++;
+                i = i % 7;
+                timeFrame = Time.time + 0.1f;
+            }
+            sprite.sprite = movingFrames[i];
+        }
+    }
+
     void UpdatePath()
     {
-        if (Vector2.Distance(rb.position, target.position) >= 30f) return;
+        if (Vector2.Distance(rb.position, target.position) >= attackingRange) return;
 
         if (seeker.IsDone())
             seeker.StartPath(rb.position, target.position, OnPathComplete);
@@ -49,6 +110,26 @@ public class BruteAlien: MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        if (!inRange())
+        {           
+            if (rb.velocity.x > 0.2f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x - 0.5f, rb.velocity.y);
+            }
+            if (rb.velocity.x < -0.2f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x + 0.5f, rb.velocity.y);
+
+            }
+            if(-0.2 <= rb.velocity.x && rb.velocity.x <= 0.2)
+            {
+                rb.velocity = new Vector2(0f, rb.velocity.y);
+            }
+            
+            
+        }
+
         if (path == null)
         {
             return;
@@ -65,8 +146,12 @@ public class BruteAlien: MonoBehaviour
         }
         // position of current waypoint minus our current position
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
-        rb.AddForce(force);
+        if(rb.velocity.x < maxVelocity)
+        {
+            Vector2 force = direction * speed * Time.deltaTime;
+            rb.AddForce(force*2);
+        }
+
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
@@ -77,14 +162,17 @@ public class BruteAlien: MonoBehaviour
 
         if (rb.velocity.x >= 0.01f)
         {
-            enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
+            enemyGFX.localScale = new Vector3(-5.8083f, 5.8083f, 1f);
+            facingRight = true;
         }
         else if (rb.velocity.x <= -0.01f)
         {
-            enemyGFX.localScale = new Vector3(1f, 1f, 1f);
+            enemyGFX.localScale = new Vector3(5.8083f, 5.8083f, 1f);
+            facingRight = false;
         }
     }
 
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
@@ -92,5 +180,11 @@ public class BruteAlien: MonoBehaviour
             collision.gameObject.GetComponent<PlayerHealthScript>().Hit(25);
         }
 
+    }
+    */
+
+    bool inRange()
+    {
+        return (Vector2.Distance(rb.position, target.position) < attackingRange); //start attacking
     }
 }
