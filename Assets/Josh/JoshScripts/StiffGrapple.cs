@@ -48,15 +48,13 @@ public class StiffGrapple : MonoBehaviour
                     lr.SetPosition(0, transform.parent.position);
                     lr.SetPosition(1, grappleHit.point);
                     
-                    Texture texture = lr.material.mainTexture;
-                    float textureWidth = texture.width; // Get the texture width in pixels
                     lr.material.mainTextureScale = new Vector2(Vector2.Distance(grappleHit.point, transform.parent.position) / 2f, 1);
                     
                     lr.enabled = true;
 
                     dj.enabled = true;
                     dj.connectedAnchor = hit.point;
-                    GetComponent<AimingCopy>().Freeze();
+                    GetComponentInChildren<AimingCopy>().Freeze();
 
                     grappling = true;
                     GetComponentInParent<PlayerControllerMk2>().SetGrapple(true);
@@ -67,8 +65,6 @@ public class StiffGrapple : MonoBehaviour
 
         if (grappling)
         {
-            Texture texture = lr.material.mainTexture;
-            float textureWidth = texture.width; // Get the texture width in pixels
             lr.material.mainTextureScale = new Vector2(Vector2.Distance(grappleHit.point, transform.parent.position) / 2f, 1);
 
             lr.SetPosition(0, transform.parent.position);
@@ -85,7 +81,7 @@ public class StiffGrapple : MonoBehaviour
             lr.enabled = false;
             dj.enabled = false;
             grappling = false;
-            GetComponent<AimingCopy>().UnFreeze();
+            GetComponentInChildren<AimingCopy>().UnFreeze();
             GetComponentInParent<SwingyScript>().enabled = false;
             GetComponentInParent<PlayerControllerMk2>().SetGrapple(false);
 
@@ -97,7 +93,7 @@ public class StiffGrapple : MonoBehaviour
         //Debug.Log("trying to reset");
         GetComponent<LineRenderer>().enabled = false;
         transform.parent.gameObject.GetComponent<DistanceJoint2D>().enabled = false;
-        if(GetComponent<AimingCopy>().IsFrozen()) GetComponent<AimingCopy>().UnFreeze();
+        if(GetComponentInChildren<AimingCopy>().IsFrozen()) GetComponent<AimingCopy>().UnFreeze();
         if(grappling == true) grappling = false;
         GetComponentInParent<SwingyScript>().enabled = false;
 
