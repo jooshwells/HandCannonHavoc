@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8603900606047705063}
   - component: {fileID: 7315944338089033245}
   - component: {fileID: -7305338362981299622}
-  - component: {fileID: -1793052522802479460}
+  - component: {fileID: 4888239631771370746}
   m_Layer: 11
-  m_Name: bounce duck
+  m_Name: black hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -636008280, guid: b9d557d51bca45d449e61ebff6ee70d8, type: 3}
-  m_Color: {r: 1, g: 0.33490568, b: 0.33490568, a: 1}
+  m_Sprite: {fileID: 1796575892, guid: b9d557d51bca45d449e61ebff6ee70d8, type: 3}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,7 +149,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.001435409, y: 0.002319661}
   m_Size: {x: 0.101681955, y: 0.09890086}
   m_Direction: 1
---- !u!114 &-1793052522802479460
+--- !u!114 &4888239631771370746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,7 +158,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1433166739629266115}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c95e1e0e829764d882fa70bf9563f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dd3420aaa072b14daa2044cb24bce71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ricochetCount: 2
+  pullRadius: 3
+  pullForce: 10
