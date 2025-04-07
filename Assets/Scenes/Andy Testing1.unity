@@ -15541,6 +15541,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9c85a953b36c441a81ab922466af24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1596039449
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 625640861147364269, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: maxHP
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186198555155489581, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: speed
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186198555155489581, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: dashForce
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575735690667922391, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575735690667922391, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575735690667922391, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.912926
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575735690667922391, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575735690667922391, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575735690667922391, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575735690667922391, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575735690667922391, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575735690667922391, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575735690667922391, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584855256085252831, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: m_Name
+      value: Dragonfly Enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
 --- !u!1001 &1601542996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16085,6 +16154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grasshopper Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5584855256085252831, guid: a9bba3a162a98a545a045bd89960f477, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7156284912036854510, guid: a9bba3a162a98a545a045bd89960f477, type: 3}
       propertyPath: m_LocalScale.x
       value: -1
@@ -16131,3 +16204,4 @@ SceneRoots:
   - {fileID: 514267953}
   - {fileID: 1479365565952144363}
   - {fileID: 2252389766726086049}
+  - {fileID: 1596039449}

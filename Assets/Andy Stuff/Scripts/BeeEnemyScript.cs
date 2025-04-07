@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class BeeEnemyScript : MonoBehaviour
 {
-    [SerializeField] private float wakeUpDist = 5f; // Can be removed
     private Transform target;
     private Transform hive;
 
