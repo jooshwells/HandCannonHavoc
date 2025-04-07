@@ -132,5 +132,11 @@ public class EndFlagScript : MonoBehaviour
         {
             highScoreIndicator.SetActive(true);
         }
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject e in enemies)
+        {
+            e.SetActive(false);
+        }
     }
 }

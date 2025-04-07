@@ -23,12 +23,17 @@ public class SlimeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-        InvokeRepeating("UpdatePath", 0f, .1f);
 
     }
+
+    
+
     void UpdatePath()
     {
         if (Vector2.Distance(rb.position, target.position) >= 30f) return;
@@ -44,7 +49,22 @@ public class SlimeScript : MonoBehaviour
             currentWaypoint = 0;
         }
     }
-
+    private bool startedInvoking = false;
+    private GameObject player;
+    private void Update()
+    {
+        if(!startedInvoking && player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            if(player != null)
+            {
+                Debug.Log("Player Active");
+                target = player.transform;
+                InvokeRepeating("UpdatePath", 0f, .1f);
+                startedInvoking = true;
+            }
+        }
+    }
 
     // Update is called once per frame
     void FixedUpdate()

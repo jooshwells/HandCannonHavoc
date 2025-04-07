@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -32,7 +33,10 @@ public class PlayerControllerMk2 : MonoBehaviour
     [SerializeField] private float wallSlidingSpeed = 2f;
     [SerializeField] private float accel = 32.5f;
     [SerializeField] private float decel = 25f;
-    
+    private float coyoteTime = 0.1f; // max time since grounded where jumping is allowed
+    float coyoteTimer = 0f; // counter for keeping track of how long since last grounded
+
+
     // Wall Stuff
     private bool wallSliding = false;
     private bool isWallJumping;
@@ -302,6 +306,15 @@ public class PlayerControllerMk2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool grounded = IsGrounded();
+        if (grounded)
+        {
+            coyoteTimer = coyoteTime;
+        } else
+        {
+            coyoteTimer -= Time.deltaTime;
+        }
+
         // If player is currently knocked back,
         // count down the timer until it's finished
         // at which point exit knocked back state.
@@ -325,9 +338,10 @@ public class PlayerControllerMk2 : MonoBehaviour
         
 
         // If pressing space and on the ground or on a grappling hook, jump.
-        if (Input.GetKeyDown(KeyCode.Space) && (IsGrounded() || grappling))
+        if (Input.GetKeyDown(KeyCode.Space) && (coyoteTimer > 0f || grappling))
         {
             Jump();
+            coyoteTimer = 0;
         }
 
         // This changes the y velocity upon release of space to change jump height
