@@ -24,6 +24,7 @@ TagManager:
   - LevelEndHUD
   - NewWeapon
   - BackgroundMusic
+  - FinalBoss
   layers:
   - Default
   - TransparentFX
