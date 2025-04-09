@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class SpiderScript : MonoBehaviour
+public class BigSpider : MonoBehaviour
 {
 
     private Transform target;
@@ -12,6 +12,12 @@ public class SpiderScript : MonoBehaviour
     public float nextWaypointDistance = 3f;
 
     public Transform enemyGFX;
+    public Transform spawnPoint;
+    public GameObject spiderlingPrefab;
+    public int numSpiderlings=3;
+    public float spawnRadius=1.5f;
+    private EnemyHealthScript healthScript;
+    private bool triggeredSpawn = false;
 
     Path path;
     int currentWaypoint = 0;
@@ -27,7 +33,7 @@ public class SpiderScript : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("UpdatePath", 0f, .1f);
-
+        healthScript = GetComponent<EnemyHealthScript>();
     }
     void UpdatePath()
     {
@@ -45,6 +51,16 @@ public class SpiderScript : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if(healthScript.GetCurrentHP() <= 0 && triggeredSpawn ==false)
+        {
+            spawnSpiderlings();
+            triggeredSpawn=true;
+            Destroy(gameObject);
+        }
+        
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -85,12 +101,43 @@ public class SpiderScript : MonoBehaviour
         }
     }
 
+    private void spawnSpiderlings()
+    {
+    
+        for (int i = 0; i < numSpiderlings; i++)
+        {
+            // spawn spiders randomly inside upper radius, prevents spawning in ground
+            Vector2 spawnPosition = (Vector2)spawnPoint.position + new Vector2(Random.Range(-spawnRadius, spawnRadius), Random.Range(0f, spawnRadius));
+            GameObject newSpiderling = Instantiate(spiderlingPrefab, spawnPosition, Quaternion.identity);
+
+            // make spiders jump out on spawn
+            Rigidbody2D rb = newSpiderling.GetComponent<Rigidbody2D>();
+            Vector2 playerDir = ((target.position + new Vector3(0, 20, 0)) - (Vector3)spawnPosition).normalized;
+
+            // add some randomness to jumps
+            float randomOffsetX = Random.Range(-3f, 3f);  // Random horizontal offset
+            float randomOffsetY = Random.Range(-3f, 3f);  // Random vertical offset
+            playerDir.x += randomOffsetX;
+            playerDir.y += randomOffsetY;
+            playerDir.Normalize();
+
+            // adjusting jump physics
+            float horizontal = playerDir.x * 22f;
+            float vertical = playerDir.y * 40f;
+            rb.AddForce(new Vector2(horizontal, vertical), ForceMode2D.Impulse);
+        }
+    }
+   
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHealthScript>().Hit(10);
+            collision.gameObject.GetComponent<PlayerHealthScript>().Hit(25);
         }
-        
+    }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red; 
+        Gizmos.DrawWireSphere(transform.position, spawnRadius);
     }
 }
