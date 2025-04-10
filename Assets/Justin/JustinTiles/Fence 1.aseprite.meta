@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bbc65cecb0874bc408236dc3615b2915
+guid: 313d19ef966db7c4dac449d0494c57e0
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638798340034549536
+  platformSettingsDirtyTick: 638798301699677292
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: SandyBottom
+  - name: Fence 1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 9
@@ -133,7 +133,7 @@ ScriptedImporter:
       y: 4
       width: 12
       height: 12
-    spriteID: 398672a94f31df94fa6076138477fbdc
+    spriteID: 9ff20a28aaa1851449e80a1bf17f7b80
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,13 +145,13 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 387993204
-    name: SandyBottom
+    guid: -614455960
+    name: Fence 1
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: SandyBottom
+    - name: Fence 1
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -159,7 +159,7 @@ ScriptedImporter:
         y: 0
         width: 12
         height: 12
-      spriteId: 398672a94f31df94fa6076138477fbdc
+      spriteId: 9ff20a28aaa1851449e80a1bf17f7b80
     linkedCells: []
     parentIndex: -1
   platformSettings:
