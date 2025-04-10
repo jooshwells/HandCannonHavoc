@@ -8,6 +8,10 @@ public class EnemyHealthScript : MonoBehaviour
     [SerializeField] private float maxHP = 100f;
     private float currentHP;
 
+    public void SetHealth(int newHealth)
+    {
+        maxHP = newHealth;
+    }
     public void UpdateHealth(float damage)
     {
         // just in case someone passes in a negative value for damage
@@ -44,7 +48,8 @@ public class EnemyHealthScript : MonoBehaviour
         Animator animator = GetComponent<Animator>();
         if(animator == null) animator = GetComponentInChildren<Animator>();
 
-        GetComponent<Rigidbody2D>().simulated = false;
+        if(GetComponent<Rigidbody2D>() != null)
+            GetComponent<Rigidbody2D>().simulated = false;
 
         animator.Play("Die State");
         yield return new WaitForEndOfFrame();

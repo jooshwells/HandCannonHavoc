@@ -63,7 +63,8 @@ public class ProjectileScript : MonoBehaviour
             Vector2 dist = transform.position - (target.transform.position + new Vector3(0, 1f, 0));
             Vector2 dir = dist.normalized;
 
-            target.GetComponent<PlayerControllerMk2>().KnockBack(new Vector2(xAttackPower*-dir.x, yAttackPower), 0.2f, 20); // last parameter is damage, set to 5 arbitrarily
+            //target.GetComponent<PlayerControllerMk2>().KnockBack(new Vector2(xAttackPower*-dir.x, yAttackPower), 0.2f, 20); // last parameter is damage, set to 5 arbitrarily
+            target.GetComponent<PlayerHealthScript>().Hit(20);
             Destroy(gameObject);
         }
         else if (instantiator == null || !(collision.CompareTag(instantiator.tag))) {

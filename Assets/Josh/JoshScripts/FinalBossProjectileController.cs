@@ -57,6 +57,7 @@ public class FinalBossProjectileController : MonoBehaviour
     private GameObject player;
     private void Update()
     {
+
         if (!startedInvoking && player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -68,6 +69,8 @@ public class FinalBossProjectileController : MonoBehaviour
                 startedInvoking = true;
             }
         }
+
+        if (target == null) Destroy(gameObject); // get rid of extra projectiles when final boss dies
 
         Vector3 targetPos = target.transform.position + new Vector3(0, 0.1f, 0);
         Vector2 direction = (targetPos - transform.position).normalized;
@@ -131,14 +134,15 @@ public class FinalBossProjectileController : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & LayerMask.GetMask("Bullets")) != 0)
         {
-            Debug.Log("Yep");
             target = boss;
-        } else if (collision.CompareTag("Enemy"))
+        } else if (collision.CompareTag("FinalBoss") && target.CompareTag("FinalBoss"))
         {
             collision.gameObject.GetComponent<EnemyHealthScript>().UpdateHealth(attackDamage);
-        } else if (collision.CompareTag("Player"))
+            Destroy(gameObject);
+        } else if (collision.CompareTag("Player") && target.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerHealthScript>().Hit(attackDamage);
+            Destroy(gameObject);
         }
 
     }

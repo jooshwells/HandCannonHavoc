@@ -23,6 +23,7 @@ public class BrainAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<EnemyHealthScript>().SetHealth(5);
         target = GameObject.FindGameObjectWithTag("Player").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
