@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealthScript : MonoBehaviour
 {
     // health value, initialized to 100
     [SerializeField] private float maxHP = 100f;
     private float currentHP;
+    public Image healthBar;
+    private Vector3 originalScale;
+
 
     public void SetHealth(int newHealth)
     {
@@ -18,11 +22,18 @@ public class EnemyHealthScript : MonoBehaviour
         Debug.Log("Attempting to do " + damage + " damage to " + gameObject.name);
         GetComponent<PlayerHitEffect>().TakeDamage();
         currentHP -= damage > 0 ? damage : 0;
+
+        if(healthBar != null)
+        {
+            float healthPercent = Mathf.Clamp(currentHP / maxHP, 0f, 1f);
+            healthBar.rectTransform.localScale = new Vector3(Mathf.Max(originalScale.x * healthPercent, 0f), originalScale.y, originalScale.z);
+        }
     }
     
     // Start is called before the first frame update
     void Start()
     {
+        if(healthBar != null) originalScale = healthBar.rectTransform.localScale;
         currentHP = maxHP;
     }
 
