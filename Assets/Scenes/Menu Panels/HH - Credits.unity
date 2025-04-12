@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 447990459}
   - component: {fileID: 447990461}
   - component: {fileID: 447990460}
+  - component: {fileID: 447990462}
   m_Layer: 5
   m_Name: Credits Holder
   m_TagString: Untagged
@@ -179,26 +180,30 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'A Team 10 Production
-
-
-
-    Team 10:
-
-
-    Erkins Hernandez
-
-    Justin
-    Tong
-
-    Joshua Wells
-
-    Andy Wang
-
-
-
-
-'
+  m_text: "A Team 10 Production\n\n\nTeam 10:\n\nJoshua Wells\nAndy Wang\nErkins
+    Hernandez\nJustin Tong\n\n\nArt Credits:\n\nAceWay (@acewaydev), Darkeyed (@Darkeyed19)\nWeapons
+    Sprite Pack:  https://finalgatestudios.itch.io/weapon-sprite-pack\n\n\na5m00thcrimin4l\nBouncy
+    Pad Crosshair Template: https://piq.codeus.net/picture/96231/Crosshair-Template\nC.C.
+    by 3.0\nCredit for Art.\n\n\nAntumDeluge\nSprites for Deflated Glove Animation:
+    https://opengameart.org/node/78832\n\n\nJROB774\nExplosion for Orb Transition:
+    https://opengameart.org/content/pixel-explosion-12-frames\nC.C. by 3.0\n\nArlan_TR\nWeapons
+    Sprite Pack: https://arlantr.itch.io/free-guns-pixelart\n\nFadesta GoopyBus\nEggs:
+    https://opengameart.org/content/dragonmonster-eggs\n\nEduardo Scarpato\nToxic
+    Frog: https://eduardscarpato.itch.io/toxic-frog-animations-pixel-art-2d-free\n\n\nCsar
+    - Fotografie\nBlueprint - Inner Folder - Background Pattern: https://pixabay.com/vectors/blueprint-background-pattern-6063921/\nImage
+    by Csar-Fotografie \n(https://pixabay.com/users/csar-fotografie-556582/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6063921)\n
+    from Pixabay\n(https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6063921)\n\nHumble
+    Pixel\nSuper Asset Bundle #5 : Mini Pocket Status (Folder Tabs): \n https://humblepixel.itch.io/super-asset-bundle-5-mini-pocket-status\n\nOdds
+    & Ents\nPaper Texture Backgrounds Asset Pack: https://oddsandents.itch.io/paper-texture-pack\n\nSevarihk\nPixel
+    Art Documents: https://opengameart.org/content/pixel-art-documents\nC.C. by 4.0\nPixel
+    Art Documents by Sevarihk\nSource: OpenGameArt at https://opengameart.org/content/pixel-art-documents\nLicensed
+    under Creative Commons Attribution 4.0\ncreativecommons.org/licenses/by/4.0/\n[Modified
+    by Erkins Hernandez to fit our Handcannon Havoc's Smaller Frame]\n\noyvind\n2D
+    Laboratory Pack: https://lpc.opengameart.org/content/2d-laboratory-pack?utm_source=chatgpt.com\n\nSpecial
+    Thanks To:\n\nLuis Enrique-Cordero \nPitbull\nFace McShooty from Borderlands
+    2\nOur Lawyer Who Allowed for Us to Say [Redacted] 2\nThe U.S. Government\nThe
+    Central Intelligence Agency\nFingers\nGuns\nFingerguns\nGunfingers (Most Likely
+    a Pastry)\nVin Diesel\nIce Cube (from XxX: State of the Union)\nand Pitbull again."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 13cf890189ccf4d8fac3b8aa8e4b2d9d, type: 2}
   m_sharedMaterial: {fileID: -4430991883902505218, guid: 13cf890189ccf4d8fac3b8aa8e4b2d9d, type: 2}
@@ -231,15 +236,15 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 8192
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: 100
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
@@ -274,6 +279,156 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447990458}
+  m_CullTransparentMesh: 1
+--- !u!114 &447990462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447990458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655ef1d611bcd446eb816a06c0478c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 41
+  returnPrompt: {fileID: 463821233}
+  showPromptDelay: 25
+  menuSceneName: HH - Main Menu
+--- !u!1 &463821233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 463821234}
+  - component: {fileID: 463821236}
+  - component: {fileID: 463821235}
+  m_Layer: 5
+  m_Name: Main Menu Director
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &463821234
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463821233}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 947825886}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -488.93}
+  m_SizeDelta: {x: 1920, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &463821235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463821233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Press E to Return to Main Menu
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 60
+  m_fontSizeBase: 60
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 1024
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &463821236
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463821233}
   m_CullTransparentMesh: 1
 --- !u!1 &947825882
 GameObject:
@@ -370,6 +525,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1982558320}
+  - {fileID: 463821234}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -388,6 +544,7 @@ GameObject:
   - component: {fileID: 1447269914}
   - component: {fileID: 1447269916}
   - component: {fileID: 1447269915}
+  - component: {fileID: 1447269917}
   m_Layer: 5
   m_Name: Title Holder
   m_TagString: Untagged
@@ -511,6 +668,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447269913}
   m_CullTransparentMesh: 1
+--- !u!114 &1447269917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447269913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655ef1d611bcd446eb816a06c0478c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 41
+  returnPrompt: {fileID: 463821233}
+  showPromptDelay: 25
+  menuSceneName: HH - Main Menu
 --- !u!1 &1517289711
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,8 +925,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.2607, y: 10.8689}
-  m_SizeDelta: {x: 1775.987, y: 917.3426}
+  m_AnchoredPosition: {x: -0.0061035, y: -0.00024414}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1982558321
 MonoBehaviour:
