@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5181365616425212583}
   - component: {fileID: 4667105809188610332}
   - component: {fileID: 8880386057057206877}
+  - component: {fileID: 1936613123202224880}
   m_Layer: 0
   m_Name: AlienCowboyBullet
   m_TagString: Untagged
@@ -147,3 +148,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1936613123202224880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152692405605959049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf9f9722e9a89a468b0535f89c13e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  invincibilityTime: 1.5
