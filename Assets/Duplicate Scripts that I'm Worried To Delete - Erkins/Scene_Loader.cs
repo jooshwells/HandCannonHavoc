@@ -3,9 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    public string levelSelect;
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("Prototype Scene"); // Change "GameScene" to your actual game scene name
+        SceneManager.LoadScene(levelSelect); // Change "GameScene" to your actual game scene name
     }
 
     public void QuitGame()

@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu Panels/HH - Level Select.unity
     guid: c9275641ac83d4cd88f1de102ee41222
   - enabled: 1
+    path: Assets/Scenes/Menu Panels/HH - Credits.unity
+    guid: 2931f648926624f0480df9118f77641f
+  - enabled: 1
     path: Assets/Scenes/Prototype Scene.unity
     guid: a1cdae7a1bf17b4419e8f20c781e0cf4
   - enabled: 1
