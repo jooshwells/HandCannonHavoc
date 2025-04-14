@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
     [Header("Scene Sound Effects")]
     public AudioSource[] SFXSources;
 
+    private bool playerNotInit = false;
+
     void Start()
     {
         // Find the background music GameObject using the "Audio" tag
@@ -24,6 +26,9 @@ public class AudioManager : MonoBehaviour
         {
             AudioSource[] playerSFX = player.GetComponents<AudioSource>();
             SFXSources = SFXSources.Concat(playerSFX).Distinct().ToArray(); // Merge both arrays
+        } else
+        {
+            playerNotInit = true;
         }
 
         // Load saved volume settings
@@ -50,5 +55,19 @@ public class AudioManager : MonoBehaviour
         }
         PlayerPrefs.SetFloat("SFXVolume", volume); // Save to PlayerPrefs
         PlayerPrefs.Save();
+    }
+
+    private void Update()
+    {
+        if(playerNotInit)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if(player != null)
+            {
+                AudioSource[] playerSFX = player.GetComponents<AudioSource>();
+                SFXSources = SFXSources.Concat(playerSFX).Distinct().ToArray(); // Merge both arrays
+                playerNotInit= false;
+            }
+        }
     }
 }
