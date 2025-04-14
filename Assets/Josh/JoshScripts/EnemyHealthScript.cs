@@ -6,12 +6,15 @@ using UnityEngine.UI;
 public class EnemyHealthScript : MonoBehaviour
 {
     // health value, initialized to 100
-    [SerializeField] private float maxHP = 100f;
+    [SerializeField] private float maxHP;
     private float currentHP;
     public Image healthBar;
     private Vector3 originalScale;
 
-
+    public float GetHealthPerc()
+    {
+       return Mathf.Clamp(currentHP / maxHP, 0f, 1f);
+    }
     public void SetHealth(int newHealth)
     {
         maxHP = newHealth;

@@ -1,49 +1,129 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class FinalBossMovementController : MonoBehaviour
 {
-    [SerializeField] private Transform endLoc;
+    public float speed = 200f;
+    public float nextWaypointDistance = 3f;
+
+    public Transform enemyGFX;
+
+    Path path;
+    int currentWaypoint = 0;
+    bool reachedEndOfPath = false;
+
+    Seeker seeker;
+    Rigidbody2D rb;
+
+    [SerializeField] private Transform endLoc;    // above 50% health target
+    [SerializeField] private Transform endLocTwo; // below 50% health target
 
     private Vector3 startingLocation;
 
     private Vector3 upper;
     private Vector3 lower;
-    private float horizontalSpeed = 1.2f;
+    private float horizontalSpeed = 2.4f;
     private float verticalSpeed = 8f;
 
     private bool movingUp = true;
-    private float speed = 1.25f;
-    private Rigidbody2D rb;
+    private EnemyHealthScript hpScript;
+    private Transform target;
+
+    //private float speed = 1.25f;
+
     // Start is called before the first frame update
     void Start()
     {
+        target = endLoc;
+        hpScript = GetComponent<EnemyHealthScript>();
         rb = GetComponent<Rigidbody2D>();
-        startingLocation = transform.position;
-        upper = startingLocation + new Vector3(0f, 4f, 0f); 
-        lower = startingLocation + new Vector3(0f, -4f, 0f);
+        seeker = GetComponent<Seeker>();
+        InvokeRepeating("UpdatePath", 0f, .1f);
     }
+
+    void UpdatePath()
+    {
+        if (seeker.IsDone())
+            seeker.StartPath(rb.position, target.position, OnPathComplete);
+    }
+    void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            path = p;
+            currentWaypoint = 0;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (path == null)
+        {
+            return;
+        }
+
+        if (currentWaypoint >= path.vectorPath.Count)
+        {
+            reachedEndOfPath = true;
+            return;
+        }
+        else
+        {
+            reachedEndOfPath = false;
+        }
+
+        // position of current waypoint minus our current position
+        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        Vector2 force = direction * speed * Time.deltaTime;
+                
+        rb.AddForce(force);
+
+        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+
+        if (distance < nextWaypointDistance)
+        {
+            currentWaypoint++;
+        }
+
+        if (rb.velocity.x >= 0.01f)
+        {
+            enemyGFX.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (rb.velocity.x <= -0.01f)
+        {
+            enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
+        }
+    }
+
+    private bool targetUpdated = false;
 
     // Update is called once per frame
     void Update()
     {
-        // Move horizontally at a constant speed
-        transform.position += Vector3.right * horizontalSpeed * Time.deltaTime;
-
-        // Determine vertical target
-        Vector3 targetY = movingUp ? upper : lower;
-
-        // Move vertically toward target at a constant speed
-        Vector3 newPos = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, targetY.y, transform.position.z), verticalSpeed * Time.deltaTime);
-        transform.position = newPos;
-
-        // Check if target reached, and switch direction
-        if (Mathf.Approximately(transform.position.y, targetY.y))
+        if(!targetUpdated && hpScript.GetHealthPerc() <= 0.5)
         {
-            movingUp = !movingUp;
-            verticalSpeed = Random.Range(5f, 8f);
+            target = endLocTwo;
+            targetUpdated = true;
         }
+        //// Move horizontally at a constant speed
+        //transform.position += Vector3.right * horizontalSpeed * Time.deltaTime;
+
+        //// Determine vertical target
+        //Vector3 targetY = movingUp ? upper : lower;
+
+        //// Move vertically toward target at a constant speed
+        //Vector3 newPos = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, targetY.y, transform.position.z), verticalSpeed * Time.deltaTime);
+        //transform.position = newPos;
+
+        //// Check if target reached, and switch direction
+        //if (Mathf.Approximately(transform.position.y, targetY.y))
+        //{
+        //    movingUp = !movingUp;
+        //    verticalSpeed = Random.Range(2f, 4f);
+        //}
 
 
     }
