@@ -3,10 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class Level_Loader : MonoBehaviour
 {
-    public void LoadGameScene(string sceneName)
+   public void LoadGameScene(string levelSelect)
     {
-        SceneManager.LoadScene(sceneName);
+        Debug.Log("Button was clicked!");
+        SceneManager.LoadScene(levelSelect);
     }
+
 
     public void QuitGame()
     {
