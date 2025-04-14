@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -5.8083, y: 5.8083, z: 1}
+  m_LocalScale: {x: -7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2619899309151933431}
@@ -218,7 +218,7 @@ MonoBehaviour:
   FireRate: 1
   bulletSpeed: 2
   bulletDuration: 2
-  bulletSprite: {fileID: 8152692405605959049, guid: 15305e0cb4e48ff43911ffb49c0d255b, type: 3}
+  bulletSprite: {fileID: 0}
   gunPos1: {fileID: 2619899309151933431}
 --- !u!1 &7456988064218129420
 GameObject:
