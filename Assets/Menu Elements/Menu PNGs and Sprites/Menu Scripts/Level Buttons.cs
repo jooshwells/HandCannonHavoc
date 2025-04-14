@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class LevelButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -15,6 +17,12 @@ public class LevelButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     private static LevelButtonHover currentlySelected = null;
     private bool isLocked = false;
+    private static bool isAnyLocked;
+
+    [Header("Hover UI Text")]
+    public TMP_Text hoverText;  // Assign this in the Inspector
+    public string zoneName;     // Set this per button in the Inspector
+
 
     void Start()
     {
@@ -22,6 +30,9 @@ public class LevelButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
         if (buttonImage != null)
             originalSprite = buttonImage.sprite;
+
+        
+        isAnyLocked = false;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -32,6 +43,8 @@ public class LevelButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExi
             buttonImage.sprite = hoverSprite;
         }
 
+        if (hoverText != null && !isAnyLocked)
+            hoverText.text = "You Are Currently Hovering Over: " + zoneName;
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -41,7 +54,11 @@ public class LevelButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExi
             buttonImage.color = new Color(buttonImage.color.r, buttonImage.color.g, buttonImage.color.b, 0f);
             buttonImage.sprite = originalSprite;
         }
+
+        if (hoverText != null && !isAnyLocked)
+            hoverText.text = "";
     }
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -49,6 +66,7 @@ public class LevelButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExi
         if (currentlySelected == this)
         {
             isLocked = false;
+            isAnyLocked = false;
 
             if (buttonImage != null && originalSprite != null)
             {
@@ -89,6 +107,7 @@ public class LevelButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExi
         }
 
         isLocked = true;
+        isAnyLocked = true;
 
         if (buttonImage != null && hoverSprite != null)
         {
@@ -100,6 +119,7 @@ public class LevelButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExi
             levelPanel.SetActive(true);
 
         currentlySelected = this;
+        hoverText.text = "";
     }
 
 }
