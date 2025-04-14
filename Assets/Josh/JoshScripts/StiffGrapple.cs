@@ -16,6 +16,8 @@ public class StiffGrapple : MonoBehaviour
     private RaycastHit2D grappleHit;
     private RaycastHit2D hit;
 
+    [SerializeField] private AudioClip grapSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,9 @@ public class StiffGrapple : MonoBehaviour
 
                 if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Grapple"))
                 {
+                    transform.GetComponentInParent<AudioSource>().clip = grapSFX;
+                    transform.GetComponentInParent<AudioSource>().pitch = Random.Range(1.15f, 1.25f);
+                    transform.GetComponentInParent<AudioSource>().Play();
                     grappleHit = hit;
                     //Debug.Log("Collided at " + hit.point);
 

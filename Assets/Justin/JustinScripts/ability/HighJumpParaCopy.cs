@@ -43,6 +43,8 @@ public class HighJumpParaCopy : MonoBehaviour
     public Sprite[] framesParachute;
     public Sprite[] framesBoost;
 
+    [SerializeField] AudioClip highJump;
+
 
     // Start is called before the first frame update
     void Start()
@@ -121,6 +123,10 @@ public class HighJumpParaCopy : MonoBehaviour
             {
                 //if (!(player.IsOnWall())) // highjump
                 {
+                    transform.GetComponentInParent<AudioSource>().clip = highJump;
+                    transform.GetComponentInParent<AudioSource>().pitch = UnityEngine.Random.Range(1.15f, 1.25f);
+                    transform.GetComponentInParent<AudioSource>().Play();
+
                     if (!parachutingToggleable)
                         openSpriteBoost();
                     //openSpriteBoost();

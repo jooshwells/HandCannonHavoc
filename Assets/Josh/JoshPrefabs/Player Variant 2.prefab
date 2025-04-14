@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDist: 10
+  grapSFX: {fileID: 8300000, guid: c3f4737bc5522534dbec56e92181acdb, type: 3}
 --- !u!120 &7189320296651059636
 LineRenderer:
   serializedVersion: 2
@@ -414,6 +415,7 @@ MonoBehaviour:
   - {fileID: 4888932118209040322, guid: 415697d38aa49fd41ad5d616ea1c357d, type: 3}
   - {fileID: 108557173844799294, guid: 415697d38aa49fd41ad5d616ea1c357d, type: 3}
   - {fileID: 5389925717731585503, guid: 415697d38aa49fd41ad5d616ea1c357d, type: 3}
+  highJump: {fileID: 8300000, guid: 48bca20f7e665ea43850b0f60d48e7c1, type: 3}
 --- !u!114 &7160332883891110180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1084,7 +1086,7 @@ PrefabInstance:
       objectReference: {fileID: 222581254494780329, guid: 1065904b768a99046b90182c518b6cd0, type: 3}
     - target: {fileID: 244498564429244037, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: dashAvail
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 244498564429244037, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: grapplingHook
@@ -1092,11 +1094,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 244498564429244037, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: bouncePadAvail
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 244498564429244037, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: highJumpParaAvail
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_Name
@@ -1108,7 +1110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 320585765290674272, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_TagString
@@ -1148,11 +1150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.73
+      value: 7.6
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.33
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1473,6 +1475,7 @@ MonoBehaviour:
   invulnerabilityTime: 0
   jump: {fileID: 8300000, guid: 15d69ad14238f6e43a8c1aaed1c8720e, type: 3}
   ouch: {fileID: 8300000, guid: ee31282063088be458dcccb9e60d1715, type: 3}
+  dash: {fileID: 8300000, guid: 5458b728feb024a4bbfc7b583b3a74c8, type: 3}
   dashSpeed: 20
   dashDuration: 0.2
   dashCooldown: 0.5

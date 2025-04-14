@@ -59,6 +59,7 @@ public class PlayerControllerMk2 : MonoBehaviour
     [Header("Sound Effects")]
     [SerializeField] AudioClip jump;
     [SerializeField] AudioClip ouch;
+    [SerializeField] AudioClip dash;
 
     // Grappling Hook values
     private bool grappling = false;
@@ -121,6 +122,7 @@ public class PlayerControllerMk2 : MonoBehaviour
     {
         // Play jump sound effect
         gameObject.GetComponent<AudioSource>().clip = jump;
+        gameObject.GetComponent<AudioSource>().pitch = UnityEngine.Random.Range(1.15f, 1.25f);
         gameObject.GetComponent<AudioSource>().Play();
         
         // Set velocity to allow jump
@@ -244,6 +246,10 @@ public class PlayerControllerMk2 : MonoBehaviour
 
     IEnumerator StartDash()
     {
+        gameObject.GetComponent<AudioSource>().clip = dash;
+        gameObject.GetComponent<AudioSource>().pitch = UnityEngine.Random.Range(1.15f, 1.25f);
+        gameObject.GetComponent<AudioSource>().Play();
+
         isDashing = true;
         canDash = false;
         dashTime = Time.time + dashDuration;
