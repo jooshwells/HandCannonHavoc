@@ -49,7 +49,8 @@ public class Soldier : MonoBehaviour
     [SerializeField] GameObject bulletSprite;
     [SerializeField] Transform gunPos1;
     //[SerializeField] Transform gunPos2;
-
+    EnemyHealthScript enemyHealthScript;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -57,11 +58,22 @@ public class Soldier : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player") != null)
             player = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        enemyHealthScript = GetComponent<EnemyHealthScript>();
+        animator = GetComponent<Animator>();
+        animator.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(enemyHealthScript.GetCurrentHP() <= 0)
+        {
+            animator.enabled = true;
+        }
+
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+
         spriteRenderer.sprite = spritelist[frame];
 
         dist = Vector2.Distance(player.position, transform.position);

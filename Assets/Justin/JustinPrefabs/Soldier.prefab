@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 7611024324175650455}
   - component: {fileID: -4683703360611547632}
   - component: {fileID: -8442453544814578495}
+  - component: {fileID: 5478146017983217518}
   m_Layer: 9
   m_Name: Soldier
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,10 +218,10 @@ MonoBehaviour:
   vericalTolerance: 3
   attacking: 0
   animating: 0
-  FireRate: 1
-  bulletSpeed: 2
-  bulletDuration: 2
-  bulletSprite: {fileID: 8152692405605959049, guid: 15305e0cb4e48ff43911ffb49c0d255b, type: 3}
+  FireRate: 1.5
+  bulletSpeed: 1
+  bulletDuration: 1.5
+  bulletSprite: {fileID: 6435814615393798483, guid: 07257652691cbd34f8938dca5a6a2a37, type: 3}
   gunPos1: {fileID: 2619899309151933431}
 --- !u!114 &-4683703360611547632
 MonoBehaviour:
@@ -234,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e089f3b85f04da4dbe0c5cbfe12dc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 25
+  maxHP: 50
   healthBar: {fileID: 0}
 --- !u!114 &-8442453544814578495
 MonoBehaviour:
@@ -253,6 +254,27 @@ MonoBehaviour:
   flashDuration: 0.1
   invincibilityDuration: 0
   blinkInterval: 0
+--- !u!95 &5478146017983217518
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195599044273869463}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a6e4502a106e16944a6af2f717de5e8b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7456988064218129420
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +301,7 @@ Transform:
   m_GameObject: {fileID: 7456988064218129420}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1364, y: 0.07, z: 0}
+  m_LocalPosition: {x: 0.173, y: 0.07, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -53,26 +53,19 @@ public class copyProjectileScript : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            //Debug.Log("Player Hit");
-
-            /*
-             * Play Exploding Bird Animation Through Coroutine
-            */
-
-
-            Vector2 dist = transform.position - (target.transform.position + new Vector3(0, 1f, 0));
-            Vector2 dir = dist.normalized;
-
-            //target.GetComponent<PlayerControllerMk2>().KnockBack(new Vector2(xAttackPower*-dir.x, yAttackPower), 0.2f, 20); // last parameter is damage, set to 5 arbitrarily
+            // Handle the player being hit…
             target.GetComponent<PlayerHealthScript>().Hit(20);
             Destroy(gameObject);
         }
-        //else if (instantiator == null || !(collision.CompareTag(instantiator.tag)))
-        else if (instantiator == null || (!(collision.CompareTag(instantiator.tag) && collision.CompareTag("Enemy"))))
+        else if (collision.gameObject.CompareTag("Enemy")) // Make bullet pass through enemies
         {
-            {
-                Destroy(gameObject);
-            }
+            Collider2D projectileCollider = GetComponent<Collider2D>();
+            // Use 'collision' directly because it is the enemy collider.
+            Physics2D.IgnoreCollision(projectileCollider, collision);
+        }
+        else if (instantiator == null || (!collision.CompareTag(instantiator.tag)))
+        {
+            Destroy(gameObject);
         }
     }
     // Update is called once per frame
