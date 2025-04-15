@@ -28307,6 +28307,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &642455033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5275384354726885570, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+  m_PrefabInstance: {fileID: 580845197}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &660079088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28491,6 +28502,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2740749432653466896, guid: f1937d345a0a18147926b80061701111, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 642455033}
     - target: {fileID: 2826791602535680382, guid: f1937d345a0a18147926b80061701111, type: 3}
       propertyPath: m_Name
       value: TimerController
@@ -29287,7 +29302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7498925692615307246, guid: 46cf386cbde82dc43b2eaf83167cdc4c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.31
+      value: 8.9
       objectReference: {fileID: 0}
     - target: {fileID: 7498925692615307246, guid: 46cf386cbde82dc43b2eaf83167cdc4c, type: 3}
       propertyPath: m_LocalPosition.y
