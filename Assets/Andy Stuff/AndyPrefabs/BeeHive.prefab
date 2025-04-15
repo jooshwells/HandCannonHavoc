@@ -60,7 +60,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 22.163118, y: 11.818914, z: 1.7605861}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1924777489834803383}
@@ -107,7 +107,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7fe6c12ca06b3491f895c65f96fb0f45, type: 3}
+  m_Sprite: {fileID: -1616228281, guid: 2604b47904ab94d44bd100df046d12bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,8 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eed7c3ca731c444ebcbdee7aab017ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 5
-  totalBees: 3
-  spawnDelay: 1.5
+  spawnRadius: 14
+  totalBees: 1
+  spawnDelay: 2
   beeEnemy: {fileID: 5584855256085252831, guid: 4dd6deaee621ea14db881101a7aaed58, type: 3}
   spawnPoint: {fileID: 1924777489834803383}

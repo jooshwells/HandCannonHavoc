@@ -32,7 +32,8 @@ public class BeeEnemyScript : MonoBehaviour
     [SerializeField] private GameObject Sting ;
 
     private bool attacking;
-    private int stingerAmmo = 3;
+    [SerializeField]private int stingerMaxAmmo = 3;
+    private int stingerAmmo;
     [SerializeField] private float attackCooldown = 0.75f;
 
     // Start is called before the first frame update
@@ -40,11 +41,26 @@ public class BeeEnemyScript : MonoBehaviour
     {
         if(GameObject.FindGameObjectWithTag("Player")!=null)
         target = GameObject.FindGameObjectWithTag("Player").transform;    
-        hive = GameObject.FindGameObjectWithTag("BeeHive").transform;    
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
-        stingerAmmo = 3;
+        stingerAmmo = stingerMaxAmmo;
+
+        
+        GameObject[] hives = GameObject.FindGameObjectsWithTag("BeeHive");
+        float closestDist = Mathf.Infinity;
+        Transform closestHive = null;
+
+        foreach (GameObject h in hives)
+        {
+            float dist = Vector2.Distance(transform.position, h.transform.position);
+            if (dist < closestDist)
+            {
+                closestDist = dist;
+                closestHive = h.transform;
+            }
+        }
+        hive = closestHive;
 
         RunPathing(); // Start pathing immediately
     }
@@ -73,7 +89,7 @@ public class BeeEnemyScript : MonoBehaviour
         // reload stinger if bee is close to hive
         if(Vector2.Distance(rb.position, hive.position)<hiveHoverRange)
         {
-            stingerAmmo=3; // reload stingers
+            stingerAmmo=stingerMaxAmmo; // reload stingers
         }
 
     }

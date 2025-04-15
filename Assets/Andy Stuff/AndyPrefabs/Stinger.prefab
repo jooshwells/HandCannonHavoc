@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -5768475048021646468}
   - component: {fileID: 6617595757095453740}
   m_Layer: 0
-  m_Name: Fireball
+  m_Name: Stinger
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eccfa39e761d91c489892f2535f383a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSpeed: 4
-  ySpeed: 4
+  xSpeed: 7
+  ySpeed: 7
   xAttackPower: 0
   yAttackPower: 0
 --- !u!50 &7552687143132393401

@@ -140,11 +140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 48.3241
+      value: 31.83
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.812975
+      value: -36.48
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -281,7 +281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e089f3b85f04da4dbe0c5cbfe12dc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 50
+  maxHP: 75
+  healthBar: {fileID: 0}
 --- !u!114 &5915931993062884862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4558fe2ed7f74194397a4d06f3249469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 350
+  speed: 400
   nextWaypointDistance: 3
   enemyGFX: {fileID: 4751888111442848506}
   explosionRadius: 2
@@ -446,8 +447,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0034735105, y: 0.0075990306}
-  m_Size: {x: 0.46149987, y: 0.20963134}
+  m_Offset: {x: -0.0044419295, y: 0.005223991}
+  m_Size: {x: 0.48366648, y: 0.21438229}
   m_Direction: 1
 --- !u!4 &6423461674185522468 stripped
 Transform:

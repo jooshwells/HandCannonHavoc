@@ -112,14 +112,10 @@ public class Dragonfly : MonoBehaviour
 
     void UpdatePath()
     {   
-        float playerDist = Vector2.Distance(rb.position, target.position);
 
-        // dashing mechanic
-        // if (playerDist <= dashRange && Time.time >= lastDashTimer + dashCooldown) // if in dash range and not on cooldown
-        // {
-        //     Dash();
-        //     return; // return to not start pathing
-        // }
+        if(target==null) return;
+        
+        float playerDist = Vector2.Distance(rb.position, target.position);
 
         //pathing
         if (playerDist >= 20f) return;

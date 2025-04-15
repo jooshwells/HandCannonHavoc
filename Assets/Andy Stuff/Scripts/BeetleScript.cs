@@ -39,7 +39,7 @@ public class BeetleScript : MonoBehaviour
     void Start()
     {
         anim = transform.GetComponentInChildren<Animator>();
-       if(GameObject.FindGameObjectWithTag("Player")!=null)
+        if(GameObject.FindGameObjectWithTag("Player")!=null)
             target = GameObject.FindGameObjectWithTag("Player").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -67,11 +67,6 @@ public class BeetleScript : MonoBehaviour
 
     void Update()
     {
-        if (transitionFinished) Debug.Log("Yup");
-        //if(rb.velocity.magnitude <= 0.1f && isWalking == true)
-        //{
-        //    isWalking = false;
-        //} else if ()
 
         if(target == null)
         {

@@ -29,7 +29,8 @@ public class BigSpider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        if(GameObject.FindGameObjectWithTag("Player")!=null)
+            target = GameObject.FindGameObjectWithTag("Player").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("UpdatePath", 0f, .1f);
@@ -37,6 +38,7 @@ public class BigSpider : MonoBehaviour
     }
     void UpdatePath()
     {
+        if(target == null) return;
         if (Vector2.Distance(rb.position, target.position) >= 30f) return;
 
         if (seeker.IsDone())
@@ -53,6 +55,11 @@ public class BigSpider : MonoBehaviour
 
     void Update()
     {
+        if(target == null)
+        {
+            if (GameObject.FindGameObjectWithTag("Player") != null)
+                target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
         if(healthScript.GetCurrentHP() <= 0 && triggeredSpawn ==false)
         {
             spawnSpiderlings();

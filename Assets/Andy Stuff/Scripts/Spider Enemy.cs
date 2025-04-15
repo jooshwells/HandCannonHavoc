@@ -23,7 +23,8 @@ public class SpiderScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        if(GameObject.FindGameObjectWithTag("Player")!=null)
+            target = GameObject.FindGameObjectWithTag("Player").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("UpdatePath", 0f, .1f);
@@ -31,7 +32,8 @@ public class SpiderScript : MonoBehaviour
     }
     void UpdatePath()
     {
-        if (Vector2.Distance(rb.position, target.position) >= 30f) return;
+        if(target == null) return;
+        if (Vector2.Distance(rb.position, target.position) >= 15f) return;
 
         if (seeker.IsDone())
             seeker.StartPath(rb.position, target.position, OnPathComplete);
@@ -47,6 +49,19 @@ public class SpiderScript : MonoBehaviour
 
 
     // Update is called once per frame
+    void Update()
+    {
+        if(target == null)
+        {
+            if (GameObject.FindGameObjectWithTag("Player") != null)
+                target = GameObject.FindGameObjectWithTag("Player").transform;
+
+            if(target == null)
+            {
+                return;
+            }
+        }
+    }
     void FixedUpdate()
     {
         if (path == null)
@@ -92,5 +107,10 @@ public class SpiderScript : MonoBehaviour
             collision.gameObject.GetComponent<PlayerHealthScript>().Hit(10);
         }
         
+    }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red; // aggro range
+        Gizmos.DrawWireSphere(transform.position, 15);
     }
 }

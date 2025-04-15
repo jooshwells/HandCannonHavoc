@@ -124,9 +124,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5545703177869141128}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ba8f4aa7cab0f6141b941fa236ed3b9b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 92344de331f6f604aabc54ad4e7faa13, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -243,7 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e089f3b85f04da4dbe0c5cbfe12dc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 40
+  healthBar: {fileID: 0}
 --- !u!114 &8038025952362361408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,16 +274,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3bda88eaa863d43ae2fb3be0d8166a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wakeUpDist: 5
   enemyGFX: {fileID: 7156284912036854510}
   nextWaypointDistance: 3
-  speed: 400
+  speed: 600
   attackRange: 10
-  aggroRange: 20
-  hiveHoverRange: 2.5
-  extraHeight: 3
-  Sting: {fileID: 6435814615393798483, guid: 88457ba0399ac9a41af720a68a6d0133, type: 3}
-  attackCooldown: 1
+  aggroRange: 17.5
+  hiveHoverRange: 2
+  extraHeight: 7
+  Sting: {fileID: 6435814615393798483, guid: 176a4e0afc71c9844ac2a09536e1c869, type: 3}
+  stingerMaxAmmo: 4
+  attackCooldown: 1.2
 --- !u!70 &9055648746094976363
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
