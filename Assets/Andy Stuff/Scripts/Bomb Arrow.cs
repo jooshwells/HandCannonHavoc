@@ -47,49 +47,32 @@ public class BombArrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // work on collision knockback for enemies
-        // Debug.Log("Trigger triggering");
-        // if (collision.gameObject.CompareTag("Player"))
-        // {
-        //     gameObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
-        //     Vector2 dir = (transform.position - player.transform.position).normalized;
-        //     Debug.Log("Attempting to Force <" + (12*-dir.x) + "," + (16*-dir.y) + "> to " + rb.gameObject.ToString());
-        //     rb.gameObject.GetComponent<PlayerController>().KnockBack(new Vector2(12 * -dir.x, 16 * dir.y), 0.2f);
-        // }
+        
 
 
         // Health Update Event for Enemies
         if (collision.CompareTag("Enemy"))
         {
-            GameObject par = null;
-
+        
             if (!isExploding)
             {
-                isExploding = true;
                 StartCoroutine(Explode());
 
             }
             collision.gameObject.GetComponent<EnemyHealthScript>().UpdateHealth(attackDamage);
-            //if (collision.gameObject.transform.parent != null)
-            //{
-            //    par = ((collision.gameObject).transform.parent).gameObject; // this gets the parent using transform
-            //}
-
-            //if(par != null)
-            //{
-            //    par.GetComponentInChildren<EnemyHealthScript>().UpdateHealth(attackDamage); // if we have a parent, check its children for a script to update the health
-            //} 
-            //else
-            //{
-            //    collision.gameObject.GetComponentInChildren<EnemyHealthScript>().UpdateHealth(attackDamage); // else just check the collision objects children for the script
-            //}
             StartCoroutine(Explode());
         }
+
+        else if (!(collision.CompareTag(instantiator.tag))) 
+            {
+                StartCoroutine(Explode());
+            }
         
     }
 
     IEnumerator Explode()
     {
+        isExploding = true;
         Animator anim = gameObject.GetComponent<Animator>();
 
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
