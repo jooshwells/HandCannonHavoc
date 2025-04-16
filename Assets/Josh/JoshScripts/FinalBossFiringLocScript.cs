@@ -35,15 +35,23 @@ public class FinalBossFiringLocScript : MonoBehaviour
         float offset = Mathf.Lerp(-bobDistance, bobDistance, (Mathf.Sin(timer) + 1f) / 2f);
         transform.localPosition = startPosition + new Vector3(0f, offset, 0f);
 
-        // Move enemyGFX to the opposite side based on direction
-        if (rb.velocity.x > 0.01f)
-        {
-            transform.localPosition = new Vector3(-Mathf.Abs(transform.localPosition.x), transform.localPosition.y, transform.localPosition.z);
-        }
-        else if (rb.velocity.x < -0.01f)
+        if(transform.position.y >= 17.85f && transform.position.x <= 25.01f)
         {
             transform.localPosition = new Vector3(Mathf.Abs(transform.localPosition.x), transform.localPosition.y, transform.localPosition.z);
+        } else
+        {
+            // Move enemyGFX to the opposite side based on direction
+            if (rb.velocity.x > 0.01f)
+            {
+                transform.localPosition = new Vector3(-Mathf.Abs(transform.localPosition.x), transform.localPosition.y, transform.localPosition.z);
+            }
+            else if (rb.velocity.x < -0.01f)
+            {
+                transform.localPosition = new Vector3(Mathf.Abs(transform.localPosition.x), transform.localPosition.y, transform.localPosition.z);
+            }
         }
+
+        
     }
 
     IEnumerator Attack()

@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/JoshLevel1.unity
     guid: 5148d1fbe4161504386349c76ca22e4f
   - enabled: 1
-    path: Assets/Scenes/Andy Levels/Andy Level 1.unity
+    path: Assets/Scenes/Andy Level 1.unity
     guid: 66ab8e5387907cc42b166dfd595b2296
   - enabled: 1
     path: Assets/Scenes/SewerLevels/2-1.unity

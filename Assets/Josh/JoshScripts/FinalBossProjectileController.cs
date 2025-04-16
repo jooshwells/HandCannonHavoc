@@ -36,8 +36,6 @@ public class FinalBossProjectileController : MonoBehaviour
 
     }
 
-
-
     void UpdatePath()
     {
         if (Vector2.Distance(rb.position, target.position) >= 30f) return;
@@ -72,11 +70,16 @@ public class FinalBossProjectileController : MonoBehaviour
 
         if (target == null) Destroy(gameObject); // get rid of extra projectiles when final boss dies
 
-        Vector3 targetPos = target.transform.position + new Vector3(0, 0.1f, 0);
-        Vector2 direction = (targetPos - transform.position).normalized;
-
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle+180f);
+        if (path != null && currentWaypoint < path.vectorPath.Count)
+        {
+            Vector2 dir = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+            if (rb.velocity.magnitude > 0.1f)
+            {
+                float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+                Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle + 180f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 25f);
+            }
+        }
         //if (player.transform.localScale.x > 0)
         //{
         //    transform.rotation = Quaternion.Euler(0f, 0f, angle + 180f);

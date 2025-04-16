@@ -21,6 +21,8 @@ public class FinalBossMovementController : MonoBehaviour
     [SerializeField] private Transform endLoc;    // above 50% health target
     [SerializeField] private Transform endLocTwo; // below 50% health target
 
+    [SerializeField] private GameObject blockage;
+
     private Vector3 startingLocation;
 
     private Vector3 upper;
@@ -31,6 +33,9 @@ public class FinalBossMovementController : MonoBehaviour
     private bool movingUp = true;
     private EnemyHealthScript hpScript;
     private Transform target;
+
+    private bool faceRight = false;
+    private bool faceLeft = false;
 
     //private float speed = 1.25f;
 
@@ -88,14 +93,23 @@ public class FinalBossMovementController : MonoBehaviour
             currentWaypoint++;
         }
 
-        if (rb.velocity.x >= 0.01f)
-        {
-            enemyGFX.localScale = new Vector3(1f, 1f, 1f);
-        }
-        else if (rb.velocity.x <= -0.01f)
+        if(transform.position.y >= 17.85f && transform.position.x <= 25.01f)
         {
             enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
+        } else
+        {
+            if ((rb.velocity.x >= 0.01f || faceLeft))
+            {
+                enemyGFX.localScale = new Vector3(1f, 1f, 1f);
+            }
+            else if ((rb.velocity.x <= -0.01f || faceRight))
+            {
+                enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
+            }
         }
+
+
+        
     }
 
     private bool targetUpdated = false;
@@ -107,6 +121,13 @@ public class FinalBossMovementController : MonoBehaviour
         {
             target = endLocTwo;
             targetUpdated = true;
+
+            blockage.SetActive(false);
+
+            Bounds updateBounds = new Bounds(new Vector3(9.2f, -4.82f, 0), new Vector3(10, 10, 1));
+            GraphUpdateObject guo = new GraphUpdateObject(updateBounds);
+            AstarPath.active.UpdateGraphs(guo);
+
         }
         //// Move horizontally at a constant speed
         //transform.position += Vector3.right * horizontalSpeed * Time.deltaTime;

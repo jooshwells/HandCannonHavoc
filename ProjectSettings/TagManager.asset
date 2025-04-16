@@ -25,6 +25,8 @@ TagManager:
   - NewWeapon
   - BackgroundMusic
   - FinalBoss
+  - FaceRight
+  - FaceLeft
   layers:
   - Default
   - TransparentFX
