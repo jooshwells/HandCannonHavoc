@@ -35503,6 +35503,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 7154523662158336120, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7876419878661483563, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -40372,7 +40376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e089f3b85f04da4dbe0c5cbfe12dc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 500
+  maxHP: 750
   healthBar: {fileID: 385804491}
 --- !u!114 &2118286905
 MonoBehaviour:
