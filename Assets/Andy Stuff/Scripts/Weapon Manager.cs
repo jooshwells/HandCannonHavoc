@@ -30,7 +30,7 @@ public class WeaponSwitcher : MonoBehaviour
             firstWeaponDisplayed = true;
         }
     }
-
+    
     private void Start()
     {
         // activate first weapon if unlocked
