@@ -47,6 +47,8 @@ public class BestTimeController : MonoBehaviour
     // Returns true for new high score, false otherwise
     public bool CheckTime(int zone, int level, float time)
     {
+        // Erkins update level player prefs here
+
         if (PlayerPrefs.GetFloat(zones[zone][level], float.MaxValue) > time)
         {
             PlayerPrefs.SetFloat(zones[zone][level], time);
