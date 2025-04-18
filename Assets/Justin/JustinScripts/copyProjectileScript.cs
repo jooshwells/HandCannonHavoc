@@ -49,12 +49,13 @@ public class copyProjectileScript : MonoBehaviour
         rb.velocity = dir * new Vector2(xSpeed, ySpeed);
     }
 
+    public int damage = 20;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             // Handle the player being hit…
-            target.GetComponent<PlayerHealthScript>().Hit(20);
+            target.GetComponent<PlayerHealthScript>().Hit(damage);
             Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("Enemy")) // Make bullet pass through enemies
