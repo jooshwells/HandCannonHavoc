@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class BrainEnemyScript : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private Transform target;
+    public Rigidbody2D rb;
+    public Transform target;
     [SerializeField] private float targetDist = 8f;
     [SerializeField] private float fireRate = 1.2f;
 

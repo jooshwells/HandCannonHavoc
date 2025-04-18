@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c32cbae4efc79438def68303be66b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   targetDist: 8
   fireRate: 0.25
   brain: {fileID: 5298112341603085734, guid: 0c833406445af964ca37a90550e88338, type: 3}
@@ -243,7 +244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e089f3b85f04da4dbe0c5cbfe12dc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
+  maxHP: 100
+  healthBar: {fileID: 0}
 --- !u!114 &4939055835405021852
 MonoBehaviour:
   m_ObjectHideFlags: 0

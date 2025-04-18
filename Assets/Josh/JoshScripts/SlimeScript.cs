@@ -32,11 +32,12 @@ public class SlimeScript : MonoBehaviour
 
     }
 
-    
+
+    public float distanceRequired = 30f;
 
     void UpdatePath()
     {
-        if (Vector2.Distance(rb.position, target.position) >= 30f) return;
+        if (Vector2.Distance(rb.position, target.position) >= distanceRequired) return;
 
         if (seeker.IsDone())
             seeker.StartPath(rb.position, target.position, OnPathComplete);

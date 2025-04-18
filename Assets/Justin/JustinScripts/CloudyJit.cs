@@ -8,7 +8,7 @@ public class CloudyJit : MonoBehaviour
     public bool attacking = false;
 
     public Transform target;
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
     AIPath path;
     public float detectRange = 10;
     public float knockback = 1;
