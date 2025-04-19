@@ -10,9 +10,9 @@ public class MiniSaucer : MonoBehaviour
     public SpriteRenderer spriterender;
 
     [SerializeField] private float wakeUpDist = 5f;
-    private Transform target;
+    public Transform target;
     //private Animator anim;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     Path path;
     Seeker seeker;
@@ -32,11 +32,17 @@ public class MiniSaucer : MonoBehaviour
     public bool shooting = false;
     [SerializeField] private float attackCooldown = 2f;
 
+    EnemyHealthScript enemyHealthScript;
+    Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
+        enemyHealthScript = GetComponent<EnemyHealthScript>();
+
         spriterender = GetComponent<SpriteRenderer>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        //target = GameObject.FindGameObjectWithTag("Player").transform;
         //anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
@@ -48,6 +54,14 @@ public class MiniSaucer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enemyHealthScript.GetCurrentHP() <= 0)
+        {
+            if (animator.enabled == false)
+            {
+                animator.enabled = true;
+            }
+        }
+
         if (!shooting)
         {
             FlashingLights();

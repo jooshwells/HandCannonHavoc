@@ -170,7 +170,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacking: 0
   target: {fileID: 0}
-  rb: {fileID: 0}
   detectRange: 12
   knockback: 5
 --- !u!114 &4514171614775785591
@@ -286,7 +285,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: -5237003691613932450}
   whiteFlashMaterial: {fileID: -876546973899608171, guid: db3ab640c644aaf4584f2c2648c1b49c, type: 3}
   flashDuration: 0.1
-  invincibilityDuration: 1.5
+  invincibilityDuration: 0
   blinkInterval: 0.1
 --- !u!114 &1704369812715304385
 MonoBehaviour:

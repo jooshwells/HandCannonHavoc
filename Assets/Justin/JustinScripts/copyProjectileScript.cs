@@ -58,10 +58,9 @@ public class copyProjectileScript : MonoBehaviour
             target.GetComponent<PlayerHealthScript>().Hit(damage);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.CompareTag("Enemy")) // Make bullet pass through enemies
+        else if (collision.CompareTag("Enemy")) // Make bullet pass through enemies
         {
             Collider2D projectileCollider = GetComponent<Collider2D>();
-            // Use 'collision' directly because it is the enemy collider.
             Physics2D.IgnoreCollision(projectileCollider, collision);
         }
         else if (instantiator == null || (!collision.CompareTag(instantiator.tag)))

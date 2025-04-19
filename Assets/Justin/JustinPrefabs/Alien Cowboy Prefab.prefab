@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5330068063350554721}
   - component: {fileID: -7133139996986549781}
   - component: {fileID: 8812817125956712002}
+  - component: {fileID: -1574189870344560876}
   m_Layer: 0
   m_Name: Alien Cowboy Prefab
   m_TagString: Untagged
@@ -48,16 +49,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2068502875936df41b6de8d46866369f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultScale: 0
   player: {fileID: 0}
   rb: {fileID: 0}
   detectDist: 0
-  speed: 4
-  weapon: {fileID: 0}
   spriteRenderer: {fileID: 0}
   spritelist:
   - {fileID: -7701348209086890097, guid: 3a92b979a7c08b946b7db79be0d92ac8, type: 3}
   - {fileID: -8401323254996987856, guid: 3a92b979a7c08b946b7db79be0d92ac8, type: 3}
+  timeRate: 0.25
+  vericalTolerance: 3
   attacking: 0
+  animating: 0
+  FireRate: 1
+  bulletSpeed: 1
+  bulletDuration: 1
+  bulletSprite: {fileID: 0}
+  gunPos1: {fileID: 0}
+  gunPos2: {fileID: 0}
 --- !u!114 &-3843599172888188369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +201,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.41272753, y: 0.52906144}
     oldSize: {x: 0.22, y: 0.49}
     newSize: {x: 0.22, y: 0.49}
     adaptiveTilingThreshold: 0.5
@@ -202,3 +211,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &-1574189870344560876
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195599044273869463}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a6e4502a106e16944a6af2f717de5e8b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

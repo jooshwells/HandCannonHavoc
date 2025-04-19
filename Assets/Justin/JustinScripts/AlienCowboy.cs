@@ -23,7 +23,6 @@ public class AlienCowboy : MonoBehaviour
     int frame;
     [SerializeField] float timeRate = 0.25f;
 
-
     // state checks
     private float dist;
     private float verticalDifference;
@@ -51,15 +50,28 @@ public class AlienCowboy : MonoBehaviour
     [SerializeField] Transform gunPos2;
 
 
+    EnemyHealthScript enemyHealthScript;
+    Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
+        enemyHealthScript = GetComponent<EnemyHealthScript>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(enemyHealthScript.GetCurrentHP() <= 0)
+        {
+            if (animator.enabled == false)
+            {
+                animator.enabled = true;
+            }
+        }
+
         spriteRenderer.sprite = spritelist[frame];
 
         dist = Vector2.Distance(player.position, transform.position);
@@ -214,14 +226,14 @@ public class AlienCowboy : MonoBehaviour
             bullet2Renderer.enabled = true; // Make the bullet visible
         }
 
-        Vector2 direction1 = (player.position - gunPos1.position) + new Vector3(0, 0.5f);
-        Vector2 direction2 = (player.position - gunPos2.position) - new Vector3(0, 0.5f);
+        Vector3 direction1 = (player.position - gunPos1.position).normalized + new Vector3(0, 0.05f);
+        Vector3 direction2 = (player.position - gunPos2.position).normalized;
 
         Rigidbody2D rb1 = bullet1.GetComponent<Rigidbody2D>();
         Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
 
-        rb1.velocity = direction1 * bulletSpeed;
-        rb2.velocity = direction2 * bulletSpeed;
+        rb1.velocity = direction1 * bulletSpeed*5;
+        rb2.velocity = direction2 * bulletSpeed*5;
 
         //flip(direction, bulletRenderer);
         Destroy(bullet1, bulletDuration);

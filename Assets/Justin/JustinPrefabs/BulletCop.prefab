@@ -163,7 +163,7 @@ MonoBehaviour:
   ySpeed: 0
   xAttackPower: 0
   yAttackPower: 0
-  damage: 13
+  damage: 10
 --- !u!114 &484778519189461403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e089f3b85f04da4dbe0c5cbfe12dc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 10
   healthBar: {fileID: 0}
 --- !u!114 &6617595757095453740
 MonoBehaviour:
