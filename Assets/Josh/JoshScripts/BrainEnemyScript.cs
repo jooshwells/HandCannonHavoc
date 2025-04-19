@@ -7,7 +7,7 @@ public class BrainEnemyScript : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Transform target;
-    [SerializeField] private float targetDist = 8f;
+    [SerializeField] private float targetDist = 10f;
     [SerializeField] private float fireRate = 1.2f;
 
     // won't start attacking at player until player gets within some distance,
@@ -17,9 +17,9 @@ public class BrainEnemyScript : MonoBehaviour
     private bool isFiring = false;
 
     [SerializeField] GameObject brain;
-    private Transform fireLoc;
+    public Transform fireLoc;
 
-    private Animator anim;
+    public Animator anim;
 
     private List<GameObject> brainList = new List<GameObject>();
 
