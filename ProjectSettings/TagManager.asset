@@ -27,6 +27,8 @@ TagManager:
   - FinalBoss
   - FaceRight
   - FaceLeft
+  - LevelButton
+  - Level Button
   layers:
   - Default
   - TransparentFX

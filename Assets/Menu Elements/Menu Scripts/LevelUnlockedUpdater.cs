@@ -14,11 +14,13 @@ public class MoveToNextLevel : MonoBehaviour
         finalLevelIndex = PlayerPrefs.GetInt("finalLevelIndex");  
 
         // Calculate the next scene index based on the current active scene's build index.
-        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 2;
+        Debug.Log("Next Scene to Load: " + nextSceneLoad);
     }
 
     public void updateCurrentLevel()
     {
+        Debug.Log("Update Current Level Called"); // Add this to check if it's triggered
         // Check if the player has completed all levels.
         if (SceneManager.GetActiveScene().buildIndex == finalLevelIndex)
         {
@@ -28,10 +30,13 @@ public class MoveToNextLevel : MonoBehaviour
         else
         {
             // Unlock the next level if the player is advancing and it hasn't been unlocked yet.
+            Debug.Log("Next Scene to Load: " + nextSceneLoad);
+            Debug.Log("LevelAt = " + PlayerPrefs.GetInt("levelAt"));
             if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
             {
                 PlayerPrefs.SetInt("levelAt", nextSceneLoad);
                 PlayerPrefs.Save();  // Save the updated progress.
+                Debug.Log("Saved LevelAt: " + PlayerPrefs.GetInt("levelAt"));  // Check the saved value
             }
         }
     }

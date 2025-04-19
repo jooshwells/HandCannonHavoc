@@ -1,26 +1,93 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-/* SUBSCRIBING TO MY YOUTUBE CHANNEL: 'VIN CODES' WILL HELP WITH MORE VIDEOS AND CODE SHARING IN THE FUTURE :) THANK YOU */
 
 public class LevelSelection : MonoBehaviour
 {
-    public Button[] lvlButtons;
-    public int finalLevelIndex;
+    public GameObject[] levelPanels; // Panels corresponding to the levels
+    private Button[] buttons;
+    private int currentPlayerLevel;
 
-    // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("finalLevelIndex", finalLevelIndex);
-        int highestUnlockedBuildIndex = PlayerPrefs.GetInt("levelAt", 2); 
+        List<Button> buttonList = new List<Button>();
 
-        for (int i = 0; i < lvlButtons.Length; i++)
+        for (int i = 0; i < levelPanels.Length; i++)
         {
-            if (i + 2 > highestUnlockedBuildIndex)
+            Button[] panelButtons = levelPanels[i].GetComponentsInChildren<Button>(true); // Include inactive
+            buttonList.AddRange(panelButtons);
+        }
+
+        buttons = buttonList.ToArray();
+        Debug.Log("Number of buttons found: " + buttons.Length);
+    }
+
+    /*void Update()
+
+
+    {
+        currentPlayerLevel = PlayerPrefs.GetInt("levelAt", 2);  // default to first unlockable level
+        Debug.Log("Current Player Level: " + currentPlayerLevel);
+
+        int firstLevelBuildIndex = 2;
+
+        for (int i = 0; i < levelPanels.Length; i++)
+        {
+            if (!levelPanels[i].activeSelf)
+                continue;
+
+            Button[] panelButtons = levelPanels[i].GetComponentsInChildren<Button>(true);
+
+            for (int j = 0; j < panelButtons.Length; j++)
             {
-                lvlButtons[i].interactable = false;
-                lvlButtons[i].image.enabled = false;
+                Button btn = panelButtons[j];
+                TextMeshProUGUI text = btn.GetComponentInChildren<TextMeshProUGUI>(true);
+
+                int thisButtonBuildIndex = firstLevelBuildIndex + j;
+
+                bool isUnlocked = thisButtonBuildIndex <= currentPlayerLevel;
+
+                btn.interactable = isUnlocked;
+
+                if (text != null)
+                    text.alpha = isUnlocked ? 1f : 0f;
+            }
+        }
+    }*/
+
+    void Update()
+    {
+        currentPlayerLevel = PlayerPrefs.GetInt("levelAt", 2);  // default to first unlockable level
+        Debug.Log("Current Player Level: " + currentPlayerLevel);
+
+        int firstLevelBuildIndex = 3;
+        int levelCounter = 0;
+
+        for (int i = 0; i < levelPanels.Length; i++)
+        {
+            if (!levelPanels[i].activeSelf)
+                continue;
+
+            Button[] panelButtons = levelPanels[i].GetComponentsInChildren<Button>(true);
+
+            for (int j = 0; j < panelButtons.Length; j++)
+            {
+                Button btn = panelButtons[j];
+                TextMeshProUGUI text = btn.GetComponentInChildren<TextMeshProUGUI>(true);
+
+                int thisButtonBuildIndex = firstLevelBuildIndex + levelCounter;
+                levelCounter++;
+
+                bool isUnlocked = thisButtonBuildIndex <= currentPlayerLevel;
+
+                btn.interactable = isUnlocked;
+
+                if (text != null)
+                    text.alpha = isUnlocked ? 1f : 0f;
+
+                Debug.Log($"Button {btn.name} | Build Index: {thisButtonBuildIndex} | Unlocked: {isUnlocked}");
             }
         }
     }
