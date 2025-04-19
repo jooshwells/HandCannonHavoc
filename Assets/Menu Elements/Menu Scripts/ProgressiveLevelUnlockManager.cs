@@ -59,7 +59,7 @@ public class LevelSelection : MonoBehaviour
 
     void Update()
     {
-        currentPlayerLevel = PlayerPrefs.GetInt("levelAt", 2);  // default to first unlockable level
+        currentPlayerLevel = PlayerPrefs.GetInt("levelAt", 3);  // default to first unlockable level
         Debug.Log("Current Player Level: " + currentPlayerLevel);
 
         int firstLevelIndex = 3;
