@@ -62,7 +62,7 @@ public class LevelSelection : MonoBehaviour
         currentPlayerLevel = PlayerPrefs.GetInt("levelAt", 2);  // default to first unlockable level
         Debug.Log("Current Player Level: " + currentPlayerLevel);
 
-        int firstLevelBuildIndex = 3;
+        int firstLevelIndex = 3;
         int levelCounter = 0;
 
         for (int i = 0; i < levelPanels.Length; i++)
@@ -77,7 +77,7 @@ public class LevelSelection : MonoBehaviour
                 Button btn = panelButtons[j];
                 TextMeshProUGUI text = btn.GetComponentInChildren<TextMeshProUGUI>(true);
 
-                int thisButtonBuildIndex = firstLevelBuildIndex + levelCounter;
+                int thisButtonBuildIndex = firstLevelIndex + levelCounter;
                 levelCounter++;
 
                 bool isUnlocked = thisButtonBuildIndex <= currentPlayerLevel;
