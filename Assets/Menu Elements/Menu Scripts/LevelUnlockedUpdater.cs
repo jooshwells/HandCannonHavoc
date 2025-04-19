@@ -2,42 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-/* SUBSCRIBING TO MY YOUTUBE CHANNEL: 'VIN CODES' WILL HELP WITH MORE VIDEOS AND CODE SHARING IN THE FUTURE :) THANK YOU */
 
 public class MoveToNextLevel : MonoBehaviour
 {
-    public int nextSceneLoad;
-    public int finalLevelIndex;
+    private int nextSceneLoad;
+    private int finalLevelIndex;
 
-    // Start is called before the first frame update
     void Start()
     {
+        // Retrieve the final level index from PlayerPrefs.
+        finalLevelIndex = PlayerPrefs.GetInt("finalLevelIndex");  
+
+        // Calculate the next scene index based on the current active scene's build index.
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void updateCurrentLevel()
     {
-        if(other.gameObject.tag == "Player")
+        // Check if the player has completed all levels.
+        if (SceneManager.GetActiveScene().buildIndex == finalLevelIndex)
         {
-            if(SceneManager.GetActiveScene().buildIndex == finalLevelIndex) /* < Change this int value to whatever your
-                                                                   last level build index is on your
-                                                                   build settings */
+            Debug.Log("You Completed ALL Levels");
+            // You can trigger a win screen or show credits here if needed.
+        }
+        else
+        {
+            // Unlock the next level if the player is advancing and it hasn't been unlocked yet.
+            if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
             {
-                Debug.Log("You Completed ALL Levels");
-                
-                //Show Win Screen or Somethin.
-            }
-            else
-            {
-                //Move to next level
-                SceneManager.LoadScene(nextSceneLoad);
-
-                //Setting Int for Index
-                if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
-                {
-                    PlayerPrefs.SetInt("levelAt", nextSceneLoad);
-                    PlayerPrefs.Save();
-                }
+                PlayerPrefs.SetInt("levelAt", nextSceneLoad);
+                PlayerPrefs.Save();  // Save the updated progress.
             }
         }
     }

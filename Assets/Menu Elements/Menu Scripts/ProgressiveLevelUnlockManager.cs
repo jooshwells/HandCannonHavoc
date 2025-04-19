@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class LevelSelection : MonoBehaviour
 {
     public Button[] lvlButtons;
+    public int finalLevelIndex;
 
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("finalLevelIndex", finalLevelIndex);
         int highestUnlockedBuildIndex = PlayerPrefs.GetInt("levelAt", 2); 
 
         for (int i = 0; i < lvlButtons.Length; i++)
