@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ddf5d28ae621a8b4bb3004272fabe5df
+guid: 1b9b51ebe0a0e4b4d98af0d97eae7e0b
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -122,18 +122,58 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: messing with bees
+  - name: Frame_0
     originalName: 
-    pivot: {x: 0.47826087, y: -0.6333334}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 31
+      y: 45
+      width: 19
+      height: 34
+    spriteID: db5b3664d9dd1d14bbcefdd5b73fa118
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 31, y: 45}
+  - name: Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 46
+      width: 19
+      height: 34
+    spriteID: 4c5bae2b2401ba942a9cbbeb10ff920a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 46}
+  - name: Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 23
-      height: 30
-    spriteID: 4afcf832d555b0047b7f04cbbc756695
+      width: 19
+      height: 34
+    spriteID: 70049634d6ac1854190c69e69cb1f467
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,24 +182,129 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 31
+      y: 85
+      width: 19
+      height: 34
+    spriteID: 2368c854d3553f34a87bfceacf6c6d1b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 31, y: 85}
+  - name: Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 87
+      width: 19
+      height: 34
+    spriteID: a8089e15c205ead43ad0147e2f84f908
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 87}
+  - name: Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 31
+      y: 4
+      width: 19
+      height: 34
+    spriteID: 0bb2aa08cce7fd64b9f626a8ccdefebb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 31, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1924099015
-    name: messing with bees
+    guid: -1345560187
+    name: Final Boss
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: messing with bees
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 21
+        x: 22
         y: 19
-        width: 23
-        height: 30
-      spriteId: 4afcf832d555b0047b7f04cbbc756695
+        width: 19
+        height: 32
+      spriteId: db5b3664d9dd1d14bbcefdd5b73fa118
+    - name: Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 22
+        y: 18
+        width: 19
+        height: 33
+      spriteId: 4c5bae2b2401ba942a9cbbeb10ff920a
+    - name: Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 22
+        y: 17
+        width: 19
+        height: 34
+      spriteId: 70049634d6ac1854190c69e69cb1f467
+    - name: Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 22
+        y: 17
+        width: 19
+        height: 32
+      spriteId: 2368c854d3553f34a87bfceacf6c6d1b
+    - name: Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 22
+        y: 16
+        width: 19
+        height: 33
+      spriteId: a8089e15c205ead43ad0147e2f84f908
+    - name: Frame_5
+      frameIndex: 5
+      additiveSortOrder: 0
+      cellRect:
+        x: 22
+        y: 16
+        width: 19
+        height: 33
+      spriteId: 0bb2aa08cce7fd64b9f626a8ccdefebb
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -179,4 +324,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 64, y: 64}
-  previousTextureSize: {x: 32, y: 64}
+  previousTextureSize: {x: 64, y: 128}

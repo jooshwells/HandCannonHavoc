@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ddf5d28ae621a8b4bb3004272fabe5df
+guid: d99bb37832bd4cf4d8b7ec3f6973ede9
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -122,18 +122,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: messing with bees
+  - name: Dragonfly
     originalName: 
-    pivot: {x: 0.47826087, y: -0.6333334}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 23
-      height: 30
-    spriteID: 4afcf832d555b0047b7f04cbbc756695
+      width: 25
+      height: 15
+    spriteID: 366ae653e9840644fa3340305dabf252
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,21 +145,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1924099015
-    name: messing with bees
+    guid: 185624554
+    name: Dragonfly
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: messing with bees
+    - name: Dragonfly
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 21
-        y: 19
-        width: 23
-        height: 30
-      spriteId: 4afcf832d555b0047b7f04cbbc756695
+        x: 3
+        y: 9
+        width: 25
+        height: 15
+      spriteId: 366ae653e9840644fa3340305dabf252
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -178,5 +178,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 64, y: 64}
-  previousTextureSize: {x: 32, y: 64}
+  canvasSize: {x: 32, y: 32}
+  previousTextureSize: {x: 64, y: 32}
