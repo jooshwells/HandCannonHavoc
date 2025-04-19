@@ -35375,6 +35375,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenOptions
       objectReference: {fileID: 0}
+    - target: {fileID: 5451561326114744105, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451561326114744105, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451561326114744105, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7388546302494431304, guid: f88520cae41454e40bf6b83b4459b8c6, type: 3}
+    - target: {fileID: 5451561326114744105, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451561326114744105, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: updateCurrentLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451561326114744105, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MoveToNextLevel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451561326114744105, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6759910362885305722, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_Interactable
       value: 1
