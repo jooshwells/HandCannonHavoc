@@ -42,14 +42,20 @@ EditorBuildSettings:
     path: Assets/Scenes/FacilityLevels/3-2 Vents.unity
     guid: cfa3d1ddb69e9cc409c4df00777edfcf
   - enabled: 1
-    path: Assets/Scenes/OfficeLevels/4 - 1.unity
-    guid: 364364d9cb30d401b8306bd1931f612b
+    path: Assets/Scenes/FacilityLevels/3-3 Lab.unity
+    guid: cf640e6677408664387cb54d8702534b
   - enabled: 1
-    path: Assets/Scenes/OfficeLevels/4 - 2.unity
-    guid: e3c91def094594c3e81405cc4bc572b9
+    path: Assets/Scenes/FacilityLevels/3-4 Aliens.unity
+    guid: 51e8f2795994fd24bbdf4ca99e7d4435
   - enabled: 1
     path: Assets/Scenes/OfficeLevels/4 - 3.unity
-    guid: 9745b1ac91e3644a69882a46390e172e
+    guid: 07d9d993ed73341d086e3b72628530c6
+  - enabled: 1
+    path: Assets/Scenes/OfficeLevels/4 - 1.unity
+    guid: 875ab3b289d9f41a8ba1931fbee5226f
+  - enabled: 1
+    path: Assets/Scenes/OfficeLevels/4 - 2.unity
+    guid: 621ca550912464eae9bbfe5310fb2aad
   - enabled: 1
     path: Assets/Scenes/Final Boss/Final Level.unity
     guid: 0d5c2e6ade0a40a43aea23a7b90d1d20
