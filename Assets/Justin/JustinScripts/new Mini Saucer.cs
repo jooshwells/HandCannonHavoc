@@ -1,6 +1,7 @@
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
@@ -9,7 +10,7 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 public class newMiniSaucer : MonoBehaviour
 {
     SpriteRenderer spriterender;
-
+     
     [SerializeField] Transform transform;
     public Transform target;
     public Rigidbody2D rb;
@@ -19,8 +20,10 @@ public class newMiniSaucer : MonoBehaviour
     [SerializeField] float extraHeight = 3f;
 
     public float sightRange = 20;
-    public float attackRange = 10;
+    public float horizontalAttackRange = 10;
     public float verticalMinimum = 3;
+    EnemyHealthScript healthscript;
+    bool spotted = false;
 
     public bool attacking = false;
 
@@ -35,7 +38,7 @@ public class newMiniSaucer : MonoBehaviour
     public Transform Origin1;
     public Transform Origin2;
     public Transform Origin3;
-    private float lastShotTime;
+      public float lastShotTime;
 
     public bool attacktest = false;
 
@@ -48,6 +51,8 @@ public class newMiniSaucer : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         transform = GetComponent<Transform>();
         aiPath = GetComponent<AIPath>();
+        aiPath.enabled = false;
+        healthscript = GetComponent<EnemyHealthScript>();
     }
 
     // Update is called once per frame
@@ -70,15 +75,19 @@ public class newMiniSaucer : MonoBehaviour
             Idle();
         }
 
-        if (Vector3.Distance(transform.position, target.position) < sightRange)
+        if (Vector3.Distance(transform.position, target.position) < sightRange ||
+            healthscript.GetCurrentHP() < healthscript.GetMaxHP() ||
+            spotted == true)
         {
+            spotted = true;
             attacking = true;
             aiPath.enabled = true;
 
-            if (Mathf.Abs(transform.position.x - target.position.x) < attackRange &&
+            if (Mathf.Abs(transform.position.x - target.position.x) < horizontalAttackRange &&
                          transform.position.y - target.position.y > verticalMinimum)
             {
-                lastShotTime = Time.time;
+                attacktest = true;
+
                 attackPlayer();
                 //StartCoroutine(Attack());
             }
@@ -149,6 +158,8 @@ public class newMiniSaucer : MonoBehaviour
         GameObject bullet3 = Instantiate(bulletprefab, Origin3.position, Origin3.rotation);
         SpriteRenderer bullet1Renderer = bullet1.GetComponent<SpriteRenderer>();
         SpriteRenderer bullet2Renderer = bullet2.GetComponent<SpriteRenderer>();
+        SpriteRenderer bullet3Renderer = bullet3.GetComponent<SpriteRenderer>();
+
 
         if (bullet1Renderer != null)
         {
@@ -158,10 +169,14 @@ public class newMiniSaucer : MonoBehaviour
         {
             bullet2Renderer.enabled = true; // Make the bullet visible
         }
+        if (bullet3Renderer != null)
+        {
+            bullet3Renderer.enabled = true; // Make the bullet visible
+        }
 
-        Vector3 direction1 = (target.position - Origin1.position).normalized;
+        Vector3 direction1 = (target.position - Origin1.position).normalized - new Vector3(0.1f, 0f);
         Vector3 direction2 = (target.position - Origin2.position).normalized;
-        Vector3 direction3 = (target.position - Origin3.position).normalized;
+        Vector3 direction3 = (target.position - Origin3.position).normalized + new Vector3(0.1f, 0f); ;
 
         Rigidbody2D rb1 = bullet1.GetComponent<Rigidbody2D>();
         Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
