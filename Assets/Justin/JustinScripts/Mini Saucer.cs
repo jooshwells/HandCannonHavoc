@@ -35,6 +35,9 @@ public class MiniSaucer : MonoBehaviour
     EnemyHealthScript enemyHealthScript;
     Animator animator;
 
+    public int bulletSpeed = 3;
+    public float bulletLifetime = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +52,6 @@ public class MiniSaucer : MonoBehaviour
     }
 
     public float X_Dist_Needed; 
-    public float X_Dist_KeptAway; //should be smaller than X_Dist_Needed
 
     // Update is called once per frame
     void Update()
@@ -73,10 +75,10 @@ public class MiniSaucer : MonoBehaviour
         }
 
         bool isEnemyAboveAndInXRange = (rb.position.y >= target.position.y + 3f) &&
-                                       (Mathf.Abs(rb.position.x - target.position.x) <= X_Dist_Needed); //&&
-                               //(Mathf.Abs(rb.position.x - target.position.x) >= X_Dist_KeptAway);
+                                       (Mathf.Abs(rb.position.x - target.position.x) <= X_Dist_Needed);
 
-        if(rb.position.y <= target.position.y + 3.5f)
+        //if close and not too high, go up higher
+        if(rb.position.y <= target.position.y + 3.5f && Mathf.Abs(rb.position.x - target.position.x) < 5)
         {
             rb.velocity = new Vector2(rb.velocity.x, 1f);
         }
@@ -142,20 +144,32 @@ public class MiniSaucer : MonoBehaviour
 
     IEnumerator Attack()
     {
-        GameObject curSlimeBall1 = Instantiate(goopAttack, transform.Find("LaunchOrigin").position, transform.Find("LaunchOrigin").rotation);
-        curSlimeBall1.GetComponent<ProjectileScript_Straight>().SetInstantiator(gameObject);
-        curSlimeBall1.GetComponent<ProjectileScript_Straight>().manualAngle = 90f;
-
-        GameObject curSlimeBall2 = Instantiate(goopAttack, transform.Find("LaunchOrigin2").position, transform.Find("LaunchOrigin2").rotation);
-        curSlimeBall2.GetComponent<ProjectileScript_Straight>().SetInstantiator(gameObject);
-        curSlimeBall1.GetComponent<ProjectileScript_Straight>().manualAngle = 180f;
-
-        GameObject curSlimeBall3 = Instantiate(goopAttack, transform.Find("LaunchOrigin3").position, transform.Find("LaunchOrigin3").rotation);
-        curSlimeBall3.GetComponent<ProjectileScript_Straight>().SetInstantiator(gameObject);
-        curSlimeBall1.GetComponent<ProjectileScript_Straight>().manualAngle = 0f;
-
+        GameObject bullet1 = Instantiate(goopAttack, transform.Find("LaunchOrigin").position, transform.Find("LaunchOrigin").rotation);
+        SpriteRenderer bullet1Renderer = bullet1.GetComponent<SpriteRenderer>();
+        if (bullet1Renderer != null)
+        {
+            bullet1Renderer.enabled = true; // Make the bullet visible
+        }
+        Vector3 direction1 = (target.position - transform.Find("LaunchOrigin").position).normalized;
+        Rigidbody2D rb1 = bullet1.GetComponent<Rigidbody2D>();
+        rb1.velocity = direction1 * bulletSpeed * 5;
+        Destroy(bullet1, bulletLifetime);
         yield return new WaitForSeconds(attackCooldown);
-        attacking = false;
+
+        /*
+                curSlimeBall1.GetComponent<ProjectileScript_Straight>().manualAngle = 90f;
+
+                GameObject curSlimeBall2 = Instantiate(goopAttack, transform.Find("LaunchOrigin2").position, transform.Find("LaunchOrigin2").rotation);
+                curSlimeBall2.GetComponent<ProjectileScript_Straight>().SetInstantiator(gameObject);
+                curSlimeBall1.GetComponent<ProjectileScript_Straight>().manualAngle = 180f;
+
+                GameObject curSlimeBall3 = Instantiate(goopAttack, transform.Find("LaunchOrigin3").position, transform.Find("LaunchOrigin3").rotation);
+                curSlimeBall3.GetComponent<ProjectileScript_Straight>().SetInstantiator(gameObject);
+                curSlimeBall1.GetComponent<ProjectileScript_Straight>().manualAngle = 0f;
+
+                yield return new WaitForSeconds(attackCooldown);
+                attacking = false;
+        */
     }
     IEnumerator WakeUp()
     {
