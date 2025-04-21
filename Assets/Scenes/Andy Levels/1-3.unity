@@ -116921,7 +116921,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8022373166923161908, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
   m_PrefabInstance: {fileID: 580845197}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257475054}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -117087,11 +117087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &257475054 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4840869133087740401, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
-  m_PrefabInstance: {fileID: 580845197}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &280691199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -126011,6 +126006,30 @@ PrefabInstance:
       propertyPath: weaponIndicatorList
       value: 
       objectReference: {fileID: 580845198}
+    - target: {fileID: 1568531641666151420, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: weaponList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1700353237}
+    - target: {fileID: 1568531641666151420, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: weaponList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1700353236}
+    - target: {fileID: 1568531641666151420, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: weaponList.Array.data[3]
+      value: 
+      objectReference: {fileID: 1700353235}
+    - target: {fileID: 1568531641666151420, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: weaponList.Array.data[4]
+      value: 
+      objectReference: {fileID: 1700353234}
+    - target: {fileID: 1568531641666151420, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: weaponList.Array.data[5]
+      value: 
+      objectReference: {fileID: 1700353233}
+    - target: {fileID: 1568531641666151420, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: weaponList.Array.data[6]
+      value: 
+      objectReference: {fileID: 1700353232}
     - target: {fileID: 1902559226405861917, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 55.6
@@ -126114,7 +126133,7 @@ PrefabInstance:
     - target: {fileID: 5879589260959992428, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: reloadUIObject
       value: 
-      objectReference: {fileID: 257475054}
+      objectReference: {fileID: 193646584}
     - target: {fileID: 6346773823422318923, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: healthBar
       value: 
@@ -126200,6 +126219,36 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+--- !u!1 &1700353232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7038305303011957722, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+  m_PrefabInstance: {fileID: 1700353231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1700353233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7209702955457521310, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+  m_PrefabInstance: {fileID: 1700353231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1700353234 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3690429864557042364, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+  m_PrefabInstance: {fileID: 1700353231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1700353235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3787708370624587794, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+  m_PrefabInstance: {fileID: 1700353231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1700353236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2741269817136592252, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+  m_PrefabInstance: {fileID: 1700353231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1700353237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 438132678913548372, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+  m_PrefabInstance: {fileID: 1700353231}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1712610346
 PrefabInstance:
   m_ObjectHideFlags: 0

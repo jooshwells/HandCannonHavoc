@@ -39,6 +39,7 @@ public class Crossbow : MonoBehaviour
     void Start()
     {
         currentAmmo = magSize;
+        UpdateAmmoBar();
         player =transform.parent.parent;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Bullets"), LayerMask.NameToLayer("Bullets")); // prevent bullet collision
         if (reloadBar != null)

@@ -41,6 +41,7 @@ public class RPG : MonoBehaviour
     void Start()
     {
         currentAmmo = magSize;
+        UpdateAmmoBar();
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Bullets"), LayerMask.NameToLayer("Bullets")); // prevent bullet collision
         player =transform.parent.parent;
         playerRb = transform.parent.parent.GetComponent<Rigidbody2D>();  //used for recoil

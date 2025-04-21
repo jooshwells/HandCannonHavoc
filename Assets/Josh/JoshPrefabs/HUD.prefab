@@ -2104,7 +2104,7 @@ GameObject:
   - component: {fileID: 7379700129813221498}
   - component: {fileID: 668831709255958155}
   m_Layer: 5
-  m_Name: Encouragement
+  m_Name: RPG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3342,12 +3342,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3329924990910747143}
-  - {fileID: 5500803132132736072}
+  - {fileID: 150765771326197033}
   - {fileID: 4333255297147889030}
-  - {fileID: 6142299346702938024}
   - {fileID: 5878740771472249994}
   - {fileID: 2437298236502208019}
-  - {fileID: 150765771326197033}
+  - {fileID: 5500803132132736072}
+  - {fileID: 6142299346702938024}
   m_Father: {fileID: 9210307596342762168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -10160,7 +10160,7 @@ GameObject:
   - component: {fileID: 8299600953071130765}
   - component: {fileID: 288192864401262803}
   m_Layer: 5
-  m_Name: Bouncy
+  m_Name: Ricochet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
