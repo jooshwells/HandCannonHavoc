@@ -28,6 +28,8 @@ public class BurstGun : MonoBehaviour
     [SerializeField] private Image reloadBar;
     private RectTransform barRect;
     private float originalWidth;
+    //ammo bar stuff
+    [SerializeField] private Image ammoBar;
 
 
     private int currentAmmo;
@@ -51,12 +53,12 @@ public class BurstGun : MonoBehaviour
     }
 
     // reset ammo when swapping between guns
-    void OnEnable()
+     void OnEnable()
     {
         currentAmmo = magSize;
         isReloading = false;
-        reloadUIObject.SetActive(false);
-        reloadBar.fillAmount = 0f; 
+        ResetBars();
+        UpdateAmmoBar();
     }
 
     // Update is called once per frame
@@ -93,6 +95,7 @@ public class BurstGun : MonoBehaviour
     {
         if(currentAmmo <=0) return;
         currentAmmo--;
+        UpdateAmmoBar();
 
 
         GameObject bullet = Instantiate(bulletSprite, gunBarrel.position, gunPos.rotation);    
@@ -166,6 +169,19 @@ public class BurstGun : MonoBehaviour
 
         currentAmmo = magSize;
         isReloading = false;
+        UpdateAmmoBar();
+
+    }
+     void UpdateAmmoBar()
+    {
+        float ammoPercent = Mathf.Clamp((float)currentAmmo / magSize, 0f, 1f);
+        ammoBar.fillAmount = ammoPercent;
+    }
+    public void ResetBars()
+    {
+        ammoBar.fillAmount = (float)currentAmmo / magSize;
+        reloadUIObject.SetActive(false);
+        reloadBar.fillAmount = 0f; 
     }
 
 }

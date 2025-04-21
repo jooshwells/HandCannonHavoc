@@ -22,17 +22,19 @@ public class Pistol : MonoBehaviour
 
     [SerializeField] int magSize = 10;
     [SerializeField] float reloadSpeed = 2f;
+    private int currentAmmo;
+    private bool isReloading = false;
+
+    //reload bar stuff
     [SerializeField] private GameObject reloadUIObject;
     [SerializeField] private Image reloadBar;
     private RectTransform barRect;
     private float originalWidth;
 
+    //ammo bar stuff
+    [SerializeField] private Image ammoBar;
 
-    private int currentAmmo;
-    private bool isReloading = false;
-
-
-  
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -53,8 +55,8 @@ public class Pistol : MonoBehaviour
     {
         currentAmmo = magSize;
         isReloading = false;
-        reloadUIObject.SetActive(false);
-        reloadBar.fillAmount = 0f; 
+        ResetBars();
+        UpdateAmmoBar();
     }
 
     // Update is called once per frame
@@ -77,6 +79,7 @@ public class Pistol : MonoBehaviour
     {
         if(currentAmmo <=0) return;
         currentAmmo--;
+        UpdateAmmoBar();
 
 
         GameObject bullet = Instantiate(bulletSprite, gunBarrel.position, gunPos.rotation);    
@@ -150,6 +153,18 @@ public class Pistol : MonoBehaviour
 
         currentAmmo = magSize;
         isReloading = false;
+        UpdateAmmoBar();
     }
-
+    
+    void UpdateAmmoBar()
+    {
+        float ammoPercent = Mathf.Clamp((float)currentAmmo / magSize, 0f, 1f);
+        ammoBar.fillAmount = ammoPercent;
+    }
+    public void ResetBars()
+    {
+        ammoBar.fillAmount = (float)currentAmmo / magSize;
+        reloadUIObject.SetActive(false);
+        reloadBar.fillAmount = 0f; 
+    }
 }

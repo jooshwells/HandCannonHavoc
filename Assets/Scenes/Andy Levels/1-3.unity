@@ -116916,6 +116916,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &193646583 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8022373166923161908, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+  m_PrefabInstance: {fileID: 580845197}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &193646584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7936385143476169316, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+  m_PrefabInstance: {fileID: 580845197}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &230516779
 GameObject:
   m_ObjectHideFlags: 0
@@ -125963,6 +125979,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 12871469351467439, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadBar
+      value: 
+      objectReference: {fileID: 193646583}
+    - target: {fileID: 12871469351467439, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadUIObject
+      value: 
+      objectReference: {fileID: 193646584}
     - target: {fileID: 1568531641666151420, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: weaponIndicatorList
       value: 
@@ -126071,6 +126095,14 @@ PrefabInstance:
       propertyPath: m_Parameters.widthMultiplier
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 7611316559215603159, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadBar
+      value: 
+      objectReference: {fileID: 193646583}
+    - target: {fileID: 7611316559215603159, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadUIObject
+      value: 
+      objectReference: {fileID: 193646584}
     - target: {fileID: 8000434760090024299, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: render2
       value: 
@@ -126079,6 +126111,30 @@ PrefabInstance:
       propertyPath: sprBoost
       value: 
       objectReference: {fileID: 1435058767}
+    - target: {fileID: 8825369039922798173, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadBar
+      value: 
+      objectReference: {fileID: 193646583}
+    - target: {fileID: 8825369039922798173, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadUIObject
+      value: 
+      objectReference: {fileID: 193646584}
+    - target: {fileID: 9015503593082280085, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadBar
+      value: 
+      objectReference: {fileID: 193646583}
+    - target: {fileID: 9015503593082280085, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadUIObject
+      value: 
+      objectReference: {fileID: 193646584}
+    - target: {fileID: 9206250095247392637, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadBar
+      value: 
+      objectReference: {fileID: 193646583}
+    - target: {fileID: 9206250095247392637, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadUIObject
+      value: 
+      objectReference: {fileID: 193646584}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

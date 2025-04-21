@@ -27,6 +27,8 @@ public class Shotgun : MonoBehaviour
     [SerializeField] private Image reloadBar;
     private RectTransform barRect;
     private float originalWidth;
+    //ammo bar stuff
+    [SerializeField] private Image ammoBar;
 
 
 
@@ -54,12 +56,12 @@ public class Shotgun : MonoBehaviour
 
     }
     // reset ammo when swapping between guns
-    void OnEnable()
+     void OnEnable()
     {
         currentAmmo = magSize;
         isReloading = false;
-        reloadUIObject.SetActive(false);
-        reloadBar.fillAmount = 0f; 
+        ResetBars();
+        UpdateAmmoBar();
     }
     
     // Update is called once per frame
@@ -80,9 +82,11 @@ public class Shotgun : MonoBehaviour
     }
 
     void shoot()
-{
-    if(currentAmmo <= 0) return;
-    currentAmmo--;
+    {
+        if(currentAmmo <= 0) return;
+        currentAmmo--;
+        UpdateAmmoBar();
+
 
 
     // loop to shoot pellets
@@ -167,6 +171,8 @@ public class Shotgun : MonoBehaviour
 
         currentAmmo = magSize;
         isReloading = false;
+        UpdateAmmoBar();
+
     }
     void Recoil(Vector2 shotDirection)
     {
@@ -174,6 +180,16 @@ public class Shotgun : MonoBehaviour
         float verticalRecoil = -shotDirection.y * recoil;
 
         playerRb.AddForce(new Vector2(horizontalRecoil,verticalRecoil), ForceMode2D.Impulse);
-    
+    }
+    void UpdateAmmoBar()
+    {
+        float ammoPercent = Mathf.Clamp((float)currentAmmo / magSize, 0f, 1f);
+        ammoBar.fillAmount = ammoPercent;
+    }
+    public void ResetBars()
+    {
+        ammoBar.fillAmount = (float)currentAmmo / magSize;
+        reloadUIObject.SetActive(false);
+        reloadBar.fillAmount = 0f; 
     }
 }

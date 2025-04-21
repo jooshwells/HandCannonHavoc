@@ -870,6 +870,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: NewWeapon
       objectReference: {fileID: 0}
+    - target: {fileID: 8124830586129229514, guid: e43c8066a18e77444a5e923c89331d0d, type: 3}
+      propertyPath: attackDamage
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -985,8 +989,12 @@ PrefabInstance:
       value: NewWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 9107633049805865057, guid: 2473011b6057a0e4dbb2569d2389ec0d, type: 3}
+      propertyPath: magSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107633049805865057, guid: 2473011b6057a0e4dbb2569d2389ec0d, type: 3}
       propertyPath: fireRate
-      value: 0.3
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 9107633049805865057, guid: 2473011b6057a0e4dbb2569d2389ec0d, type: 3}
       propertyPath: bulletSpeed
@@ -1152,7 +1160,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5087510511646267745, guid: 6b511bfe88c24964ebb5af9970be3616, type: 3}
       propertyPath: bulletSpeed
-      value: 18
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087510511646267745, guid: 6b511bfe88c24964ebb5af9970be3616, type: 3}
+      propertyPath: reloadSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087510511646267745, guid: 6b511bfe88c24964ebb5af9970be3616, type: 3}
+      propertyPath: attackDamage
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7924224177957083819, guid: 6b511bfe88c24964ebb5af9970be3616, type: 3}
       propertyPath: player
@@ -1311,11 +1327,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -43.8
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -68.4
+      value: -29.3
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1875,12 +1891,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 5651751765407130646}
     m_Modifications:
     - target: {fileID: 325588655674627815, guid: 26408fbf1cacebf40914db353fdf3121, type: 3}
+      propertyPath: recoil
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 325588655674627815, guid: 26408fbf1cacebf40914db353fdf3121, type: 3}
+      propertyPath: fireRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 325588655674627815, guid: 26408fbf1cacebf40914db353fdf3121, type: 3}
       propertyPath: bulletSpeed
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 325588655674627815, guid: 26408fbf1cacebf40914db353fdf3121, type: 3}
       propertyPath: reloadSpeed
       value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 325588655674627815, guid: 26408fbf1cacebf40914db353fdf3121, type: 3}
+      propertyPath: attackDamage
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 325588655674627815, guid: 26408fbf1cacebf40914db353fdf3121, type: 3}
       propertyPath: bulletDuration
