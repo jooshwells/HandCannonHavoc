@@ -10,7 +10,7 @@ using UnityEditor.Experimental.GraphView;
 public class BruteAlien: MonoBehaviour
 {
     //
-    SpriteRenderer sprite;
+    public SpriteRenderer sprite;
     public Sprite[] idleFrames;
     public Sprite[] movingFrames;
     float timeFrame = 0f;
@@ -18,8 +18,10 @@ public class BruteAlien: MonoBehaviour
 
     [NonSerialized] public bool facingRight = false;
 
-    [NonSerialized] public bool attacking = false;
-    public float attackingRange;
+    public bool attacking = false;
+    public float attackingRange = 8f;
+       bool spotted = false;
+
 
     //
 
@@ -35,27 +37,45 @@ public class BruteAlien: MonoBehaviour
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
+    EnemyHealthScript EnemyHealthScript;
 
     Seeker seeker;
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
+    Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
     {
 
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        //target = GameObject.FindGameObjectWithTag("Player").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         InvokeRepeating("UpdatePath", 0f, .1f);
 
         sprite = GetComponent<SpriteRenderer>();
+        EnemyHealthScript = GetComponent<EnemyHealthScript>();
+        animator = GetComponent<Animator>();
+
     }
+    public bool checker = false;
     private void Update()
     {
+        if(EnemyHealthScript.GetCurrentHP() < EnemyHealthScript.GetMaxHP())
+            attackingRange = 100f;
+
+        if (EnemyHealthScript.GetCurrentHP() <= 0)
+        {
+            if (animator.enabled == false)
+            {
+                animator.enabled = true;
+            }
+        }
+
         if (!attacking)
         {
-            if (inRange(attackingRange/1.5f)) //start attacking
+            if (inRange(attackingRange)) //start attacking
             {
                 i = 0;
                 timeFrame = Time.time + 0.25f;
@@ -76,14 +96,16 @@ public class BruteAlien: MonoBehaviour
         }
         if(attacking)
         {
-            if (!inRange(attackingRange)) //stop attacking
+            /*if (!inRange(attackingRange)) //stop attacking
             {
                 i = 0;
                 attacking = false;
-            }
+            }*/
 
             if (Time.time > timeFrame) //attacking animation
             {
+                checker = true;
+
                 i++;
                 i = i % 7;
                 timeFrame = Time.time + 0.1f;
@@ -94,7 +116,7 @@ public class BruteAlien: MonoBehaviour
 
     void UpdatePath()
     {
-        if (Vector2.Distance(rb.position, target.position) >= attackingRange) return;
+        if (Vector2.Distance(rb.position, target.position) >= attackingRange || !(EnemyHealthScript.GetCurrentHP() < EnemyHealthScript.GetMaxHP())) return;
 
         if (seeker.IsDone())
             seeker.StartPath(rb.position, target.position, OnPathComplete);
@@ -166,7 +188,7 @@ public class BruteAlien: MonoBehaviour
             direction = -0.2f;
         }
 
-        if(Mathf.Abs(rb.velocity.x) < maxVelocity)
+        if(Mathf.Abs(rb.velocity.x) <= maxVelocity)
         {
             /*
             Vector2 force = direction * speed * Time.deltaTime;
@@ -174,6 +196,10 @@ public class BruteAlien: MonoBehaviour
             */
 
             rb.velocity = new Vector2(rb.velocity.x + direction, rb.velocity.y);
+        }
+        if(Mathf.Abs(rb.velocity.x) > maxVelocity)
+        {
+            rb.velocity = new Vector2(rb.velocity.x - direction, rb.velocity.y);
         }
 
 
@@ -200,14 +226,14 @@ public class BruteAlien: MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHealthScript>().Hit(25);
+            //collision.gameObject.GetComponent<PlayerHealthScript>().Hit(25);
 
             //
-            float knockback = 1f;
+            float knockback = 2f;
 
             if (!playerLeft())
             {
-                knockback = -1f;
+                knockback = -2f;
             }
 
             targetRb.AddForce(new Vector2(knockback, knockback), ForceMode2D.Impulse);
@@ -216,7 +242,7 @@ public class BruteAlien: MonoBehaviour
 
     bool inRange(float range)
     {
-        return (Vector2.Distance(rb.position, target.position) < range); //start attacking
+        return (Vector2.Distance(rb.position, target.position) < range || EnemyHealthScript.GetCurrentHP() < EnemyHealthScript.GetMaxHP()); //start attacking
     }
 
     bool playerLeft()
