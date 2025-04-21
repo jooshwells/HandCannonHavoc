@@ -285,3 +285,4 @@ MonoBehaviour:
   dashVariation: 1
   dashCooldown: 1.75
   dashForce: 14
+  ambient: {fileID: 8300000, guid: ab50f492b290ba74392dc98dd567f420, type: 3}
