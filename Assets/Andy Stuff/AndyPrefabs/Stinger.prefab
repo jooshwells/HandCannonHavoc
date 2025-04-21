@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -5768475048021646468}
   - component: {fileID: 6617595757095453740}
   - component: {fileID: 198313306998779030}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: Stinger
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 67584
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

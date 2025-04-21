@@ -151,7 +151,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 65536
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -171,7 +171,7 @@ BoxCollider2D:
   m_Offset: {x: -0.0007176399, y: -0.0023801792}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.4842689, y: 0.48344105}
     oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 0.24, y: 0.24}
     adaptiveTilingThreshold: 0.5
