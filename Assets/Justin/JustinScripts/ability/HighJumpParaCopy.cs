@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class HighJumpParaCopy : MonoBehaviour
 {
@@ -123,9 +124,8 @@ public class HighJumpParaCopy : MonoBehaviour
             {
                 //if (!(player.IsOnWall())) // highjump
                 {
-                    transform.GetComponentInParent<AudioSource>().clip = highJump;
-                    transform.GetComponentInParent<AudioSource>().pitch = UnityEngine.Random.Range(1.15f, 1.25f);
-                    transform.GetComponentInParent<AudioSource>().Play();
+                    StartCoroutine(transform.GetComponentInParent<PlayerControllerMk2>().PlaySound(highJump));
+                 
 
                     if (!parachutingToggleable)
                         openSpriteBoost();

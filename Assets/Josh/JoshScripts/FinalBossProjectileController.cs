@@ -141,10 +141,12 @@ public class FinalBossProjectileController : MonoBehaviour
         } else if (collision.CompareTag("FinalBoss") && target.CompareTag("FinalBoss"))
         {
             collision.gameObject.GetComponent<EnemyHealthScript>().UpdateHealth(attackDamage);
+            GameObject.FindGameObjectWithTag("FinalBoss").GetComponentInChildren<FinalBossFiringLocScript>().DecrementProjectileCount();
             Destroy(gameObject);
         } else if (collision.CompareTag("Player") && target.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerHealthScript>().Hit(attackDamage);
+            GameObject.FindGameObjectWithTag("FinalBoss").GetComponentInChildren<FinalBossFiringLocScript>().DecrementProjectileCount();
             Destroy(gameObject);
         }
 

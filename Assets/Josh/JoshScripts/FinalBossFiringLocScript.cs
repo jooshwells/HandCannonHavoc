@@ -22,10 +22,12 @@ public class FinalBossFiringLocScript : MonoBehaviour
         rb = transform.GetComponentInParent<Rigidbody2D>();
         startPosition = transform.localPosition;
     }
+    private int projCount = 0;
+    public void DecrementProjectileCount() { projCount--; }
 
     void Update()
     {
-        if (!isRunning)
+        if (!isRunning && projCount < 5)
         {
             StartCoroutine(Attack());
         }
@@ -59,6 +61,7 @@ public class FinalBossFiringLocScript : MonoBehaviour
         isRunning = true;
         // do attacking stuff
         Instantiate(projectile, transform.position, transform.rotation);
+        projCount++;
         yield return new WaitForSeconds(Random.Range(2f, 5f));
         isRunning = false;
     }

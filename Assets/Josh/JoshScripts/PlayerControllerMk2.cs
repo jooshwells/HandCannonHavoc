@@ -77,6 +77,17 @@ public class PlayerControllerMk2 : MonoBehaviour
     [SerializeField] public float dashCooldown = 0.5f;
     private bool dashOn = false; // Made by Josh - Used with Ability Controller
 
+    public IEnumerator PlaySound(AudioClip clip)
+    {
+        GameObject tempGO = new GameObject("TempAudio"); // create new GameObject
+        AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add AudioSource
+        aSource.clip = clip;
+        aSource.pitch = UnityEngine.Random.Range(1.15f, 1.25f);
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return null;
+    }
+
     public void SetDashOn(bool d)
     {
         dashOn = d;
@@ -121,10 +132,8 @@ public class PlayerControllerMk2 : MonoBehaviour
     private void Jump()
     {
         // Play jump sound effect
-        gameObject.GetComponent<AudioSource>().clip = jump;
-        gameObject.GetComponent<AudioSource>().pitch = UnityEngine.Random.Range(1.15f, 1.25f);
-        gameObject.GetComponent<AudioSource>().Play();
-        
+        StartCoroutine(PlaySound(jump));
+
         // Set velocity to allow jump
         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
     }
@@ -246,9 +255,7 @@ public class PlayerControllerMk2 : MonoBehaviour
 
     IEnumerator StartDash()
     {
-        gameObject.GetComponent<AudioSource>().clip = dash;
-        gameObject.GetComponent<AudioSource>().pitch = UnityEngine.Random.Range(1.15f, 1.25f);
-        gameObject.GetComponent<AudioSource>().Play();
+        StartCoroutine(PlaySound(dash));
 
         isDashing = true;
         canDash = false;
