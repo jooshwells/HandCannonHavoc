@@ -1,0 +1,1759 @@
+fileFormatVersion: 2
+guid: 920ce8f56b2144fd295d089d12fd2856
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: books_byBatuhan_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 225
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1299cf0e639a4456c8e34ccc5adef4ab
+      internalID: -1745849070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 225
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01adf2719c14d4187a1d211cbb2b41db
+      internalID: -470271679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 225
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc882888c05144a2d9eb0f8352feab62
+      internalID: 1738130345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_3
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 225
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4e22b3d21b5548dfa362165cf49f606
+      internalID: -548533662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_4
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 225
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db22e08ebffda47428e7bef26639642f
+      internalID: 225620990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_5
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 225
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b24b69130456744c88638a0b3fe5d9db
+      internalID: 813464412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_6
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 225
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c398bb8a12fc4ba0bdd4aed082d8836
+      internalID: -1982755499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_7
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 225
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8763e000091d24c67b59f2ba8251afae
+      internalID: 1464092795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_8
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 225
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daaed72f3c07d46f8ba1b5114ddfee7b
+      internalID: 140497830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_9
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 225
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8c45cdc2649f43749513657e78a1466
+      internalID: -1235519846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_10
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 225
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 269eb91b3c5d44d9d8da26f660b0dca6
+      internalID: -1611318066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_11
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 193
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47e54c308cc814695bcc9ebfc6db5b8d
+      internalID: -69385191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_12
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 193
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acdf7266927384207a33aa264ee3edb7
+      internalID: 902372940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_13
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 193
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c370b552973a34575a5ae6795da5f028
+      internalID: -1802199279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_14
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 193
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7e575abe552a44c19f3bb3b500a25ba
+      internalID: -1739621049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_15
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 193
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c4715e59e9d1400488180516f519842
+      internalID: -1244074837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_16
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 193
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fcf33069558d4fd3a82cb1a94cfc96f
+      internalID: -1092496894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_17
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 193
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a31d1c8e81fd49b2aca17d9217785a8
+      internalID: -794108085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_18
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 193
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a460f5a29be453c9d66e800517c848
+      internalID: -293514925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_19
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 193
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef360a6b3df2a4d8e9f80e9199834bef
+      internalID: -151115270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_20
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 193
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e541a61e0be417fbaf77c7e1c74dd3
+      internalID: 1878347204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_21
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 193
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0420f2513ed9f40e0b63320af113f093
+      internalID: -490722412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_22
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 165
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec4f9028ab8044fe0b5d9183c5d96276
+      internalID: 819302048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_23
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 165
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbe1db91c3adc46cfa83bd9f35ad8fbc
+      internalID: -1765601617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_24
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 165
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a756108bc81f64bf290d9f58e2a55aa9
+      internalID: -547483766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_25
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 165
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12c8487edf5b54a0382188abbde084fd
+      internalID: 2003879340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_26
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 165
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ce33f94e6e6447c9cebae0650c8947
+      internalID: 97413954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_27
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 165
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1929a1ffe63524209bd95c3680c540ea
+      internalID: -537051554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_28
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 165
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4cad0602f23a42f5b53744aa54b34d6
+      internalID: 269985464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_29
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 165
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04df7addd8b64486bbce850c972dba6c
+      internalID: 1716330835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_30
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 165
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0104105df361342a0b5b90f2f0a30462
+      internalID: -573641608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_31
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 165
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d8af6299eb644ad85283a202b98de2
+      internalID: 1838597125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_32
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 133
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bac01b0f35bf4e51b02be85305fa130
+      internalID: 749117077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_33
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 133
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a124d1125d5a4973a4ff6fabec1335d
+      internalID: 1727661700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_34
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 133
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1ab8d7acb3664caa9859157a1b4bd65
+      internalID: -1834091201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_35
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 133
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55fd033dcf5f243bda702fda0d71cc06
+      internalID: -1670332988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_36
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 133
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4e97736d341e408797423f06376b0a6
+      internalID: 175274511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_37
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 133
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15a311452642a4dccb5ea8cca5ff4b45
+      internalID: 1415711577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_38
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 133
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d90b9f7a8f2a24e88a4ff163f2f8c1c4
+      internalID: 1676272590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_39
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 133
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b6e170477eea491db272d1a732acab5
+      internalID: -1635189725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_40
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 133
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b65539898adb94465956efe69b26e2b1
+      internalID: 1596339855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_41
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 133
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48d0ac70b3ba49e699ac9ae5e0b054d
+      internalID: 2074730130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_42
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 102
+        width: 25
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b16126cf4769e4ad09359e8f229ac534
+      internalID: 1440231441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_43
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 102
+        width: 25
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f08c6c84c5464778bddddd9f1841cd0
+      internalID: 333075037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_44
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 102
+        width: 25
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86d9b7bfc0cca46c8badd17340fe85d4
+      internalID: 1764252248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_45
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 102
+        width: 25
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea9693c939fbd43f0a4f592e818a8f1e
+      internalID: -1270242891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_46
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 102
+        width: 25
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e9a675c26904b87a80613957cc9e1d
+      internalID: -2094115804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_47
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 102
+        width: 25
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded36ff62e8ef46c291fb0af1922b698
+      internalID: -1200748728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_48
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 102
+        width: 25
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29534a2c424cb4fabb81b495423aa357
+      internalID: -1096477363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_49
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 102
+        width: 25
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed34c67daa1ea4d31a0816d120e818b8
+      internalID: -427218629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_50
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 102
+        width: 25
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dbf5767767aa4d049f5e4578583b493
+      internalID: 716447107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_51
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 102
+        width: 25
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76280151de3a842dfbe67f1f3c7ba7ea
+      internalID: -1550485970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_52
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 66
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dcf60c4b915e4719bca35195afc7c81
+      internalID: 1473634404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_53
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 66
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c969865a36fc4bfcbc1e6274fb64a3e
+      internalID: -1198109886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_54
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 66
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f366c0da92f04f3eb0c8f2d694271cd
+      internalID: 911510766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_55
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 66
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df0074614e376491387dbead497508e6
+      internalID: -2089954746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_56
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 66
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53693b9b0b178447a9a29f7cdf9fbb81
+      internalID: -1428839210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_57
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 66
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab6296a33b09947ac916d84a57a1472a
+      internalID: -1980739992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_58
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 66
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46bb5b135f1cd4da1802d0ba4399df61
+      internalID: 1445945160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_59
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 66
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 856ae3057286846b78a6e6bf6e596d2e
+      internalID: -1381070302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_60
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 66
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e33133d69f47e4339bf170595df0d24c
+      internalID: -377464649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_61
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 66
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41c6e70de7364eb68277a9f33520e32
+      internalID: -1532284362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_62
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 33
+        width: 15
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28857d9ac29424205ae8db3cb3e28ab8
+      internalID: 1765384804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_63
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 33
+        width: 15
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c49f3497c077447998dbd9d6078ecbd9
+      internalID: 1907870901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_64
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 33
+        width: 15
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c4aafdef5b24426bb9b9f635ed3ca90
+      internalID: 331205207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_65
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 33
+        width: 15
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bf6f0eccaa4147228d9e726e99007bd
+      internalID: 819276577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_66
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 33
+        width: 15
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 587762c3eabe04946af7192466c4cff2
+      internalID: 1370350247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_67
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 33
+        width: 15
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52ca9167050fd4f249845aa6246ef073
+      internalID: 256569495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_68
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 33
+        width: 15
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 133a98e50ac204ca694e63f72787576f
+      internalID: 1725514001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_69
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 33
+        width: 15
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a19a58ea77514078a09aed9290e2a12
+      internalID: -1944100888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_70
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 33
+        width: 15
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6a065fdfda1047f599f532b6b386db1
+      internalID: 467678871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_71
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 33
+        width: 15
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 022d5ce70804e4540af6c84d1f1b5a86
+      internalID: -1821719823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: books_byBatuhan_72
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 2
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc43d2210020149118dbd8c384caed15
+      internalID: -583968127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      books_byBatuhan_0: -1745849070
+      books_byBatuhan_1: -470271679
+      books_byBatuhan_10: -1611318066
+      books_byBatuhan_11: -69385191
+      books_byBatuhan_12: 902372940
+      books_byBatuhan_13: -1802199279
+      books_byBatuhan_14: -1739621049
+      books_byBatuhan_15: -1244074837
+      books_byBatuhan_16: -1092496894
+      books_byBatuhan_17: -794108085
+      books_byBatuhan_18: -293514925
+      books_byBatuhan_19: -151115270
+      books_byBatuhan_2: 1738130345
+      books_byBatuhan_20: 1878347204
+      books_byBatuhan_21: -490722412
+      books_byBatuhan_22: 819302048
+      books_byBatuhan_23: -1765601617
+      books_byBatuhan_24: -547483766
+      books_byBatuhan_25: 2003879340
+      books_byBatuhan_26: 97413954
+      books_byBatuhan_27: -537051554
+      books_byBatuhan_28: 269985464
+      books_byBatuhan_29: 1716330835
+      books_byBatuhan_3: -548533662
+      books_byBatuhan_30: -573641608
+      books_byBatuhan_31: 1838597125
+      books_byBatuhan_32: 749117077
+      books_byBatuhan_33: 1727661700
+      books_byBatuhan_34: -1834091201
+      books_byBatuhan_35: -1670332988
+      books_byBatuhan_36: 175274511
+      books_byBatuhan_37: 1415711577
+      books_byBatuhan_38: 1676272590
+      books_byBatuhan_39: -1635189725
+      books_byBatuhan_4: 225620990
+      books_byBatuhan_40: 1596339855
+      books_byBatuhan_41: 2074730130
+      books_byBatuhan_42: 1440231441
+      books_byBatuhan_43: 333075037
+      books_byBatuhan_44: 1764252248
+      books_byBatuhan_45: -1270242891
+      books_byBatuhan_46: -2094115804
+      books_byBatuhan_47: -1200748728
+      books_byBatuhan_48: -1096477363
+      books_byBatuhan_49: -427218629
+      books_byBatuhan_5: 813464412
+      books_byBatuhan_50: 716447107
+      books_byBatuhan_51: -1550485970
+      books_byBatuhan_52: 1473634404
+      books_byBatuhan_53: -1198109886
+      books_byBatuhan_54: 911510766
+      books_byBatuhan_55: -2089954746
+      books_byBatuhan_56: -1428839210
+      books_byBatuhan_57: -1980739992
+      books_byBatuhan_58: 1445945160
+      books_byBatuhan_59: -1381070302
+      books_byBatuhan_6: -1982755499
+      books_byBatuhan_60: -377464649
+      books_byBatuhan_61: -1532284362
+      books_byBatuhan_62: 1765384804
+      books_byBatuhan_63: 1907870901
+      books_byBatuhan_64: 331205207
+      books_byBatuhan_65: 819276577
+      books_byBatuhan_66: 1370350247
+      books_byBatuhan_67: 256569495
+      books_byBatuhan_68: 1725514001
+      books_byBatuhan_69: -1944100888
+      books_byBatuhan_7: 1464092795
+      books_byBatuhan_70: 467678871
+      books_byBatuhan_71: -1821719823
+      books_byBatuhan_72: -583968127
+      books_byBatuhan_8: 140497830
+      books_byBatuhan_9: -1235519846
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
