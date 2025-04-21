@@ -313,6 +313,7 @@ MonoBehaviour:
   speed: 500
   nextWaypointDistance: 3
   enemyGFX: {fileID: 6035529775899834339}
+  ambient: {fileID: 8300000, guid: 38f32ca3f6bfcd147b4d46f94ea63e64, type: 3}
 --- !u!70 &6881073746112827787
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -186,6 +186,7 @@ MonoBehaviour:
   speed: 200
   nextWaypointDistance: 3
   enemyGFX: {fileID: 1268091337350034535}
+  ambient: {fileID: 8300000, guid: a57bdef6220a26341a893a83ed394088, type: 3}
 --- !u!58 &7944490444276857617
 CircleCollider2D:
   m_ObjectHideFlags: 0

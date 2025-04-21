@@ -27,6 +27,34 @@ public class TrashBagScript : MonoBehaviour
 
     private bool attacking;
     [SerializeField] private float attackCooldown = 0.75f;
+    [SerializeField] private AudioClip ambient;
+    [SerializeField] private AudioClip wakeUp;
+    [SerializeField] private AudioClip fire;
+    public IEnumerator PlaySound(AudioClip clip, Transform enemy)
+    {
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.parent = enemy;
+        tempGO.transform.localPosition = Vector3.zero;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
+        aSource.clip = clip;
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        aSource.spatialBlend = 1.0f;
+        aSource.minDistance = 1f;
+        aSource.maxDistance = 20f;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return new WaitForSeconds(clip.length);
+        if (clip.Equals(ambient))
+        {
+            StartCoroutine(PlaySound(clip, transform));
+        }
+        yield return null;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +65,6 @@ public class TrashBagScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -117,8 +144,10 @@ public class TrashBagScript : MonoBehaviour
     IEnumerator WakeUp()
     {
         anim.SetBool("WakeUp", true);
+        StartCoroutine(PlaySound(wakeUp, transform));
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
         RunPathing();
+        StartCoroutine(PlaySound(ambient, transform));
     }
 
     void RunPathing()

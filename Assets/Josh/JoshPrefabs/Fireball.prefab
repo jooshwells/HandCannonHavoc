@@ -162,6 +162,7 @@ MonoBehaviour:
   ySpeed: 4
   xAttackPower: 0
   yAttackPower: 0
+  stingerSound: {fileID: 8300000, guid: 1066d38ca145dda4a8a4394c23ae0750, type: 3}
 --- !u!50 &7552687143132393401
 Rigidbody2D:
   serializedVersion: 4
@@ -203,6 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 10
   healthBar: {fileID: 0}
+  enemyDieSound: {fileID: 0}
 --- !u!114 &6617595757095453740
 MonoBehaviour:
   m_ObjectHideFlags: 0

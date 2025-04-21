@@ -34,10 +34,40 @@ public class BeetleScript : MonoBehaviour
     private bool isAngry = false;
     private bool transitionFinished = false;
     private Animator anim;
+    private AudioClip ambient;
+    [SerializeField] private AudioClip normal;
+    [SerializeField] private AudioClip angry;
+
+    public IEnumerator PlaySound(Transform enemy)
+    {
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.parent = enemy;
+        tempGO.transform.localPosition = Vector3.zero;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
+        aSource.clip = ambient;
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        aSource.spatialBlend = 1.0f;
+        aSource.minDistance = 1f;
+        aSource.maxDistance = 20f;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
+        aSource.Play();
+        Destroy(tempGO, ambient.length);
+        yield return new WaitForSeconds(ambient.length);
+        
+        StartCoroutine(PlaySound(transform));
+        
+        yield return null;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        ambient = normal;
+        StartCoroutine (PlaySound(transform));
         anim = transform.GetComponentInChildren<Animator>();
         if(GameObject.FindGameObjectWithTag("Player")!=null)
             target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -110,6 +140,7 @@ public class BeetleScript : MonoBehaviour
         // Check for charging state based on health
         if (healthScript.GetCurrentHP() <= healthScript.GetMaxHP() / 2f && !isCharging)
         {
+            ambient = angry;
             TriggerBombCharge();
         }
         if(isAngry && !transitionFinished) return;

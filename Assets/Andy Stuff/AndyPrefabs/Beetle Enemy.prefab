@@ -320,6 +320,8 @@ MonoBehaviour:
   explosionDamage: 50
   speedMultiplier: 2.5
   bombPrefab: {fileID: 6651871802710987433, guid: a975477dc67126a44b5af5efa6aec11a, type: 3}
+  normal: {fileID: 8300000, guid: e577e5e59121b9f4cabd5c1b82ea26f5, type: 3}
+  angry: {fileID: 8300000, guid: 62e885996abb6c642b1279c96b809943, type: 3}
 --- !u!82 &1300326217154925431
 AudioSource:
   m_ObjectHideFlags: 0
@@ -330,7 +332,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8cccdabab469f464aa8b2b270b04f065, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bfbdb113c7cdfed499d5a4576b6b559a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
