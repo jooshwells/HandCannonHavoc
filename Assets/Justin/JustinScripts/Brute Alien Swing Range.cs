@@ -42,7 +42,7 @@ public class BruteAlienSwingRange : MonoBehaviour
 
             if (collider.CompareTag("Player"))
             {
-                collider.gameObject.GetComponent<PlayerHealthScript>().Hit(25);
+                collider.gameObject.GetComponent<PlayerHealthScript>().Hit(9);
 
                 //knockback
                 if (bruteAlien.facingRight)

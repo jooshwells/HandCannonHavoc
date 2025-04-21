@@ -15,7 +15,7 @@ public class AlienCowboy : MonoBehaviour
     [SerializeField] private Transform player;
 
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float detectDist = 10f;
+    [SerializeField] private float detectDist = 8f;
 
     //[SerializeField] private GameObject weapon;
     [SerializeField] SpriteRenderer spriteRenderer;
