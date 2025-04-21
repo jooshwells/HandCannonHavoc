@@ -1363,11 +1363,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18
+      value: 55.6
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -29.3
+      value: -33.2
       objectReference: {fileID: 0}
     - target: {fileID: 2438729047542581090, guid: 46b2924985381eb4e9e87ffcd57676d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1742,12 +1742,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponList:
   - {fileID: 1833007456670437274}
-  - {fileID: 7209702955457521310}
+  - {fileID: 438132678913548372}
   - {fileID: 2741269817136592252}
-  - {fileID: 7038305303011957722}
   - {fileID: 3787708370624587794}
   - {fileID: 3690429864557042364}
-  - {fileID: 438132678913548372}
+  - {fileID: 7209702955457521310}
+  - {fileID: 7038305303011957722}
   weaponIndicatorList: {fileID: 0}
 --- !u!95 &7786849026264108516
 Animator:
