@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7315944338089033245}
   - component: {fileID: -7305338362981299622}
   - component: {fileID: 4888239631771370746}
+  - component: {fileID: 5464260233571676846}
   m_Layer: 11
   m_Name: black hole
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,9 +76,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1796575892, guid: b9d557d51bca45d449e61ebff6ee70d8, type: 3}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 1656020454183016149, guid: ca6aaf200ac077e489b77254f4dd06ff, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -162,4 +163,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pullRadius: 3
-  pullForce: 10
+  pullForce: 15
+  firingSound: {fileID: 8300000, guid: f2f05199c3dad8443b109d4f3401ab73, type: 3}
+  gravityEffectSound: {fileID: 8300000, guid: ca28c1c8e88bdd04eae8cb7e4d9cc237, type: 3}
+--- !u!95 &5464260233571676846
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433166739629266115}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: -4780693350741043318, guid: ca6aaf200ac077e489b77254f4dd06ff, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

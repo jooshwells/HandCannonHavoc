@@ -7,10 +7,22 @@ public class Bullet : MonoBehaviour
     private GameObject instantiator;
     private float attackDamage;
 
+    public IEnumerator PlaySound(AudioClip clip)
+    {
+        GameObject tempGO = new GameObject("TempAudio"); // create new GameObject
+        AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add AudioSource
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.clip = clip;
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return null;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(PlaySound(GetComponent<AudioSource>().clip));
     }
 
     // Update is called once per frame

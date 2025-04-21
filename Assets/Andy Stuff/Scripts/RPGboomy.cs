@@ -5,13 +5,26 @@ using UnityEngine;
 public class RPGboomy : MonoBehaviour
 {
     private GameObject instantiator;
-    private float attackDamage;
+    private float attackDamage = 50f;
     private bool isExploding = false;
+    [SerializeField] private AudioClip boom;
+
+    public IEnumerator PlaySound(AudioClip clip)
+    {
+        GameObject tempGO = new GameObject("TempAudio"); // create new GameObject
+        AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add AudioSource
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.clip = clip;
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return null;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(PlaySound(GetComponent<AudioSource>().clip));
     }
 
     // Update is called once per frame
@@ -83,7 +96,7 @@ public class RPGboomy : MonoBehaviour
             {
                 collision.gameObject.GetComponentInChildren<EnemyHealthScript>().UpdateHealth(attackDamage); // else just check the collision objects children for the script
             }
-            Destroy(gameObject); // destroy the bullet
+            
         }
         else if (!(collision.CompareTag(instantiator.tag))) {
             {
@@ -93,7 +106,6 @@ public class RPGboomy : MonoBehaviour
                 StartCoroutine(Explode());
 
                 }
-                Destroy(gameObject);
             }
         }
     }
@@ -101,9 +113,10 @@ public class RPGboomy : MonoBehaviour
     IEnumerator Explode()
     {
         Animator anim = gameObject.GetComponent<Animator>();
-
+        StartCoroutine(PlaySound(boom));
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         //anim.SetBool("isExploding", true);
+        transform.localScale = transform.localScale * 2;
         anim.Play("Exploding");
         float explosionDuration = anim.GetCurrentAnimatorStateInfo(0).length;
         

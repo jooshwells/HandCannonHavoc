@@ -9,8 +9,8 @@ public class WeaponSwitcher : MonoBehaviour
     [SerializeField] private GameObject weaponIndicatorList;
     private int curIdx = 0;  // tracks current weapon in list
     private int idx = 0; // increments index, use mod weaponList.Count
-    private int weaponsAvailable=5;
-    private int totalWeaponsAvailable = 5;
+    private int weaponsAvailable=1;
+    private int totalWeaponsAvailable = 7;
     private bool firstWeaponDisplayed = false;
 
     public void UnlockWeapon()

@@ -9,11 +9,28 @@ public class BounceBullet : MonoBehaviour
     private GameObject instantiator;
     private float attackDamage;
     [SerializeField] int ricochetCount = 2;
-    private Rigidbody2D rb; 
+    private Rigidbody2D rb;
+    [SerializeField] private AudioClip bounceSound;
+
+    public IEnumerator PlaySound(AudioClip clip)
+    {
+        GameObject tempGO = new GameObject("TempAudio"); // create new GameObject
+        AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add AudioSource
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume");
+        aSource.clip = clip;
+        if(!clip.Equals(bounceSound))
+            aSource.pitch = UnityEngine.Random.Range(0.95f, 1.15f);
+        else
+            aSource.pitch = UnityEngine.Random.Range(0.90f, 1.0f);
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return null;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(PlaySound(GetComponent<AudioSource>().clip));
         rb = GetComponent<Rigidbody2D>(); 
     }
 
@@ -73,8 +90,8 @@ public class BounceBullet : MonoBehaviour
                     Vector2 oldVelocity = rb.velocity; // used for flipping sprite
                     Vector2 newVelocity = Vector2.Reflect(rb.velocity, normal);     // reflect velocity
                     rb.velocity = newVelocity;
-                    
 
+                    StartCoroutine(PlaySound(bounceSound));
 
                     UpdateSprite(newVelocity, oldVelocity);
                     ricochetCount--;

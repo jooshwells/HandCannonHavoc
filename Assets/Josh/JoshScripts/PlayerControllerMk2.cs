@@ -81,6 +81,7 @@ public class PlayerControllerMk2 : MonoBehaviour
     {
         GameObject tempGO = new GameObject("TempAudio"); // create new GameObject
         AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add AudioSource
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume");
         aSource.clip = clip;
         aSource.pitch = UnityEngine.Random.Range(1.15f, 1.25f);
         aSource.Play();

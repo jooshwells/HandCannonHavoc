@@ -8,12 +8,30 @@ public class BlackHole : MonoBehaviour
     private float attackDamage;
     [SerializeField] float pullRadius = 5f;
     [SerializeField] float pullForce = 10f;
+    [SerializeField] private AudioClip firingSound;
+    [SerializeField] private AudioClip gravityEffectSound;
 
+    public IEnumerator PlaySound(AudioClip clip)
+    {
+        GameObject tempGO = new GameObject("TempAudio"); // create new GameObject
+        AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add AudioSource
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.clip = clip;
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        if (clip.Equals(gravityEffectSound))
+        {
+            yield return new WaitForSeconds(clip.length);
+            StartCoroutine(PlaySound(clip));
+        }
+        yield return null;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(PlaySound(firingSound));
     }
 
     // Update is called once per frame
@@ -62,6 +80,8 @@ public class BlackHole : MonoBehaviour
         // Health Update Event for Enemies
         if (collision.CompareTag("Enemy"))
         {
+            StartCoroutine(PlaySound(gravityEffectSound));
+
             GameObject par = null;
 
             // Basically this is checking whether the object we are colliding with has a parent
@@ -84,14 +104,15 @@ public class BlackHole : MonoBehaviour
 
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 GetComponent<Rigidbody2D>().isKinematic = true;
-                GetComponent<Collider2D>().enabled = false;
+                //GetComponent<Collider2D>().enabled = false;
         }
 
         else if (!(collision.CompareTag(instantiator.tag))) {
+            StartCoroutine(PlaySound(gravityEffectSound));
             {
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 GetComponent<Rigidbody2D>().isKinematic = true;
-                GetComponent<Collider2D>().enabled = false;
+                //GetComponent<Collider2D>().enabled = false;
             }
         }
     }

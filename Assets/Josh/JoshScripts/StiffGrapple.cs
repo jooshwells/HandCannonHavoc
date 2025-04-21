@@ -72,8 +72,8 @@ public class StiffGrapple : MonoBehaviour
         {
             lr.material.mainTextureScale = new Vector2(Vector2.Distance(grappleHit.point, transform.parent.position) / 2f, 1);
 
-            lr.SetPosition(0, transform.parent.position);
-            lr.SetPosition(1, grappleHit.point);
+            lr.SetPosition(0, new Vector3(transform.parent.position.x, transform.parent.position.y, 1));
+            lr.SetPosition(1, (Vector3)grappleHit.point + new Vector3(0, 0, 1f));
 
             GetComponentInParent<SwingyScript>().enabled = true;
 
