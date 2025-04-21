@@ -92831,9 +92831,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 510449627}
     - target: {fileID: 12871469351467439, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: magSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 12871469351467439, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: fireRate
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 12871469351467439, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: reloadBar
       value: 
       objectReference: {fileID: 934877816}
+    - target: {fileID: 12871469351467439, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: bulletSpeed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 12871469351467439, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadSpeed
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 12871469351467439, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: attackDamage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 12871469351467439, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: reloadUIObject
       value: 
@@ -92918,6 +92938,62 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4730610429865742619, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: ammoBar
+      value: 
+      objectReference: {fileID: 510449627}
+    - target: {fileID: 4730610429865742619, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: magSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730610429865742619, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadBar
+      value: 
+      objectReference: {fileID: 934877816}
+    - target: {fileID: 4730610429865742619, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730610429865742619, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: bulletDuration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730610429865742619, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadUIObject
+      value: 
+      objectReference: {fileID: 1576957791}
+    - target: {fileID: 5879589260959992428, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: ammoBar
+      value: 
+      objectReference: {fileID: 510449627}
+    - target: {fileID: 5879589260959992428, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: magSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879589260959992428, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: fireRate
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879589260959992428, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadBar
+      value: 
+      objectReference: {fileID: 934877816}
+    - target: {fileID: 5879589260959992428, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadSpeed
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879589260959992428, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: attackDamage
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879589260959992428, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: bulletDuration
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879589260959992428, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadUIObject
+      value: 
+      objectReference: {fileID: 1576957791}
     - target: {fileID: 6346773823422318923, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: healthBar
       value: 
@@ -92934,6 +93010,10 @@ PrefabInstance:
       propertyPath: ammoBar
       value: 
       objectReference: {fileID: 510449627}
+    - target: {fileID: 7611316559215603159, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: magSize
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 7611316559215603159, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: reloadBar
       value: 
@@ -92971,9 +93051,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 934877816}
     - target: {fileID: 9015503593082280085, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: spreadAngle
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015503593082280085, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: attackDamage
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015503593082280085, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: reloadUIObject
       value: 
       objectReference: {fileID: 1576957791}
+    - target: {fileID: 9206250095247392637, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: ammoBar
+      value: 
+      objectReference: {fileID: 510449627}
     - target: {fileID: 9206250095247392637, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: reloadBar
       value: 
