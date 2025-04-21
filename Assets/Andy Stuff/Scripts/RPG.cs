@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RPG : MonoBehaviour 
 {
@@ -22,6 +23,10 @@ public class RPG : MonoBehaviour
     [SerializeField] int magSize = 1;
     [SerializeField] float reloadSpeed = 2f;
     [SerializeField] float recoil = 20f;
+    [SerializeField] private GameObject reloadUIObject;
+    [SerializeField] private Image reloadBar;
+    private RectTransform barRect;
+    private float originalWidth;
 
     private int currentAmmo;
     private bool isReloading = false;
@@ -37,6 +42,13 @@ public class RPG : MonoBehaviour
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Bullets"), LayerMask.NameToLayer("Bullets")); // prevent bullet collision
         player =transform.parent.parent;
         playerRb = transform.parent.parent.GetComponent<Rigidbody2D>();  //used for recoil
+        if (reloadBar != null)
+        {
+            barRect = reloadBar.rectTransform;
+            originalWidth = barRect.sizeDelta.x;
+            barRect.sizeDelta = new Vector2(0, barRect.sizeDelta.y);
+            reloadUIObject.SetActive(false);
+        }
     }
 
     // reset ammo when swapping between guns
@@ -44,6 +56,8 @@ public class RPG : MonoBehaviour
     {
         currentAmmo = magSize;
         isReloading = false;
+        reloadUIObject.SetActive(false);
+        reloadBar.fillAmount = 0f; 
     }
 
     // Update is called once per frame
@@ -124,9 +138,19 @@ public class RPG : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
-    
+        reloadUIObject.SetActive(true);
+        float elapsed = 0f;
+        originalWidth = 200f;
 
-        yield return new WaitForSeconds(reloadSpeed);
+        while (elapsed < reloadSpeed)
+        {
+            float width = Mathf.Lerp(0, originalWidth, elapsed / reloadSpeed);
+            barRect.sizeDelta = new Vector2(width, barRect.sizeDelta.y);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        barRect.sizeDelta = new Vector2(originalWidth, barRect.sizeDelta.y);
+        reloadUIObject.SetActive(false);
 
         currentAmmo = magSize;
         isReloading = false;
