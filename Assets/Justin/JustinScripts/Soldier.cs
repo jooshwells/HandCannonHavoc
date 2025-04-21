@@ -53,6 +53,7 @@ public class Soldier : MonoBehaviour
     Animator animator;
 
     [SerializeField] List<AudioClip> ambientSoldierSounds;
+    [SerializeField] private AudioClip shootSound;
 
     public IEnumerator PlaySound(AudioClip clip, Transform enemy, bool isAmbient)
     {
@@ -248,6 +249,7 @@ public class Soldier : MonoBehaviour
 
     private void fireGun()
     {
+        StartCoroutine(PlaySound(shootSound, transform, false));
         GameObject bullet1 = Instantiate(bulletSprite, gunPos1.position, gunPos1.rotation);
 
         if(transform.position.x - player.position.x < 0)

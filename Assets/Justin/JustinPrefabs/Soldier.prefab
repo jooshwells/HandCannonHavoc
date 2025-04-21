@@ -229,6 +229,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e478f077e098c71428b724e2d9391cf3, type: 3}
   - {fileID: 8300000, guid: 9ff1942556e61c44ba39fad3a593e2a2, type: 3}
   - {fileID: 8300000, guid: 88bf63539b1e18c4082e951c3c68ed1b, type: 3}
+  shootSound: {fileID: 8300000, guid: 6388247bd8b65f64a8255dc31fd96d63, type: 3}
 --- !u!114 &-4683703360611547632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 50
   healthBar: {fileID: 0}
-  enemyDieSound: {fileID: 0}
+  enemyDieSound: {fileID: 8300000, guid: a3999a210f1eec7418dc2854fc2ccbf7, type: 3}
 --- !u!114 &-8442453544814578495
 MonoBehaviour:
   m_ObjectHideFlags: 0

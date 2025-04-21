@@ -12,10 +12,36 @@ public class CloudyJit : MonoBehaviour
     AIPath path;
     public float detectRange = 10;
     public float knockback = 1;
+    [SerializeField] private AudioClip ambient;
+
+    public IEnumerator PlaySound(AudioClip clip, Transform enemy, bool isAmbient)
+    {
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.parent = enemy;
+        tempGO.transform.localPosition = Vector3.zero;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
+        aSource.clip = clip;
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        aSource.spatialBlend = 1.0f;
+        aSource.minDistance = 1f;
+        aSource.maxDistance = 20f;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return new WaitForSeconds(clip.length);
+        StartCoroutine(PlaySound(clip, enemy, isAmbient));
+        yield return null;
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(PlaySound(ambient, transform, true));
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         path = GetComponent<AIPath>(); 
