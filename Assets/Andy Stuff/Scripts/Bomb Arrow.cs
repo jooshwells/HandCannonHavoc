@@ -7,11 +7,23 @@ public class BombArrow : MonoBehaviour
     private GameObject instantiator;
     private float attackDamage = 15f;
     private bool isExploding = false;
+    [SerializeField] private AudioClip explode;
+    public IEnumerator PlaySound(AudioClip clip)
+    {
+        GameObject tempGO = new GameObject("TempAudio"); // create new GameObject
+        AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add AudioSource
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.clip = clip;
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return null;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(PlaySound(GetComponent<AudioSource>().clip));
     }
 
     // Update is called once per frame
@@ -56,11 +68,10 @@ public class BombArrow : MonoBehaviour
         
             if (!isExploding)
             {
+                collision.gameObject.GetComponent<EnemyHealthScript>().UpdateHealth(attackDamage);
                 StartCoroutine(Explode());
-
             }
-            collision.gameObject.GetComponent<EnemyHealthScript>().UpdateHealth(attackDamage);
-            StartCoroutine(Explode());
+            //StartCoroutine(Explode());
         }
 
         else if (!(collision.CompareTag(instantiator.tag))) 
@@ -75,6 +86,9 @@ public class BombArrow : MonoBehaviour
         isExploding = true;
         Animator anim = gameObject.GetComponent<Animator>();
 
+        StartCoroutine(PlaySound(explode));
+
+        transform.localScale *= 2;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         //anim.SetBool("isExploding", true);
         anim.Play("Exploding");

@@ -21,8 +21,30 @@ public class BrainAI : MonoBehaviour
     Rigidbody2D rb;
 
     // Start is called before the first frame update
+
+    public IEnumerator PlaySound(AudioClip clip, Vector3 position)
+    {
+        GameObject tempGO = new GameObject("TempAudio"); // create new GameObject
+        tempGO.transform.position = position; // set position where sound should come from
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add AudioSource
+        aSource.clip = clip;
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        // Set up 3D sound settings
+        aSource.spatialBlend = 1.0f; // 0 = 2D, 1 = 3D
+        aSource.minDistance = 1f;    // full volume within this range
+        aSource.maxDistance = 20f;   // silent beyond this range
+        aSource.rolloffMode = AudioRolloffMode.Linear; // or Logarithmic
+
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return null;
+    }
     void Start()
     {
+        StartCoroutine(PlaySound(GetComponent<AudioSource>().clip, transform.position));
         GetComponent<EnemyHealthScript>().SetHealth(5);
         target = GameObject.FindGameObjectWithTag("Player").transform;
         seeker = GetComponent<Seeker>();

@@ -22,21 +22,38 @@ public class BrainEnemyScript : MonoBehaviour
     public Animator anim;
 
     private List<GameObject> brainList = new List<GameObject>();
-
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         fireLoc = transform.Find("FireLoc");
 
         anim = GetComponent<Animator>();
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
+        if(target == null && player != null)
+        {
+            target = player.transform;       
+        }
+        if(player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
 
+            if(player != null)
+            {
+                target = player.transform;
+            } else
+            {
+                return;
+            }
+        }
         //if (brainList.Count > 5)
         //{
         //    GameObject temp = brainList[0];
@@ -69,7 +86,7 @@ public class BrainEnemyScript : MonoBehaviour
         anim.Play("Fire State");
         float animationDuration = anim.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(animationDuration);
-        Instantiate(brain, fireLoc.position, fireLoc.rotation);
+        if(GetComponent<EnemyHealthScript>().GetCurrentHP() > 0)Instantiate(brain, fireLoc.position, fireLoc.rotation);
         isFiring = false;
     }
 
