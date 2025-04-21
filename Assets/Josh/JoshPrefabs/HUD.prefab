@@ -11180,11 +11180,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1404425405632034214, guid: 559ef0efbd760b140a1d11cb8fc1fc3a, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1404425405632034214, guid: 559ef0efbd760b140a1d11cb8fc1fc3a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 808
+      value: 708
       objectReference: {fileID: 0}
     - target: {fileID: 4959770090993244129, guid: 559ef0efbd760b140a1d11cb8fc1fc3a, type: 3}
       propertyPath: m_Pivot.x
