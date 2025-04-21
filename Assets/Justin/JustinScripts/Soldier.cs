@@ -52,9 +52,39 @@ public class Soldier : MonoBehaviour
     EnemyHealthScript enemyHealthScript;
     Animator animator;
 
+    [SerializeField] List<AudioClip> ambientSoldierSounds;
+
+    public IEnumerator PlaySound(AudioClip clip, Transform enemy, bool isAmbient)
+    {
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.parent = enemy;
+        tempGO.transform.localPosition = Vector3.zero;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
+        aSource.clip = clip;
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        aSource.spatialBlend = 1.0f;
+        aSource.minDistance = 1f;
+        aSource.maxDistance = 20f;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return new WaitForSeconds(clip.length);
+        if (isAmbient)
+        {
+            yield return new WaitForSeconds(Random.Range(8, 15));
+            StartCoroutine(PlaySound(ambientSoldierSounds[Random.Range(0, 5)], transform, true));
+        }
+        yield return null;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(PlaySound(ambientSoldierSounds[Random.Range(0, ambientSoldierSounds.Count)], transform, true));
         if (GameObject.FindGameObjectWithTag("Player") != null)
             player = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();

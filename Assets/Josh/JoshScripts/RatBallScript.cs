@@ -1,6 +1,7 @@
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -23,6 +24,34 @@ public class RatBallScript : MonoBehaviour
 
     private bool started = false;
 
+    [SerializeField] private AudioClip ambient;
+
+    public IEnumerator PlaySound(AudioClip clip, Transform enemy)
+    {
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.parent = enemy;
+        tempGO.transform.localPosition = Vector3.zero;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
+        aSource.clip = clip;
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        aSource.spatialBlend = 1.0f;
+        aSource.minDistance = 1f;
+        aSource.maxDistance = 20f;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return new WaitForSeconds(clip.length);
+        if (clip.Equals(ambient))
+        {
+            StartCoroutine(PlaySound(clip, transform));
+        }
+        yield return null;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,10 +62,15 @@ public class RatBallScript : MonoBehaviour
         InvokeRepeating("UpdatePath", 0f, .1f);
         InvokeRepeating("Spin", 0f, 0.25f);
     }
-
+    private bool noisestarted = false;
     // Update is called once per frame
     void Update()
     {
+        if(!noisestarted && transform.position.y < 13f)
+        {
+            StartCoroutine(PlaySound(ambient, transform));
+            noisestarted = true;
+        }
         if (target == null)
         {
             if (GameObject.FindGameObjectWithTag("Player") != null)

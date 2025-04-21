@@ -258,6 +258,9 @@ MonoBehaviour:
   extraHeight: 6
   goopAttack: {fileID: 6435814615393798483, guid: 88457ba0399ac9a41af720a68a6d0133, type: 3}
   attackCooldown: 1.75
+  ambient: {fileID: 8300000, guid: cdfcaff0549a3774a9f0606170b77a72, type: 3}
+  wakeUp: {fileID: 8300000, guid: 30c995c4cfc80b94c84c51cfceae5fc6, type: 3}
+  fire: {fileID: 8300000, guid: 1066d38ca145dda4a8a4394c23ae0750, type: 3}
 --- !u!50 &2040921777202976443
 Rigidbody2D:
   serializedVersion: 4

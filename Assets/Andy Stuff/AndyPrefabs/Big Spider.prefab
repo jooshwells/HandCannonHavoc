@@ -386,6 +386,7 @@ MonoBehaviour:
   spiderlingPrefab: {fileID: 425953307150618793, guid: 7ad3304af75b3b14ebd9da0e5f66a3fd, type: 3}
   numSpiderlings: 4
   spawnRadius: 2.5
+  ambient: {fileID: 8300000, guid: 16853957d75516249ac07ba8a6d57be0, type: 3}
 --- !u!4 &577781030582892748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 6d81b162d904f5843b1ca8f2aff297ff, type: 3}

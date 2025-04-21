@@ -223,6 +223,12 @@ MonoBehaviour:
   bulletDuration: 1.5
   bulletSprite: {fileID: 6435814615393798483, guid: 07257652691cbd34f8938dca5a6a2a37, type: 3}
   gunPos1: {fileID: 2619899309151933431}
+  ambientSoldierSounds:
+  - {fileID: 8300000, guid: aea78144c589a074292c8e806117ab84, type: 3}
+  - {fileID: 8300000, guid: bc082305b4c8fa54e9fff49c946f0b7b, type: 3}
+  - {fileID: 8300000, guid: e478f077e098c71428b724e2d9391cf3, type: 3}
+  - {fileID: 8300000, guid: 9ff1942556e61c44ba39fad3a593e2a2, type: 3}
+  - {fileID: 8300000, guid: 88bf63539b1e18c4082e951c3c68ed1b, type: 3}
 --- !u!114 &-4683703360611547632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 50
   healthBar: {fileID: 0}
+  enemyDieSound: {fileID: 0}
 --- !u!114 &-8442453544814578495
 MonoBehaviour:
   m_ObjectHideFlags: 0
