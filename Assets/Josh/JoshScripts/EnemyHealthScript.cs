@@ -10,6 +10,18 @@ public class EnemyHealthScript : MonoBehaviour
     private float currentHP;
     public Image healthBar;
     private Vector3 originalScale;
+    [SerializeField] AudioClip enemyDieSound;
+    public IEnumerator PlaySound(AudioClip clip)
+    {
+        GameObject tempGO = new GameObject("TempAudio"); // create new GameObject
+        AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add AudioSource
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.clip = clip;
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return null;
+    }
 
     public float GetHealthPerc()
     {
@@ -39,12 +51,14 @@ public class EnemyHealthScript : MonoBehaviour
         if(healthBar != null) originalScale = healthBar.rectTransform.localScale;
         currentHP = maxHP;
     }
-
+    private bool dying = false;
     // Update is called once per frame
     void Update()
     {
-        if (currentHP <= 0f)
+        if (!dying && currentHP <= 0f)
         {
+            dying = true;
+            StartCoroutine(PlaySound(enemyDieSound));
             StartCoroutine(DyingAnimation());
         }
     }
@@ -64,7 +78,7 @@ public class EnemyHealthScript : MonoBehaviour
 
         if(GetComponent<Rigidbody2D>() != null)
             GetComponent<Rigidbody2D>().simulated = false;
-
+        animator.StopPlayback();
         animator.Play("Die State");
         yield return new WaitForEndOfFrame();
         yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);

@@ -35,11 +35,38 @@ public class BeeEnemyScript : MonoBehaviour
     [SerializeField]private int stingerMaxAmmo = 3;
     private int stingerAmmo;
     [SerializeField] private float attackCooldown = 0.75f;
+    [SerializeField] private AudioClip ambient;
+    public IEnumerator PlaySound(AudioClip clip, Transform enemy)
+    {
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.parent = enemy;
+        tempGO.transform.localPosition = Vector3.zero;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
+        aSource.clip = clip;
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        aSource.spatialBlend = 1.0f;
+        aSource.minDistance = 1f;
+        aSource.maxDistance = 20f;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return new WaitForSeconds(clip.length);
+        if (clip.Equals(ambient))
+        {
+            StartCoroutine(PlaySound(clip, transform));
+        }
+        yield return null;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        if(GameObject.FindGameObjectWithTag("Player")!=null)
+        StartCoroutine(PlaySound(ambient, transform));
+        if (GameObject.FindGameObjectWithTag("Player")!=null)
         target = GameObject.FindGameObjectWithTag("Player").transform;    
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();

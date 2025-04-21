@@ -1594,6 +1594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   invincibilityTime: 1.5
+  hitSound: {fileID: 8300000, guid: 2facbd3da082fe545b6fa75ff9ccd623, type: 3}
 --- !u!114 &2019516470593148813
 MonoBehaviour:
   m_ObjectHideFlags: 0

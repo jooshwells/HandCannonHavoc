@@ -228,10 +228,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c32cbae4efc79438def68303be66b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   target: {fileID: 0}
   targetDist: 8
   fireRate: 0.25
   brain: {fileID: 5298112341603085734, guid: 0c833406445af964ca37a90550e88338, type: 3}
+  fireLoc: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!114 &6905407811855806774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   healthBar: {fileID: 0}
+  enemyDieSound: {fileID: 8300000, guid: a3999a210f1eec7418dc2854fc2ccbf7, type: 3}
 --- !u!114 &4939055835405021852
 MonoBehaviour:
   m_ObjectHideFlags: 0
