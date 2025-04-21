@@ -137684,6 +137684,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 298760058}
     - target: {fileID: 9015503593082280085, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: reloadSpeed
+      value: 2.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015503593082280085, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: reloadUIObject
       value: 
       objectReference: {fileID: 7324834}
