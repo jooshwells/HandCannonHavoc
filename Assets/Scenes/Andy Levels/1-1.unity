@@ -138685,6 +138685,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2788384691500030664, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: launchForce
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788384691500030664, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: cooldownTime
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4097016216252980218, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: bouncePadAvail
       value: 0

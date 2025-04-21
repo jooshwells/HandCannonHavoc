@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4137569193473760446}
   - component: {fileID: 4464804166942427348}
   - component: {fileID: -7115099205987101674}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Deflated Glove_0 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,6 +9,8 @@ public class PlayerAbilities2Copy : MonoBehaviour
     public GameObject deflatedGlovePrefab; // The "bullet" version of the glove
     public GameObject finalGlovePrefab;     // The "finished" bounce pad
     [SerializeField] private float launchForce = 30f;
+    [SerializeField] private float cooldownTime = 2f;
+    private float cdTimer = 0f;
     //[SerializeField] private Transform handTransform; // Assign in the Unity Inspector
     private GameObject crosshairsInstance;
     private bool crosshairActive = false;
@@ -19,25 +21,27 @@ public class PlayerAbilities2Copy : MonoBehaviour
 
     void Update()
     {
-        //// Toggle crosshairs on/off with E
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-        //    ToggleCrosshair();
-        //}
-        if (!keyPressed && Input.GetKeyDown(KeyCode.LeftShift))
+        
+        if (cdTimer > 0f)
+        {
+            cdTimer -= Time.deltaTime;
+        }
+        if (!keyPressed && Input.GetKeyDown(KeyCode.LeftShift) && cdTimer <=0f)
         {
             gameObject.GetComponent<AimingCopy>().enabled = true;
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
             keyPressed = true;
         }
         
-        // Launch glove on left click
+        // Launch glove on left shift
         if (keyPressed && Input.GetKeyUp(KeyCode.LeftShift))
         {
             LaunchGlove();
             gameObject.GetComponent<AimingCopy>().enabled = false;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             keyPressed =false;
+
+            cdTimer = cooldownTime;
         }
         
     }
