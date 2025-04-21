@@ -85179,11 +85179,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 577781030582892748, guid: 39e7749feb8c45a46a0065264078452d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46.04
+      value: 32.74
       objectReference: {fileID: 0}
     - target: {fileID: 577781030582892748, guid: 39e7749feb8c45a46a0065264078452d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -87.46
+      value: -87.33
       objectReference: {fileID: 0}
     - target: {fileID: 577781030582892748, guid: 39e7749feb8c45a46a0065264078452d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -85221,6 +85221,22 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 92344de331f6f604aabc54ad4e7faa13, type: 2}
+    - target: {fileID: 6881073746112827787, guid: 39e7749feb8c45a46a0065264078452d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.2651109
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881073746112827787, guid: 39e7749feb8c45a46a0065264078452d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.115799844
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881073746112827787, guid: 39e7749feb8c45a46a0065264078452d, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0021983676
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881073746112827787, guid: 39e7749feb8c45a46a0065264078452d, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.012627862
+      objectReference: {fileID: 0}
     - target: {fileID: 7963142203777261806, guid: 39e7749feb8c45a46a0065264078452d, type: 3}
       propertyPath: numSpiderlings
       value: 4
@@ -85764,7 +85780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6183646401042695073, guid: 33b9acbd9fb40c24ab1f84e4b9bc1156, type: 3}
       propertyPath: minEnemiesKilledForSRank
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

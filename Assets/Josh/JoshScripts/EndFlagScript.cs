@@ -38,7 +38,7 @@ public class EndFlagScript : MonoBehaviour
     private bool passedGate = false;
     [SerializeField] private ZoneNo zone;
     [SerializeField] private LevelNo level;
-    private int numEnemiesStart = 0;
+    [SerializeField] private int numEnemiesStart = 0;
     private int numEnemiesEnd = 0;
     private bool newHighScore = false;
 
@@ -47,7 +47,6 @@ public class EndFlagScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        numEnemiesStart = GameObject.FindGameObjectsWithTag("Enemy").Length;
         Debug.Log(numEnemiesStart + " enemies in level");
         tc = GameObject.Find("TimerController").GetComponent<SpeedrunTimer>();
         bt = GameObject.FindGameObjectWithTag("BestTimes").GetComponent<BestTimeController>();
