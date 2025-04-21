@@ -54,7 +54,8 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject); // destroy the bullet
         }
 
-        else if (!(collision.CompareTag(instantiator.tag))) {
+        else if (!(collision.CompareTag(instantiator.tag) && !collision.CompareTag("Bullet")) ) { 
+
             {
                 Destroy(gameObject);
             }

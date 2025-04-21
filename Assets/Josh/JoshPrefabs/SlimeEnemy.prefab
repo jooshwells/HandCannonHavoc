@@ -313,10 +313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779ac98ff896f954c9ab75bc0c6882eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   speed: 400.8
   nextWaypointDistance: 1.73
   enemyGFX: {fileID: 4751888111442848506}
+  distanceRequired: 30
 --- !u!114 &2961627936774829187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e089f3b85f04da4dbe0c5cbfe12dc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  maxHP: 25
+  healthBar: {fileID: 0}
 --- !u!114 &5915931993062884862
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36219,7 +36219,7 @@ PrefabInstance:
       objectReference: {fileID: 2780897248677234304, guid: f9bf6a6595ee9f64591e8c85e18d0ac5, type: 3}
     - target: {fileID: 3849402942138386344, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4415301177027559910, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -36348,6 +36348,12 @@ PrefabInstance:
     - target: {fileID: 7154523662158336120, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182699730620366676, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_text
+      value: 'To activate the grappling hook, press "2". Aim by using the cursor
+        or by pressing right click, and then press "Shift" to fire. Note: the grappling
+        hook may only be used on light blue tiles.'
       objectReference: {fileID: 0}
     - target: {fileID: 7876419878661483563, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

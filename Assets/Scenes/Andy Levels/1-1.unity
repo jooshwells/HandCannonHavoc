@@ -102397,7 +102397,7 @@ PrefabInstance:
     - target: {fileID: 457006758737947097, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 8871098321878743656, guid: 1eeaa7049d05c764ab095a20981ef1b2, type: 3}
+      objectReference: {fileID: 8393701299761183027, guid: db4f4384a5a5b034ab53fc5ceb5f6fb5, type: 3}
     - target: {fileID: 1462523944138000163, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -102613,7 +102613,7 @@ PrefabInstance:
     - target: {fileID: 7019149869585053826, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3475577522708836226, guid: 1eeaa7049d05c764ab095a20981ef1b2, type: 3}
+      objectReference: {fileID: -6737431238314046734, guid: db4f4384a5a5b034ab53fc5ceb5f6fb5, type: 3}
     - target: {fileID: 7019149869585053826, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_UseSpriteMesh
       value: 0

@@ -67,7 +67,7 @@ public class ProjectileScript : MonoBehaviour
             target.GetComponent<PlayerHealthScript>().Hit(20);
             Destroy(gameObject);
         }
-        else if (instantiator == null || !(collision.CompareTag(instantiator.tag))) {
+        else if (instantiator == null || (!collision.CompareTag(instantiator.tag)) && !collision.CompareTag("Bullet")) {
             {
                 Destroy(gameObject);
             }

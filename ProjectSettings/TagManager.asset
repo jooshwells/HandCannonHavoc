@@ -29,6 +29,7 @@ TagManager:
   - FaceLeft
   - LevelButton
   - Level Button
+  - Bullet
   layers:
   - Default
   - TransparentFX
