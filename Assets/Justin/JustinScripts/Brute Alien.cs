@@ -94,7 +94,7 @@ public class BruteAlien: MonoBehaviour
                 sprite.sprite = idleFrames[i];
             }
         }
-        if(attacking)
+        if(attacking && rb.velocity.x > 0.2)
         {
             /*if (!inRange(attackingRange)) //stop attacking
             {
