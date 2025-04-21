@@ -172,6 +172,7 @@ MonoBehaviour:
   target: {fileID: 0}
   detectRange: 12
   knockback: 5
+  ambient: {fileID: 8300000, guid: cae3afbd68b8b0647ae9a6f15397f22e, type: 3}
 --- !u!114 &4514171614775785591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 25
   healthBar: {fileID: 0}
+  enemyDieSound: {fileID: 8300000, guid: a3999a210f1eec7418dc2854fc2ccbf7, type: 3}
 --- !u!95 &731888128034366354
 Animator:
   serializedVersion: 5

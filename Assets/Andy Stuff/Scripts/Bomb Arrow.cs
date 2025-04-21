@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class BombArrow : MonoBehaviour
@@ -39,55 +40,54 @@ public class BombArrow : MonoBehaviour
     {
         attackDamage = damage;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //Debug.Log("Collided with: " + collision.gameObject.tag);
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    //Debug.Log("Collided with: " + collision.gameObject.tag);
 
-        if (!collision.gameObject.CompareTag(instantiator.tag)) 
-        {
-            if (!isExploding)
-            {
-                isExploding = true;
-                // gameObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
-                // gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                // gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-                StartCoroutine(Explode());
+    //    if (!collision.gameObject.CompareTag(instantiator.tag)) 
+    //    {
+    //        if (!isExploding)
+    //        {
+    //            isExploding = true;
+    //            // gameObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
+    //            // gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    //            // gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+    //            StartCoroutine(Explode());
 
-            }
-        }
-    }
-
+    //        }
+    //    }
+    //}
+    private bool explodingStarted = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-
-
+        if (explodingStarted) { return; }
         // Health Update Event for Enemies
         if (collision.CompareTag("Enemy"))
         {
         
             if (!isExploding)
             {
+                isExploding = true;
+
                 collision.gameObject.GetComponent<EnemyHealthScript>().UpdateHealth(attackDamage);
                 StartCoroutine(Explode());
             }
-            //StartCoroutine(Explode());
         }
-
         else if (!(collision.CompareTag(instantiator.tag))) 
-            {
-                StartCoroutine(Explode());
-            }
+        {
+            StartCoroutine(Explode());
+        }
         
     }
 
     IEnumerator Explode()
     {
-        isExploding = true;
+        explodingStarted = true;
         Animator anim = gameObject.GetComponent<Animator>();
 
         StartCoroutine(PlaySound(explode));
 
+        Debug.Log("Multiplying scale by 2");
         transform.localScale *= 2;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         //anim.SetBool("isExploding", true);
