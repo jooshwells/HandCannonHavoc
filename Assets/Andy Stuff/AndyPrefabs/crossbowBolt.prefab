@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7021017937013664857}
   - component: {fileID: -6370021163528605792}
   m_Layer: 11
-  m_Name: grenade
+  m_Name: crossbowBolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +180,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004958153, y: -0.004436195}
+  m_Offset: {x: 0.000103637576, y: 0.0015897248}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -191,5 +191,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15075302, y: 0.1695422}
+  m_Size: {x: 0.17148232, y: 0.06782423}
   m_EdgeRadius: 0

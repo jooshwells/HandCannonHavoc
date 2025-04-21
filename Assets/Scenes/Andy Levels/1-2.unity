@@ -100195,7 +100195,7 @@ GameObject:
   - component: {fileID: 396617239}
   - component: {fileID: 396617238}
   - component: {fileID: 396617237}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: TextGate (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100275,67 +100275,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &403445668
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 425953307150618793, guid: 7ad3304af75b3b14ebd9da0e5f66a3fd, type: 3}
-      propertyPath: m_Name
-      value: Spider Prefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 577781030582892748, guid: 7ad3304af75b3b14ebd9da0e5f66a3fd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 76.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 577781030582892748, guid: 7ad3304af75b3b14ebd9da0e5f66a3fd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -64.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 577781030582892748, guid: 7ad3304af75b3b14ebd9da0e5f66a3fd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 577781030582892748, guid: 7ad3304af75b3b14ebd9da0e5f66a3fd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 577781030582892748, guid: 7ad3304af75b3b14ebd9da0e5f66a3fd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 577781030582892748, guid: 7ad3304af75b3b14ebd9da0e5f66a3fd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 577781030582892748, guid: 7ad3304af75b3b14ebd9da0e5f66a3fd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 577781030582892748, guid: 7ad3304af75b3b14ebd9da0e5f66a3fd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 577781030582892748, guid: 7ad3304af75b3b14ebd9da0e5f66a3fd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 577781030582892748, guid: 7ad3304af75b3b14ebd9da0e5f66a3fd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1150140588032266935, guid: 7ad3304af75b3b14ebd9da0e5f66a3fd, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 92344de331f6f604aabc54ad4e7faa13, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7ad3304af75b3b14ebd9da0e5f66a3fd, type: 3}
 --- !u!1 &508585990 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2215558971393050070, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
@@ -101290,6 +101229,10 @@ PrefabInstance:
     - target: {fileID: 4091877564687848849, guid: 6532c8b59f28fbf4daeefad26a9d6abf, type: 3}
       propertyPath: totalBees
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091877564687848849, guid: 6532c8b59f28fbf4daeefad26a9d6abf, type: 3}
+      propertyPath: spawnDelay
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6714758904400822621, guid: 6532c8b59f28fbf4daeefad26a9d6abf, type: 3}
       propertyPath: m_Name
@@ -104790,6 +104733,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 291391664}
     - target: {fileID: 6183646401042695073, guid: 33b9acbd9fb40c24ab1f84e4b9bc1156, type: 3}
+      propertyPath: minTimeForNonDRank
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183646401042695073, guid: 33b9acbd9fb40c24ab1f84e4b9bc1156, type: 3}
       propertyPath: minEnemiesKilledForSRank
       value: 5
       objectReference: {fileID: 0}
@@ -105139,7 +105086,7 @@ GameObject:
   - component: {fileID: 1717986630}
   - component: {fileID: 1717986629}
   - component: {fileID: 1717986631}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: TextGate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105742,7 +105689,6 @@ SceneRoots:
   - {fileID: 280691199}
   - {fileID: 2142604621}
   - {fileID: 981471441}
-  - {fileID: 403445668}
   - {fileID: 2042971736}
   - {fileID: 820767172}
   - {fileID: 1370039591}

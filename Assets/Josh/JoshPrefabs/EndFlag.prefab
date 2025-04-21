@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndFlag
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: a4805f8637d1a414ca83f3d63df27e56, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: a4805f8637d1a414ca83f3d63df27e56, type: 3}
       propertyPath: m_LocalScale.x
       value: 9.9979
@@ -97,6 +101,7 @@ MonoBehaviour:
   minTimeForSRank: 17.5
   minEnemiesKilledForSRank: 0
   levelEndHUD: {fileID: 0}
+  highScoreIndicator: {fileID: 0}
   zone: 2
   level: 1
 --- !u!61 &8954516515876460845

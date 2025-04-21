@@ -137,8 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eccfa39e761d91c489892f2535f383a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSpeed: 7
-  ySpeed: 7
+  xSpeed: 6
+  ySpeed: 6
   xAttackPower: 0
   yAttackPower: 0
 --- !u!50 &7552687143132393401
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e089f3b85f04da4dbe0c5cbfe12dc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
+  maxHP: 1
   healthBar: {fileID: 0}
 --- !u!114 &6617595757095453740
 MonoBehaviour:

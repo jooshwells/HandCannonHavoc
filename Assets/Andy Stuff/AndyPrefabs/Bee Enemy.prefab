@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3581283139716193775}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.013, y: -0.055, z: 0}
+  m_LocalPosition: {x: 0.0883, y: -0.1083, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -169,7 +169,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -18.93, y: 34.65, z: 1.912926}
-  m_LocalScale: {x: -10, y: 10, z: 5.8908}
+  m_LocalScale: {x: -5.9342003, y: 5.9342003, z: 3.4957187}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7156284912036854510}
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e089f3b85f04da4dbe0c5cbfe12dc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 40
+  maxHP: 30
   healthBar: {fileID: 0}
 --- !u!114 &8038025952362361408
 MonoBehaviour:
@@ -282,8 +282,8 @@ MonoBehaviour:
   hiveHoverRange: 2
   extraHeight: 7
   Sting: {fileID: 6435814615393798483, guid: 176a4e0afc71c9844ac2a09536e1c869, type: 3}
-  stingerMaxAmmo: 4
-  attackCooldown: 1.2
+  stingerMaxAmmo: 3
+  attackCooldown: 1.35
 --- !u!70 &9055648746094976363
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -316,6 +316,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.012263156, y: -0.01204938}
-  m_Size: {x: 0.17239602, y: 0.104141116}
-  m_Direction: 1
+  m_Offset: {x: 0.02448063, y: -0.011234665}
+  m_Size: {x: 0.20660515, y: 0.23592606}
+  m_Direction: 0

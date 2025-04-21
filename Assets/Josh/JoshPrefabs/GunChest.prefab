@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7833749257396770872}
   - component: {fileID: 6510964813663429388}
   - component: {fileID: 833532118699448537}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: GunChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
