@@ -33,7 +33,6 @@ public class AbilityControllerScript : MonoBehaviour
     private bool first = false;
     private int lastAbil = 0;
 
-
     // Start is called before the first frame update
     void Start()
     {

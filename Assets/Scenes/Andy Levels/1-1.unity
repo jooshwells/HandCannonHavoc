@@ -139747,6 +139747,10 @@ PrefabInstance:
       propertyPath: speed
       value: 800
       objectReference: {fileID: 0}
+    - target: {fileID: 1186198555155489581, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
+      propertyPath: ambient
+      value: 
+      objectReference: {fileID: 8300000, guid: ab50f492b290ba74392dc98dd567f420, type: 3}
     - target: {fileID: 4575735690667922391, guid: bde96a9155860f04385f73cc62bfbd42, type: 3}
       propertyPath: m_LocalScale.x
       value: -7.5169253
