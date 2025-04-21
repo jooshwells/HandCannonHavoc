@@ -133381,6 +133381,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &417485880 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3447138804354957682, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+  m_PrefabInstance: {fileID: 580845197}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &508585990 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2215558971393050070, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
@@ -137513,6 +137524,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 12871469351467439, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: ammoBar
+      value: 
+      objectReference: {fileID: 417485880}
+    - target: {fileID: 12871469351467439, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: reloadBar
       value: 
       objectReference: {fileID: 298760058}
@@ -137597,6 +137612,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4730610429865742619, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: ammoBar
+      value: 
+      objectReference: {fileID: 417485880}
+    - target: {fileID: 4730610429865742619, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: reloadBar
       value: 
       objectReference: {fileID: 298760058}
@@ -137604,6 +137623,10 @@ PrefabInstance:
       propertyPath: reloadUIObject
       value: 
       objectReference: {fileID: 7324834}
+    - target: {fileID: 5879589260959992428, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: ammoBar
+      value: 
+      objectReference: {fileID: 417485880}
     - target: {fileID: 5879589260959992428, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: reloadBar
       value: 
@@ -137621,6 +137644,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1343003305}
     - target: {fileID: 7611316559215603159, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: ammoBar
+      value: 
+      objectReference: {fileID: 417485880}
+    - target: {fileID: 7611316559215603159, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: reloadBar
       value: 
       objectReference: {fileID: 298760058}
@@ -137637,6 +137664,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1435058767}
     - target: {fileID: 8825369039922798173, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: ammoBar
+      value: 
+      objectReference: {fileID: 417485880}
+    - target: {fileID: 8825369039922798173, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: reloadBar
       value: 
       objectReference: {fileID: 298760058}
@@ -137645,6 +137676,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7324834}
     - target: {fileID: 9015503593082280085, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: ammoBar
+      value: 
+      objectReference: {fileID: 417485880}
+    - target: {fileID: 9015503593082280085, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: reloadBar
       value: 
       objectReference: {fileID: 298760058}
@@ -137652,6 +137687,10 @@ PrefabInstance:
       propertyPath: reloadUIObject
       value: 
       objectReference: {fileID: 7324834}
+    - target: {fileID: 9206250095247392637, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: ammoBar
+      value: 
+      objectReference: {fileID: 417485880}
     - target: {fileID: 9206250095247392637, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: reloadBar
       value: 

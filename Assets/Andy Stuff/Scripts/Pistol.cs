@@ -53,10 +53,13 @@ public class Pistol : MonoBehaviour
     // reset ammo when swapping between guns
     void OnEnable()
     {
-        currentAmmo = magSize;
-        isReloading = false;
         ResetBars();
         UpdateAmmoBar();
+    }
+    void OnDisable()
+    {
+        StopAllCoroutines(); //cancel reload
+        isReloading = false;
     }
 
     // Update is called once per frame
