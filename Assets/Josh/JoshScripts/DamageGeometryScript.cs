@@ -4,6 +4,7 @@ using UnityEngine;
 public class DamageGeometryScript : MonoBehaviour
 {
     private int playerCollisionCount = 0; // Tracks player presence
+    [SerializeField] int damage = 10;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -34,7 +35,7 @@ public class DamageGeometryScript : MonoBehaviour
     {
         while (playerCollisionCount > 0)
         {
-            player.GetComponent<PlayerHealthScript>().Hit(10);
+            player.GetComponent<PlayerHealthScript>().Hit(damage);
             yield return new WaitForSeconds(1f);
         }
     }

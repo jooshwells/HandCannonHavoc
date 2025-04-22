@@ -127,7 +127,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 65536
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -180,6 +180,7 @@ MonoBehaviour:
   ySpeed: 4
   xAttackPower: 0
   yAttackPower: 0
+  stingerSound: {fileID: 0}
 --- !u!50 &7552687143132393401
 Rigidbody2D:
   serializedVersion: 4
@@ -221,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 10
   healthBar: {fileID: 0}
+  enemyDieSound: {fileID: 0}
 --- !u!114 &6617595757095453740
 MonoBehaviour:
   m_ObjectHideFlags: 0
