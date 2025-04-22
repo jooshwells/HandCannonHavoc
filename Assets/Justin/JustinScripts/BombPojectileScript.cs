@@ -74,12 +74,6 @@ public class BombProjectileScript : MonoBehaviour
         rb.velocity = dir * new Vector2(xSpeed, ySpeed);
     }
 
-    private void Update()
-    {
-        target = GameObject.FindGameObjectWithTag("Player");
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -108,8 +102,9 @@ public class BombProjectileScript : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        target = GameObject.FindGameObjectWithTag("Player");
 
     }
 

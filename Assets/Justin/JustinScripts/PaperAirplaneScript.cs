@@ -15,6 +15,7 @@ public class PaperAirplaneScript : MonoBehaviour
     void Start()
     {
         transform = GetComponent<Transform>();
+        gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
     }
 
     // Update is called once per frame
