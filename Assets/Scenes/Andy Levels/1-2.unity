@@ -100215,6 +100215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 248109503}
+  turnOn: 0
 --- !u!61 &396617238
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -100269,7 +100270,7 @@ Transform:
   m_GameObject: {fileID: 396617236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.3, y: -66.2, z: 0.4651789}
+  m_LocalPosition: {x: 57.35, y: -66.08, z: 0.4651789}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -105726,7 +105727,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3790687332652732214, guid: 6f113b1c5c6d89343acc61377baa9635, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 68.9
+      value: 69.23
       objectReference: {fileID: 0}
     - target: {fileID: 3790687332652732214, guid: 6f113b1c5c6d89343acc61377baa9635, type: 3}
       propertyPath: m_LocalPosition.y

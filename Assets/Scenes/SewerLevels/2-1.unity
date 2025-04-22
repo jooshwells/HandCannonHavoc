@@ -36124,6 +36124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 248109503}
+  turnOn: 0
 --- !u!61 &396617238
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36178,8 +36179,8 @@ Transform:
   m_GameObject: {fileID: 396617236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.59, y: -0.5, z: 0.4651789}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 44.59, y: -11.892, z: 0.4651789}
+  m_LocalScale: {x: 1, y: 2.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -44643,8 +44644,8 @@ Transform:
   m_GameObject: {fileID: 1717986628}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.46, y: -0.5, z: 0.4651789}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 19.46, y: -7.9198, z: 0.4651789}
+  m_LocalScale: {x: 1, y: 2.2375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -44662,6 +44663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 248109503}
+  turnOn: 1
 --- !u!114 &1744494129 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5275384354726885570, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}

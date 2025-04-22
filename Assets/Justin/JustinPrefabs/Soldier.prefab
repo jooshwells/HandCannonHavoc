@@ -199,7 +199,7 @@ MonoBehaviour:
   defaultScale: 5.8083
   player: {fileID: 0}
   rb: {fileID: -7133139996986549781}
-  detectDist: 15
+  detectDist: 20
   spriteRenderer: {fileID: 5330068063350554721}
   spritelist:
   - {fileID: 490424885758488967, guid: 961db8e958f90934db5eef54589d1607, type: 3}
@@ -220,7 +220,7 @@ MonoBehaviour:
   animating: 0
   FireRate: 1.5
   bulletSpeed: 1
-  bulletDuration: 1.5
+  bulletDuration: 2
   bulletSprite: {fileID: 6435814615393798483, guid: 07257652691cbd34f8938dca5a6a2a37, type: 3}
   gunPos1: {fileID: 2619899309151933431}
   ambientSoldierSounds:
@@ -245,6 +245,7 @@ MonoBehaviour:
   maxHP: 50
   healthBar: {fileID: 0}
   enemyDieSound: {fileID: 8300000, guid: a3999a210f1eec7418dc2854fc2ccbf7, type: 3}
+  myFinalGoodbye: {fileID: 0}
 --- !u!114 &-8442453544814578495
 MonoBehaviour:
   m_ObjectHideFlags: 0

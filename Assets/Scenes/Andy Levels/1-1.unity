@@ -246,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 373467125}
     - target: {fileID: 6183646401042695073, guid: 33b9acbd9fb40c24ab1f84e4b9bc1156, type: 3}
       propertyPath: minTimeForSRank
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6183646401042695073, guid: 33b9acbd9fb40c24ab1f84e4b9bc1156, type: 3}
       propertyPath: numEnemiesStart
@@ -133035,6 +133035,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: -8435245712485981826, guid: 133a9c1e464a2294d941170db3880283, type: 3}
+--- !u!1001 &228589134
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4906392827919013159, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_Name
+      value: GunChest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -70.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
 --- !u!1 &230516779
 GameObject:
   m_ObjectHideFlags: 0
@@ -133134,6 +133195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1412485990}
+  turnOn: 1
 --- !u!61 &247467263
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133320,6 +133382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 248109503}
+  turnOn: 0
 --- !u!61 &396617238
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133374,8 +133437,8 @@ Transform:
   m_GameObject: {fileID: 396617236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.54, y: -66.14, z: 0.4651789}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 41.15, y: -66.66, z: 0.4651789}
+  m_LocalScale: {x: 1.2121, y: 1.2121, z: 1.2121}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -133432,6 +133495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1915331922}
+  turnOn: 1
 --- !u!61 &536534548
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133486,8 +133550,8 @@ Transform:
   m_GameObject: {fileID: 536534546}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.96, y: -73.868, z: 0.4651789}
-  m_LocalScale: {x: 1, y: 1.55, z: 1}
+  m_LocalPosition: {x: -45.69, y: -74.06, z: 0.4651789}
+  m_LocalScale: {x: 1.0265, y: 1.591075, z: 1.0265}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -133534,6 +133598,12 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2780897248677234304, guid: f9bf6a6595ee9f64591e8c85e18d0ac5, type: 3}
+    - target: {fileID: 4233060981369680464, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_text
+      value: Pick up the gun unlock from the chest! Press "Left Click" to shoot and
+        "R" to reload. You can also cycle through your available weapons with "Q"
+        and "E". More weapon chests are hidden throughout levels so be sure to explore!
+      objectReference: {fileID: 0}
     - target: {fileID: 4415301177027559910, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -133874,6 +133944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 273521098}
+  turnOn: 0
 --- !u!61 &763678888
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133928,7 +133999,7 @@ Transform:
   m_GameObject: {fileID: 763678886}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.12, y: -74.458, z: 0.4651789}
+  m_LocalPosition: {x: 22.66, y: -74.41, z: 0.4651789}
   m_LocalScale: {x: 1, y: 1.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -134171,6 +134242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 273521098}
+  turnOn: 1
 --- !u!61 &1116650555
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -134262,6 +134334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1915331922}
+  turnOn: 0
 --- !u!61 &1235825396
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -134316,8 +134389,8 @@ Transform:
   m_GameObject: {fileID: 1235825394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.86, y: -70.363, z: 0.4651789}
-  m_LocalScale: {x: 1, y: 1.3625, z: 1}
+  m_LocalPosition: {x: -32.71, y: -73.09, z: 0.4651789}
+  m_LocalScale: {x: 1, y: 1.6520312, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -134353,6 +134426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 134541121}
+  turnOn: 0
 --- !u!61 &1337661284
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -134407,7 +134481,7 @@ Transform:
   m_GameObject: {fileID: 1337661282}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.12, y: -74.382, z: 0.4651789}
+  m_LocalPosition: {x: -2.52, y: -74.11, z: 0.4651789}
   m_LocalScale: {x: 1, y: 1.6375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -137843,6 +137917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 248109503}
+  turnOn: 1
 --- !u!114 &1744494129 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5275384354726885570, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
@@ -137885,6 +137960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 134541121}
+  turnOn: 1
 --- !u!61 &1744856235
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137939,7 +138015,7 @@ Transform:
   m_GameObject: {fileID: 1744856233}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.78, y: -76.836, z: 0.4651789}
+  m_LocalPosition: {x: -25.91, y: -76.57, z: 0.4651789}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -138170,6 +138246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1412485990}
+  turnOn: 0
 --- !u!61 &2055643321
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138224,7 +138301,7 @@ Transform:
   m_GameObject: {fileID: 2055643319}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 148.6, y: -47.97, z: 0.4651789}
+  m_LocalPosition: {x: 148.15, y: -47.97, z: 0.4651789}
   m_LocalScale: {x: 1, y: 1.1125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -138681,3 +138758,4 @@ SceneRoots:
   - {fileID: 3368796127687418287}
   - {fileID: 325274862218185520}
   - {fileID: 69577187}
+  - {fileID: 228589134}
