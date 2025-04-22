@@ -81,6 +81,8 @@ public class FinalBossMovementController : MonoBehaviour
                 firingLoc.GetComponent<FinalBossFiringLocScript>().UnPause();
 
         }
+        if(clip.Equals(middleHealthMono)) gameObject.GetComponent<EnemyHealthScript>().RechargeHealth();
+
         yield return null;
     }
 

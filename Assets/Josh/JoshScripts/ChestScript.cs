@@ -40,6 +40,32 @@ public class ChestScript : MonoBehaviour
         }
     }
 
+    public IEnumerator PlaySound(AudioClip clip, Transform enemy, bool isAmbient)
+    {
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.parent = enemy;
+        tempGO.transform.localPosition = Vector3.zero;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
+        aSource.clip = clip;
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        aSource.spatialBlend = 1.0f;
+        aSource.minDistance = 1f;
+        aSource.maxDistance = 20f;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return new WaitForSeconds(clip.length);
+        if (isAmbient)
+        {
+            StartCoroutine(PlaySound(clip, transform, true));
+        }
+        yield return null;
+    }
+
     IEnumerator OpenChest()
     {
         Animator anim = gameObject.GetComponent<Animator>();
@@ -47,7 +73,8 @@ public class ChestScript : MonoBehaviour
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(0.8f);
         Instantiate(contents, transform);
-        asrc.Play();
+        StartCoroutine(PlaySound(asrc.clip, transform, false));
+        //asrc.Play();
 
         // Spawn that grappling hook
 

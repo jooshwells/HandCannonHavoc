@@ -1687,7 +1687,7 @@ MonoBehaviour:
   decel: 25
   invulnerabilityTime: 0
   jump: {fileID: 8300000, guid: 15d69ad14238f6e43a8c1aaed1c8720e, type: 3}
-  ouch: {fileID: 8300000, guid: ee31282063088be458dcccb9e60d1715, type: 3}
+  ouch: {fileID: 8300000, guid: 2facbd3da082fe545b6fa75ff9ccd623, type: 3}
   dash: {fileID: 8300000, guid: 5458b728feb024a4bbfc7b583b3a74c8, type: 3}
   dashSpeed: 20
   dashDuration: 0.2
@@ -1794,6 +1794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf9f9722e9a89a468b0535f89c13e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finalLevel: 0
   healthBar: {fileID: 0}
   invincibilityTime: 1.5
   hitSound: {fileID: 8300000, guid: 2facbd3da082fe545b6fa75ff9ccd623, type: 3}
