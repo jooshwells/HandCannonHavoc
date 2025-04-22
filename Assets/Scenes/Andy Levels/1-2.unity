@@ -100292,6 +100292,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 8393701299761183027, guid: db4f4384a5a5b034ab53fc5ceb5f6fb5, type: 3}
+    - target: {fileID: 1263559949216046898, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1477035576}
+    - target: {fileID: 1263559949216046898, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CancelExit
+      objectReference: {fileID: 0}
     - target: {fileID: 1462523944138000163, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -100359,6 +100367,14 @@ PrefabInstance:
     - target: {fileID: 5275384354726885570, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449406374176895767, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8487355992097136646, guid: cb597eb126b8bc44cb8bedb29e2285f7, type: 3}
+    - target: {fileID: 5449406374176895767, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ConfirmExit
       objectReference: {fileID: 0}
     - target: {fileID: 5451561326114744105, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
