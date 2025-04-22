@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EnemyHealthScript : MonoBehaviour
@@ -11,6 +12,30 @@ public class EnemyHealthScript : MonoBehaviour
     public Image healthBar;
     private Vector3 originalScale;
     [SerializeField] AudioClip enemyDieSound;
+
+    [SerializeField] AudioClip myFinalGoodbye;
+
+    public IEnumerator PlaySound(AudioClip clip, Transform enemy, bool isAmbient)
+    {
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.parent = enemy;
+        tempGO.transform.localPosition = Vector3.zero;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
+        aSource.clip = clip;
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        aSource.spatialBlend = 1.0f;
+        aSource.minDistance = 1f;
+        aSource.maxDistance = 20f;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return new WaitForSeconds(clip.length);
+        yield return null;
+    }
     public IEnumerator PlaySound(AudioClip clip)
     {
         GameObject tempGO = new GameObject("TempAudio"); // create new GameObject
@@ -52,14 +77,30 @@ public class EnemyHealthScript : MonoBehaviour
         currentHP = maxHP;
     }
     private bool dying = false;
+
+    IEnumerator MyFinalMessage()
+    {
+        GameObject.FindGameObjectWithTag("FinalBoss").transform.GetChild(0).GetComponent<FinalBossFiringLocScript>().Pause();
+        GameObject.FindGameObjectWithTag("FinalBoss").GetComponent<FinalBossMovementController>().Pause();
+        StartCoroutine(PlaySound(myFinalGoodbye, transform, false));
+        yield return new WaitForSeconds(myFinalGoodbye.length + 0.5f);
+        dying = true;
+        StartCoroutine(PlaySound(enemyDieSound));
+        StartCoroutine(DyingAnimation());
+    }
+    private bool running = false;
     // Update is called once per frame
     void Update()
     {
-        if (!dying && currentHP <= 0f)
+        if (healthBar == null && !dying && currentHP <= 0f)
         {
             dying = true;
             StartCoroutine(PlaySound(enemyDieSound));
             StartCoroutine(DyingAnimation());
+        } else if (!running && healthBar != null && !dying && currentHP <= 0f)
+        {
+            running = true;
+            StartCoroutine(MyFinalMessage());
         }
     }
     public float GetMaxHP() 
@@ -83,5 +124,6 @@ public class EnemyHealthScript : MonoBehaviour
         yield return new WaitForEndOfFrame();
         yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
         Destroy(gameObject);
+        SceneManager.LoadScene("HH - Credits");
     }
 }
