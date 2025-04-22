@@ -100276,6 +100276,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &406700230
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1671447761370408357, guid: 232e34a9377d14dc5b4507ad377cbf7c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1067.7247
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671447761370408357, guid: 232e34a9377d14dc5b4507ad377cbf7c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 623.27893
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671447761370408357, guid: 232e34a9377d14dc5b4507ad377cbf7c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.15937588
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671447761370408357, guid: 232e34a9377d14dc5b4507ad377cbf7c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671447761370408357, guid: 232e34a9377d14dc5b4507ad377cbf7c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671447761370408357, guid: 232e34a9377d14dc5b4507ad377cbf7c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671447761370408357, guid: 232e34a9377d14dc5b4507ad377cbf7c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671447761370408357, guid: 232e34a9377d14dc5b4507ad377cbf7c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671447761370408357, guid: 232e34a9377d14dc5b4507ad377cbf7c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671447761370408357, guid: 232e34a9377d14dc5b4507ad377cbf7c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894622855068315517, guid: 232e34a9377d14dc5b4507ad377cbf7c, type: 3}
+      propertyPath: m_Name
+      value: Fullscreen Time
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 232e34a9377d14dc5b4507ad377cbf7c, type: 3}
 --- !u!1 &508585990 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2215558971393050070, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
@@ -100340,6 +100397,34 @@ PrefabInstance:
     - target: {fileID: 3465672185521617440, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3544451738101729561, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3544451738101729561, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3544451738101729561, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5194223180361598222, guid: 232e34a9377d14dc5b4507ad377cbf7c, type: 3}
+    - target: {fileID: 3544451738101729561, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3544451738101729561, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleFullscreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3544451738101729561, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FullscreenToggle, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3544451738101729561, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3743715005520830950, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_Sprite
@@ -105809,3 +105894,4 @@ SceneRoots:
   - {fileID: 1425662885}
   - {fileID: 2109108593}
   - {fileID: 1653229476}
+  - {fileID: 406700230}
