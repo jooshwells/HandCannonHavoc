@@ -49,12 +49,12 @@ public class copyProjectileScript : MonoBehaviour
         rb.velocity = dir * new Vector2(xSpeed, ySpeed);
     }
 
-    public int damage = 20;
+    public int damage = 10;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            // Handle the player being hit…
+            // Handle the player being hitï¿½
             target.GetComponent<PlayerHealthScript>().Hit(damage);
             Destroy(gameObject);
         }
