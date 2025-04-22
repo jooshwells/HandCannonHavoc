@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5627018786663903108}
   - component: {fileID: 3753126102956419237}
   - component: {fileID: 3776494895091623455}
-  - component: {fileID: 3657478483569679742}
+  - component: {fileID: 2057532506251407050}
+  - component: {fileID: 564716262644418683}
   m_Layer: 16
   m_Name: Paper Bombs
   m_TagString: Bullet
@@ -149,7 +150,28 @@ CircleCollider2D:
   m_Offset: {x: -0.0028491975, y: -0.012821699}
   serializedVersion: 2
   m_Radius: 0.13354835
---- !u!114 &3657478483569679742
+--- !u!95 &2057532506251407050
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6867132234366863021}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: -7196695872669622668, guid: d5e8004c707a9cd428eeeb6d02a8f93a, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &564716262644418683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,11 +180,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6867132234366863021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70455e2c13c890645910e8f5c6c828b9, type: 3}
+  m_Script: {fileID: 11500000, guid: f3de849718952ff44952c3430832b0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xSpeed: 0
   ySpeed: 0
   xAttackPower: 0
   yAttackPower: 0
-  manualAngle: 0
+  target: {fileID: 0}
+  rb: {fileID: 3753126102956419237}
