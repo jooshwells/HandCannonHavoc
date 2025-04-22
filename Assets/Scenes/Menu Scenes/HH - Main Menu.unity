@@ -1202,7 +1202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4e376a5763644aaae8231ed1abefcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSelect: HH - Blue Thing
+  levelSelect: HH - Options
 --- !u!114 &1082206749
 MonoBehaviour:
   m_ObjectHideFlags: 0
