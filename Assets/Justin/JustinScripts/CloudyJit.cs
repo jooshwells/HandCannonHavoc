@@ -33,6 +33,7 @@ public class CloudyJit : MonoBehaviour
         aSource.Play();
         Destroy(tempGO, clip.length);
         yield return new WaitForSeconds(clip.length);
+        yield return new WaitForSeconds(Random.Range(1f, 4f));
         StartCoroutine(PlaySound(clip, enemy, isAmbient));
         yield return null;
     }

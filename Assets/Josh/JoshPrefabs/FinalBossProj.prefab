@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4923110225028567930}
   - component: {fileID: 414918258275754284}
   - component: {fileID: 8424533802944010559}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: FinalBossProj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 131072
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -121,7 +121,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 65536
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 4753024987529044466}
   - component: {fileID: 6461639675825583090}
   - component: {fileID: 2243051415258695179}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: ProjGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

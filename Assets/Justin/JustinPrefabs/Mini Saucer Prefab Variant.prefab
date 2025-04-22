@@ -78,6 +78,10 @@ PrefabInstance:
       propertyPath: maxHP
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 625640861147364269, guid: a272973521ec8e24e8b161e41f558b12, type: 3}
+      propertyPath: enemyDieSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a3999a210f1eec7418dc2854fc2ccbf7, type: 3}
     - target: {fileID: 862356158847369712, guid: a272973521ec8e24e8b161e41f558b12, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.131
@@ -292,6 +296,8 @@ MonoBehaviour:
   Origin3: {fileID: 4449436658901680324}
   lastShotTime: 0
   attacktest: 0
+  ambient: {fileID: 8300000, guid: c339b7aa55b4f7a4896b28325d711557, type: 3}
+  shoot: {fileID: 8300000, guid: a4c27383987e763448d87855e8998945, type: 3}
   flashingSprites:
   - {fileID: -4220033355526016392, guid: 8c59335c91da38f4aa257c3142814d58, type: 3}
   - {fileID: 5837534380376144858, guid: 8c59335c91da38f4aa257c3142814d58, type: 3}

@@ -53,6 +53,34 @@ public class AlienCowboy : MonoBehaviour
     EnemyHealthScript enemyHealthScript;
     Animator animator;
 
+    [SerializeField] private AudioClip shoot;
+
+    public IEnumerator PlaySound(AudioClip clip, Transform enemy, bool isAmbient)
+    {
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.parent = enemy;
+        tempGO.transform.localPosition = Vector3.zero;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
+        aSource.clip = clip;
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        aSource.spatialBlend = 1.0f;
+        aSource.minDistance = 1f;
+        aSource.maxDistance = 20f;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return new WaitForSeconds(clip.length);
+        if (isAmbient)
+        {
+            StartCoroutine(PlaySound(clip, transform, true));
+        }
+        yield return null;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -212,6 +240,7 @@ public class AlienCowboy : MonoBehaviour
 
     private void fireGun()
     {
+        StartCoroutine(PlaySound(shoot, transform, false));
         GameObject bullet1 = Instantiate(bulletSprite, gunPos1.position, gunPos1.rotation);
         GameObject bullet2 = Instantiate(bulletSprite, gunPos2.position, gunPos2.rotation);
         SpriteRenderer bullet1Renderer = bullet1.GetComponent<SpriteRenderer>();

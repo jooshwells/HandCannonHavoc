@@ -20,7 +20,7 @@ public class BruteAlien: MonoBehaviour
 
     public bool attacking = false;
     public float attackingRange = 8f;
-       bool spotted = false;
+    bool spotted = false;
 
 
     //
@@ -42,7 +42,30 @@ public class BruteAlien: MonoBehaviour
     Seeker seeker;
     public Rigidbody2D rb;
     Animator animator;
+    [SerializeField] private AudioClip scream;
 
+    public IEnumerator PlaySound(AudioClip clip, Transform enemy, bool isAmbient)
+    {
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.parent = enemy;
+        tempGO.transform.localPosition = Vector3.zero;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
+        aSource.clip = clip;
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        aSource.spatialBlend = 1.0f;
+        aSource.minDistance = 1f;
+        aSource.maxDistance = 20f;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return new WaitForSeconds(clip.length);
+
+        yield return null;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +100,7 @@ public class BruteAlien: MonoBehaviour
         {
             if (inRange(attackingRange)) //start attacking
             {
+
                 i = 0;
                 timeFrame = Time.time + 0.25f;
                 sprite.sprite = movingFrames[i];
@@ -114,9 +138,17 @@ public class BruteAlien: MonoBehaviour
         }
     }
 
+    private bool startedPathfinding = false;
+
     void UpdatePath()
     {
         if (Vector2.Distance(rb.position, target.position) >= attackingRange || !(EnemyHealthScript.GetCurrentHP() < EnemyHealthScript.GetMaxHP())) return;
+
+        if(!startedPathfinding)
+        {
+            StartCoroutine(PlaySound(scream, transform, false));
+            startedPathfinding = true;
+        }
 
         if (seeker.IsDone())
             seeker.StartPath(rb.position, target.position, OnPathComplete);

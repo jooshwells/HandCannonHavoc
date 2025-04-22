@@ -67,6 +67,7 @@ MonoBehaviour:
   bulletSprite: {fileID: 0}
   gunPos1: {fileID: 0}
   gunPos2: {fileID: 0}
+  shoot: {fileID: 8300000, guid: 2686f01adb11a6d468910c7c1b00e62b, type: 3}
 --- !u!114 &-3843599172888188369
 MonoBehaviour:
   m_ObjectHideFlags: 0

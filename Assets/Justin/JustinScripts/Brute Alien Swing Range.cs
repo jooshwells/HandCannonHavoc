@@ -18,6 +18,32 @@ public class BruteAlienSwingRange : MonoBehaviour
     public Rigidbody2D playerRb;
 
     public float knockback;
+    [SerializeField] private AudioClip swingSound;
+    private bool soundPlaying = false;
+    public IEnumerator PlaySound(AudioClip clip, Transform enemy, bool isAmbient)
+    {
+        soundPlaying = true;
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.parent = enemy;
+        tempGO.transform.localPosition = Vector3.zero;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
+        aSource.clip = clip;
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        aSource.spatialBlend = 1.0f;
+        aSource.minDistance = 1f;
+        aSource.maxDistance = 20f;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return new WaitForSeconds(clip.length);
+
+        soundPlaying = false;
+        yield return null;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +56,11 @@ public class BruteAlienSwingRange : MonoBehaviour
     {
         attack = bruteAlien.attacking;
         index = bruteAlien.i;
+
+        if(bruteAlien.i == 3)
+        {
+            StartCoroutine(PlaySound(swingSound, transform, false));
+        }
     }
 
 
