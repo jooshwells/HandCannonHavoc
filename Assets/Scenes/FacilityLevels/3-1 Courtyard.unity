@@ -27963,6 +27963,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 457006758737947097, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 2445538122136596785, guid: 71994203fadc14148985ee99ae8f1fcd, type: 3}
     - target: {fileID: 1462523944138000163, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -28162,7 +28166,7 @@ PrefabInstance:
     - target: {fileID: 7019149869585053826, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -7987599685447588917, guid: 71994203fadc14148985ee99ae8f1fcd, type: 3}
+      objectReference: {fileID: -2100874939600432778, guid: 71994203fadc14148985ee99ae8f1fcd, type: 3}
     - target: {fileID: 7106799727590222270, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -64705,6 +64709,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1902559226405861917, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097016216252980218, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: dashAvail
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4097016216252980218, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}

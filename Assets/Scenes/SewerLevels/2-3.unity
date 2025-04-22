@@ -75596,6 +75596,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeakerSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 979056962682677259, guid: 6dab593bb179ac043aa44339a2a556a8, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d2eb181b4581144a9e365ca4c2e1869, type: 3}
     - target: {fileID: 1173711335164250341, guid: 6dab593bb179ac043aa44339a2a556a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.738415
