@@ -138,9 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c895e1eb1e8d0418ddf42800e4e217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  speed: 800
   nextWaypointDistance: 3
-  attackDamage: 25
+  attackDamage: 50
   enemyGFX: {fileID: 1300903594485459442}
 --- !u!1 &5136165299795118629
 GameObject:
