@@ -84,7 +84,12 @@ public class BruteAlien: MonoBehaviour
     public bool checker = false;
     private void Update()
     {
-        if(EnemyHealthScript.GetCurrentHP() < EnemyHealthScript.GetMaxHP())
+        if (inRange(attackingRange))
+        {
+            attacking = true;
+        }
+
+        if (EnemyHealthScript.GetCurrentHP() < EnemyHealthScript.GetMaxHP())
             attackingRange = 100f;
 
         if (EnemyHealthScript.GetCurrentHP() <= 0)
@@ -117,7 +122,8 @@ public class BruteAlien: MonoBehaviour
                 sprite.sprite = idleFrames[i];
             }
         }
-        if(attacking && rb.velocity.x > 0.2)
+        //if(attacking && Mathf.Abs(rb.velocity.x) > 0.2)
+        if (attacking)
         {
             /*if (!inRange(attackingRange)) //stop attacking
             {
