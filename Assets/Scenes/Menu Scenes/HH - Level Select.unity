@@ -1620,7 +1620,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: '#-1 Courtyard'
+          m_StringArgument: 3-1 Courtyard
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &676054989
@@ -2565,7 +2565,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 3-3 Lab
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &897571103
@@ -4385,7 +4385,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 3-4 Aliens
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1487737963
@@ -6903,7 +6903,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 3-2 Vents
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2057437742

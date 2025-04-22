@@ -48,7 +48,6 @@ public class Railgun : customShoot
 
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Railgun2 : MonoBehaviour
