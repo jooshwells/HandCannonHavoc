@@ -91,9 +91,18 @@ public class EnemyHealthScript : MonoBehaviour
         StartCoroutine(DyingAnimation());
     }
     private bool running = false;
+    private bool doneRecharge = false;
     // Update is called once per frame
     void Update()
     {
+        if(currentHP <= 600f && healthBar != null && !doneRecharge)
+        {
+            currentHP = maxHP;
+            float healthPercent = Mathf.Clamp(currentHP / maxHP, 0f, 1f);
+            healthBar.rectTransform.localScale = new Vector3(Mathf.Max(originalScale.x * healthPercent, 0f), originalScale.y, originalScale.z);
+            doneRecharge = true;
+        }
+
         if (healthBar == null && !dying && currentHP <= 0f)
         {
             dying = true;

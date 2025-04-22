@@ -19,6 +19,7 @@ public class FinalBossProjectileController : MonoBehaviour
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
+    private SpriteRenderer sr;
 
     Seeker seeker;
     Rigidbody2D rb;
@@ -26,6 +27,8 @@ public class FinalBossProjectileController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sr = GetComponentInChildren<SpriteRenderer>();
+        sr.color = Color.red;
         gfx = GetComponentInChildren<Transform>();
         boss = GameObject.FindGameObjectWithTag("FinalBoss").transform;
         if (GameObject.FindGameObjectWithTag("Player") != null)
@@ -137,6 +140,7 @@ public class FinalBossProjectileController : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & LayerMask.GetMask("Bullets")) != 0)
         {
+            sr.color = Color.green;
             target = boss;
         } else if (collision.CompareTag("FinalBoss") && target.CompareTag("FinalBoss"))
         {

@@ -143,18 +143,23 @@ public class FinalBossMovementController : MonoBehaviour
             currentWaypoint++;
         }
 
-        if(transform.position.y >= 17.85f && transform.position.x <= 25.01f)
+        if (transform.position.y <= -17.85f && transform.position.x <= 51.78f)
+        {
+            enemyGFX.localScale = new Vector3(1f, 1f, 1f);
+            transform.GetChild(0).localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (transform.position.y >= 17.85f && transform.position.x <= 25.01f)
         {
             enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
             transform.GetChild(0).localScale = new Vector3(-1f, 1f, 1f);
         } else
         {
-            if ((rb.velocity.x >= 0.01f))
+            if (direction.x > 0.01f)
             {
                 enemyGFX.localScale = new Vector3(1f, 1f, 1f);
                 transform.GetChild(0).localScale = new Vector3(1f, 1f, 1f);
             }
-            else if ((rb.velocity.x <= -0.01f))
+            else if (direction.x < -0.01f)
             {
                 enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
                 transform.GetChild(0).localScale = new Vector3(-1f, 1f, 1f);

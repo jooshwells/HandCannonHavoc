@@ -85,13 +85,19 @@ public class FinalBossFiringLocScript : MonoBehaviour
         
     }
 
+    private bool SpecialConditions()
+    {
+        return (transform.parent.position.y <= -17.85f && transform.parent.position.x <= 51.78f) || (transform.parent.position.y >= 17.85f && transform.parent.position.x <= 25.01f);
+    }
+
     public void Pause()
     {
         paused = true;
     }
 
     public void UnPause() { paused = false; }
-
+    private float specLow = 0.2f;
+    private float specHigh = 1.5f;
     IEnumerator Attack()
     {
         StartCoroutine(PlaySound(shootSound, transform, false));
@@ -99,7 +105,13 @@ public class FinalBossFiringLocScript : MonoBehaviour
         // do attacking stuff
         Instantiate(projectile, transform.position, transform.rotation);
         projCount++;
-        yield return new WaitForSeconds(Random.Range(2f, 5f));
+        if (!SpecialConditions())
+        {
+            yield return new WaitForSeconds(Random.Range(2f, 5f));
+        } else
+        {
+            yield return new WaitForSeconds(Random.Range(specLow, specHigh));
+        }
         isRunning = false;
     }
 }
