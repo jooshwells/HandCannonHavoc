@@ -40,23 +40,7 @@ public class BombArrow : MonoBehaviour
     {
         attackDamage = damage;
     }
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    //Debug.Log("Collided with: " + collision.gameObject.tag);
-
-    //    if (!collision.gameObject.CompareTag(instantiator.tag)) 
-    //    {
-    //        if (!isExploding)
-    //        {
-    //            isExploding = true;
-    //            // gameObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
-    //            // gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-    //            // gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-    //            StartCoroutine(Explode());
-
-    //        }
-    //    }
-    //}
+    
     private bool explodingStarted = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {

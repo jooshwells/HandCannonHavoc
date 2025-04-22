@@ -48,12 +48,6 @@ EditorBuildSettings:
     path: Assets/Scenes/FacilityLevels/3-4 Aliens.unity
     guid: 51e8f2795994fd24bbdf4ca99e7d4435
   - enabled: 1
-    path: Assets/Scenes/OfficeLevels/4 - 3.unity
-    guid: 07d9d993ed73341d086e3b72628530c6
-  - enabled: 1
-    path: Assets/Scenes/OfficeLevels/4 - 1.unity
-    guid: 875ab3b289d9f41a8ba1931fbee5226f
-  - enabled: 1
     path: Assets/Scenes/OfficeLevels/4 - 2.unity
     guid: 621ca550912464eae9bbfe5310fb2aad
   - enabled: 1

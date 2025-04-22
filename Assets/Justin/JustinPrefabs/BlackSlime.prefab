@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 2745159102955194820}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 821098937195193165, guid: 9f0d4db154b5fce42b8a40134ef47658, type: 3}
+  m_Controller: {fileID: 9100000, guid: 63ef43a6af117164fb35f15981394304, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -334,6 +334,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 15
   healthBar: {fileID: 0}
+  enemyDieSound: {fileID: 8300000, guid: a3999a210f1eec7418dc2854fc2ccbf7, type: 3}
+<<<<<<< Updated upstream
+=======
+  myFinalGoodbye: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!114 &5915931993062884862
 MonoBehaviour:
   m_ObjectHideFlags: 0
