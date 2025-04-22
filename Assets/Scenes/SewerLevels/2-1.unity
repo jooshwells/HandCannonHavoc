@@ -44343,6 +44343,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4097016216252980218, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: dashAvail
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097016216252980218, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: abilityIndicator1
       value: 
       objectReference: {fileID: 580845202}
@@ -44358,6 +44362,10 @@ PrefabInstance:
       propertyPath: abilityIndicator4
       value: 
       objectReference: {fileID: 806252275}
+    - target: {fileID: 4097016216252980218, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: grapplingHookAvail
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4597567887615554847, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: m_Name
       value: Player
