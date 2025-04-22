@@ -133188,8 +133188,8 @@ Transform:
   m_GameObject: {fileID: 247467261}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 138.31, y: -62.1, z: 0.4651789}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 138.31, y: -62.7, z: 0.4651789}
+  m_LocalScale: {x: 1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -133486,8 +133486,8 @@ Transform:
   m_GameObject: {fileID: 536534546}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.45, y: -70.57, z: 0.4651789}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -46.96, y: -73.868, z: 0.4651789}
+  m_LocalScale: {x: 1, y: 1.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -133500,10 +133500,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 457006758737947097, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 8393701299761183027, guid: db4f4384a5a5b034ab53fc5ceb5f6fb5, type: 3}
     - target: {fileID: 1462523944138000163, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1477035576}
+    - target: {fileID: 2377696520480846957, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_text
+      value: Welcome to the first level of HandCannonHavoc! Let's get started with
+        some basic movement. Move the player left to right with "A,D" and jump with
+        "Spacebar". Also try moving the camera with the keys "I,J,K,L".
+      objectReference: {fileID: 0}
     - target: {fileID: 2798367860329777162, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -133608,6 +133618,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7019149869585053826, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6737431238314046734, guid: db4f4384a5a5b034ab53fc5ceb5f6fb5, type: 3}
     - target: {fileID: 7106799727590222270, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -133898,8 +133912,8 @@ Transform:
   m_GameObject: {fileID: 763678886}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.12, y: -70.86, z: 0.4651789}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 22.12, y: -74.458, z: 0.4651789}
+  m_LocalScale: {x: 1, y: 1.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -134195,8 +134209,8 @@ Transform:
   m_GameObject: {fileID: 1116650553}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.88, y: -70.64, z: 0.4651789}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 8.88, y: -74.537, z: 0.4651789}
+  m_LocalScale: {x: 1, y: 1.65, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -134286,8 +134300,8 @@ Transform:
   m_GameObject: {fileID: 1235825394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.86, y: -68.19, z: 0.4651789}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -34.86, y: -70.363, z: 0.4651789}
+  m_LocalScale: {x: 1, y: 1.3625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -134377,8 +134391,8 @@ Transform:
   m_GameObject: {fileID: 1337661282}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.12, y: -70.56, z: 0.4651789}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.12, y: -74.382, z: 0.4651789}
+  m_LocalScale: {x: 1, y: 1.6375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -137391,6 +137405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a2a54e152618b46a0f6ebfe0dc58b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1001 &1500632472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -137793,8 +137808,8 @@ Transform:
   m_GameObject: {fileID: 1717986628}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.3, y: -70.5, z: 0.4651789}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 27.3, y: -73.123, z: 0.4651789}
+  m_LocalScale: {x: 1, y: 1.4375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -137908,8 +137923,8 @@ Transform:
   m_GameObject: {fileID: 1744856233}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.78, y: -70.84, z: 0.4651789}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -27.78, y: -76.836, z: 0.4651789}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -138193,8 +138208,8 @@ Transform:
   m_GameObject: {fileID: 2055643319}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 142.38, y: -62.45, z: 0.4651789}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 148.6, y: -47.97, z: 0.4651789}
+  m_LocalScale: {x: 1, y: 1.1125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
