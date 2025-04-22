@@ -25434,6 +25434,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 133a9c1e464a2294d941170db3880283, type: 3}
   m_PrefabInstance: {fileID: 1542816747}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &326110990
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4906392827919013159, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_Name
+      value: GunChest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 174.08551
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -17.631516
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658704938795575311, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7bc8234b97cc3d44eaa8e7fcba3d7282, type: 3}
 --- !u!114 &346139835 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3447138804354957682, guid: c98047c1f2f96914ba9768b331e5e745, type: 3}
@@ -65562,4 +65623,8 @@ SceneRoots:
   - {fileID: 1706352946}
   - {fileID: 1588916277}
   - {fileID: 1418260864}
+<<<<<<< Updated upstream
   - {fileID: 810322295}
+=======
+  - {fileID: 326110990}
+>>>>>>> Stashed changes

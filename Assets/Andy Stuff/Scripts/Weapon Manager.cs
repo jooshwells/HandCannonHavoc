@@ -34,7 +34,7 @@ public class WeaponSwitcher : MonoBehaviour
     private void Start()
     {
         // activate first weapon if unlocked
-        weaponsAvailable = PlayerPrefs.GetInt("WeaponsUnlocked", 7);
+        weaponsAvailable = PlayerPrefs.GetInt("WeaponsUnlocked", 1);
 
         if (weaponsAvailable >= 1 && !firstWeaponDisplayed)
         {
