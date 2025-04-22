@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AbilityControllerScript : MonoBehaviour
@@ -220,61 +219,7 @@ public class AbilityControllerScript : MonoBehaviour
         }
         if(tag.Equals("NewWeapon"))
         {
-            WeaponSwitcher ws = transform.parent.GetComponent<WeaponSwitcher>();
-            bool add = false;
-            switch(SceneManager.GetActiveScene().name)
-            {
-                case "1-3":
-                    if(PlayerPrefs.GetInt("WeaponAt1-3", 0) == 0)
-                    {
-                        PlayerPrefs.SetInt("WeaponAt1-3", 1);
-                        add = true;
-                    }
-                    break;
-                case "1-4":
-                    if (PlayerPrefs.GetInt("WeaponAt1-4", 0) == 0)
-                    {
-                        PlayerPrefs.SetInt("WeaponAt1-4", 1);
-                        add = true;
-                    }
-                    break;
-                case "2-1":
-                    if (PlayerPrefs.GetInt("WeaponAt2-1", 0) == 0)
-                    {
-                        PlayerPrefs.SetInt("WeaponAt2-1", 1);
-                        add = true;
-                    }
-                    break;
-                case "2-2":
-                    if (PlayerPrefs.GetInt("WeaponAt2-2", 0) == 0)
-                    {
-                        PlayerPrefs.SetInt("WeaponAt2-2", 1);
-                        add = true;
-                    }
-                    break;
-                case "2-3":
-                    if (PlayerPrefs.GetInt("WeaponAt2-3", 0) == 0)
-                    {
-                        PlayerPrefs.SetInt("WeaponAt2-3", 1);
-                        add = true;
-                    }
-                    break;
-                case "3-1":
-                    if (PlayerPrefs.GetInt("WeaponAt3-1", 0) == 0)
-                    {
-                        PlayerPrefs.SetInt("WeaponAt3-1", 1);
-                        add = true;
-                    }
-                    break;
-                case "3-2":
-                    if (PlayerPrefs.GetInt("WeaponAt3-2", 0) == 0)
-                    {
-                        PlayerPrefs.SetInt("WeaponAt3-2", 1);
-                        add = true;
-                    }
-                    break;
-            }
-            if(add) transform.parent.GetComponent<WeaponSwitcher>().UnlockWeapon();
+            transform.parent.GetComponent<WeaponSwitcher>().UnlockWeapon();
         }
 
     }

@@ -124,6 +124,6 @@ public class EnemyHealthScript : MonoBehaviour
         yield return new WaitForEndOfFrame();
         yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
         Destroy(gameObject);
-        if(healthBar!=null)SceneManager.LoadScene("HH - Credits");
+        SceneManager.LoadScene("HH - Credits");
     }
 }
