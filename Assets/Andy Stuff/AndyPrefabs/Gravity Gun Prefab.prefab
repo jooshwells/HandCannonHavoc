@@ -125,6 +125,7 @@ MonoBehaviour:
   reloadSpeed: 2
   reloadUIObject: {fileID: 0}
   reloadBar: {fileID: 0}
+  ammoBar: {fileID: 0}
 --- !u!95 &-5181970062330421813
 Animator:
   serializedVersion: 5
