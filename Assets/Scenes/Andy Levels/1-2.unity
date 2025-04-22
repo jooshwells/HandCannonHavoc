@@ -104744,6 +104744,10 @@ PrefabInstance:
       propertyPath: minEnemiesKilledForSRank
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6183646401042695073, guid: 33b9acbd9fb40c24ab1f84e4b9bc1156, type: 3}
+      propertyPath: minEnemiesKilledForNonDRank
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
