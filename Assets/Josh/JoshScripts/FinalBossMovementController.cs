@@ -37,7 +37,54 @@ public class FinalBossMovementController : MonoBehaviour
     private bool faceRight = false;
     private bool faceLeft = false;
 
+    private bool startmonodone = false;
+    [SerializeField] List<AudioClip> ambientSoldierSounds;
+    [SerializeField] private AudioClip startMonologue;
+    [SerializeField] private AudioClip middleHealthMono;
+
+    [SerializeField] private GameObject firingLoc;
+
+    public void Pause()
+    {
+        startmonodone = false;
+    }
+    public IEnumerator PlaySound(AudioClip clip, Transform enemy, bool isAmbient)
+    {
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.parent = enemy;
+        tempGO.transform.localPosition = Vector3.zero;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
+        aSource.clip = clip;
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        aSource.spatialBlend = 1.0f;
+        aSource.minDistance = 1f;
+        aSource.maxDistance = 20f;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return new WaitForSeconds(clip.length+1);
+        if (isAmbient)
+        {
+            yield return new WaitForSeconds(Random.Range(5, 10));
+            StartCoroutine(PlaySound(ambientSoldierSounds[Random.Range(0, 5)], transform, true));
+        }
+        if (clip.Equals(startMonologue) || clip.Equals(middleHealthMono)) { 
+            startmonodone = true; 
+            if(clip.Equals(startMonologue))
+                firingLoc.SetActive(true);
+            else
+                firingLoc.GetComponent<FinalBossFiringLocScript>().UnPause();
+
+        }
+        yield return null;
+    }
+
     //private float speed = 1.25f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +98,7 @@ public class FinalBossMovementController : MonoBehaviour
 
     void UpdatePath()
     {
+        if (!startmonodone) return;
         if (seeker.IsDone())
             seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
@@ -65,6 +113,7 @@ public class FinalBossMovementController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!startmonodone) return;
         if (path == null)
         {
             return;
@@ -96,29 +145,42 @@ public class FinalBossMovementController : MonoBehaviour
         if(transform.position.y >= 17.85f && transform.position.x <= 25.01f)
         {
             enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
+            transform.GetChild(0).localScale = new Vector3(-1f, 1f, 1f);
         } else
         {
-            if ((rb.velocity.x >= 0.01f || faceLeft))
+            if ((rb.velocity.x >= 0.01f))
             {
                 enemyGFX.localScale = new Vector3(1f, 1f, 1f);
+                transform.GetChild(0).localScale = new Vector3(1f, 1f, 1f);
             }
-            else if ((rb.velocity.x <= -0.01f || faceRight))
+            else if ((rb.velocity.x <= -0.01f))
             {
                 enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
+                transform.GetChild(0).localScale = new Vector3(-1f, 1f, 1f);
             }
         }
-
-
-        
     }
 
     private bool targetUpdated = false;
+    [SerializeField] private GameObject player;
+    private bool running = false;
 
     // Update is called once per frame
     void Update()
     {
-        if(!targetUpdated && hpScript.GetHealthPerc() <= 0.5)
+        if(!running && player.activeSelf && !startmonodone)
         {
+            running = true;
+            StartCoroutine(PlaySound(startMonologue, transform, false));
+        }
+        if (!startmonodone) return;
+        if (!targetUpdated && hpScript.GetHealthPerc() <= 0.5)
+        {
+            startmonodone = false;
+            firingLoc.GetComponent<FinalBossFiringLocScript>().Pause();
+            StartCoroutine(PlaySound(middleHealthMono, transform, false));
+
+
             target = endLocTwo;
             targetUpdated = true;
 
