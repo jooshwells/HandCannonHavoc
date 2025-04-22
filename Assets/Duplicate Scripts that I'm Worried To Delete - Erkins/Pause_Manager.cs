@@ -9,9 +9,18 @@ public class PauseMenu : MonoBehaviour
     public GameObject optionsMenuUI;
     public GameObject confirmExitUI; // Reference to the confirmation panel
     private bool isPaused = false;
+    private bool cantPause = false;
+
 
     void Update()
     {
+        if (cantPause && isPaused)
+        {
+            ResumeGame();
+        } else if (cantPause)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(GameObject.FindGameObjectWithTag("Player") == null)
@@ -24,6 +33,12 @@ public class PauseMenu : MonoBehaviour
                 PauseGame();
         }
     }
+
+    public void PausePausing()
+    {
+        cantPause = !cantPause;
+    }
+
 
     public void PauseGame()
     {

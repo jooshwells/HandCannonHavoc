@@ -80,11 +80,13 @@ public class EnemyHealthScript : MonoBehaviour
 
     IEnumerator MyFinalMessage()
     {
+        GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().PausePausing();
         GameObject.FindGameObjectWithTag("FinalBoss").transform.GetChild(0).GetComponent<FinalBossFiringLocScript>().Pause();
         GameObject.FindGameObjectWithTag("FinalBoss").GetComponent<FinalBossMovementController>().Pause();
         StartCoroutine(PlaySound(myFinalGoodbye, transform, false));
         yield return new WaitForSeconds(myFinalGoodbye.length + 0.5f);
         dying = true;
+        GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().PausePausing();
         StartCoroutine(PlaySound(enemyDieSound));
         StartCoroutine(DyingAnimation());
     }

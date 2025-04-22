@@ -54,7 +54,7 @@ public class RatBallScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(GameObject.FindGameObjectWithTag("Player")!= null)
+        if (GameObject.FindGameObjectWithTag("Player")!= null)
             target = GameObject.FindGameObjectWithTag("Player").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();

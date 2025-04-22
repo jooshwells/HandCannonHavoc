@@ -30,6 +30,7 @@ TagManager:
   - LevelButton
   - Level Button
   - Bullet
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

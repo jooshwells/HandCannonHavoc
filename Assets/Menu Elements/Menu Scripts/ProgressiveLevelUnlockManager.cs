@@ -12,6 +12,7 @@ public class LevelSelection : MonoBehaviour
 
     void Start()
     {
+
         List<Button> buttonList = new List<Button>();
 
         for (int i = 0; i < levelPanels.Length; i++)

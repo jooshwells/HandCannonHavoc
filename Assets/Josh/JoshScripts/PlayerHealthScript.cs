@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealthScript : MonoBehaviour
 {
     private float maxHp = 100;
+    [SerializeField] private bool finalLevel = false;
     private float hp = 100;
     public Image healthBar;
     private Vector3 originalScale;
@@ -47,6 +48,11 @@ public class PlayerHealthScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (finalLevel)
+        {
+            maxHp = 300;
+            hp = 300;
+        }
         originalScale = healthBar.rectTransform.localScale;   
     }
 

@@ -72,7 +72,8 @@ public class FinalBossMovementController : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(5, 10));
             StartCoroutine(PlaySound(ambientSoldierSounds[Random.Range(0, 5)], transform, true));
         }
-        if (clip.Equals(startMonologue) || clip.Equals(middleHealthMono)) { 
+        if (clip.Equals(startMonologue) || clip.Equals(middleHealthMono)) {
+            GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().PausePausing();
             startmonodone = true; 
             if(clip.Equals(startMonologue))
                 firingLoc.SetActive(true);
@@ -171,11 +172,14 @@ public class FinalBossMovementController : MonoBehaviour
         if(!running && player.activeSelf && !startmonodone)
         {
             running = true;
+            GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().PausePausing();
+
             StartCoroutine(PlaySound(startMonologue, transform, false));
         }
         if (!startmonodone) return;
         if (!targetUpdated && hpScript.GetHealthPerc() <= 0.5)
         {
+            GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().PausePausing();
             startmonodone = false;
             firingLoc.GetComponent<FinalBossFiringLocScript>().Pause();
             StartCoroutine(PlaySound(middleHealthMono, transform, false));

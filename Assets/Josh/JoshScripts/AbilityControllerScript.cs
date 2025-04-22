@@ -259,14 +259,14 @@ public class AbilityControllerScript : MonoBehaviour
                         add = true;
                     }
                     break;
-                case "3-1":
+                case "3-1 Courtyard":
                     if (PlayerPrefs.GetInt("WeaponAt3-1", 0) == 0)
                     {
                         PlayerPrefs.SetInt("WeaponAt3-1", 1);
                         add = true;
                     }
                     break;
-                case "3-2":
+                case "3-2 Vents":
                     if (PlayerPrefs.GetInt("WeaponAt3-2", 0) == 0)
                     {
                         PlayerPrefs.SetInt("WeaponAt3-2", 1);
@@ -274,7 +274,7 @@ public class AbilityControllerScript : MonoBehaviour
                     }
                     break;
             }
-            if(add) transform.parent.GetComponent<WeaponSwitcher>().UnlockWeapon();
+            if(add) ws.UnlockWeapon();
         }
 
     }
