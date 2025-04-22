@@ -6,6 +6,7 @@ using UnityEngine;
 public class TextGate : MonoBehaviour
 {
     [SerializeField] private GameObject text;
+    [SerializeField] private bool turnOn = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +23,7 @@ public class TextGate : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            if(text.activeSelf)
-            {
-                text.SetActive(false);
-            } else
-            {
-                text.SetActive(true);
-            }
+            text.SetActive(turnOn); // disable or activate text based on serialized field
         }
     }
 }
