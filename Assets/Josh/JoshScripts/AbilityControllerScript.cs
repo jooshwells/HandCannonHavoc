@@ -224,6 +224,14 @@ public class AbilityControllerScript : MonoBehaviour
             bool add = false;
             switch(SceneManager.GetActiveScene().name)
             {
+                case "1-1":
+                    if (PlayerPrefs.GetInt("WeaponAt1-1", 0) == 0)
+                    {
+                        PlayerPrefs.SetInt("WeaponAt1-1", 1);
+                        add = true;
+                    }
+                    break;
+
                 case "1-3":
                     if(PlayerPrefs.GetInt("WeaponAt1-3", 0) == 0)
                     {

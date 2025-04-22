@@ -13,6 +13,28 @@ public class BombScript : MonoBehaviour
     private GameObject instatiator;
     private Rigidbody2D rb;
 
+    public IEnumerator PlaySound(AudioClip clip, Transform enemy)
+    {
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.parent = enemy;
+        tempGO.transform.localPosition = Vector3.zero;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
+        aSource.clip = clip;
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        aSource.spatialBlend = 1.0f;
+        aSource.minDistance = 1f;
+        aSource.maxDistance = 20f;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
+        aSource.Play();
+        Destroy(tempGO, clip.length);
+        yield return new WaitForSeconds(clip.length);
+        yield return null;
+    }
+
     void Awake()
     {
         player = GameObject.FindWithTag("Player");
@@ -80,7 +102,10 @@ public class BombScript : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().simulated = false;
 
         yield return new WaitForSeconds(explosionDuration);
-        GetComponent<AudioSource>().Play();
+        //GetComponent<AudioSource>().Play();
+
+        StartCoroutine(PlaySound(GetComponent<AudioSource>().clip, transform));
+
         Destroy(gameObject);
         isExploding=false;
     }

@@ -76,15 +76,25 @@ public class PlayerControllerMk2 : MonoBehaviour
     [SerializeField] public float dashCooldown = 0.5f;
     private bool dashOn = false; // Made by Josh - Used with Ability Controller
 
-    public IEnumerator PlaySound(AudioClip clip)
+    public IEnumerator PlaySound(AudioClip clip, Transform enemy)
     {
-        GameObject tempGO = new GameObject("TempAudio"); // create new GameObject
-        AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add AudioSource
-        aSource.volume = PlayerPrefs.GetFloat("SFXVolume");
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.parent = enemy;
+        tempGO.transform.localPosition = Vector3.zero;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
         aSource.clip = clip;
-        aSource.pitch = UnityEngine.Random.Range(1.15f, 1.25f);
+        aSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+
+        aSource.spatialBlend = 1.0f;
+        aSource.minDistance = 1f;
+        aSource.maxDistance = 20f;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
         aSource.Play();
         Destroy(tempGO, clip.length);
+        yield return new WaitForSeconds(clip.length);
         yield return null;
     }
 
@@ -114,8 +124,7 @@ public class PlayerControllerMk2 : MonoBehaviour
         GetComponent<PlayerHealthScript>().Hit(damage);
 
         // Play getting hit sound
-        gameObject.GetComponent<AudioSource>().clip = ouch;
-        gameObject.GetComponent<AudioSource>().Play();
+        StartCoroutine(PlaySound(ouch, transform));
         
         // Set velocity to be the force of the knockback,
         // and indicate the player is currently knocked back.
@@ -132,7 +141,7 @@ public class PlayerControllerMk2 : MonoBehaviour
     private void Jump()
     {
         // Play jump sound effect
-        StartCoroutine(PlaySound(jump));
+        StartCoroutine(PlaySound(jump, transform));
 
         // Set velocity to allow jump
         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
@@ -255,7 +264,7 @@ public class PlayerControllerMk2 : MonoBehaviour
 
     IEnumerator StartDash()
     {
-        StartCoroutine(PlaySound(dash));
+        StartCoroutine(PlaySound(dash, transform));
 
         isDashing = true;
         canDash = false;

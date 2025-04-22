@@ -117642,7 +117642,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 0
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -117661,7 +117661,7 @@ MonoBehaviour:
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
@@ -125750,6 +125750,10 @@ PrefabInstance:
       propertyPath: weaponList.Array.data[6]
       value: 
       objectReference: {fileID: 1700353232}
+    - target: {fileID: 1655871582403259352, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
+      propertyPath: ouch
+      value: 
+      objectReference: {fileID: 8300000, guid: 2facbd3da082fe545b6fa75ff9ccd623, type: 3}
     - target: {fileID: 1902559226405861917, guid: 461b83cd303a38842a9354ae1062c6a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 55.6

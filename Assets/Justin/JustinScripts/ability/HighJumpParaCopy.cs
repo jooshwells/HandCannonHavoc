@@ -123,7 +123,7 @@ public class HighJumpParaCopy : MonoBehaviour
             {
                 //if (!(player.IsOnWall())) // highjump
                 {
-                    StartCoroutine(transform.GetComponentInParent<PlayerControllerMk2>().PlaySound(highJump));
+                    StartCoroutine(transform.GetComponentInParent<PlayerControllerMk2>().PlaySound(highJump, transform.parent));
                  
 
                     if (!parachutingToggleable)
